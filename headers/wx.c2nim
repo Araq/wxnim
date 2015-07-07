@@ -1,0 +1,191 @@
+#nep1
+#header "wx.h"
+#skipinclude
+#skipcomments
+#cpp
+#assumeifistrue
+#cdecl
+
+// #prefix WX
+// #prefix wx
+
+#def WXDLLIMPEXP_ADV
+#def WXDLLIMPEXP_BASE
+#def WXDLLIMPEXP_CORE
+
+#def WXDLLIMPEXP_FWD_ADV
+#def WXDLLIMPEXP_FWD_BASE
+#def WXDLLIMPEXP_FWD_CORE
+
+#def WX_DECLARE_TYPEINFO_INLINE(x)
+#def WX_DECLARE_ABSTRACT_TYPEINFO(x)
+#def DECLARE_DYNAMIC_CLASS(x)
+#def DECLARE_DYNAMIC_CLASS_NO_ASSIGN(x)
+#def DECLARE_DYNAMIC_CLASS_NO_COPY(x)
+#def DECLARE_ABSTRACT_CLASS(x)
+#def wxDECLARE_DYNAMIC_CLASS_NO_COPY(x) void private()
+
+#def wxPanelNameStr constructWxString("panel")
+#def wxControlNameStr constructWxString("control")
+#def wxBannerWindowNameStr constructWxString("bannerwindow")
+#def wxButtonNameStr constructWxString("button")
+#def wxCheckBoxNameStr constructWxString("checkbox")
+#def wxListBoxNameStr constructWxString("listbox")
+#def wxComboBoxNameStr constructWxString("combobox")
+#def wxDataViewCtrlNameStr constructWxString("dataviewctrl")
+#def wxDatePickerCtrlNameStr constructWxString("datectrl")
+#def wxDialogNameStr constructWxString("dialog")
+#def wxDirSelectorPromptStr constructWxString("Select a directory")
+#def wxFileSelectorPromptStr constructWxString("Select a file")
+#def wxDirDialogNameStr constructWxString("wxDirCtrl")
+#def wxFileSelectorDefaultWildcardStr constructWxString(fileWildcard)
+#def wxFileDialogNameStr constructWxString("filedlg")
+#def wxFontPickerCtrlNameStr constructWxString("fontpicker")
+#def wxGaugeNameStr constructWxString("gauge")
+#def wxHyperlinkCtrlNameStr  constructWxString("hyperlink")
+#def wxListCtrlNameStr  constructWxString("listCtrl")
+#def wxFrameNameStr constructWxString("frame")
+
+#def wxStatusLineNameStr  constructWxString("status_line")
+#def wxToolBarNameStr constructWxString("toolbar")
+#def wxStatusBarNameStr  constructWxString("statusBar")
+#def wxRadioBoxNameStr constructWxString("radioBox")
+#def wxRadioButtonNameStr constructWxString("radioButton")
+#def wxTextCtrlNameStr constructWxString("text")
+#def wxTreeCtrlNameStr constructWxString("treeCtrl")
+
+#mangle auto auto
+
+#def wxLongLong int64
+
+
+#pp WX_DECLARE_ANY_VALUE_TYPE
+#pp WX_IMPLEMENT_ANY_VALUE_TYPE
+#pp _WX_ANY_DEFINE_SUB_TYPE
+#pp WX_ANY_DEFINE_SUB_TYPE
+#pp _WX_ANY_DEFINE_CONVERTIBLE_TYPE
+
+#pp WX_ANY_DEFINE_CONVERTIBLE_TYPE
+#pp WX_ANY_DEFINE_CONVERTIBLE_TYPE_BASE
+#pp WXANY_IMPLEMENT_INT_EQ_OP
+
+#pp wxDISABLE_DEBUG_SUPPORT
+
+#def wxGCC_WARNING_SUPPRESS(x)
+#def wxGCC_WARNING_RESTORE(x)
+#def WXDLLIMPEXP_DATA_CORE(x) x
+
+#def WX_CC_MANIFEST(cpu)
+#def wxDEPRECATED(x)
+
+#def wxDECLARE_EVENT_TABLE()                                         \
+    private:                                                            \
+        static const wxEventTableEntry sm_eventTableEntries            \
+
+#def wxDECLARE_EXPORTED_EVENT( expdecl, name, type ) \
+    extern const expdecl wxEventTypeTag< type > name
+
+// this is the version which will normally be used in the user code
+#def wxDECLARE_EVENT( name, type ) \
+    wxDECLARE_EXPORTED_EVENT( wxEMPTY_PARAMETER_VALUE, name, type )
+
+
+// these macros are only used internally for backwards compatibility and
+// allow to define an alias for an existing event type (this is used by
+// wxEVT_SPIN_XXX)
+#def wxDEFINE_EVENT_ALIAS( name, type, value ) \
+    const wxEventTypeTag< type > name( value )
+
+#def wxDECLARE_EXPORTED_EVENT_ALIAS( expdecl, name, type ) \
+    extern const expdecl wxEventTypeTag< type > name
+
+
+
+#def DECLARE_EVENT_TABLE_ENTRY(type, winid, idLast, fn, obj) \
+    wxDECLARE_EVENT_TABLE_ENTRY(type, winid, idLast, fn, obj)
+#def DECLARE_EVENT_TABLE_TERMINATOR()               wxDECLARE_EVENT_TABLE_TERMINATOR()
+#def DECLARE_EVENT_TABLE()                          wxDECLARE_EVENT_TABLE();
+#def BEGIN_EVENT_TABLE(a,b)                         wxBEGIN_EVENT_TABLE(a,b)
+#def BEGIN_EVENT_TABLE_TEMPLATE1(a,b,c)             wxBEGIN_EVENT_TABLE_TEMPLATE1(a,b,c)
+#def BEGIN_EVENT_TABLE_TEMPLATE2(a,b,c,d)           wxBEGIN_EVENT_TABLE_TEMPLATE2(a,b,c,d)
+#def BEGIN_EVENT_TABLE_TEMPLATE3(a,b,c,d,e)         wxBEGIN_EVENT_TABLE_TEMPLATE3(a,b,c,d,e)
+#def BEGIN_EVENT_TABLE_TEMPLATE4(a,b,c,d,e,f)       wxBEGIN_EVENT_TABLE_TEMPLATE4(a,b,c,d,e,f)
+#def BEGIN_EVENT_TABLE_TEMPLATE5(a,b,c,d,e,f,g)     wxBEGIN_EVENT_TABLE_TEMPLATE5(a,b,c,d,e,f,g)
+#def BEGIN_EVENT_TABLE_TEMPLATE6(a,b,c,d,e,f,g,h)   wxBEGIN_EVENT_TABLE_TEMPLATE6(a,b,c,d,e,f,g,h)
+#def END_EVENT_TABLE()                              wxEND_EVENT_TABLE()
+
+#def   WXSTRINGCAST (wxChar *)(const wxChar *)
+#def   wxCSTRINGCAST (wxChar *)(const wxChar *)
+#def   wxMBSTRINGCAST (char *)(const char *)
+#def   wxWCSTRINGCAST (wchar_t *)(const wchar_t *)
+
+#def WXDLLEXPORT
+
+#def wxDEPRECATED_MSG(x)
+#def wxSTD
+#def WXDLLIMPEXP_WEBVIEW
+#def WXDLLIMPEXP_FWD_RICHTEXT
+#def WXDLLIMPEXP_RICHTEXT
+#def WXDLLIMPEXP_FWD_XML
+
+#def wxDECLARE_NO_COPY_CLASS(classname)      \
+    private:                                    \
+        classname(const classname&);            \
+        classname& operator=(const classname&)
+
+#def wxDECLARE_NO_COPY_TEMPLATE_CLASS(classname, arg)  \
+    private:                                              \
+        classname(const classname<arg>&);                 \
+        classname& operator=(const classname<arg>&)
+
+#def wxDECLARE_NO_COPY_TEMPLATE_CLASS_2(classname, arg1, arg2) \
+    private:                                                      \
+        classname(const classname<arg1, arg2>&);                  \
+        classname& operator=(const classname<arg1, arg2>&)
+
+#def wxDECLARE_NO_ASSIGN_CLASS(classname)    \
+    private:                                    \
+        classname& operator=(const classname&)
+
+#def DECLARE_NO_COPY_CLASS(classname) \
+    wxDECLARE_NO_COPY_CLASS(classname);
+#def DECLARE_NO_COPY_TEMPLATE_CLASS(classname, arg) \
+    wxDECLARE_NO_COPY_TEMPLATE_CLASS(classname, arg);
+#def DECLARE_NO_ASSIGN_CLASS(classname) \
+    wxDECLARE_NO_ASSIGN_CLASS(classname);
+
+#def wxEXPLICIT
+#def WX_DEFINE_ARRAY(a, b)  typedef wxArray<a> b
+#def WX_DECLARE_EXPORTED_LIST(a, b)  typedef wxList<a> b
+
+#def WXUNUSED(x) x
+
+#def WX_DECLARE_USER_EXPORTED_OBJARRAY(T, name, classexp)          \
+class name : protected wxArrayPtrVoid                              \
+{                                                                  \
+public:                                                            \
+  name() { }                                                       \
+  name(const name& src);                                           \
+  name& operator=(const name& src);                                \
+  ~name();                                                         \
+  void Alloc(size_t count);                     \
+  void reserve(size_t count);                   \
+  size_t GetCount() const;                 \
+  size_t size() const;                     \
+  bool IsEmpty() const;                   \
+  bool empty() const;                     \
+  size_t Count() const;                    \
+  void Shrink();                                      \
+  T& operator[](size_t uiIndex) const;                                    \
+  T& Item(size_t uiIndex) const;                                          \
+  T& Last() const;                                                        \
+  int Index(const T& lItem, bool bFromEnd = false) const;                \
+                                                                         \
+  void Add(const T* pItem);                                               \
+  void Insert(const T& lItem,  size_t uiIndex, size_t nInsert = 1);      \
+  void Insert(const T* pItem, size_t uiIndex);                            \
+  void Empty();                            \
+  void Clear();                             \
+  T* Detach(size_t uiIndex);                                              \
+  void RemoveAt(size_t uiIndex);                     \
+}
