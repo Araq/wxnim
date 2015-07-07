@@ -69,7 +69,6 @@ include private/colordlg
 include private/combo
 include private/combobox
 include private/commandlinkbutton
-include private/convert
 include private/dataobj
 include private/dataview
 include private/datetimectrl
