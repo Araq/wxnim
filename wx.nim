@@ -109,3 +109,19 @@ include private/treectrl
 include private/types
 include private/variant
 include private/webview
+
+proc cnew*[T](x: T): ptr T {.importcpp: "(new '*0#@)", nodecl.}
+
+converter toWxString*(s: string): WxString =
+  result = constructWxString(cstring(s), s.len)
+
+converter toEventType*[T](x: WxEventTypeTag[T]): WxEventType {.
+  importcpp: "#", header: "wx.h".}
+
+when false:
+  proc registerEventCallback(attachedTo: int;
+                             callback: proc (x: WxEvent) {.closure.}) =
+    {.emit: """
+    wxTheApp->Bind();
+    """.}
+
