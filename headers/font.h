@@ -25,6 +25,7 @@
 // ----------------------------------------------------------------------------
 
 class WXDLLIMPEXP_FWD_CORE wxFont;
+wxString wxEmptyString;
 
 // ----------------------------------------------------------------------------
 // font constants
@@ -100,14 +101,14 @@ enum wxFontFlag
     wxFONTFLAG_STRIKETHROUGH    = 1 << 7,
 
     // the mask of all currently used flags
-    wxFONTFLAG_MASK = wxFONTFLAG_ITALIC             |
+    wxFONTFLAG_MASK = 255 /* wxFONTFLAG_ITALIC             |
                       wxFONTFLAG_SLANT              |
                       wxFONTFLAG_LIGHT              |
                       wxFONTFLAG_BOLD               |
                       wxFONTFLAG_ANTIALIASED        |
                       wxFONTFLAG_NOT_ANTIALIASED    |
                       wxFONTFLAG_UNDERLINED         |
-                      wxFONTFLAG_STRIKETHROUGH
+                      wxFONTFLAG_STRIKETHROUGH */
 };
 
 // ----------------------------------------------------------------------------
@@ -253,9 +254,9 @@ private:
 // wxFontBase represents a font object
 // ----------------------------------------------------------------------------
 
-class WXDLLIMPEXP_FWD_CORE wxNativeFontInfo;
+class WXDLLIMPEXP_FWD_CORE wxNativeFontInfo {};
 
-class WXDLLIMPEXP_CORE wxFontBase : public wxGDIObject
+class WXDLLIMPEXP_CORE wxFontBase : public wxObject
 {
 public:
     /*
@@ -334,7 +335,7 @@ public:
     // parameters for each flag
     static wxFont *New(int pointSize,
                        wxFontFamily family,
-                       int flags = wxFONTFLAG_DEFAULT,
+                       auto flags = wxFONTFLAG_DEFAULT,
                        const wxString& face = wxEmptyString,
                        wxFontEncoding encoding = wxFONTENCODING_DEFAULT);
 
@@ -343,7 +344,7 @@ public:
     // parameters for each flag
     static wxFont *New(const wxSize& pixelSize,
                        wxFontFamily family,
-                       int flags = wxFONTFLAG_DEFAULT,
+                       auto flags = wxFONTFLAG_DEFAULT,
                        const wxString& face = wxEmptyString,
                        wxFontEncoding encoding = wxFONTENCODING_DEFAULT);
 
@@ -493,7 +494,7 @@ WXDLLIMPEXP_CORE bool wxFromString(const wxString& str, wxFontBase* font);
     wxFont Scaled(float x) const
 
 
-class WXDLLIMPEXP_CORE wxFontList: public wxGDIObjListBase
+class WXDLLIMPEXP_CORE wxFontList: public wxList
 {
 public:
     wxFont *FindOrCreateFont(int pointSize,
@@ -588,7 +589,7 @@ public:
                      underlined, face, encoding);
     }
 
-    wxFont(const wxNativeFontInfo& info, WXHFONT hFont = 0)
+    wxFont(const wxNativeFontInfo& info)
     {
         Create(info, hFont);
     }
@@ -607,8 +608,6 @@ public:
         return DoCreate(-1, pixelSize, true, family, style,
                         weight, underlined, face, encoding);
     }
-
-    bool Create(const wxNativeFontInfo& info, WXHFONT hFont = 0);
 
     virtual ~wxFont();
 
@@ -643,11 +642,7 @@ public:
 
     virtual bool IsFree() const;
     virtual bool RealizeResource();
-    virtual WXHANDLE GetResourceHandle() const;
     virtual bool FreeResource(bool force = false);
-
-    // for consistency with other wxMSW classes
-    WXHFONT GetHFONT() const;
 
 protected:
     // real font creation function, used in all cases

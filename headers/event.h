@@ -2324,8 +2324,6 @@ private:
  wxEVT_DETAILED_HELP
 */
 
-extern wxPoint wxDefaultPosition;
-
 class WXDLLIMPEXP_CORE wxHelpEvent : public wxCommandEvent
 {
 public:

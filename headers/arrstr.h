@@ -1,3 +1,5 @@
+#def size_type long
+
 class WXDLLIMPEXP_BASE wxArrayString
 {
 public:
@@ -23,8 +25,7 @@ public:
   wxEXPLICIT wxArrayString(int autoSort) { Init(autoSort != 0); }
     // C string array ctor
   wxArrayString(size_t sz, const char** a);
-  wxArrayString(size_t sz, const wchar_t** a);
-    // wxString string array ctor
+
   wxArrayString(size_t sz, const wxString* a);
     // copy ctor
   wxArrayString(const wxArrayString& array);
@@ -104,41 +105,13 @@ public:
   // comparison
     // compare two arrays case sensitively
   bool operator==(const wxArrayString& a) const;
-    // compare two arrays case sensitively
-  bool operator!=(const wxArrayString& a) const { return !(*this == a); }
-
-
 
   size_type capacity() const { return m_nSize; }
-  void clear() { Clear(); }
+
   bool empty() const { return IsEmpty(); }
-  iterator end() { return begin() + GetCount(); }
-  const_iterator end() const { return begin() + GetCount(); }
-  iterator erase(iterator first, iterator last)
-  {
-      size_t idx = first - begin();
-      RemoveAt(idx, last - first);
-      return begin() + idx;
-  }
-  iterator erase(iterator it) { return erase(it, it + 1); }
-  reference front() { return *begin(); }
-  const_reference front() const { return *begin(); }
-  void insert(iterator it, size_type n, const_reference v)
-    { Insert(v, it - begin(), n); }
-  iterator insert(iterator it, const_reference v = value_type())
-    { size_t idx = it - begin(); Insert(v, idx); return begin() + idx; }
-  void insert(iterator it, const_iterator first, const_iterator last);
-  size_type max_size() const { return INT_MAX; }
-  void pop_back() { RemoveAt(GetCount() - 1); }
-  void push_back(const_reference v) { Add(v); }
-  reverse_iterator rbegin() { return reverse_iterator(end() - 1); }
-  const_reverse_iterator rbegin() const
-    { return const_reverse_iterator(end() - 1); }
-  reverse_iterator rend() { return reverse_iterator(begin() - 1); }
-  const_reverse_iterator rend() const
-    { return const_reverse_iterator(begin() - 1); }
+
   void reserve(size_type n) /* base::reserve*/;
-  void resize(size_type n, value_type v = value_type());
+  void resize(size_type n);
   size_type size() const { return GetCount(); }
   void swap(wxArrayString& other)
   {
@@ -209,12 +182,12 @@ private:
 // passing '\0' as escape
 
 WXDLLIMPEXP_BASE wxString wxJoin(const wxArrayString& arr,
-                                 const wxChar sep,
-                                 const wxChar escape = wxT('\\'));
+                                 const char sep,
+                                  const char escape = '\\');
 
 WXDLLIMPEXP_BASE wxArrayString wxSplit(const wxString& str,
-                                       const wxChar sep,
-                                       const wxChar escape = wxT('\\'));
+                                       const char sep,
+                                       const char escape = '\\');
 
 
 // ----------------------------------------------------------------------------
@@ -273,22 +246,4 @@ public:
             return *m_data.array;
         return wxArrayString(GetCount(), m_data.ptr);
     }
-
-private:
-    // type of the data being held
-    enum wxStringContainerType
-    {
-        wxSTRING_ARRAY,  // wxArrayString
-        wxSTRING_POINTER // wxString[]
-    };
-
-    wxStringContainerType m_type;
-    size_t m_size;
-    union
-    {
-        const wxString *      ptr;
-        const wxArrayString * array;
-    } m_data;
-
-    wxDECLARE_NO_ASSIGN_CLASS(wxArrayStringsAdapter);
 };

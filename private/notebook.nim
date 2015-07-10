@@ -1,22 +1,6 @@
-#/////////////////////////////////////////////////////////////////////////////
-# Name:        wx/notebook.h
-# Purpose:     wxNotebook interface
-# Author:      Vadim Zeitlin
-# Modified by:
-# Created:     01.02.01
-# Copyright:   (c) 1996-2000 Vadim Zeitlin
-# Licence:     wxWindows licence
-#/////////////////////////////////////////////////////////////////////////////
 
-# ----------------------------------------------------------------------------
-# headers
-# ----------------------------------------------------------------------------
 
-# ----------------------------------------------------------------------------
-# constants
-# ----------------------------------------------------------------------------
-# wxNotebook hit results, use wxBK_HITTEST so other book controls can share them
-# if wxUSE_NOTEBOOK is disabled
+
 
 const 
   wxNB_HITTEST_NOWHERE* = wxBK_HITTEST_NOWHERE
@@ -25,8 +9,6 @@ const
   wxNB_HITTEST_ONITEM* = wxBK_HITTEST_ONITEM
   wxNB_HITTEST_ONPAGE* = wxBK_HITTEST_ONPAGE
 
-# wxNotebook flags
-# use common book wxBK_* flags for describing alignment
 
 const 
   wxNB_DEFAULT* = wxBK_DEFAULT
@@ -42,43 +24,30 @@ const
 type 
   WxNotebookPage* = WxWindow
 
-# so far, any window can be a page
-# ----------------------------------------------------------------------------
-# wxNotebookBase: define wxNotebook interface
-# ----------------------------------------------------------------------------
 
 type 
-  WxNotebookBase* {.importcpp: "wxNotebookBase", header: "wx.h".} = object of WxBookCtrlBase # 
-                                                                                             # ctors
-                                                                                             # 
-                                                                                             # -----
+  WxNotebookBase* {.importcpp: "wxNotebookBase", header: "<wx/wx.h>".} = object of WxBookCtrlBase
   
 
-proc constructwxNotebookBase*(): WxNotebookBase {.constructor, 
-    importcpp: "wxNotebookBase(@)", header: "wx.h".}
-proc getRowCount*(this: WxNotebookBase): cint {.noSideEffect, 
-    importcpp: "GetRowCount", header: "wx.h".}
-proc setPadding*(this: var WxNotebookBase; padding: WxSize) {.
-    importcpp: "SetPadding", header: "wx.h".}
-proc setTabSize*(this: var WxNotebookBase; sz: WxSize) {.
-    importcpp: "SetTabSize", header: "wx.h".}
+proc constructwxNotebookBase*(): WxNotebookBase {.cdecl, constructor, 
+    importcpp: "wxNotebookBase(@)", header: "<wx/wx.h>".}
+proc getRowCount*(this: WxNotebookBase): cint {.noSideEffect, cdecl, 
+    importcpp: "GetRowCount", header: "<wx/wx.h>".}
+proc setPadding*(this: var WxNotebookBase; padding: WxSize) {.cdecl, 
+    importcpp: "SetPadding", header: "<wx/wx.h>".}
+proc setTabSize*(this: var WxNotebookBase; sz: WxSize) {.cdecl, 
+    importcpp: "SetTabSize", header: "<wx/wx.h>".}
 proc calcSizeFromPage*(this: WxNotebookBase; sizePage: WxSize): WxSize {.
-    noSideEffect, importcpp: "CalcSizeFromPage", header: "wx.h".}
+    noSideEffect, cdecl, importcpp: "CalcSizeFromPage", header: "<wx/wx.h>".}
 proc getThemeBackgroundColour*(this: WxNotebookBase): WxColour {.noSideEffect, 
-    importcpp: "GetThemeBackgroundColour", header: "wx.h".}
+    cdecl, importcpp: "GetThemeBackgroundColour", header: "<wx/wx.h>".}
 proc sendPageChangingEvent*(this: var WxNotebookBase; nPage: cint): bool {.
-    importcpp: "SendPageChangingEvent", header: "wx.h".}
+    cdecl, importcpp: "SendPageChangingEvent", header: "<wx/wx.h>".}
 proc sendPageChangedEvent*(this: var WxNotebookBase; nPageOld: cint; 
-                           nPageNew: cint = wxNOT_FOUND) {.
-    importcpp: "SendPageChangedEvent", header: "wx.h".}
-proc acceptsFocus*(this: WxNotebookBase): bool {.noSideEffect, 
-    importcpp: "AcceptsFocus", header: "wx.h".}
-# ----------------------------------------------------------------------------
-# notebook event class and related stuff
-# ----------------------------------------------------------------------------
-# wxNotebookEvent is obsolete and defined for compatibility only (notice that
-# we use #define and not typedef to also keep compatibility with the existing
-# code which forward declares it)
+                           nPageNew: cint = wxNOT_FOUND) {.cdecl, 
+    importcpp: "SendPageChangedEvent", header: "<wx/wx.h>".}
+proc acceptsFocus*(this: WxNotebookBase): bool {.noSideEffect, cdecl, 
+    importcpp: "AcceptsFocus", header: "<wx/wx.h>".}
 
 const 
   wxNotebookEvent* = wxBookCtrlEvent
@@ -90,11 +59,11 @@ template wxNotebookEventHandler*(`func`: expr): expr =
   wxBookCtrlEventHandler(`func`)
 
 var wxEVT_NOTEBOOK_PAGE_CHANGED* {.importcpp: "wxEVT_NOTEBOOK_PAGE_CHANGED", 
-                                   header: "wx.h".}: WxEventTypeTag[
+                                   header: "<wx/wx.h>".}: WxEventTypeTag[
     WxBookCtrlEvent]
 
 var wxEVT_NOTEBOOK_PAGE_CHANGING* {.importcpp: "wxEVT_NOTEBOOK_PAGE_CHANGING", 
-                                    header: "wx.h".}: WxEventTypeTag[
+                                    header: "<wx/wx.h>".}: WxEventTypeTag[
     WxBookCtrlEvent]
 
 template evt_Notebook_Page_Changed*(winid, fn: expr): expr = 
@@ -103,10 +72,8 @@ template evt_Notebook_Page_Changed*(winid, fn: expr): expr =
 template evt_Notebook_Page_Changing*(winid, fn: expr): expr = 
   wxDECLARE_EVT1(wxEVT_NOTEBOOK_PAGE_CHANGING, winid, wxBookCtrlEventHandler(fn))
 
-# old wxEVT_COMMAND_* constants
 
 const 
   wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGED* = wxEVT_NOTEBOOK_PAGE_CHANGED
   wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGING* = wxEVT_NOTEBOOK_PAGE_CHANGING
 
-# _WX_NOTEBOOK_H_BASE_

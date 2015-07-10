@@ -30,7 +30,6 @@ class WXDLLIMPEXP_FWD_CORE wxColour;
     wxColour(unsigned long colRGB) { Init(); Set(colRGB    ); }               \
     wxColour(const wxString& colourName) { Init(); Set(colourName); }         \
     wxColour(const char *colourName) { Init(); Set(colourName); }             \
-    wxColour(const wchar_t *colourName) { Init(); Set(colourName); }
 
 
 // flags for wxColour -> wxString conversion (see wxColour::GetAsString)
@@ -40,12 +39,12 @@ enum {
     wxC2S_HTML_SYNTAX      = 4    // return colour in #rrggbb syntax
 };
 
-const unsigned char wxALPHA_TRANSPARENT = 0;
-const unsigned char wxALPHA_OPAQUE = 0xff;
+const byte wxALPHA_TRANSPARENT = 0;
+const byte wxALPHA_OPAQUE = 0xff;
 
 // a valid but fully transparent colour
-#define wxTransparentColour wxColour(0, 0, 0, wxALPHA_TRANSPARENT)
-#define wxTransparentColor wxTransparentColour
+#define wxTransparentColour() constructWxColour(0, 0, 0, wxALPHA_TRANSPARENT)
+#define wxTransparentColor() constructWxColour(0, 0, 0, wxALPHA_TRANSPARENT)
 
 
 //-----------------------------------------------------------------------------
@@ -58,7 +57,7 @@ class WXDLLIMPEXP_CORE wxColourBase : public
 {
 public:
     // type of a single colour component
-    typedef unsigned char ChannelType;
+    typedef byte ChannelType;
 
     wxColourBase() {}
     virtual ~wxColourBase() {}
@@ -133,16 +132,16 @@ public:
     // These methods are static because they are mostly used
     // within tight loops (where we don't want to instantiate wxColour's)
 
-    static void          MakeMono    (unsigned char* r, unsigned char* g, unsigned char* b, bool on);
-    static void          MakeDisabled(unsigned char* r, unsigned char* g, unsigned char* b, unsigned char brightness = 255);
-    static void          MakeGrey    (unsigned char* r, unsigned char* g, unsigned char* b); // integer version
-    static void          MakeGrey    (unsigned char* r, unsigned char* g, unsigned char* b,
+    static void          MakeMono    (byte* r, byte* g, byte* b, bool on);
+    static void          MakeDisabled(byte* r, byte* g, byte* b, byte brightness = 255);
+    static void          MakeGrey    (byte* r, byte* g, byte* b); // integer version
+    static void          MakeGrey    (byte* r, byte* g, byte* b,
                                       double weight_r, double weight_g, double weight_b); // floating point version
-    static unsigned char AlphaBlend  (unsigned char fg, unsigned char bg, double alpha);
-    static void          ChangeLightness(unsigned char* r, unsigned char* g, unsigned char* b, int ialpha);
+    static byte AlphaBlend  (byte fg, byte bg, double alpha);
+    static void          ChangeLightness(byte* r, byte* g, byte* b, int ialpha);
 
     wxColour ChangeLightness(int ialpha) const;
-    wxColour& MakeDisabled(unsigned char brightness = 255);
+    wxColour& MakeDisabled(byte brightness = 255);
 
     // old, deprecated
     // ---------------
@@ -172,10 +171,10 @@ public:
 
     virtual bool IsOk() const { return m_isInit; }
 
-    unsigned char Red() const { return m_red; }
-    unsigned char Green() const { return m_green; }
-    unsigned char Blue() const { return m_blue; }
-    unsigned char Alpha() const { return m_alpha ; }
+    byte Red() const { return m_red; }
+    byte Green() const { return m_green; }
+    byte Blue() const { return m_blue; }
+    byte Alpha() const { return m_alpha ; }
 
     // comparison
     bool operator==(const wxColour& colour) const
@@ -189,24 +188,19 @@ public:
 
     bool operator!=(const wxColour& colour) const { return !(*this == colour); }
 
-    WXCOLORREF GetPixel() const { return m_pixel; }
-
-public:
-    WXCOLORREF m_pixel;
-
 protected:
     // Helper function
     void Init();
 
     virtual void
-    InitRGBA(unsigned char r, unsigned char g, unsigned char b, unsigned char a);
+    InitRGBA(byte r, byte g, byte b, byte a);
 
 private:
     bool          m_isInit;
-    unsigned char m_red;
-    unsigned char m_blue;
-    unsigned char m_green;
-    unsigned char m_alpha;
+    byte m_red;
+    byte m_blue;
+    byte m_green;
+    byte m_alpha;
 
 private:
     DECLARE_DYNAMIC_CLASS(wxColour)
@@ -216,6 +210,6 @@ private:
 WXDLLIMPEXP_CORE wxString wxToString(const wxColourBase& col);
 WXDLLIMPEXP_CORE bool wxFromString(const wxString& str, wxColourBase* col);
 
-#define wxColor wxColour
+typedef wxColour wxColor;
 
 #endif // _WX_COLOUR_H_BASE_

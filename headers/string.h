@@ -17,6 +17,9 @@
 #ifndef _WX_WXSTRING_H__
 #define _WX_WXSTRING_H__
 
+class wxUniChar {};
+class wxCStrData {};
+
 class WXDLLIMPEXP_BASE wxString
 {
   // NB: special care was taken in arranging the member functions in such order
@@ -49,7 +52,7 @@ public:
 
   bool empty() const { return m_impl.empty(); }
 
-  wxString substr(size_t nStart = 0, size_t nLen = npos) const
+  wxString substr(size_t nStart = 0, size_t nLen) const
   {
     size_t pos, len;
     PosLenToImpl(nStart, nLen, &pos, &len);
@@ -81,10 +84,7 @@ public:
     wxUniChar GetChar(size_t n) const
       { return at(n); }
     // read/write access
-    wxUniCharRef at(size_t n)
-      { return *GetIterForNthChar(n); }
-    wxUniCharRef GetWritableChar(size_t n)
-      { return at(n); }
+
     // write access
     void SetChar(size_t n, wxUniChar ch)
       { at(n) = ch; }
@@ -96,30 +96,11 @@ public:
       return *rbegin();
     }
 
-    // get writable last character
-    wxUniCharRef Last()
-    {
-      wxASSERT_MSG( !empty(), wxT("wxString: index out of bounds") );
-      return *rbegin();
-    }
-
     /*
        Note that we we must define all of the overloads below to avoid
        ambiguity when using str[0].
      */
     wxUniChar operator[](int n) const
-      { return at(n); }
-    wxUniChar operator[](long n) const
-      { return at(n); }
-    wxUniChar operator[](size_t n) const
-      { return at(n); }
-
-    // operator versions of GetWriteableChar()
-    wxUniCharRef operator[](int n)
-      { return at(n); }
-    wxUniCharRef operator[](long n)
-      { return at(n); }
-    wxUniCharRef operator[](size_t n)
       { return at(n); }
 
     /*
@@ -167,9 +148,6 @@ public:
     wxCStrData c_str() const { return wxCStrData(this); }
     wxCStrData data() const { return c_str(); }
 
-    // implicit conversion to wxCStrData
-    operator wxCStrData() const { return c_str(); }
-
     // the first two operators conflict with operators for conversion to
     // std::string and they must be disabled if those conversions are enabled;
     // the next one only makes sense if conversions to char* are also defined
@@ -180,16 +158,6 @@ public:
     // identical to c_str(), for MFC compatibility
     const wxCStrData GetData() const { return c_str(); }
 
-    // explicit conversion to C string in internal representation (char*,
-    // wchar_t*, UTF-8-encoded char*, depending on the build):
-    const wxStringCharType *wx_str() const { return m_impl.c_str(); }
-
-    // conversion to *non-const* multibyte or widestring buffer; modifying
-    // returned buffer won't affect the string, these methods are only useful
-    // for passing values to const-incorrect functions
-    wxWritableCharBuffer char_str(const wxMBConv& conv = wxConvLibc) const
-        { return mb_str(conv); }
-    wxWritableWCharBuffer wchar_str() const { return wc_str(); }
 
     // also provide unsigned char overloads as signed/unsigned doesn't matter
     // for 7 bit ASCII characters
@@ -237,25 +205,9 @@ public:
         return FromImpl(wxStringImpl(utf8, len));
     }
 
-    const wxScopedCharBuffer utf8_str() const
-        { return wxCharBuffer::CreateNonOwned(m_impl.c_str(), m_impl.length()); }
-
     // this function exists in UTF-8 build only and returns the length of the
     // internal UTF-8 representation
     size_t utf8_length() const { return m_impl.length(); }
-
-    static wxString FromUTF8(const char *utf8)
-      { return wxString(wxMBConvUTF8().cMB2WC(utf8)); }
-    static wxString FromUTF8(const char *utf8, size_t len)
-    {
-    }
-    static wxString FromUTF8Unchecked(const char *utf8, size_t len = npos)
-    {
-    }
-    const wxScopedCharBuffer utf8_str() const
-      { return wxMBConvUTF8().cWC2MB(wc_str()); }
-
-    const wxScopedCharBuffer ToUTF8() const { return utf8_str(); }
 
     // functions for storing binary data in wxString:
 
@@ -264,9 +216,6 @@ public:
     // version for NUL-terminated data:
     static wxString From8BitData(const char *data)
       { return wxString(data, wxConvISO8859_1); }
-    const wxScopedCharBuffer To8BitData() const
-        { return mb_str(wxConvISO8859_1); }
-
 
     // conversions with (possible) format conversions: have to return a
     // buffer with temporary data
@@ -281,8 +230,7 @@ public:
 
 // AsChar() and AsWChar() implementations simply forward to wxString methods
 
-inline const char* wxCStrData::AsChar() const
-{
-}
+#mangle AsChar asCString
+const char* wxCStrData::AsChar() const;
 
 #endif  // _WX_WXSTRING_H_

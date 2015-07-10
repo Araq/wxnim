@@ -19,20 +19,11 @@ const
 
 
 type 
-  WxFileDialogBase* {.importcpp: "wxFileDialogBase", header: "wx.h".} = object of WxDialog
-    mMessage* {.importc: "m_message".}: WxString
-    mDir* {.importc: "m_dir".}: WxString
-    mPath* {.importc: "m_path".}: WxString
-    mFileName* {.importc: "m_fileName".}: WxString
-    mWildCard* {.importc: "m_wildCard".}: WxString
-    mFilterIndex* {.importc: "m_filterIndex".}: cint
-    mCurrentlySelectedFilename* {.importc: "m_currentlySelectedFilename".}: WxString
-    mExtraControl* {.importc: "m_extraControl".}: ptr WxWindow
-    mExtraControlCreator* {.importc: "m_extraControlCreator".}: ExtraControlCreatorFunction
-
+  WxFileDialogBase* {.importcpp: "wxFileDialogBase", header: "<wx/wx.h>".} = object of WxDialog
+  
 
 proc constructwxFileDialogBase*(): WxFileDialogBase {.cdecl, constructor, 
-    importcpp: "wxFileDialogBase(@)", header: "wx.h".}
+    importcpp: "wxFileDialogBase(@)", header: "<wx/wx.h>".}
 proc constructwxFileDialogBase*(parent: ptr WxWindow; message: WxString = constructWxString(
     "Select a file"); defaultDir: WxString = wxEmptyString; 
                                 defaultFile: WxString = wxEmptyString; wildCard: WxString = constructWxString(
@@ -40,9 +31,9 @@ proc constructwxFileDialogBase*(parent: ptr WxWindow; message: WxString = constr
                                 pos: WxPoint = wxDefaultPosition; 
                                 sz: WxSize = wxDefaultSize; 
                                 name: WxString = constructWxString("filedlg")): WxFileDialogBase {.
-    cdecl, constructor, importcpp: "wxFileDialogBase(@)", header: "wx.h".}
+    cdecl, constructor, importcpp: "wxFileDialogBase(@)", header: "<wx/wx.h>".}
 proc destroywxFileDialogBase*(this: var WxFileDialogBase) {.cdecl, 
-    importcpp: "#.~wxFileDialogBase()", header: "wx.h".}
+    importcpp: "#.~wxFileDialogBase()", header: "<wx/wx.h>".}
 proc create*(this: var WxFileDialogBase; parent: ptr WxWindow; 
              message: WxString = constructWxString("Select a file"); 
              defaultDir: WxString = wxEmptyString; 
@@ -51,52 +42,53 @@ proc create*(this: var WxFileDialogBase; parent: ptr WxWindow;
              style: clong = wxFD_DEFAULT_STYLE; 
              pos: WxPoint = wxDefaultPosition; sz: WxSize = wxDefaultSize; 
              name: WxString = constructWxString("filedlg")): bool {.cdecl, 
-    importcpp: "Create", header: "wx.h".}
+    importcpp: "Create", header: "<wx/wx.h>".}
 proc hasFdFlag*(this: WxFileDialogBase; flag: cint): bool {.noSideEffect, cdecl, 
-    importcpp: "HasFdFlag", header: "wx.h".}
+    importcpp: "HasFdFlag", header: "<wx/wx.h>".}
 proc setMessage*(this: var WxFileDialogBase; message: WxString) {.cdecl, 
-    importcpp: "SetMessage", header: "wx.h".}
+    importcpp: "SetMessage", header: "<wx/wx.h>".}
 proc setPath*(this: var WxFileDialogBase; path: WxString) {.cdecl, 
-    importcpp: "SetPath", header: "wx.h".}
+    importcpp: "SetPath", header: "<wx/wx.h>".}
 proc setDirectory*(this: var WxFileDialogBase; dir: WxString) {.cdecl, 
-    importcpp: "SetDirectory", header: "wx.h".}
+    importcpp: "SetDirectory", header: "<wx/wx.h>".}
 proc setFilename*(this: var WxFileDialogBase; name: WxString) {.cdecl, 
-    importcpp: "SetFilename", header: "wx.h".}
+    importcpp: "SetFilename", header: "<wx/wx.h>".}
 proc setWildcard*(this: var WxFileDialogBase; wildCard: WxString) {.cdecl, 
-    importcpp: "SetWildcard", header: "wx.h".}
+    importcpp: "SetWildcard", header: "<wx/wx.h>".}
 proc setFilterIndex*(this: var WxFileDialogBase; filterIndex: cint) {.cdecl, 
-    importcpp: "SetFilterIndex", header: "wx.h".}
+    importcpp: "SetFilterIndex", header: "<wx/wx.h>".}
 proc getMessage*(this: WxFileDialogBase): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetMessage", header: "wx.h".}
+    importcpp: "GetMessage", header: "<wx/wx.h>".}
 proc getPath*(this: WxFileDialogBase): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetPath", header: "wx.h".}
+    importcpp: "GetPath", header: "<wx/wx.h>".}
 proc getPaths*(this: WxFileDialogBase; paths: var WxArrayString) {.noSideEffect, 
-    cdecl, importcpp: "GetPaths", header: "wx.h".}
+    cdecl, importcpp: "GetPaths", header: "<wx/wx.h>".}
 proc getDirectory*(this: WxFileDialogBase): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetDirectory", header: "wx.h".}
+    importcpp: "GetDirectory", header: "<wx/wx.h>".}
 proc getFilename*(this: WxFileDialogBase): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetFilename", header: "wx.h".}
+    importcpp: "GetFilename", header: "<wx/wx.h>".}
 proc getFilenames*(this: WxFileDialogBase; files: var WxArrayString) {.
-    noSideEffect, cdecl, importcpp: "GetFilenames", header: "wx.h".}
+    noSideEffect, cdecl, importcpp: "GetFilenames", header: "<wx/wx.h>".}
 proc getWildcard*(this: WxFileDialogBase): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetWildcard", header: "wx.h".}
+    importcpp: "GetWildcard", header: "<wx/wx.h>".}
 proc getFilterIndex*(this: WxFileDialogBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetFilterIndex", header: "wx.h".}
+    importcpp: "GetFilterIndex", header: "<wx/wx.h>".}
 proc getCurrentlySelectedFilename*(this: WxFileDialogBase): WxString {.
     noSideEffect, cdecl, importcpp: "GetCurrentlySelectedFilename", 
-    header: "wx.h".}
+    header: "<wx/wx.h>".}
 type 
   ExtraControlCreatorFunction* = proc (a2: ptr WxWindow): ptr WxWindow {.cdecl.}
 
 proc supportsExtraControl*(this: WxFileDialogBase): bool {.noSideEffect, cdecl, 
-    importcpp: "SupportsExtraControl", header: "wx.h".}
+    importcpp: "SupportsExtraControl", header: "<wx/wx.h>".}
 proc setExtraControlCreator*(this: var WxFileDialogBase; 
                              creator: ExtraControlCreatorFunction): bool {.
-    cdecl, importcpp: "SetExtraControlCreator", header: "wx.h".}
+    cdecl, importcpp: "SetExtraControlCreator", header: "<wx/wx.h>".}
 proc getExtraControl*(this: WxFileDialogBase): ptr WxWindow {.noSideEffect, 
-    cdecl, importcpp: "GetExtraControl", header: "wx.h".}
+    cdecl, importcpp: "GetExtraControl", header: "<wx/wx.h>".}
 proc appendExtension*(filePath: WxString; extensionList: WxString): WxString {.
-    cdecl, importcpp: "wxFileDialogBase::AppendExtension(@)", header: "wx.h".}
+    cdecl, importcpp: "wxFileDialogBase::AppendExtension(@)", 
+    header: "<wx/wx.h>".}
 
 proc wxFileSelector*(message: WxString = constructWxString("Select a file"); 
                      defaultPath: WxString = wxEmptyString; 
@@ -105,7 +97,7 @@ proc wxFileSelector*(message: WxString = constructWxString("Select a file");
                      wildcard: WxString = constructWxString(fileWildcard); 
                      flags: cint = 0; parent: ptr WxWindow = nil; 
                      x: cint = wxDefaultCoord; y: cint = wxDefaultCoord): WxString {.
-    cdecl, importcpp: "wxFileSelector(@)", header: "wx.h".}
+    cdecl, importcpp: "wxFileSelector(@)", header: "<wx/wx.h>".}
 
 proc wxFileSelectorEx*(message: WxString = constructWxString("Select a file"); 
                        defaultPath: WxString = wxEmptyString; 
@@ -114,14 +106,14 @@ proc wxFileSelectorEx*(message: WxString = constructWxString("Select a file");
                        wildcard: WxString = constructWxString(fileWildcard); 
                        flags: cint = 0; parent: ptr WxWindow = nil; 
                        x: cint = wxDefaultCoord; y: cint = wxDefaultCoord): WxString {.
-    cdecl, importcpp: "wxFileSelectorEx(@)", header: "wx.h".}
+    cdecl, importcpp: "wxFileSelectorEx(@)", header: "<wx/wx.h>".}
 
 proc wxLoadFileSelector*(what: WxString; extension: WxString; 
                          defaultName: WxString = wxEmptyString; 
                          parent: ptr WxWindow = nil): WxString {.cdecl, 
-    importcpp: "wxLoadFileSelector(@)", header: "wx.h".}
+    importcpp: "wxLoadFileSelector(@)", header: "<wx/wx.h>".}
 
 proc wxSaveFileSelector*(what: WxString; extension: WxString; 
                          defaultName: WxString = wxEmptyString; 
                          parent: ptr WxWindow = nil): WxString {.cdecl, 
-    importcpp: "wxSaveFileSelector(@)", header: "wx.h".}
+    importcpp: "wxSaveFileSelector(@)", header: "<wx/wx.h>".}

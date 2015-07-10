@@ -47,9 +47,6 @@ public:
     wxFontEncoding GetEncoding() const { return m_encoding; }
     void SetEncoding(wxFontEncoding encoding) { m_encoding = encoding; }
 
-    wxNativeEncodingInfo& EncodingInfo() { return m_encodingInfo; }
-
-
     // public for backwards compatibility only: don't use directly
     wxColour        m_fontColour;
     bool            m_showHelp;
@@ -62,7 +59,6 @@ public:
 
 private:
     wxFontEncoding       m_encoding;
-    wxNativeEncodingInfo m_encodingInfo;
 
     DECLARE_DYNAMIC_CLASS(wxFontData)
 };

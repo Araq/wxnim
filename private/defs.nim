@@ -38,7 +38,7 @@ type
   WxFloat64* = cdouble
   WxDouble* = cdouble
   WxGeometryCentre* {.size: sizeof(cint), importcpp: "wxGeometryCentre", 
-                      header: "wx.h".} = enum 
+                      header: "<wx/wx.h>".} = enum 
     wxCENTER = 0x00000001
 
 
@@ -53,7 +53,7 @@ const
 
 type 
   WxOrientation* {.size: sizeof(cint), importcpp: "wxOrientation", 
-                   header: "wx.h".} = enum 
+                   header: "<wx/wx.h>".} = enum 
     wxHORIZONTAL = 0x00000004, wxVERTICAL = 0x00000008, 
     wxBOTH = 0x00000004 or 0x00000008
 
@@ -62,7 +62,8 @@ const
   wxORIENTATION_MASK* = wxBOTH
 
 type 
-  WxDirection* {.size: sizeof(cint), importcpp: "wxDirection", header: "wx.h".} = enum 
+  WxDirection* {.size: sizeof(cint), importcpp: "wxDirection", 
+                 header: "<wx/wx.h>".} = enum 
     wxLEFT = 0x00000010, wxRIGHT = 0x00000020, wxUP = 0x00000040, 
     wxDOWN = 0x00000080, 
     wxALL = (0x00000010 or 0x00000020 or 0x00000040 or 0x00000080)
@@ -78,7 +79,8 @@ const
   wxDIRECTION_MASK* = wxALL
 
 type 
-  WxAlignment* {.size: sizeof(cint), importcpp: "wxAlignment", header: "wx.h".} = enum 
+  WxAlignment* {.size: sizeof(cint), importcpp: "wxAlignment", 
+                 header: "<wx/wx.h>".} = enum 
     wxALIGN_INVALID = - 1, wxALIGN_NOT = 0x00000000, 
     wxALIGN_CENTER_HORIZONTAL = 0x00000100, wxALIGN_RIGHT = 0x00000200, 
     wxALIGN_BOTTOM = 0x00000400, wxALIGN_CENTER_VERTICAL = 0x00000800, 
@@ -92,13 +94,13 @@ const
 
 type 
   WxSizerFlagBits* {.size: sizeof(cint), importcpp: "wxSizerFlagBits", 
-                     header: "wx.h".} = enum 
+                     header: "<wx/wx.h>".} = enum 
     wxRESERVE_SPACE_EVEN_IF_HIDDEN = 0x00000002, wxFIXED_MINSIZE = 0x00008000, 
     wxSIZER_FLAG_BITS_MASK = 0x00008002
 
 
 type 
-  WxStretch* {.size: sizeof(cint), importcpp: "wxStretch", header: "wx.h".} = enum 
+  WxStretch* {.size: sizeof(cint), importcpp: "wxStretch", header: "<wx/wx.h>".} = enum 
     wxSTRETCH_NOT = 0x00000000, wxSHRINK = 0x00001000, wxGROW = 0x00002000, 
     wxSHAPED = 0x00004000, wxSTRETCH_MASK = 0x00007000, 
     wxTILE = 0x00004000 or 0x00008000
@@ -109,7 +111,7 @@ const
 
 
 type 
-  WxBorder* {.size: sizeof(cint), importcpp: "wxBorder", header: "wx.h".} = enum 
+  WxBorder* {.size: sizeof(cint), importcpp: "wxBorder", header: "<wx/wx.h>".} = enum 
     wxBORDER_DEFAULT = 0, wxBORDER_NONE = 0x00200000, 
     wxBORDER_STATIC = 0x01000000, wxBORDER_SIMPLE = 0x02000000, 
     wxBORDER_RAISED = 0x04000000, wxBORDER_SUNKEN = 0x08000000, 
@@ -346,7 +348,7 @@ const
 
 type 
   WxBackgroundStyle* {.size: sizeof(cint), importcpp: "wxBackgroundStyle", 
-                       header: "wx.h".} = enum 
+                       header: "<wx/wx.h>".} = enum 
     wxBG_STYLE_ERASE, wxBG_STYLE_SYSTEM, wxBG_STYLE_PAINT, 
     wxBG_STYLE_TRANSPARENT, wxBG_STYLE_COLOUR
 
@@ -356,13 +358,14 @@ const
 
 
 type 
-  WxKeyType* {.size: sizeof(cint), importcpp: "wxKeyType", header: "wx.h".} = enum 
+  WxKeyType* {.size: sizeof(cint), importcpp: "wxKeyType", header: "<wx/wx.h>".} = enum 
     wxKEY_NONE, wxKEY_INTEGER, wxKEY_STRING
 
 
 
 type 
-  WxStandardID* {.size: sizeof(cint), importcpp: "wxStandardID", header: "wx.h".} = enum 
+  WxStandardID* {.size: sizeof(cint), importcpp: "wxStandardID", 
+                  header: "<wx/wx.h>".} = enum 
     wxID_AUTO_LOWEST = - 32000, wxID_AUTO_HIGHEST = - 2000, wxID_NONE = - 3, 
     wxID_SEPARATOR = - 2, wxID_ANY = - 1, wxID_LOWEST = 4999, wxID_OPEN, 
     wxID_CLOSE, wxID_NEW, wxID_SAVE, wxID_SAVEAS, wxID_REVERT, wxID_EXIT, 
@@ -410,7 +413,7 @@ type
 
 
 type 
-  WxItemKind* {.size: sizeof(cint), importcpp: "wxItemKind", header: "wx.h".} = enum 
+  WxItemKind* {.size: sizeof(cint), importcpp: "wxItemKind", header: "<wx/wx.h>".} = enum 
     wxITEM_SEPARATOR = - 1, wxITEM_NORMAL, wxITEM_CHECK, wxITEM_RADIO, 
     wxITEM_DROPDOWN, wxITEM_MAX
 
@@ -418,13 +421,13 @@ type
 
 type 
   WxCheckBoxState* {.size: sizeof(cint), importcpp: "wxCheckBoxState", 
-                     header: "wx.h".} = enum 
+                     header: "<wx/wx.h>".} = enum 
     wxCHK_UNCHECKED, wxCHK_CHECKED, wxCHK_UNDETERMINED
 
 
 
 type 
-  WxHitTest* {.size: sizeof(cint), importcpp: "wxHitTest", header: "wx.h".} = enum 
+  WxHitTest* {.size: sizeof(cint), importcpp: "wxHitTest", header: "<wx/wx.h>".} = enum 
     wxHT_NOWHERE, wxHT_SCROLLBAR_ARROW_LINE_1, wxHT_SCROLLBAR_ARROW_LINE_2, 
     wxHT_SCROLLBAR_ARROW_PAGE_1, wxHT_SCROLLBAR_ARROW_PAGE_2, 
     wxHT_SCROLLBAR_THUMB, wxHT_SCROLLBAR_BAR_1, wxHT_SCROLLBAR_BAR_2, 
@@ -470,7 +473,8 @@ const
 
 
 type 
-  WxHatchStyle* {.size: sizeof(cint), importcpp: "wxHatchStyle", header: "wx.h".} = enum 
+  WxHatchStyle* {.size: sizeof(cint), importcpp: "wxHatchStyle", 
+                  header: "<wx/wx.h>".} = enum 
     wxHATCHSTYLE_INVALID = - 1, wxHATCHSTYLE_FIRST = 111, 
     wxHATCHSTYLE_CROSSDIAG, wxHATCHSTYLE_FDIAGONAL, wxHATCHSTYLE_CROSS, 
     wxHATCHSTYLE_HORIZONTAL, wxHATCHSTYLE_VERTICAL
@@ -485,7 +489,7 @@ const
 type 
   WxDeprecatedGUIConstants* {.size: sizeof(cint), 
                               importcpp: "wxDeprecatedGUIConstants", 
-                              header: "wx.h".} = enum 
+                              header: "<wx/wx.h>".} = enum 
     wxDEFAULT = 70, wxDECORATIVE, wxROMAN, wxSCRIPT, wxSWISS, wxMODERN, 
     wxTELETYPE, wxVARIABLE = 80, wxFIXED, wxNORMAL = 90, wxLIGHT, wxBOLD, 
     wxITALIC, wxSLANT, wxSOLID = 100, wxDOT, wxLONG_DASH, wxSHORT_DASH, 
@@ -513,7 +517,7 @@ const
 
 type 
   WxDataFormatId* {.size: sizeof(cint), importcpp: "wxDataFormatId", 
-                    header: "wx.h".} = enum 
+                    header: "<wx/wx.h>".} = enum 
     wxDF_INVALID = 0, wxDF_TEXT = 1, wxDF_BITMAP = 2, wxDF_METAFILE = 3, 
     wxDF_SYLK = 4, wxDF_DIF = 5, wxDF_TIFF = 6, wxDF_OEMTEXT = 7, wxDF_DIB = 8, 
     wxDF_PALETTE = 9, wxDF_PENDATA = 10, wxDF_RIFF = 11, wxDF_WAVE = 12, 
@@ -523,7 +527,7 @@ type
 
 
 type 
-  WxKeyCode* {.size: sizeof(cint), importcpp: "wxKeyCode", header: "wx.h".} = enum 
+  WxKeyCode* {.size: sizeof(cint), importcpp: "wxKeyCode", header: "<wx/wx.h>".} = enum 
     WXK_NONE = 0, WXK_CONTROL_A = 1, WXK_CONTROL_B, WXK_CONTROL_C, 
     WXK_CONTROL_D, WXK_CONTROL_E, WXK_CONTROL_F, WXK_CONTROL_G, WXK_CONTROL_H, 
     WXK_CONTROL_I, WXK_CONTROL_J, WXK_CONTROL_K, WXK_CONTROL_L, WXK_CONTROL_M, 
@@ -565,7 +569,7 @@ const
 
 type 
   WxKeyModifier* {.size: sizeof(cint), importcpp: "wxKeyModifier", 
-                   header: "wx.h".} = enum 
+                   header: "<wx/wx.h>".} = enum 
     wxMOD_NONE = 0x00000000, wxMOD_ALT = 0x00000001, wxMOD_CONTROL = 0x00000002, 
     wxMOD_ALTGR = 1 or 2, wxMOD_SHIFT = 0x00000004, wxMOD_META = 0x00000008, 
     wxMOD_ALL = 0x0000FFFF
@@ -581,7 +585,8 @@ template wxDLG_UNIT*(parent, pt: expr): expr =
 
 
 type 
-  WxPaperSize* {.size: sizeof(cint), importcpp: "wxPaperSize", header: "wx.h".} = enum 
+  WxPaperSize* {.size: sizeof(cint), importcpp: "wxPaperSize", 
+                 header: "<wx/wx.h>".} = enum 
     wxPAPER_NONE, wxPAPER_LETTER, wxPAPER_LEGAL, wxPAPER_A4, wxPAPER_CSHEET, 
     wxPAPER_DSHEET, wxPAPER_ESHEET, wxPAPER_LETTERSMALL, wxPAPER_TABLOID, 
     wxPAPER_LEDGER, wxPAPER_STATEMENT, wxPAPER_EXECUTIVE, wxPAPER_A3, 
@@ -621,13 +626,14 @@ type
 
 type 
   WxPrintOrientation* {.size: sizeof(cint), importcpp: "wxPrintOrientation", 
-                        header: "wx.h".} = enum 
+                        header: "<wx/wx.h>".} = enum 
     wxPORTRAIT = 1, wxLANDSCAPE
 
 
 
 type 
-  WxDuplexMode* {.size: sizeof(cint), importcpp: "wxDuplexMode", header: "wx.h".} = enum 
+  WxDuplexMode* {.size: sizeof(cint), importcpp: "wxDuplexMode", 
+                  header: "<wx/wx.h>".} = enum 
     wxDUPLEX_SIMPLEX, wxDUPLEX_HORIZONTAL, wxDUPLEX_VERTICAL
 
 
@@ -643,14 +649,15 @@ type
 
 
 type 
-  WxPrintMode* {.size: sizeof(cint), importcpp: "wxPrintMode", header: "wx.h".} = enum 
+  WxPrintMode* {.size: sizeof(cint), importcpp: "wxPrintMode", 
+                 header: "<wx/wx.h>".} = enum 
     wxPRINT_MODE_NONE = 0, wxPRINT_MODE_PREVIEW = 1, wxPRINT_MODE_FILE = 2, 
     wxPRINT_MODE_PRINTER = 3, wxPRINT_MODE_STREAM = 4
 
 
 
 type 
-  WxUpdateUI* {.size: sizeof(cint), importcpp: "wxUpdateUI", header: "wx.h".} = enum 
+  WxUpdateUI* {.size: sizeof(cint), importcpp: "wxUpdateUI", header: "<wx/wx.h>".} = enum 
     wxUPDATE_UI_NONE = 0x00000000, wxUPDATE_UI_RECURSE = 0x00000001, 
     wxUPDATE_UI_FROMIDLE = 0x00000002
 

@@ -1,14 +1,5 @@
-#///////////////////////////////////////////////////////////////////////////
-# Name:        wx/types.h
-# Purpose:     Type identifiers, used by resource system
-# Author:      Julian Smart
-# Modified by:
-# Created:     01/02/97
-# Copyright:   (c) Julian Smart
-# Licence:     wxWindows licence
-#///////////////////////////////////////////////////////////////////////////
 
-# Types of objects
+
 
 const 
   wxTYPE_ANY* = 0
@@ -77,4 +68,3 @@ const
   wxTYPE_RECORDSET* = 93
   wxTYPE_USER* = 500
 
-# _WX_TYPESH__

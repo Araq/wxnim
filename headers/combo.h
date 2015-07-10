@@ -49,8 +49,6 @@
 class WXDLLIMPEXP_FWD_CORE wxTextCtrl;
 class WXDLLIMPEXP_FWD_CORE wxComboPopup;
 
-extern wxBitmap wxNullBitmap;
-
 //
 // New window styles for wxComboCtrlBase
 //

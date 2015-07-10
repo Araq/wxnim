@@ -44,7 +44,7 @@ public:
     // generic and gtk native: use short version only, as a suffix to the
     // program name msw and osx native: use long version
     void SetVersion(const wxString& version,
-                    const wxString& longVersion = wxString());
+                    const wxString& longVersion = constructWxString());
 
     bool HasVersion() const { return !m_version.empty(); }
     const wxString& GetVersion() const { return m_version; }

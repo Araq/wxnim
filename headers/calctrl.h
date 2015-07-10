@@ -20,8 +20,6 @@
 #include "wx/font.h"
 #include "wx/control.h"
 
-extern wxColor wxNullColour;
-extern wxFont wxNullFont;
 class wxDateEvent : public wxEvent {};
 class wxDateTime : public wxObject {};
 

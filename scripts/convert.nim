@@ -13,7 +13,9 @@ proc main(dir: string; rec: bool) =
     of pcDir:
       if rec: main(file, rec)
     of pcFile:
-      if file.endswith(".h"): exec("c2nim wx.c2nim $1" % file)
+      if file.endswith(".h"):
+        exec "c2nim headers/wx.c2nim headers/$1.h --out:private/$1.nim" %
+          file.splitFile.name
     else: discard
 
 main("headers", false)

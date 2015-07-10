@@ -43,6 +43,8 @@ enum wxLayoutDirection
 // forward decls
 // ----------------------------------------------------------------------------
 
+class wxLanguage {};
+
 class WXDLLIMPEXP_FWD_BASE wxLocale;
 class WXDLLIMPEXP_FWD_BASE wxLanguageInfoArray;
 
@@ -147,7 +149,7 @@ public:
         }
 
     wxLocale(int language, // wxLanguage id or custom language
-             int flags = wxLOCALE_LOAD_DEFAULT)
+             auto flags = wxLOCALE_LOAD_DEFAULT)
         {
             DoCommonInit();
 
@@ -160,10 +162,6 @@ public:
               const wxString& locale = wxEmptyString,
               bool bLoadDefault = true
               );
-
-        // same as second ctor (returns true on success)
-    bool Init(int language = wxLANGUAGE_DEFAULT,
-              int flags = wxLOCALE_LOAD_DEFAULT);
 
         // restores old locale
     virtual ~wxLocale();

@@ -1,16 +1,5 @@
-#///////////////////////////////////////////////////////////////////////////
-# Name:        wx/anybutton.h
-# Purpose:     wxAnyButtonBase class
-# Author:      Vadim Zetlin
-# Created:     2000-08-15 (extracted from button.h)
-# Copyright:   (c) Vadim Zetlin
-# Licence:     wxWindows licence
-#///////////////////////////////////////////////////////////////////////////
 
-# ----------------------------------------------------------------------------
-# wxAnyButton specific flags
-# ----------------------------------------------------------------------------
-# These flags affect label alignment
+
 
 const 
   wxBU_LEFT* = 0x00000040
@@ -19,97 +8,79 @@ const
   wxBU_BOTTOM* = 0x00000200
   wxBU_ALIGN_MASK* = (wxBU_LEFT or wxBU_TOP or wxBU_RIGHT or wxBU_BOTTOM)
 
-# These two flags are obsolete
 
 const 
   wxBU_NOAUTODRAW* = 0x00000000
   wxBU_AUTODRAW* = 0x00000004
 
-# by default, the buttons will be created with some (system dependent)
-# minimal size to make them look nicer, giving this style will make them as
-# small as possible
 
 const 
   wxBU_EXACTFIT* = 0x00000001
 
-# this flag can be used to disable using the text label in the button: it is
-# mostly useful when creating buttons showing bitmap and having stock id as
-# without it both the standard label corresponding to the stock id and the
-# bitmap would be shown
 
 const 
   wxBU_NOTEXT* = 0x00000002
 
-# ----------------------------------------------------------------------------
-# wxAnyButton: common button functionality
-# ----------------------------------------------------------------------------
 
 type 
-  WxAnyButtonBase* {.importcpp: "wxAnyButtonBase", header: "wx.h".} = object of WxControl # 
-                                                                                          # choose 
-                                                                                          # the 
-                                                                                          # default 
-                                                                                          # border 
-                                                                                          # for 
-                                                                                          # this 
-                                                                                          # window
+  WxAnyButtonBase* {.importcpp: "wxAnyButtonBase", header: "<wx/wx.h>".} = object of WxControl
   
 
-proc constructwxAnyButtonBase*(): WxAnyButtonBase {.constructor, 
-    importcpp: "wxAnyButtonBase(@)", header: "wx.h".}
+proc constructwxAnyButtonBase*(): WxAnyButtonBase {.cdecl, constructor, 
+    importcpp: "wxAnyButtonBase(@)", header: "<wx/wx.h>".}
 proc setBitmap*(this: var WxAnyButtonBase; bitmap: WxBitmap; 
-                dir: WxDirection = wxLEFT) {.importcpp: "SetBitmap", 
-    header: "wx.h".}
-proc getBitmap*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, 
-    importcpp: "GetBitmap", header: "wx.h".}
-proc setBitmapLabel*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.
-    importcpp: "SetBitmapLabel", header: "wx.h".}
-proc setBitmapPressed*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.
-    importcpp: "SetBitmapPressed", header: "wx.h".}
-proc setBitmapDisabled*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.
-    importcpp: "SetBitmapDisabled", header: "wx.h".}
-proc setBitmapCurrent*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.
-    importcpp: "SetBitmapCurrent", header: "wx.h".}
-proc setBitmapFocus*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.
-    importcpp: "SetBitmapFocus", header: "wx.h".}
-proc getBitmapLabel*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, 
-    importcpp: "GetBitmapLabel", header: "wx.h".}
-proc getBitmapPressed*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, 
-    importcpp: "GetBitmapPressed", header: "wx.h".}
-proc getBitmapDisabled*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, 
-    importcpp: "GetBitmapDisabled", header: "wx.h".}
-proc getBitmapCurrent*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, 
-    importcpp: "GetBitmapCurrent", header: "wx.h".}
-proc getBitmapFocus*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, 
-    importcpp: "GetBitmapFocus", header: "wx.h".}
+                dir: WxDirection = wxLEFT) {.cdecl, importcpp: "SetBitmap", 
+    header: "<wx/wx.h>".}
+proc getBitmap*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, cdecl, 
+    importcpp: "GetBitmap", header: "<wx/wx.h>".}
+proc setBitmapLabel*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.cdecl, 
+    importcpp: "SetBitmapLabel", header: "<wx/wx.h>".}
+proc setBitmapPressed*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.cdecl, 
+    importcpp: "SetBitmapPressed", header: "<wx/wx.h>".}
+proc setBitmapDisabled*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.cdecl, 
+    importcpp: "SetBitmapDisabled", header: "<wx/wx.h>".}
+proc setBitmapCurrent*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.cdecl, 
+    importcpp: "SetBitmapCurrent", header: "<wx/wx.h>".}
+proc setBitmapFocus*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.cdecl, 
+    importcpp: "SetBitmapFocus", header: "<wx/wx.h>".}
+proc getBitmapLabel*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, cdecl, 
+    importcpp: "GetBitmapLabel", header: "<wx/wx.h>".}
+proc getBitmapPressed*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, cdecl, 
+    importcpp: "GetBitmapPressed", header: "<wx/wx.h>".}
+proc getBitmapDisabled*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, cdecl, 
+    importcpp: "GetBitmapDisabled", header: "<wx/wx.h>".}
+proc getBitmapCurrent*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, cdecl, 
+    importcpp: "GetBitmapCurrent", header: "<wx/wx.h>".}
+proc getBitmapFocus*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, cdecl, 
+    importcpp: "GetBitmapFocus", header: "<wx/wx.h>".}
 proc setBitmapMargins*(this: var WxAnyButtonBase; x: WxCoord; y: WxCoord) {.
-    importcpp: "SetBitmapMargins", header: "wx.h".}
-proc setBitmapMargins*(this: var WxAnyButtonBase; sz: WxSize) {.
-    importcpp: "SetBitmapMargins", header: "wx.h".}
-proc getBitmapMargins*(this: var WxAnyButtonBase): WxSize {.
-    importcpp: "GetBitmapMargins", header: "wx.h".}
-proc setBitmapPosition*(this: var WxAnyButtonBase; dir: WxDirection) {.
-    importcpp: "SetBitmapPosition", header: "wx.h".}
-proc shouldInheritColours*(this: WxAnyButtonBase): bool {.noSideEffect, 
-    importcpp: "ShouldInheritColours", header: "wx.h".}
-proc getBitmapSelected*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, 
-    importcpp: "GetBitmapSelected", header: "wx.h".}
-proc getBitmapHover*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, 
-    importcpp: "GetBitmapHover", header: "wx.h".}
-proc setBitmapSelected*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.
-    importcpp: "SetBitmapSelected", header: "wx.h".}
-proc setBitmapHover*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.
-    importcpp: "SetBitmapHover", header: "wx.h".}
+    cdecl, importcpp: "SetBitmapMargins", header: "<wx/wx.h>".}
+proc setBitmapMargins*(this: var WxAnyButtonBase; sz: WxSize) {.cdecl, 
+    importcpp: "SetBitmapMargins", header: "<wx/wx.h>".}
+proc getBitmapMargins*(this: var WxAnyButtonBase): WxSize {.cdecl, 
+    importcpp: "GetBitmapMargins", header: "<wx/wx.h>".}
+proc setBitmapPosition*(this: var WxAnyButtonBase; dir: WxDirection) {.cdecl, 
+    importcpp: "SetBitmapPosition", header: "<wx/wx.h>".}
+proc shouldInheritColours*(this: WxAnyButtonBase): bool {.noSideEffect, cdecl, 
+    importcpp: "ShouldInheritColours", header: "<wx/wx.h>".}
+proc getBitmapSelected*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, cdecl, 
+    importcpp: "GetBitmapSelected", header: "<wx/wx.h>".}
+proc getBitmapHover*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, cdecl, 
+    importcpp: "GetBitmapHover", header: "<wx/wx.h>".}
+proc setBitmapSelected*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.cdecl, 
+    importcpp: "SetBitmapSelected", header: "<wx/wx.h>".}
+proc setBitmapHover*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.cdecl, 
+    importcpp: "SetBitmapHover", header: "<wx/wx.h>".}
 type 
-  State* = enum 
-    StateNormal, StateCurrent, # a.k.a. hot or "hovering"
-    StatePressed,             # a.k.a. "selected" in public API for some reason
-    StateDisabled, StateFocused, StateMax
+  State* {.size: sizeof(cint), importcpp: "wxAnyButtonBase::State", 
+           header: "<wx/wx.h>".} = enum 
+    StateNormal, StateCurrent, StatePressed, StateDisabled, StateFocused, 
+    StateMax
 
 
-proc dontShowLabel*(this: WxAnyButtonBase): bool {.noSideEffect, 
-    importcpp: "DontShowLabel", header: "wx.h".}
-proc showsLabel*(this: WxAnyButtonBase): bool {.noSideEffect, 
-    importcpp: "ShowsLabel", header: "wx.h".}
+proc dontShowLabel*(this: WxAnyButtonBase): bool {.noSideEffect, cdecl, 
+    importcpp: "DontShowLabel", header: "<wx/wx.h>".}
+proc showsLabel*(this: WxAnyButtonBase): bool {.noSideEffect, cdecl, 
+    importcpp: "ShowsLabel", header: "<wx/wx.h>".}
 type 
   WxAnyButton* = WxAnyButtonBase

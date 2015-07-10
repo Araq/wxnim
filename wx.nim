@@ -15,36 +15,23 @@ include private/defs
 const
   fileWildcard* = when defined(windows): "*.*" else: "*"
 
-type
-  WxSize* {.importcpp: "wxSize", header: "wx.h".} = object
-    x* {.importc: "x".}: cint
-    y* {.importc: "y".}: cint # constructors
-
-  WxPoint* {.importcpp: "wxPoint", header: "wx.h".} = object
-    x* {.importc: "x".}: cint
-    y* {.importc: "y".}: cint
-
-  WxRealPoint* {.importcpp: "wxRealPoint", header: "wx.h".} = object
-    x* {.importc: "x".}: cdouble
-    y* {.importc: "y".}: cdouble
-
+include private/list
+include private/gdicmn
 include private/font
 include private/fontdata
 include private/fontenum
 
-include private/gdicmn
+include private/image
 include private/bitmap
 
 include private/icon
 include private/intl
 
 type
-  WxClientDataType* {.importcpp: "wxClientDataType", header: "wx.h".} = object of WxObject
+  WxClientDataType* {.importcpp: "wxClientDataType", header: "<wx/wx.h>".} = object of WxObject
 
-var wxDefaultSize* {.importcpp: "wxDefaultSize", header: "wx.h".}: WxSize
 const isForward = 1
 
-include private/list
 include private/event
 include private/window
 include private/layout
@@ -116,7 +103,7 @@ converter toWxString*(s: string): WxString =
   result = constructWxString(cstring(s), s.len)
 
 converter toEventType*[T](x: WxEventTypeTag[T]): WxEventType {.
-  importcpp: "#", header: "wx.h".}
+  importcpp: "#", header: "<wx/wx.h>".}
 
 when false:
   proc registerEventCallback(attachedTo: int;

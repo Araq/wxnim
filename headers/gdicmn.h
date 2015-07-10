@@ -27,16 +27,16 @@
 // ---------------------------------------------------------------------------
 
 class WXDLLIMPEXP_FWD_CORE wxBitmap;
-class WXDLLIMPEXP_FWD_CORE wxBrush;
+class WXDLLIMPEXP_FWD_CORE wxBrush {};
 class WXDLLIMPEXP_FWD_CORE wxColour;
 class WXDLLIMPEXP_FWD_CORE wxCursor;
 class WXDLLIMPEXP_FWD_CORE wxFont;
 class WXDLLIMPEXP_FWD_CORE wxIcon;
 class WXDLLIMPEXP_FWD_CORE wxPalette;
-class WXDLLIMPEXP_FWD_CORE wxPen;
+class WXDLLIMPEXP_FWD_CORE wxPen {};
 class WXDLLIMPEXP_FWD_CORE wxRegion;
 class WXDLLIMPEXP_FWD_BASE wxString;
-class WXDLLIMPEXP_FWD_CORE wxIconBundle;
+class WXDLLIMPEXP_FWD_CORE wxIconBundle {};
 class WXDLLIMPEXP_FWD_CORE wxPoint;
 
 // ---------------------------------------------------------------------------
@@ -157,10 +157,6 @@ public:
 
     wxSize& operator+=(const wxSize& sz) { x += sz.x; y += sz.y; return *this; }
     wxSize& operator-=(const wxSize& sz) { x -= sz.x; y -= sz.y; return *this; }
-    wxSize& operator/=(int i) { x /= i; y /= i; return *this; }
-    wxSize& operator*=(int i) { x *= i; y *= i; return *this; }
-    wxSize& operator/=(unsigned int i) { x /= i; y /= i; return *this; }
-    wxSize& operator*=(unsigned int i) { x *= i; y *= i; return *this; }
     wxSize& operator/=(long i) { x /= i; y /= i; return *this; }
     wxSize& operator*=(long i) { x *= i; y *= i; return *this; }
     wxSize& operator/=(unsigned long i) { x /= i; y /= i; return *this; }
@@ -237,36 +233,6 @@ inline wxSize operator+(const wxSize& s1, const wxSize& s2)
 inline wxSize operator-(const wxSize& s1, const wxSize& s2)
 {
     return wxSize(s1.x - s2.x, s1.y - s2.y);
-}
-
-inline wxSize operator/(const wxSize& s, int i)
-{
-    return wxSize(s.x / i, s.y / i);
-}
-
-inline wxSize operator*(const wxSize& s, int i)
-{
-    return wxSize(s.x * i, s.y * i);
-}
-
-inline wxSize operator*(int i, const wxSize& s)
-{
-    return wxSize(s.x * i, s.y * i);
-}
-
-inline wxSize operator/(const wxSize& s, unsigned int i)
-{
-    return wxSize(s.x / i, s.y / i);
-}
-
-inline wxSize operator*(const wxSize& s, unsigned int i)
-{
-    return wxSize(s.x * i, s.y * i);
-}
-
-inline wxSize operator*(unsigned int i, const wxSize& s)
-{
-    return wxSize(s.x * i, s.y * i);
 }
 
 inline wxSize operator/(const wxSize& s, long i)
@@ -355,37 +321,6 @@ inline wxRealPoint operator+(const wxRealPoint& p1, const wxRealPoint& p2)
 inline wxRealPoint operator-(const wxRealPoint& p1, const wxRealPoint& p2)
 {
     return wxRealPoint(p1.x - p2.x, p1.y - p2.y);
-}
-
-
-inline wxRealPoint operator/(const wxRealPoint& s, int i)
-{
-    return wxRealPoint(s.x / i, s.y / i);
-}
-
-inline wxRealPoint operator*(const wxRealPoint& s, int i)
-{
-    return wxRealPoint(s.x * i, s.y * i);
-}
-
-inline wxRealPoint operator*(int i, const wxRealPoint& s)
-{
-    return wxRealPoint(s.x * i, s.y * i);
-}
-
-inline wxRealPoint operator/(const wxRealPoint& s, unsigned int i)
-{
-    return wxRealPoint(s.x / i, s.y / i);
-}
-
-inline wxRealPoint operator*(const wxRealPoint& s, unsigned int i)
-{
-    return wxRealPoint(s.x * i, s.y * i);
-}
-
-inline wxRealPoint operator*(unsigned int i, const wxRealPoint& s)
-{
-    return wxRealPoint(s.x * i, s.y * i);
 }
 
 inline wxRealPoint operator/(const wxRealPoint& s, long i)
@@ -513,36 +448,6 @@ inline wxPoint operator-(const wxPoint& p)
     return wxPoint(-p.x, -p.y);
 }
 
-inline wxPoint operator/(const wxPoint& s, int i)
-{
-    return wxPoint(s.x / i, s.y / i);
-}
-
-inline wxPoint operator*(const wxPoint& s, int i)
-{
-    return wxPoint(s.x * i, s.y * i);
-}
-
-inline wxPoint operator*(int i, const wxPoint& s)
-{
-    return wxPoint(s.x * i, s.y * i);
-}
-
-inline wxPoint operator/(const wxPoint& s, unsigned int i)
-{
-    return wxPoint(s.x / i, s.y / i);
-}
-
-inline wxPoint operator*(const wxPoint& s, unsigned int i)
-{
-    return wxPoint(s.x * i, s.y * i);
-}
-
-inline wxPoint operator*(unsigned int i, const wxPoint& s)
-{
-    return wxPoint(s.x * i, s.y * i);
-}
-
 inline wxPoint operator/(const wxPoint& s, long i)
 {
     return wxPoint(s.x / i, s.y / i);
@@ -583,7 +488,7 @@ inline wxPoint operator*(double i, const wxPoint& s)
     return wxPoint(int(s.x * i), int(s.y * i));
 }
 
-WX_DECLARE_LIST_WITH_DECL(wxPoint, wxPointList, class WXDLLIMPEXP_CORE);
+//WX_DECLARE_LIST_WITH_DECL(wxPoint, wxPointList, class WXDLLIMPEXP_CORE);
 
 // ---------------------------------------------------------------------------
 // wxRect
@@ -715,14 +620,14 @@ public:
 
     // centre this rectangle in the given (usually, but not necessarily,
     // larger) one
-    wxRect CentreIn(const wxRect& r, int dir = wxBOTH) const
+    wxRect CentreIn(const wxRect& r, auto dir = wxBOTH) const
     {
         return wxRect(dir & wxHORIZONTAL ? r.x + (r.width - width)/2 : x,
                       dir & wxVERTICAL ? r.y + (r.height - height)/2 : y,
                       width, height);
     }
 
-    wxRect CenterIn(const wxRect& r, int dir = wxBOTH) const
+    wxRect CenterIn(const wxRect& r, auto dir = wxBOTH) const
     {
         return CentreIn(r, dir);
     }
@@ -751,12 +656,6 @@ WXDLLIMPEXP_CORE wxRect operator+(const wxRect& r1, const wxRect& r2);
 WXDLLIMPEXP_CORE wxRect operator*(const wxRect& r1, const wxRect& r2);
 
 
-
-// define functions which couldn't be defined above because of declarations
-// order
-inline void wxSize::IncBy(const wxPoint& pt) { IncBy(pt.x, pt.y); }
-inline void wxSize::DecBy(const wxPoint& pt) { DecBy(pt.x, pt.y); }
-
 // ---------------------------------------------------------------------------
 // Management of pens, brushes and fonts
 // ---------------------------------------------------------------------------
@@ -772,7 +671,7 @@ protected:
     wxList list;
 };
 
-WX_DECLARE_STRING_HASH_MAP(wxColour*, wxStringToColourHashMap);
+//WX_DECLARE_STRING_HASH_MAP(wxColour*, wxStringToColourHashMap);
 
 class WXDLLIMPEXP_CORE wxColourDatabase
 {
@@ -885,7 +784,7 @@ protected:
 
     wxDECLARE_NO_COPY_CLASS(wxStockGDI);
 };
-
+/*
 #define wxITALIC_FONT  wxStockGDI::instance().GetFont(wxStockGDI::FONT_ITALIC)
 #define wxNORMAL_FONT  wxStockGDI::instance().GetFont(wxStockGDI::FONT_NORMAL)
 #define wxSMALL_FONT   wxStockGDI::instance().GetFont(wxStockGDI::FONT_SMALL)
@@ -928,7 +827,7 @@ protected:
 #define wxCROSS_CURSOR      wxStockGDI::GetCursor(wxStockGDI::CURSOR_CROSS)
 #define wxHOURGLASS_CURSOR  wxStockGDI::GetCursor(wxStockGDI::CURSOR_HOURGLASS)
 #define wxSTANDARD_CURSOR   wxStockGDI::GetCursor(wxStockGDI::CURSOR_STANDARD)
-
+*/
 // 'Null' objects
 extern WXDLLIMPEXP_DATA_CORE(wxBitmap)     wxNullBitmap;
 extern WXDLLIMPEXP_DATA_CORE(wxIcon)       wxNullIcon;
@@ -941,8 +840,6 @@ extern WXDLLIMPEXP_DATA_CORE(wxColour)     wxNullColour;
 extern WXDLLIMPEXP_DATA_CORE(wxIconBundle) wxNullIconBundle;
 
 extern WXDLLIMPEXP_DATA_CORE(wxColourDatabase*)  wxTheColourDatabase;
-
-extern WXDLLIMPEXP_DATA_CORE(const char) wxPanelNameStr[];
 
 extern WXDLLIMPEXP_DATA_CORE(const wxSize) wxDefaultSize;
 extern WXDLLIMPEXP_DATA_CORE(const wxPoint) wxDefaultPosition;

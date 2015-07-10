@@ -16,6 +16,7 @@
 //-----------------------------------------------------------------------------
 // wxIcon
 //-----------------------------------------------------------------------------
+extern wxBitmapType wxICON_DEFAULT_TYPE;
 
 class WXDLLIMPEXP_CORE wxIcon: public wxBitmap
 {
@@ -30,11 +31,6 @@ public:
             wxBitmapType type = wxICON_DEFAULT_TYPE,
             int WXUNUSED(desiredWidth)=-1, int WXUNUSED(desiredHeight)=-1 ) :
         wxBitmap(filename, type)
-    {
-    }
-
-    wxIcon(const wxIconLocation& loc)
-        : wxBitmap(loc.GetFileName(), wxBITMAP_TYPE_ANY)
     {
     }
 

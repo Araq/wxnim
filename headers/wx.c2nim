@@ -1,5 +1,5 @@
 #nep1
-#header "wx.h"
+#header "<wx/wx.h>"
 #skipinclude
 #skipcomments
 #cpp
