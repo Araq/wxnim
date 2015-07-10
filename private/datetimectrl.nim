@@ -5,13 +5,12 @@ const
 
 
 type 
-  WxDateTimePickerCtrlBase* {.importcpp: "wxDateTimePickerCtrlBase", 
-                              header: "<wx/wx.h>".} = object of WxControl
+  WxDateTimePickerCtrlBase* {.importcpp: "wxDateTimePickerCtrlBase", header: wxh.} = object of WxControl
   
 
 proc setValue*(this: var WxDateTimePickerCtrlBase; dt: WxDateTime) {.cdecl, 
-    importcpp: "SetValue", header: "<wx/wx.h>".}
+    importcpp: "SetValue", header: wxh.}
 proc getValue*(this: WxDateTimePickerCtrlBase): WxDateTime {.noSideEffect, 
-    cdecl, importcpp: "GetValue", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetValue", header: wxh.}
 type 
   WxDateTimePickerCtrl* = WxDateTimePickerCtrlBase

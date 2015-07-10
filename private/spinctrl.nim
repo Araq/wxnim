@@ -2,48 +2,47 @@
 
 
 discard "forward decl of wxSpinDoubleEvent"
-var wxEVT_SPINCTRL* {.importcpp: "wxEVT_SPINCTRL", header: "<wx/wx.h>".}: WxEventTypeTag[
+var wxEVT_SPINCTRL* {.importcpp: "wxEVT_SPINCTRL", header: wxh.}: WxEventTypeTag[
     WxSpinEvent]
 
-var wxEVT_SPINCTRLDOUBLE* {.importcpp: "wxEVT_SPINCTRLDOUBLE", 
-                            header: "<wx/wx.h>".}: WxEventTypeTag[
+var wxEVT_SPINCTRLDOUBLE* {.importcpp: "wxEVT_SPINCTRLDOUBLE", header: wxh.}: WxEventTypeTag[
     WxSpinDoubleEvent]
 
 
 type 
-  WxSpinCtrlBase* {.importcpp: "wxSpinCtrlBase", header: "<wx/wx.h>".} = object of WxControl
+  WxSpinCtrlBase* {.importcpp: "wxSpinCtrlBase", header: wxh.} = object of WxControl
   
 
 proc constructwxSpinCtrlBase*(): WxSpinCtrlBase {.cdecl, constructor, 
-    importcpp: "wxSpinCtrlBase(@)", header: "<wx/wx.h>".}
+    importcpp: "wxSpinCtrlBase(@)", header: wxh.}
 proc getSnapToTicks*(this: WxSpinCtrlBase): bool {.noSideEffect, cdecl, 
-    importcpp: "GetSnapToTicks", header: "<wx/wx.h>".}
+    importcpp: "GetSnapToTicks", header: wxh.}
 proc setValue*(this: var WxSpinCtrlBase; value: WxString) {.cdecl, 
-    importcpp: "SetValue", header: "<wx/wx.h>".}
+    importcpp: "SetValue", header: wxh.}
 proc setSnapToTicks*(this: var WxSpinCtrlBase; snapToTicks: bool) {.cdecl, 
-    importcpp: "SetSnapToTicks", header: "<wx/wx.h>".}
+    importcpp: "SetSnapToTicks", header: wxh.}
 proc getBase*(this: WxSpinCtrlBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetBase", header: "<wx/wx.h>".}
+    importcpp: "GetBase", header: wxh.}
 proc setBase*(this: var WxSpinCtrlBase; base: cint): bool {.cdecl, 
-    importcpp: "SetBase", header: "<wx/wx.h>".}
+    importcpp: "SetBase", header: wxh.}
 proc setSelection*(this: var WxSpinCtrlBase; `from`: clong; to: clong) {.cdecl, 
-    importcpp: "SetSelection", header: "<wx/wx.h>".}
+    importcpp: "SetSelection", header: wxh.}
 
 type 
-  WxSpinDoubleEvent* {.importcpp: "wxSpinDoubleEvent", header: "<wx/wx.h>".} = object of WxNotifyEvent
+  WxSpinDoubleEvent* {.importcpp: "wxSpinDoubleEvent", header: wxh.} = object of WxNotifyEvent
   
 
 proc constructwxSpinDoubleEvent*(commandType: WxEventType = wxEVT_NULL; 
                                  winid: cint = 0; value: cdouble = 0): WxSpinDoubleEvent {.
-    cdecl, constructor, importcpp: "wxSpinDoubleEvent(@)", header: "<wx/wx.h>".}
+    cdecl, constructor, importcpp: "wxSpinDoubleEvent(@)", header: wxh.}
 proc constructwxSpinDoubleEvent*(event: WxSpinDoubleEvent): WxSpinDoubleEvent {.
-    cdecl, constructor, importcpp: "wxSpinDoubleEvent(@)", header: "<wx/wx.h>".}
+    cdecl, constructor, importcpp: "wxSpinDoubleEvent(@)", header: wxh.}
 proc getValue*(this: WxSpinDoubleEvent): cdouble {.noSideEffect, cdecl, 
-    importcpp: "GetValue", header: "<wx/wx.h>".}
+    importcpp: "GetValue", header: wxh.}
 proc setValue*(this: var WxSpinDoubleEvent; value: cdouble) {.cdecl, 
-    importcpp: "SetValue", header: "<wx/wx.h>".}
+    importcpp: "SetValue", header: wxh.}
 proc clone*(this: WxSpinDoubleEvent): ptr WxEvent {.noSideEffect, cdecl, 
-    importcpp: "Clone", header: "<wx/wx.h>".}
+    importcpp: "Clone", header: wxh.}
 
 template wxSpinDoubleEventHandler*(`func`: expr): expr = 
   wxEVENT_HANDLER_CAST(wxSpinDoubleEventFunction, `func`)

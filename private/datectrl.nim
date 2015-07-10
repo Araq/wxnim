@@ -10,24 +10,24 @@ const
 
 
 type 
-  WxDatePickerCtrlBase* {.importcpp: "wxDatePickerCtrlBase", header: "<wx/wx.h>".} = object of WxDateTimePickerCtrl
+  WxDatePickerCtrlBase* {.importcpp: "wxDatePickerCtrlBase", header: wxh.} = object of WxDateTimePickerCtrl
   
 
 proc setRange*(this: var WxDatePickerCtrlBase; dt1: WxDateTime; dt2: WxDateTime) {.
-    cdecl, importcpp: "SetRange", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetRange", header: wxh.}
 proc getRange*(this: WxDatePickerCtrlBase; dt1: ptr WxDateTime; 
                dt2: ptr WxDateTime): bool {.noSideEffect, cdecl, 
-    importcpp: "GetRange", header: "<wx/wx.h>".}
+    importcpp: "GetRange", header: wxh.}
 type 
-  WxDatePickerCtrl* {.importcpp: "wxDatePickerCtrl", header: "<wx/wx.h>".} = object of WxDatePickerCtrlBase
+  WxDatePickerCtrl* {.importcpp: "wxDatePickerCtrl", header: wxh.} = object of WxDatePickerCtrlBase
   
 
 proc constructwxDatePickerCtrl*(): WxDatePickerCtrl {.cdecl, constructor, 
-    importcpp: "wxDatePickerCtrl(@)", header: "<wx/wx.h>".}
+    importcpp: "wxDatePickerCtrl(@)", header: wxh.}
 proc constructwxDatePickerCtrl*(parent: ptr WxWindow; id: WxWindowID; 
                                 date: WxDateTime = wxDefaultDateTime; 
                                 pos: WxPoint = wxDefaultPosition; 
                                 size: WxSize = wxDefaultSize; style: clong = wxDP_DEFAULT or
     wxDP_SHOWCENTURY; validator: WxValidator = wxDefaultValidator; 
                                 name: WxString = constructWxString("datectrl")): WxDatePickerCtrl {.
-    cdecl, constructor, importcpp: "wxDatePickerCtrl(@)", header: "<wx/wx.h>".}
+    cdecl, constructor, importcpp: "wxDatePickerCtrl(@)", header: wxh.}

@@ -3,6 +3,12 @@
 
 # Andreas Rumpf 2015
 
+const
+  wxh = """#include <wx/wxprec.h>
+#ifndef WX_PRECOMP
+    #include <wx/wx.h>
+#endif"""
+
 {.noforward: on.}
 
 include "private/object"

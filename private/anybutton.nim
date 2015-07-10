@@ -23,64 +23,63 @@ const
 
 
 type 
-  WxAnyButtonBase* {.importcpp: "wxAnyButtonBase", header: "<wx/wx.h>".} = object of WxControl
+  WxAnyButtonBase* {.importcpp: "wxAnyButtonBase", header: wxh.} = object of WxControl
   
 
 proc constructwxAnyButtonBase*(): WxAnyButtonBase {.cdecl, constructor, 
-    importcpp: "wxAnyButtonBase(@)", header: "<wx/wx.h>".}
+    importcpp: "wxAnyButtonBase(@)", header: wxh.}
 proc setBitmap*(this: var WxAnyButtonBase; bitmap: WxBitmap; 
                 dir: WxDirection = wxLEFT) {.cdecl, importcpp: "SetBitmap", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc getBitmap*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, cdecl, 
-    importcpp: "GetBitmap", header: "<wx/wx.h>".}
+    importcpp: "GetBitmap", header: wxh.}
 proc setBitmapLabel*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.cdecl, 
-    importcpp: "SetBitmapLabel", header: "<wx/wx.h>".}
+    importcpp: "SetBitmapLabel", header: wxh.}
 proc setBitmapPressed*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.cdecl, 
-    importcpp: "SetBitmapPressed", header: "<wx/wx.h>".}
+    importcpp: "SetBitmapPressed", header: wxh.}
 proc setBitmapDisabled*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.cdecl, 
-    importcpp: "SetBitmapDisabled", header: "<wx/wx.h>".}
+    importcpp: "SetBitmapDisabled", header: wxh.}
 proc setBitmapCurrent*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.cdecl, 
-    importcpp: "SetBitmapCurrent", header: "<wx/wx.h>".}
+    importcpp: "SetBitmapCurrent", header: wxh.}
 proc setBitmapFocus*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.cdecl, 
-    importcpp: "SetBitmapFocus", header: "<wx/wx.h>".}
+    importcpp: "SetBitmapFocus", header: wxh.}
 proc getBitmapLabel*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, cdecl, 
-    importcpp: "GetBitmapLabel", header: "<wx/wx.h>".}
+    importcpp: "GetBitmapLabel", header: wxh.}
 proc getBitmapPressed*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, cdecl, 
-    importcpp: "GetBitmapPressed", header: "<wx/wx.h>".}
+    importcpp: "GetBitmapPressed", header: wxh.}
 proc getBitmapDisabled*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, cdecl, 
-    importcpp: "GetBitmapDisabled", header: "<wx/wx.h>".}
+    importcpp: "GetBitmapDisabled", header: wxh.}
 proc getBitmapCurrent*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, cdecl, 
-    importcpp: "GetBitmapCurrent", header: "<wx/wx.h>".}
+    importcpp: "GetBitmapCurrent", header: wxh.}
 proc getBitmapFocus*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, cdecl, 
-    importcpp: "GetBitmapFocus", header: "<wx/wx.h>".}
+    importcpp: "GetBitmapFocus", header: wxh.}
 proc setBitmapMargins*(this: var WxAnyButtonBase; x: WxCoord; y: WxCoord) {.
-    cdecl, importcpp: "SetBitmapMargins", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetBitmapMargins", header: wxh.}
 proc setBitmapMargins*(this: var WxAnyButtonBase; sz: WxSize) {.cdecl, 
-    importcpp: "SetBitmapMargins", header: "<wx/wx.h>".}
+    importcpp: "SetBitmapMargins", header: wxh.}
 proc getBitmapMargins*(this: var WxAnyButtonBase): WxSize {.cdecl, 
-    importcpp: "GetBitmapMargins", header: "<wx/wx.h>".}
+    importcpp: "GetBitmapMargins", header: wxh.}
 proc setBitmapPosition*(this: var WxAnyButtonBase; dir: WxDirection) {.cdecl, 
-    importcpp: "SetBitmapPosition", header: "<wx/wx.h>".}
+    importcpp: "SetBitmapPosition", header: wxh.}
 proc shouldInheritColours*(this: WxAnyButtonBase): bool {.noSideEffect, cdecl, 
-    importcpp: "ShouldInheritColours", header: "<wx/wx.h>".}
+    importcpp: "ShouldInheritColours", header: wxh.}
 proc getBitmapSelected*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, cdecl, 
-    importcpp: "GetBitmapSelected", header: "<wx/wx.h>".}
+    importcpp: "GetBitmapSelected", header: wxh.}
 proc getBitmapHover*(this: WxAnyButtonBase): WxBitmap {.noSideEffect, cdecl, 
-    importcpp: "GetBitmapHover", header: "<wx/wx.h>".}
+    importcpp: "GetBitmapHover", header: wxh.}
 proc setBitmapSelected*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.cdecl, 
-    importcpp: "SetBitmapSelected", header: "<wx/wx.h>".}
+    importcpp: "SetBitmapSelected", header: wxh.}
 proc setBitmapHover*(this: var WxAnyButtonBase; bitmap: WxBitmap) {.cdecl, 
-    importcpp: "SetBitmapHover", header: "<wx/wx.h>".}
+    importcpp: "SetBitmapHover", header: wxh.}
 type 
-  State* {.size: sizeof(cint), importcpp: "wxAnyButtonBase::State", 
-           header: "<wx/wx.h>".} = enum 
+  State* {.size: sizeof(cint), importcpp: "wxAnyButtonBase::State", header: wxh.} = enum 
     StateNormal, StateCurrent, StatePressed, StateDisabled, StateFocused, 
     StateMax
 
 
 proc dontShowLabel*(this: WxAnyButtonBase): bool {.noSideEffect, cdecl, 
-    importcpp: "DontShowLabel", header: "<wx/wx.h>".}
+    importcpp: "DontShowLabel", header: wxh.}
 proc showsLabel*(this: WxAnyButtonBase): bool {.noSideEffect, cdecl, 
-    importcpp: "ShowsLabel", header: "<wx/wx.h>".}
+    importcpp: "ShowsLabel", header: wxh.}
 type 
   WxAnyButton* = WxAnyButtonBase

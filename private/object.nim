@@ -12,75 +12,70 @@ template wxIsKindOf*(obj, className: expr): expr =
 
 
 proc wxCheckCast*[T](`ptr`: pointer; a3: ptr T = nil): ptr T {.cdecl, 
-    importcpp: "wxCheckCast(@)", header: "<wx/wx.h>".}
+    importcpp: "wxCheckCast(@)", header: wxh.}
 template wxStaticCast*(obj, className: expr): expr = 
   wxCheckCast((obj), cast[ptr ClassName](nil))
 
 
 
 type 
-  WxRefCounter* {.importcpp: "wxRefCounter", header: "<wx/wx.h>", inheritable.} = object 
+  WxRefCounter* {.importcpp: "wxRefCounter", header: wxh, inheritable.} = object 
   
 
 proc constructwxRefCounter*(): WxRefCounter {.cdecl, constructor, 
-    importcpp: "wxRefCounter(@)", header: "<wx/wx.h>".}
+    importcpp: "wxRefCounter(@)", header: wxh.}
 proc getRefCount*(this: WxRefCounter): cint {.noSideEffect, cdecl, 
-    importcpp: "GetRefCount", header: "<wx/wx.h>".}
-proc incRef*(this: var WxRefCounter) {.cdecl, importcpp: "IncRef", 
-                                       header: "<wx/wx.h>".}
-proc decRef*(this: var WxRefCounter) {.cdecl, importcpp: "DecRef", 
-                                       header: "<wx/wx.h>".}
+    importcpp: "GetRefCount", header: wxh.}
+proc incRef*(this: var WxRefCounter) {.cdecl, importcpp: "IncRef", header: wxh.}
+proc decRef*(this: var WxRefCounter) {.cdecl, importcpp: "DecRef", header: wxh.}
 
 type 
   WxObjectRefData* = WxRefCounter
 
 
 type 
-  WxObjectDataPtr* {.importcpp: "wxObjectDataPtr", header: "<wx/wx.h>", 
-                     inheritable.}[T] = object 
+  WxObjectDataPtr* {.importcpp: "wxObjectDataPtr", header: wxh, inheritable.}[T] = object 
   
 
 proc constructwxObjectDataPtr*[T](`ptr`: ptr T = nil): WxObjectDataPtr[T] {.
-    cdecl, constructor, importcpp: "wxObjectDataPtr(@)", header: "<wx/wx.h>".}
+    cdecl, constructor, importcpp: "wxObjectDataPtr(@)", header: wxh.}
 proc constructwxObjectDataPtr*[T](tocopy: WxObjectDataPtr[T]): WxObjectDataPtr[T] {.
-    cdecl, constructor, importcpp: "wxObjectDataPtr(@)", header: "<wx/wx.h>".}
+    cdecl, constructor, importcpp: "wxObjectDataPtr(@)", header: wxh.}
 proc destroywxObjectDataPtr*[T](this: var WxObjectDataPtr[T]) {.cdecl, 
-    importcpp: "#.~wxObjectDataPtr()", header: "<wx/wx.h>".}
+    importcpp: "#.~wxObjectDataPtr()", header: wxh.}
 proc get*[T](this: WxObjectDataPtr[T]): ptr T {.noSideEffect, cdecl, 
-    importcpp: "get", header: "<wx/wx.h>".}
+    importcpp: "get", header: wxh.}
 proc `*`*[T](this: WxObjectDataPtr[T]): var T {.noSideEffect, cdecl, 
-    importcpp: "(* #)", header: "<wx/wx.h>".}
+    importcpp: "(* #)", header: wxh.}
 proc `->`*[T](this: WxObjectDataPtr[T]): ptr T {.noSideEffect, cdecl, 
-    importcpp: "(# -> #)", header: "<wx/wx.h>".}
+    importcpp: "(# -> #)", header: wxh.}
 proc reset*[T](this: var WxObjectDataPtr[T]; `ptr`: ptr T) {.cdecl, 
-    importcpp: "reset", header: "<wx/wx.h>".}
+    importcpp: "reset", header: wxh.}
 
 type 
-  WxObject* {.importcpp: "wxObject", header: "<wx/wx.h>", inheritable.} = object 
+  WxObject* {.importcpp: "wxObject", header: wxh, inheritable.} = object 
   
 
 proc constructwxObject*(): WxObject {.cdecl, constructor, 
-                                      importcpp: "wxObject(@)", 
-                                      header: "<wx/wx.h>".}
+                                      importcpp: "wxObject(@)", header: wxh.}
 proc destroywxObject*(this: var WxObject) {.cdecl, importcpp: "#.~wxObject()", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc constructwxObject*(other: WxObject): WxObject {.cdecl, constructor, 
-    importcpp: "wxObject(@)", header: "<wx/wx.h>".}
+    importcpp: "wxObject(@)", header: wxh.}
 proc isKindOf*(this: WxObject; info: ptr WxClassInfo): bool {.noSideEffect, 
-    cdecl, importcpp: "IsKindOf", header: "<wx/wx.h>".}
+    cdecl, importcpp: "IsKindOf", header: wxh.}
 proc getRefData*(this: WxObject): ptr WxObjectRefData {.noSideEffect, cdecl, 
-    importcpp: "GetRefData", header: "<wx/wx.h>".}
+    importcpp: "GetRefData", header: wxh.}
 proc setRefData*(this: var WxObject; data: ptr WxObjectRefData) {.cdecl, 
-    importcpp: "SetRefData", header: "<wx/wx.h>".}
+    importcpp: "SetRefData", header: wxh.}
 proc `ref`*(this: var WxObject; clone: WxObject) {.cdecl, importcpp: "Ref", 
-    header: "<wx/wx.h>".}
-proc unRef*(this: var WxObject) {.cdecl, importcpp: "UnRef", header: "<wx/wx.h>".}
-proc unShare*(this: var WxObject) {.cdecl, importcpp: "UnShare", 
-                                    header: "<wx/wx.h>".}
+    header: wxh.}
+proc unRef*(this: var WxObject) {.cdecl, importcpp: "UnRef", header: wxh.}
+proc unShare*(this: var WxObject) {.cdecl, importcpp: "UnShare", header: wxh.}
 proc isSameAs*(this: WxObject; o: WxObject): bool {.noSideEffect, cdecl, 
-    importcpp: "IsSameAs", header: "<wx/wx.h>".}
+    importcpp: "IsSameAs", header: wxh.}
 proc wxCheckDynamicCast*(obj: ptr WxObject; classInfo: ptr WxClassInfo): ptr WxObject {.
-    cdecl, importcpp: "wxCheckDynamicCast(@)", header: "<wx/wx.h>".}
+    cdecl, importcpp: "wxCheckDynamicCast(@)", header: wxh.}
 
 template implement_Dynamic_Class*(n, b: expr): expr = 
   wxIMPLEMENT_DYNAMIC_CLASS(n, b)

@@ -26,28 +26,28 @@ type
 
 
 type 
-  WxNotebookBase* {.importcpp: "wxNotebookBase", header: "<wx/wx.h>".} = object of WxBookCtrlBase
+  WxNotebookBase* {.importcpp: "wxNotebookBase", header: wxh.} = object of WxBookCtrlBase
   
 
 proc constructwxNotebookBase*(): WxNotebookBase {.cdecl, constructor, 
-    importcpp: "wxNotebookBase(@)", header: "<wx/wx.h>".}
+    importcpp: "wxNotebookBase(@)", header: wxh.}
 proc getRowCount*(this: WxNotebookBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetRowCount", header: "<wx/wx.h>".}
+    importcpp: "GetRowCount", header: wxh.}
 proc setPadding*(this: var WxNotebookBase; padding: WxSize) {.cdecl, 
-    importcpp: "SetPadding", header: "<wx/wx.h>".}
+    importcpp: "SetPadding", header: wxh.}
 proc setTabSize*(this: var WxNotebookBase; sz: WxSize) {.cdecl, 
-    importcpp: "SetTabSize", header: "<wx/wx.h>".}
+    importcpp: "SetTabSize", header: wxh.}
 proc calcSizeFromPage*(this: WxNotebookBase; sizePage: WxSize): WxSize {.
-    noSideEffect, cdecl, importcpp: "CalcSizeFromPage", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "CalcSizeFromPage", header: wxh.}
 proc getThemeBackgroundColour*(this: WxNotebookBase): WxColour {.noSideEffect, 
-    cdecl, importcpp: "GetThemeBackgroundColour", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetThemeBackgroundColour", header: wxh.}
 proc sendPageChangingEvent*(this: var WxNotebookBase; nPage: cint): bool {.
-    cdecl, importcpp: "SendPageChangingEvent", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SendPageChangingEvent", header: wxh.}
 proc sendPageChangedEvent*(this: var WxNotebookBase; nPageOld: cint; 
                            nPageNew: cint = wxNOT_FOUND) {.cdecl, 
-    importcpp: "SendPageChangedEvent", header: "<wx/wx.h>".}
+    importcpp: "SendPageChangedEvent", header: wxh.}
 proc acceptsFocus*(this: WxNotebookBase): bool {.noSideEffect, cdecl, 
-    importcpp: "AcceptsFocus", header: "<wx/wx.h>".}
+    importcpp: "AcceptsFocus", header: wxh.}
 
 const 
   wxNotebookEvent* = wxBookCtrlEvent
@@ -59,11 +59,10 @@ template wxNotebookEventHandler*(`func`: expr): expr =
   wxBookCtrlEventHandler(`func`)
 
 var wxEVT_NOTEBOOK_PAGE_CHANGED* {.importcpp: "wxEVT_NOTEBOOK_PAGE_CHANGED", 
-                                   header: "<wx/wx.h>".}: WxEventTypeTag[
-    WxBookCtrlEvent]
+                                   header: wxh.}: WxEventTypeTag[WxBookCtrlEvent]
 
 var wxEVT_NOTEBOOK_PAGE_CHANGING* {.importcpp: "wxEVT_NOTEBOOK_PAGE_CHANGING", 
-                                    header: "<wx/wx.h>".}: WxEventTypeTag[
+                                    header: wxh.}: WxEventTypeTag[
     WxBookCtrlEvent]
 
 template evt_Notebook_Page_Changed*(winid, fn: expr): expr = 

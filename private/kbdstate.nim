@@ -2,7 +2,7 @@
 
 
 type 
-  WxKeyboardState* {.importcpp: "wxKeyboardState", header: "<wx/wx.h>".} = object 
+  WxKeyboardState* {.importcpp: "wxKeyboardState", header: wxh.} = object 
     mControlDown* {.importc: "m_controlDown".}: bool
     mShiftDown* {.importc: "m_shiftDown".}: bool
     mAltDown* {.importc: "m_altDown".}: bool
@@ -12,32 +12,32 @@ type
 proc constructwxKeyboardState*(controlDown: bool = false; 
                                shiftDown: bool = false; altDown: bool = false; 
                                metaDown: bool = false): WxKeyboardState {.cdecl, 
-    constructor, importcpp: "wxKeyboardState(@)", header: "<wx/wx.h>".}
+    constructor, importcpp: "wxKeyboardState(@)", header: wxh.}
 proc getModifiers*(this: WxKeyboardState): cint {.noSideEffect, cdecl, 
-    importcpp: "GetModifiers", header: "<wx/wx.h>".}
+    importcpp: "GetModifiers", header: wxh.}
 proc hasAnyModifiers*(this: WxKeyboardState): bool {.noSideEffect, cdecl, 
-    importcpp: "HasAnyModifiers", header: "<wx/wx.h>".}
+    importcpp: "HasAnyModifiers", header: wxh.}
 proc hasModifiers*(this: WxKeyboardState): bool {.noSideEffect, cdecl, 
-    importcpp: "HasModifiers", header: "<wx/wx.h>".}
+    importcpp: "HasModifiers", header: wxh.}
 proc controlDown*(this: WxKeyboardState): bool {.noSideEffect, cdecl, 
-    importcpp: "ControlDown", header: "<wx/wx.h>".}
+    importcpp: "ControlDown", header: wxh.}
 proc rawControlDown*(this: WxKeyboardState): bool {.noSideEffect, cdecl, 
-    importcpp: "RawControlDown", header: "<wx/wx.h>".}
+    importcpp: "RawControlDown", header: wxh.}
 proc shiftDown*(this: WxKeyboardState): bool {.noSideEffect, cdecl, 
-    importcpp: "ShiftDown", header: "<wx/wx.h>".}
+    importcpp: "ShiftDown", header: wxh.}
 proc metaDown*(this: WxKeyboardState): bool {.noSideEffect, cdecl, 
-    importcpp: "MetaDown", header: "<wx/wx.h>".}
+    importcpp: "MetaDown", header: wxh.}
 proc altDown*(this: WxKeyboardState): bool {.noSideEffect, cdecl, 
-    importcpp: "AltDown", header: "<wx/wx.h>".}
+    importcpp: "AltDown", header: wxh.}
 proc cmdDown*(this: WxKeyboardState): bool {.noSideEffect, cdecl, 
-    importcpp: "CmdDown", header: "<wx/wx.h>".}
+    importcpp: "CmdDown", header: wxh.}
 proc setControlDown*(this: var WxKeyboardState; down: bool) {.cdecl, 
-    importcpp: "SetControlDown", header: "<wx/wx.h>".}
+    importcpp: "SetControlDown", header: wxh.}
 proc setRawControlDown*(this: var WxKeyboardState; down: bool) {.cdecl, 
-    importcpp: "SetRawControlDown", header: "<wx/wx.h>".}
+    importcpp: "SetRawControlDown", header: wxh.}
 proc setShiftDown*(this: var WxKeyboardState; down: bool) {.cdecl, 
-    importcpp: "SetShiftDown", header: "<wx/wx.h>".}
+    importcpp: "SetShiftDown", header: wxh.}
 proc setAltDown*(this: var WxKeyboardState; down: bool) {.cdecl, 
-    importcpp: "SetAltDown", header: "<wx/wx.h>".}
+    importcpp: "SetAltDown", header: wxh.}
 proc setMetaDown*(this: var WxKeyboardState; down: bool) {.cdecl, 
-    importcpp: "SetMetaDown", header: "<wx/wx.h>".}
+    importcpp: "SetMetaDown", header: wxh.}

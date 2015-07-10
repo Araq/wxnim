@@ -4,26 +4,24 @@
 
 type 
   WxItemContainerImmutable* {.importcpp: "wxItemContainerImmutable", 
-                              header: "<wx/wx.h>", inheritable.} = object 
+                              header: wxh, inheritable.} = object 
   
-  WxItemContainer* {.importcpp: "wxItemContainer", header: "<wx/wx.h>".} = object of WxItemContainerImmutable
+  WxItemContainer* {.importcpp: "wxItemContainer", header: wxh.} = object of WxItemContainerImmutable
   
-  WxComboBoxBase* {.importcpp: "wxComboBoxBase", header: "<wx/wx.h>".} = object of WxItemContainer
+  WxComboBoxBase* {.importcpp: "wxComboBoxBase", header: wxh.} = object of WxItemContainer
   
 
-proc clear*(this: var WxComboBoxBase) {.cdecl, importcpp: "Clear", 
-                                        header: "<wx/wx.h>".}
+proc clear*(this: var WxComboBoxBase) {.cdecl, importcpp: "Clear", header: wxh.}
 proc isListEmpty*(this: WxComboBoxBase): bool {.noSideEffect, cdecl, 
-    importcpp: "IsListEmpty", header: "<wx/wx.h>".}
+    importcpp: "IsListEmpty", header: wxh.}
 proc isTextEmpty*(this: WxComboBoxBase): bool {.noSideEffect, cdecl, 
-    importcpp: "IsTextEmpty", header: "<wx/wx.h>".}
+    importcpp: "IsTextEmpty", header: wxh.}
 proc getSelection*(this: WxComboBoxBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetSelection", header: "<wx/wx.h>".}
+    importcpp: "GetSelection", header: wxh.}
 proc getSelection*(this: WxComboBoxBase; `from`: ptr clong; to: ptr clong) {.
-    noSideEffect, cdecl, importcpp: "GetSelection", header: "<wx/wx.h>".}
-proc popup*(this: var WxComboBoxBase) {.cdecl, importcpp: "Popup", 
-                                        header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetSelection", header: wxh.}
+proc popup*(this: var WxComboBoxBase) {.cdecl, importcpp: "Popup", header: wxh.}
 proc dismiss*(this: var WxComboBoxBase) {.cdecl, importcpp: "Dismiss", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc getCurrentSelection*(this: WxComboBoxBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetCurrentSelection", header: "<wx/wx.h>".}
+    importcpp: "GetCurrentSelection", header: wxh.}

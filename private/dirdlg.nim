@@ -9,42 +9,42 @@ const
 const 
   wxDD_NEW_DIR_BUTTON* = 0
 
-var wxDD_DEFAULT_STYLE* {.importcpp: "wxDD_DEFAULT_STYLE", header: "<wx/wx.h>".}: clong
+var wxDD_DEFAULT_STYLE* {.importcpp: "wxDD_DEFAULT_STYLE", header: wxh.}: clong
 
 
 type 
-  WxDirDialogBase* {.importcpp: "wxDirDialogBase", header: "<wx/wx.h>".} = object of WxDialog
+  WxDirDialogBase* {.importcpp: "wxDirDialogBase", header: wxh.} = object of WxDialog
   
 
 proc constructwxDirDialogBase*(): WxDirDialogBase {.cdecl, constructor, 
-    importcpp: "wxDirDialogBase(@)", header: "<wx/wx.h>".}
+    importcpp: "wxDirDialogBase(@)", header: wxh.}
 proc constructwxDirDialogBase*(parent: ptr WxWindow; title: WxString = constructWxString(
     "Select a directory"); defaultPath: WxString = wxEmptyString; 
                                style: clong = wxDD_DEFAULT_STYLE; 
                                pos: WxPoint = wxDefaultPosition; 
                                sz: WxSize = wxDefaultSize; 
                                name: WxString = constructWxString("wxDirCtrl")): WxDirDialogBase {.
-    cdecl, constructor, importcpp: "wxDirDialogBase(@)", header: "<wx/wx.h>".}
+    cdecl, constructor, importcpp: "wxDirDialogBase(@)", header: wxh.}
 proc destroywxDirDialogBase*(this: var WxDirDialogBase) {.cdecl, 
-    importcpp: "#.~wxDirDialogBase()", header: "<wx/wx.h>".}
+    importcpp: "#.~wxDirDialogBase()", header: wxh.}
 proc create*(this: var WxDirDialogBase; parent: ptr WxWindow; 
              title: WxString = constructWxString("Select a directory"); 
              defaultPath: WxString = wxEmptyString; 
              style: clong = wxDD_DEFAULT_STYLE; 
              pos: WxPoint = wxDefaultPosition; sz: WxSize = wxDefaultSize; 
              name: WxString = constructWxString("wxDirCtrl")): bool {.cdecl, 
-    importcpp: "Create", header: "<wx/wx.h>".}
+    importcpp: "Create", header: wxh.}
 proc setMessage*(this: var WxDirDialogBase; message: WxString) {.cdecl, 
-    importcpp: "SetMessage", header: "<wx/wx.h>".}
+    importcpp: "SetMessage", header: wxh.}
 proc setPath*(this: var WxDirDialogBase; path: WxString) {.cdecl, 
-    importcpp: "SetPath", header: "<wx/wx.h>".}
+    importcpp: "SetPath", header: wxh.}
 proc getMessage*(this: WxDirDialogBase): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetMessage", header: "<wx/wx.h>".}
+    importcpp: "GetMessage", header: wxh.}
 proc getPath*(this: WxDirDialogBase): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetPath", header: "<wx/wx.h>".}
+    importcpp: "GetPath", header: wxh.}
 
 proc wxDirSelector*(message: WxString = constructWxString("Select a directory"); 
                     defaultPath: WxString = wxEmptyString; 
                     style: clong = wxDD_DEFAULT_STYLE; 
                     pos: WxPoint = wxDefaultPosition; parent: ptr WxWindow = nil): WxString {.
-    cdecl, importcpp: "wxDirSelector(@)", header: "<wx/wx.h>".}
+    cdecl, importcpp: "wxDirSelector(@)", header: wxh.}

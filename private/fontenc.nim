@@ -2,8 +2,7 @@
 
 
 type 
-  WxFontEncoding* {.size: sizeof(cint), importcpp: "wxFontEncoding", 
-                    header: "<wx/wx.h>".} = enum 
+  WxFontEncoding* {.size: sizeof(cint), importcpp: "wxFontEncoding", header: wxh.} = enum 
     wxFONTENCODING_SYSTEM = - 1, wxFONTENCODING_DEFAULT, 
     wxFONTENCODING_ISO88591, wxFONTENCODING_ISO88592, wxFONTENCODING_ISO88593, 
     wxFONTENCODING_ISO88594, wxFONTENCODING_ISO88595, wxFONTENCODING_ISO88596, 

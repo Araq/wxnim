@@ -13,8 +13,7 @@ const
 
 
 type 
-  WxRichTextBulletsPage* {.importcpp: "wxRichTextBulletsPage", 
-                           header: "<wx/wx.h>".} = object of WxRichTextDialogPage
+  WxRichTextBulletsPage* {.importcpp: "wxRichTextBulletsPage", header: wxh.} = object of WxRichTextDialogPage
     mStyleListBox* {.importc: "m_styleListBox".}: ptr WxListBox
     mPeriodCtrl* {.importc: "m_periodCtrl".}: ptr WxCheckBox
     mParenthesesCtrl* {.importc: "m_parenthesesCtrl".}: ptr WxCheckBox
@@ -32,122 +31,121 @@ type
 
 
 proc constructwxRichTextBulletsPage*(): WxRichTextBulletsPage {.cdecl, 
-    constructor, importcpp: "wxRichTextBulletsPage(@)", header: "<wx/wx.h>".}
+    constructor, importcpp: "wxRichTextBulletsPage(@)", header: wxh.}
 proc constructwxRichTextBulletsPage*(parent: ptr WxWindow; 
                                      id: WxWindowID = wxID_ANY; pos: WxPoint = symbol_Wxrichtextbulletspage_Position; 
     size: WxSize = symbol_Wxrichtextbulletspage_Size; style: clong = symbol_Wxrichtextbulletspage_Style): WxRichTextBulletsPage {.
-    cdecl, constructor, importcpp: "wxRichTextBulletsPage(@)", 
-    header: "<wx/wx.h>".}
+    cdecl, constructor, importcpp: "wxRichTextBulletsPage(@)", header: wxh.}
 proc create*(this: var WxRichTextBulletsPage; parent: ptr WxWindow; 
              id: WxWindowID = wxID_ANY; 
              pos: WxPoint = symbol_Wxrichtextbulletspage_Position; 
              size: WxSize = symbol_Wxrichtextbulletspage_Size; 
              style: clong = symbol_Wxrichtextbulletspage_Style): bool {.cdecl, 
-    importcpp: "Create", header: "<wx/wx.h>".}
+    importcpp: "Create", header: wxh.}
 proc init*(this: var WxRichTextBulletsPage) {.cdecl, importcpp: "Init", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc createControls*(this: var WxRichTextBulletsPage) {.cdecl, 
-    importcpp: "CreateControls", header: "<wx/wx.h>".}
+    importcpp: "CreateControls", header: wxh.}
 proc updatePreview*(this: var WxRichTextBulletsPage) {.cdecl, 
-    importcpp: "UpdatePreview", header: "<wx/wx.h>".}
+    importcpp: "UpdatePreview", header: wxh.}
 proc transferDataFromWindow*(this: var WxRichTextBulletsPage): bool {.cdecl, 
-    importcpp: "TransferDataFromWindow", header: "<wx/wx.h>".}
+    importcpp: "TransferDataFromWindow", header: wxh.}
 proc transferDataToWindow*(this: var WxRichTextBulletsPage): bool {.cdecl, 
-    importcpp: "TransferDataToWindow", header: "<wx/wx.h>".}
+    importcpp: "TransferDataToWindow", header: wxh.}
 proc getAttributes*(this: var WxRichTextBulletsPage): ptr WxRichTextAttr {.
-    cdecl, importcpp: "GetAttributes", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetAttributes", header: wxh.}
 proc onSymbolUpdate*(this: var WxRichTextBulletsPage; event: var WxUpdateUIEvent) {.
-    cdecl, importcpp: "OnSymbolUpdate", header: "<wx/wx.h>".}
+    cdecl, importcpp: "OnSymbolUpdate", header: wxh.}
 proc onNumberUpdate*(this: var WxRichTextBulletsPage; event: var WxUpdateUIEvent) {.
-    cdecl, importcpp: "OnNumberUpdate", header: "<wx/wx.h>".}
+    cdecl, importcpp: "OnNumberUpdate", header: wxh.}
 proc onStandardBulletUpdate*(this: var WxRichTextBulletsPage; 
                              event: var WxUpdateUIEvent) {.cdecl, 
-    importcpp: "OnStandardBulletUpdate", header: "<wx/wx.h>".}
+    importcpp: "OnStandardBulletUpdate", header: wxh.}
 proc onStylelistboxSelected*(this: var WxRichTextBulletsPage; 
                              event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnStylelistboxSelected", header: "<wx/wx.h>".}
+    importcpp: "OnStylelistboxSelected", header: wxh.}
 proc onPeriodctrlClick*(this: var WxRichTextBulletsPage; 
                         event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnPeriodctrlClick", header: "<wx/wx.h>".}
+    importcpp: "OnPeriodctrlClick", header: wxh.}
 proc onPeriodctrlUpdate*(this: var WxRichTextBulletsPage; 
                          event: var WxUpdateUIEvent) {.cdecl, 
-    importcpp: "OnPeriodctrlUpdate", header: "<wx/wx.h>".}
+    importcpp: "OnPeriodctrlUpdate", header: wxh.}
 proc onParenthesesctrlClick*(this: var WxRichTextBulletsPage; 
                              event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnParenthesesctrlClick", header: "<wx/wx.h>".}
+    importcpp: "OnParenthesesctrlClick", header: wxh.}
 proc onParenthesesctrlUpdate*(this: var WxRichTextBulletsPage; 
                               event: var WxUpdateUIEvent) {.cdecl, 
-    importcpp: "OnParenthesesctrlUpdate", header: "<wx/wx.h>".}
+    importcpp: "OnParenthesesctrlUpdate", header: wxh.}
 proc onRightParenthesisCtrlClick*(this: var WxRichTextBulletsPage; 
                                   event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnRightParenthesisCtrlClick", header: "<wx/wx.h>".}
+    importcpp: "OnRightParenthesisCtrlClick", header: wxh.}
 proc onRightParenthesisCtrlUpdate*(this: var WxRichTextBulletsPage; 
                                    event: var WxUpdateUIEvent) {.cdecl, 
-    importcpp: "OnRightParenthesisCtrlUpdate", header: "<wx/wx.h>".}
+    importcpp: "OnRightParenthesisCtrlUpdate", header: wxh.}
 proc onBulletAlignmentCtrlSelected*(this: var WxRichTextBulletsPage; 
                                     event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnBulletAlignmentCtrlSelected", header: "<wx/wx.h>".}
+    importcpp: "OnBulletAlignmentCtrlSelected", header: wxh.}
 proc onSymbolstaticUpdate*(this: var WxRichTextBulletsPage; 
                            event: var WxUpdateUIEvent) {.cdecl, 
-    importcpp: "OnSymbolstaticUpdate", header: "<wx/wx.h>".}
+    importcpp: "OnSymbolstaticUpdate", header: wxh.}
 proc onSymbolctrlSelected*(this: var WxRichTextBulletsPage; 
                            event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnSymbolctrlSelected", header: "<wx/wx.h>".}
+    importcpp: "OnSymbolctrlSelected", header: wxh.}
 proc onSymbolctrlUpdated*(this: var WxRichTextBulletsPage; 
                           event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnSymbolctrlUpdated", header: "<wx/wx.h>".}
+    importcpp: "OnSymbolctrlUpdated", header: wxh.}
 proc onSymbolctrlUpdate*(this: var WxRichTextBulletsPage; 
                          event: var WxUpdateUIEvent) {.cdecl, 
-    importcpp: "OnSymbolctrlUpdate", header: "<wx/wx.h>".}
+    importcpp: "OnSymbolctrlUpdate", header: wxh.}
 proc onChooseSymbolClick*(this: var WxRichTextBulletsPage; 
                           event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnChooseSymbolClick", header: "<wx/wx.h>".}
+    importcpp: "OnChooseSymbolClick", header: wxh.}
 proc onChooseSymbolUpdate*(this: var WxRichTextBulletsPage; 
                            event: var WxUpdateUIEvent) {.cdecl, 
-    importcpp: "OnChooseSymbolUpdate", header: "<wx/wx.h>".}
+    importcpp: "OnChooseSymbolUpdate", header: wxh.}
 proc onSymbolfontctrlSelected*(this: var WxRichTextBulletsPage; 
                                event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnSymbolfontctrlSelected", header: "<wx/wx.h>".}
+    importcpp: "OnSymbolfontctrlSelected", header: wxh.}
 proc onSymbolfontctrlUpdated*(this: var WxRichTextBulletsPage; 
                               event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnSymbolfontctrlUpdated", header: "<wx/wx.h>".}
+    importcpp: "OnSymbolfontctrlUpdated", header: wxh.}
 proc onSymbolfontctrlUIUpdate*(this: var WxRichTextBulletsPage; 
                                event: var WxUpdateUIEvent) {.cdecl, 
-    importcpp: "OnSymbolfontctrlUIUpdate", header: "<wx/wx.h>".}
+    importcpp: "OnSymbolfontctrlUIUpdate", header: wxh.}
 proc onNamestaticUpdate*(this: var WxRichTextBulletsPage; 
                          event: var WxUpdateUIEvent) {.cdecl, 
-    importcpp: "OnNamestaticUpdate", header: "<wx/wx.h>".}
+    importcpp: "OnNamestaticUpdate", header: wxh.}
 proc onNamectrlSelected*(this: var WxRichTextBulletsPage; 
                          event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnNamectrlSelected", header: "<wx/wx.h>".}
+    importcpp: "OnNamectrlSelected", header: wxh.}
 proc onNamectrlUpdated*(this: var WxRichTextBulletsPage; 
                         event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnNamectrlUpdated", header: "<wx/wx.h>".}
+    importcpp: "OnNamectrlUpdated", header: wxh.}
 proc onNamectrlUIUpdate*(this: var WxRichTextBulletsPage; 
                          event: var WxUpdateUIEvent) {.cdecl, 
-    importcpp: "OnNamectrlUIUpdate", header: "<wx/wx.h>".}
+    importcpp: "OnNamectrlUIUpdate", header: wxh.}
 proc onNumberstaticUpdate*(this: var WxRichTextBulletsPage; 
                            event: var WxUpdateUIEvent) {.cdecl, 
-    importcpp: "OnNumberstaticUpdate", header: "<wx/wx.h>".}
+    importcpp: "OnNumberstaticUpdate", header: wxh.}
 proc onNumberctrlUpdated*(this: var WxRichTextBulletsPage; 
                           event: var WxSpinEvent) {.cdecl, 
-    importcpp: "OnNumberctrlUpdated", header: "<wx/wx.h>".}
+    importcpp: "OnNumberctrlUpdated", header: wxh.}
 proc onNumberctrlUp*(this: var WxRichTextBulletsPage; event: var WxSpinEvent) {.
-    cdecl, importcpp: "OnNumberctrlUp", header: "<wx/wx.h>".}
+    cdecl, importcpp: "OnNumberctrlUp", header: wxh.}
 proc onNumberctrlDown*(this: var WxRichTextBulletsPage; event: var WxSpinEvent) {.
-    cdecl, importcpp: "OnNumberctrlDown", header: "<wx/wx.h>".}
+    cdecl, importcpp: "OnNumberctrlDown", header: wxh.}
 proc onNumberctrlTextUpdated*(this: var WxRichTextBulletsPage; 
                               event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnNumberctrlTextUpdated", header: "<wx/wx.h>".}
+    importcpp: "OnNumberctrlTextUpdated", header: wxh.}
 proc onNumberctrlUpdate*(this: var WxRichTextBulletsPage; 
                          event: var WxUpdateUIEvent) {.cdecl, 
-    importcpp: "OnNumberctrlUpdate", header: "<wx/wx.h>".}
+    importcpp: "OnNumberctrlUpdate", header: wxh.}
 proc getBitmapResource*(this: var WxRichTextBulletsPage; name: WxString): WxBitmap {.
-    cdecl, importcpp: "GetBitmapResource", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetBitmapResource", header: wxh.}
 proc getIconResource*(this: var WxRichTextBulletsPage; name: WxString): WxIcon {.
-    cdecl, importcpp: "GetIconResource", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetIconResource", header: wxh.}
 proc showToolTips*(): bool {.cdecl, importcpp: "wxRichTextBulletsPage::ShowToolTips(@)", 
-                             header: "<wx/wx.h>".}
+                             header: wxh.}
 const 
   ID_RICHTEXTBULLETSPAGE* = 10300
   ID_RICHTEXTBULLETSPAGE_STYLELISTBOX* = 10305

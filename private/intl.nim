@@ -3,19 +3,19 @@
 
 type 
   WxLayoutDirection* {.size: sizeof(cint), importcpp: "wxLayoutDirection", 
-                       header: "<wx/wx.h>".} = enum 
+                       header: wxh.} = enum 
     wxLayoutDefault, wxLayoutLeftToRight, wxLayoutRightToLeft
 
 
 
 type 
-  WxLanguage* {.importcpp: "wxLanguage", header: "<wx/wx.h>".} = object 
+  WxLanguage* {.importcpp: "wxLanguage", header: wxh.} = object 
   
 
 discard "forward decl of wxLocale"
 discard "forward decl of wxLanguageInfoArray"
 type 
-  WxLanguageInfo* {.importcpp: "wxLanguageInfo", header: "<wx/wx.h>".} = object 
+  WxLanguageInfo* {.importcpp: "wxLanguageInfo", header: wxh.} = object 
     language* {.importc: "Language".}: cint
     canonicalName* {.importc: "CanonicalName".}: WxString
     description* {.importc: "Description".}: WxString
@@ -23,12 +23,12 @@ type
 
 
 proc getLocaleName*(this: WxLanguageInfo): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetLocaleName", header: "<wx/wx.h>".}
+    importcpp: "GetLocaleName", header: wxh.}
 
 type 
   WxLocaleCategory* {.size: sizeof(cint), 
                       importcpp: "wxLanguageInfoArray::wxLocaleCategory", 
-                      header: "<wx/wx.h>".} = enum 
+                      header: wxh.} = enum 
     wxLOCALE_CAT_NUMBER, wxLOCALE_CAT_DATE, wxLOCALE_CAT_MONEY, 
     wxLOCALE_CAT_DEFAULT, wxLOCALE_CAT_MAX
 
@@ -36,8 +36,7 @@ type
 
 type 
   WxLocaleInfo* {.size: sizeof(cint), 
-                  importcpp: "wxLanguageInfoArray::wxLocaleInfo", 
-                  header: "<wx/wx.h>".} = enum 
+                  importcpp: "wxLanguageInfoArray::wxLocaleInfo", header: wxh.} = enum 
     wxLOCALE_THOUSANDS_SEP, wxLOCALE_DECIMAL_POINT, wxLOCALE_SHORT_DATE_FMT, 
     wxLOCALE_LONG_DATE_FMT, wxLOCALE_DATE_TIME_FMT, wxLOCALE_TIME_FMT
 
@@ -46,88 +45,87 @@ type
 type 
   WxLocaleInitFlags* {.size: sizeof(cint), 
                        importcpp: "wxLanguageInfoArray::wxLocaleInitFlags", 
-                       header: "<wx/wx.h>".} = enum 
+                       header: wxh.} = enum 
     wxLOCALE_DONT_LOAD_DEFAULT = 0x00000000, wxLOCALE_LOAD_DEFAULT = 0x00000001
 
 
 type 
-  WxLocale* {.importcpp: "wxLocale", header: "<wx/wx.h>".} = object 
+  WxLocale* {.importcpp: "wxLocale", header: wxh.} = object 
   
 
 proc constructwxLocale*(): WxLocale {.cdecl, constructor, 
-                                      importcpp: "wxLocale(@)", 
-                                      header: "<wx/wx.h>".}
+                                      importcpp: "wxLocale(@)", header: wxh.}
 proc constructwxLocale*(name: WxString; shortName: WxString = wxEmptyString; 
                         locale: WxString = wxEmptyString; 
                         bLoadDefault: bool = true): WxLocale {.cdecl, 
-    constructor, importcpp: "wxLocale(@)", header: "<wx/wx.h>".}
+    constructor, importcpp: "wxLocale(@)", header: wxh.}
 proc constructwxLocale*(language: cint; flags = wxLOCALE_LOAD_DEFAULT): WxLocale {.
-    cdecl, constructor, importcpp: "wxLocale(@)", header: "<wx/wx.h>".}
+    cdecl, constructor, importcpp: "wxLocale(@)", header: wxh.}
 proc init*(this: var WxLocale; name: WxString; 
            shortName: WxString = wxEmptyString; 
            locale: WxString = wxEmptyString; bLoadDefault: bool = true): bool {.
-    cdecl, importcpp: "Init", header: "<wx/wx.h>".}
+    cdecl, importcpp: "Init", header: wxh.}
 proc destroywxLocale*(this: var WxLocale) {.cdecl, importcpp: "#.~wxLocale()", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc getSystemLanguage*(): cint {.cdecl, 
                                   importcpp: "wxLocale::GetSystemLanguage(@)", 
-                                  header: "<wx/wx.h>".}
+                                  header: wxh.}
 proc getSystemEncoding*(): WxFontEncoding {.cdecl, 
-    importcpp: "wxLocale::GetSystemEncoding(@)", header: "<wx/wx.h>".}
+    importcpp: "wxLocale::GetSystemEncoding(@)", header: wxh.}
 proc getSystemEncodingName*(): WxString {.cdecl, 
-    importcpp: "wxLocale::GetSystemEncodingName(@)", header: "<wx/wx.h>".}
+    importcpp: "wxLocale::GetSystemEncodingName(@)", header: wxh.}
 proc getInfo*(index: WxLocaleInfo; cat: WxLocaleCategory = wxLOCALE_CAT_DEFAULT): WxString {.
-    cdecl, importcpp: "wxLocale::GetInfo(@)", header: "<wx/wx.h>".}
+    cdecl, importcpp: "wxLocale::GetInfo(@)", header: wxh.}
 proc isOk*(this: WxLocale): bool {.noSideEffect, cdecl, importcpp: "IsOk", 
-                                   header: "<wx/wx.h>".}
+                                   header: wxh.}
 proc getLocale*(this: WxLocale): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetLocale", header: "<wx/wx.h>".}
+    importcpp: "GetLocale", header: wxh.}
 proc getLanguage*(this: WxLocale): cint {.noSideEffect, cdecl, 
-    importcpp: "GetLanguage", header: "<wx/wx.h>".}
+    importcpp: "GetLanguage", header: wxh.}
 proc getSysName*(this: WxLocale): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetSysName", header: "<wx/wx.h>".}
+    importcpp: "GetSysName", header: wxh.}
 proc getCanonicalName*(this: WxLocale): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetCanonicalName", header: "<wx/wx.h>".}
+    importcpp: "GetCanonicalName", header: wxh.}
 proc addCatalogLookupPathPrefix*(prefix: WxString) {.cdecl, 
-    importcpp: "wxLocale::AddCatalogLookupPathPrefix(@)", header: "<wx/wx.h>".}
+    importcpp: "wxLocale::AddCatalogLookupPathPrefix(@)", header: wxh.}
 proc addCatalog*(this: var WxLocale; domain: WxString): bool {.cdecl, 
-    importcpp: "AddCatalog", header: "<wx/wx.h>".}
+    importcpp: "AddCatalog", header: wxh.}
 proc addCatalog*(this: var WxLocale; domain: WxString; msgIdLanguage: WxLanguage): bool {.
-    cdecl, importcpp: "AddCatalog", header: "<wx/wx.h>".}
+    cdecl, importcpp: "AddCatalog", header: wxh.}
 proc addCatalog*(this: var WxLocale; domain: WxString; 
                  msgIdLanguage: WxLanguage; msgIdCharset: WxString): bool {.
-    cdecl, importcpp: "AddCatalog", header: "<wx/wx.h>".}
+    cdecl, importcpp: "AddCatalog", header: wxh.}
 proc isAvailable*(lang: cint): bool {.cdecl, 
                                       importcpp: "wxLocale::IsAvailable(@)", 
-                                      header: "<wx/wx.h>".}
+                                      header: wxh.}
 proc isLoaded*(this: WxLocale; domain: WxString): bool {.noSideEffect, cdecl, 
-    importcpp: "IsLoaded", header: "<wx/wx.h>".}
+    importcpp: "IsLoaded", header: wxh.}
 proc getLanguageInfo*(lang: cint): ptr WxLanguageInfo {.cdecl, 
-    importcpp: "wxLocale::GetLanguageInfo(@)", header: "<wx/wx.h>".}
+    importcpp: "wxLocale::GetLanguageInfo(@)", header: wxh.}
 proc getLanguageName*(lang: cint): WxString {.cdecl, 
-    importcpp: "wxLocale::GetLanguageName(@)", header: "<wx/wx.h>".}
+    importcpp: "wxLocale::GetLanguageName(@)", header: wxh.}
 proc getLanguageCanonicalName*(lang: cint): WxString {.cdecl, 
-    importcpp: "wxLocale::GetLanguageCanonicalName(@)", header: "<wx/wx.h>".}
+    importcpp: "wxLocale::GetLanguageCanonicalName(@)", header: wxh.}
 proc findLanguageInfo*(locale: WxString): ptr WxLanguageInfo {.cdecl, 
-    importcpp: "wxLocale::FindLanguageInfo(@)", header: "<wx/wx.h>".}
+    importcpp: "wxLocale::FindLanguageInfo(@)", header: wxh.}
 proc addLanguage*(info: WxLanguageInfo) {.cdecl, 
-    importcpp: "wxLocale::AddLanguage(@)", header: "<wx/wx.h>".}
+    importcpp: "wxLocale::AddLanguage(@)", header: wxh.}
 proc getString*(this: WxLocale; origString: WxString; 
                 domain: WxString = wxEmptyString): WxString {.noSideEffect, 
-    cdecl, importcpp: "GetString", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetString", header: wxh.}
 proc getString*(this: WxLocale; origString: WxString; origString2: WxString; 
                 n: cuint; domain: WxString = wxEmptyString): WxString {.
-    noSideEffect, cdecl, importcpp: "GetString", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetString", header: wxh.}
 proc getName*(this: WxLocale): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetName", header: "<wx/wx.h>".}
+    importcpp: "GetName", header: wxh.}
 proc getHeaderValue*(this: WxLocale; header: WxString; 
                      domain: WxString = wxEmptyString): WxString {.noSideEffect, 
-    cdecl, importcpp: "GetHeaderValue", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetHeaderValue", header: wxh.}
 proc createLanguagesDB*() {.cdecl, importcpp: "wxLocale::CreateLanguagesDB(@)", 
-                            header: "<wx/wx.h>".}
+                            header: wxh.}
 proc destroyLanguagesDB*() {.cdecl, 
                              importcpp: "wxLocale::DestroyLanguagesDB(@)", 
-                             header: "<wx/wx.h>".}
+                             header: wxh.}
 
 proc wxGetLocale*(): ptr WxLocale {.cdecl, importcpp: "wxGetLocale(@)", 
-                                    header: "<wx/wx.h>".}
+                                    header: wxh.}

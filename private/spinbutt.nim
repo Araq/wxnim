@@ -2,67 +2,67 @@
 
 
 type 
-  WxRange* {.importcpp: "wxRange", header: "<wx/wx.h>".} = object 
+  WxRange* {.importcpp: "wxRange", header: wxh.} = object 
   
 
 proc constructwxRange*(): WxRange {.cdecl, constructor, importcpp: "wxRange(@)", 
-                                    header: "<wx/wx.h>".}
+                                    header: wxh.}
 proc constructwxRange*(minVal: cint; maxVal: cint): WxRange {.cdecl, 
-    constructor, importcpp: "wxRange(@)", header: "<wx/wx.h>".}
+    constructor, importcpp: "wxRange(@)", header: wxh.}
 proc getMin*(this: WxRange): cint {.noSideEffect, cdecl, importcpp: "GetMin", 
-                                    header: "<wx/wx.h>".}
+                                    header: wxh.}
 proc getMax*(this: WxRange): cint {.noSideEffect, cdecl, importcpp: "GetMax", 
-                                    header: "<wx/wx.h>".}
+                                    header: wxh.}
 const 
   wxSPIN_BUTTON_NAME* = "wxSpinButton"
 
 
 type 
-  WxSpinButtonBase* {.importcpp: "wxSpinButtonBase", header: "<wx/wx.h>".} = object of WxControl
+  WxSpinButtonBase* {.importcpp: "wxSpinButtonBase", header: wxh.} = object of WxControl
   
 
 proc constructwxSpinButtonBase*(): WxSpinButtonBase {.cdecl, constructor, 
-    importcpp: "wxSpinButtonBase(@)", header: "<wx/wx.h>".}
+    importcpp: "wxSpinButtonBase(@)", header: wxh.}
 proc getValue*(this: WxSpinButtonBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetValue", header: "<wx/wx.h>".}
+    importcpp: "GetValue", header: wxh.}
 proc getMin*(this: WxSpinButtonBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetMin", header: "<wx/wx.h>".}
+    importcpp: "GetMin", header: wxh.}
 proc getMax*(this: WxSpinButtonBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetMax", header: "<wx/wx.h>".}
+    importcpp: "GetMax", header: wxh.}
 proc getRange*(this: WxSpinButtonBase): WxRange {.noSideEffect, cdecl, 
-    importcpp: "GetRange", header: "<wx/wx.h>".}
+    importcpp: "GetRange", header: wxh.}
 proc setValue*(this: var WxSpinButtonBase; val: cint) {.cdecl, 
-    importcpp: "SetValue", header: "<wx/wx.h>".}
+    importcpp: "SetValue", header: wxh.}
 proc setMin*(this: var WxSpinButtonBase; minVal: cint) {.cdecl, 
-    importcpp: "SetMin", header: "<wx/wx.h>".}
+    importcpp: "SetMin", header: wxh.}
 proc setMax*(this: var WxSpinButtonBase; maxVal: cint) {.cdecl, 
-    importcpp: "SetMax", header: "<wx/wx.h>".}
+    importcpp: "SetMax", header: wxh.}
 proc setRange*(this: var WxSpinButtonBase; minVal: cint; maxVal: cint) {.cdecl, 
-    importcpp: "SetRange", header: "<wx/wx.h>".}
+    importcpp: "SetRange", header: wxh.}
 proc setRange*(this: var WxSpinButtonBase; range: WxRange) {.cdecl, 
-    importcpp: "SetRange", header: "<wx/wx.h>".}
+    importcpp: "SetRange", header: wxh.}
 proc isVertical*(this: WxSpinButtonBase): bool {.noSideEffect, cdecl, 
-    importcpp: "IsVertical", header: "<wx/wx.h>".}
+    importcpp: "IsVertical", header: wxh.}
 
 type 
-  WxSpinEvent* {.importcpp: "wxSpinEvent", header: "<wx/wx.h>".} = object of WxNotifyEvent
+  WxSpinEvent* {.importcpp: "wxSpinEvent", header: wxh.} = object of WxNotifyEvent
   
 
 proc constructwxSpinEvent*(commandType: WxEventType = wxEVT_NULL; 
                            winid: cint = 0): WxSpinEvent {.cdecl, constructor, 
-    importcpp: "wxSpinEvent(@)", header: "<wx/wx.h>".}
+    importcpp: "wxSpinEvent(@)", header: wxh.}
 proc constructwxSpinEvent*(event: WxSpinEvent): WxSpinEvent {.cdecl, 
-    constructor, importcpp: "wxSpinEvent(@)", header: "<wx/wx.h>".}
+    constructor, importcpp: "wxSpinEvent(@)", header: wxh.}
 proc getValue*(this: WxSpinEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetValue", header: "<wx/wx.h>".}
+    importcpp: "GetValue", header: wxh.}
 proc setValue*(this: var WxSpinEvent; value: cint) {.cdecl, 
-    importcpp: "SetValue", header: "<wx/wx.h>".}
+    importcpp: "SetValue", header: wxh.}
 proc getPosition*(this: WxSpinEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetPosition", header: "<wx/wx.h>".}
+    importcpp: "GetPosition", header: wxh.}
 proc setPosition*(this: var WxSpinEvent; pos: cint) {.cdecl, 
-    importcpp: "SetPosition", header: "<wx/wx.h>".}
+    importcpp: "SetPosition", header: wxh.}
 proc clone*(this: WxSpinEvent): ptr WxEvent {.noSideEffect, cdecl, 
-    importcpp: "Clone", header: "<wx/wx.h>".}
+    importcpp: "Clone", header: wxh.}
 template wxSpinEventHandler*(`func`: expr): expr = 
   wxEVENT_HANDLER_CAST(wxSpinEventFunction, `func`)
 

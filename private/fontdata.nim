@@ -1,7 +1,7 @@
 
 
 type 
-  WxFontData* {.importcpp: "wxFontData", header: "<wx/wx.h>".} = object of WxObject
+  WxFontData* {.importcpp: "wxFontData", header: wxh.} = object of WxObject
     mFontColour* {.importc: "m_fontColour".}: WxColour
     mShowHelp* {.importc: "m_showHelp".}: bool
     mAllowSymbols* {.importc: "m_allowSymbols".}: bool
@@ -13,38 +13,38 @@ type
   
 
 proc constructwxFontData*(): WxFontData {.cdecl, constructor, 
-    importcpp: "wxFontData(@)", header: "<wx/wx.h>".}
+    importcpp: "wxFontData(@)", header: wxh.}
 proc destroywxFontData*(this: var WxFontData) {.cdecl, 
-    importcpp: "#.~wxFontData()", header: "<wx/wx.h>".}
+    importcpp: "#.~wxFontData()", header: wxh.}
 proc constructwxFontData*(data: WxFontData): WxFontData {.cdecl, constructor, 
-    importcpp: "wxFontData(@)", header: "<wx/wx.h>".}
+    importcpp: "wxFontData(@)", header: wxh.}
 proc setAllowSymbols*(this: var WxFontData; flag: bool) {.cdecl, 
-    importcpp: "SetAllowSymbols", header: "<wx/wx.h>".}
+    importcpp: "SetAllowSymbols", header: wxh.}
 proc getAllowSymbols*(this: WxFontData): bool {.noSideEffect, cdecl, 
-    importcpp: "GetAllowSymbols", header: "<wx/wx.h>".}
+    importcpp: "GetAllowSymbols", header: wxh.}
 proc setColour*(this: var WxFontData; colour: WxColour) {.cdecl, 
-    importcpp: "SetColour", header: "<wx/wx.h>".}
+    importcpp: "SetColour", header: wxh.}
 proc getColour*(this: WxFontData): WxColour {.noSideEffect, cdecl, 
-    importcpp: "GetColour", header: "<wx/wx.h>".}
+    importcpp: "GetColour", header: wxh.}
 proc setShowHelp*(this: var WxFontData; flag: bool) {.cdecl, 
-    importcpp: "SetShowHelp", header: "<wx/wx.h>".}
+    importcpp: "SetShowHelp", header: wxh.}
 proc getShowHelp*(this: WxFontData): bool {.noSideEffect, cdecl, 
-    importcpp: "GetShowHelp", header: "<wx/wx.h>".}
+    importcpp: "GetShowHelp", header: wxh.}
 proc enableEffects*(this: var WxFontData; flag: bool) {.cdecl, 
-    importcpp: "EnableEffects", header: "<wx/wx.h>".}
+    importcpp: "EnableEffects", header: wxh.}
 proc getEnableEffects*(this: WxFontData): bool {.noSideEffect, cdecl, 
-    importcpp: "GetEnableEffects", header: "<wx/wx.h>".}
+    importcpp: "GetEnableEffects", header: wxh.}
 proc setInitialFont*(this: var WxFontData; font: WxFont) {.cdecl, 
-    importcpp: "SetInitialFont", header: "<wx/wx.h>".}
+    importcpp: "SetInitialFont", header: wxh.}
 proc getInitialFont*(this: WxFontData): WxFont {.noSideEffect, cdecl, 
-    importcpp: "GetInitialFont", header: "<wx/wx.h>".}
+    importcpp: "GetInitialFont", header: wxh.}
 proc setChosenFont*(this: var WxFontData; font: WxFont) {.cdecl, 
-    importcpp: "SetChosenFont", header: "<wx/wx.h>".}
+    importcpp: "SetChosenFont", header: wxh.}
 proc getChosenFont*(this: WxFontData): WxFont {.noSideEffect, cdecl, 
-    importcpp: "GetChosenFont", header: "<wx/wx.h>".}
+    importcpp: "GetChosenFont", header: wxh.}
 proc setRange*(this: var WxFontData; minRange: cint; maxRange: cint) {.cdecl, 
-    importcpp: "SetRange", header: "<wx/wx.h>".}
+    importcpp: "SetRange", header: wxh.}
 proc getEncoding*(this: WxFontData): WxFontEncoding {.noSideEffect, cdecl, 
-    importcpp: "GetEncoding", header: "<wx/wx.h>".}
+    importcpp: "GetEncoding", header: wxh.}
 proc setEncoding*(this: var WxFontData; encoding: WxFontEncoding) {.cdecl, 
-    importcpp: "SetEncoding", header: "<wx/wx.h>".}
+    importcpp: "SetEncoding", header: wxh.}

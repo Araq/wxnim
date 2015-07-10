@@ -90,7 +90,7 @@ const
 
 type 
   WxListColumnFormat* {.size: sizeof(cint), importcpp: "wxListColumnFormat", 
-                        header: "<wx/wx.h>".} = enum 
+                        header: wxh.} = enum 
     wxLIST_FORMAT_LEFT, wxLIST_FORMAT_RIGHT, wxLIST_FORMAT_CENTER
 
 
@@ -113,41 +113,41 @@ const
   wxLIST_FIND_RIGHT* = 3
 
 type 
-  WxImageList* {.importcpp: "wxImageList", header: "<wx/wx.h>".} = object of WxList
+  WxImageList* {.importcpp: "wxImageList", header: wxh.} = object of WxList
   
 
 
 type 
-  WxListItemAttr* {.importcpp: "wxListItemAttr", header: "<wx/wx.h>".} = object 
+  WxListItemAttr* {.importcpp: "wxListItemAttr", header: wxh.} = object 
   
 
 proc constructwxListItemAttr*(): WxListItemAttr {.cdecl, constructor, 
-    importcpp: "wxListItemAttr(@)", header: "<wx/wx.h>".}
+    importcpp: "wxListItemAttr(@)", header: wxh.}
 proc constructwxListItemAttr*(colText: WxColour; colBack: WxColour; font: WxFont): WxListItemAttr {.
-    cdecl, constructor, importcpp: "wxListItemAttr(@)", header: "<wx/wx.h>".}
+    cdecl, constructor, importcpp: "wxListItemAttr(@)", header: wxh.}
 proc setTextColour*(this: var WxListItemAttr; colText: WxColour) {.cdecl, 
-    importcpp: "SetTextColour", header: "<wx/wx.h>".}
+    importcpp: "SetTextColour", header: wxh.}
 proc setBackgroundColour*(this: var WxListItemAttr; colBack: WxColour) {.cdecl, 
-    importcpp: "SetBackgroundColour", header: "<wx/wx.h>".}
+    importcpp: "SetBackgroundColour", header: wxh.}
 proc setFont*(this: var WxListItemAttr; font: WxFont) {.cdecl, 
-    importcpp: "SetFont", header: "<wx/wx.h>".}
+    importcpp: "SetFont", header: wxh.}
 proc hasTextColour*(this: WxListItemAttr): bool {.noSideEffect, cdecl, 
-    importcpp: "HasTextColour", header: "<wx/wx.h>".}
+    importcpp: "HasTextColour", header: wxh.}
 proc hasBackgroundColour*(this: WxListItemAttr): bool {.noSideEffect, cdecl, 
-    importcpp: "HasBackgroundColour", header: "<wx/wx.h>".}
+    importcpp: "HasBackgroundColour", header: wxh.}
 proc hasFont*(this: WxListItemAttr): bool {.noSideEffect, cdecl, 
-    importcpp: "HasFont", header: "<wx/wx.h>".}
+    importcpp: "HasFont", header: wxh.}
 proc getTextColour*(this: WxListItemAttr): WxColour {.noSideEffect, cdecl, 
-    importcpp: "GetTextColour", header: "<wx/wx.h>".}
+    importcpp: "GetTextColour", header: wxh.}
 proc getBackgroundColour*(this: WxListItemAttr): WxColour {.noSideEffect, cdecl, 
-    importcpp: "GetBackgroundColour", header: "<wx/wx.h>".}
+    importcpp: "GetBackgroundColour", header: wxh.}
 proc getFont*(this: WxListItemAttr): WxFont {.noSideEffect, cdecl, 
-    importcpp: "GetFont", header: "<wx/wx.h>".}
+    importcpp: "GetFont", header: wxh.}
 proc assignFrom*(this: var WxListItemAttr; source: WxListItemAttr) {.cdecl, 
-    importcpp: "AssignFrom", header: "<wx/wx.h>".}
+    importcpp: "AssignFrom", header: wxh.}
 
 type 
-  WxListItem* {.importcpp: "wxListItem", header: "<wx/wx.h>".} = object of WxObject
+  WxListItem* {.importcpp: "wxListItem", header: wxh.} = object of WxObject
     mMask* {.importc: "m_mask".}: clong
     mItemId* {.importc: "m_itemId".}: clong
     mCol* {.importc: "m_col".}: cint
@@ -161,125 +161,123 @@ type
 
 
 proc constructwxListItem*(): WxListItem {.cdecl, constructor, 
-    importcpp: "wxListItem(@)", header: "<wx/wx.h>".}
+    importcpp: "wxListItem(@)", header: wxh.}
 proc constructwxListItem*(item: WxListItem): WxListItem {.cdecl, constructor, 
-    importcpp: "wxListItem(@)", header: "<wx/wx.h>".}
+    importcpp: "wxListItem(@)", header: wxh.}
 proc destroywxListItem*(this: var WxListItem) {.cdecl, 
-    importcpp: "#.~wxListItem()", header: "<wx/wx.h>".}
-proc clear*(this: var WxListItem) {.cdecl, importcpp: "Clear", 
-                                    header: "<wx/wx.h>".}
+    importcpp: "#.~wxListItem()", header: wxh.}
+proc clear*(this: var WxListItem) {.cdecl, importcpp: "Clear", header: wxh.}
 proc clearAttributes*(this: var WxListItem) {.cdecl, 
-    importcpp: "ClearAttributes", header: "<wx/wx.h>".}
+    importcpp: "ClearAttributes", header: wxh.}
 proc setMask*(this: var WxListItem; mask: clong) {.cdecl, importcpp: "SetMask", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc setId*(this: var WxListItem; id: clong) {.cdecl, importcpp: "SetId", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc setColumn*(this: var WxListItem; col: cint) {.cdecl, 
-    importcpp: "SetColumn", header: "<wx/wx.h>".}
+    importcpp: "SetColumn", header: wxh.}
 proc setState*(this: var WxListItem; state: clong) {.cdecl, 
-    importcpp: "SetState", header: "<wx/wx.h>".}
+    importcpp: "SetState", header: wxh.}
 proc setStateMask*(this: var WxListItem; stateMask: clong) {.cdecl, 
-    importcpp: "SetStateMask", header: "<wx/wx.h>".}
+    importcpp: "SetStateMask", header: wxh.}
 proc setText*(this: var WxListItem; text: WxString) {.cdecl, 
-    importcpp: "SetText", header: "<wx/wx.h>".}
+    importcpp: "SetText", header: wxh.}
 proc setImage*(this: var WxListItem; image: cint) {.cdecl, 
-    importcpp: "SetImage", header: "<wx/wx.h>".}
+    importcpp: "SetImage", header: wxh.}
 proc setData*(this: var WxListItem; data: clong) {.cdecl, importcpp: "SetData", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc setData*(this: var WxListItem; data: pointer) {.cdecl, 
-    importcpp: "SetData", header: "<wx/wx.h>".}
+    importcpp: "SetData", header: wxh.}
 proc setWidth*(this: var WxListItem; width: cint) {.cdecl, 
-    importcpp: "SetWidth", header: "<wx/wx.h>".}
+    importcpp: "SetWidth", header: wxh.}
 proc setAlign*(this: var WxListItem; align: WxListColumnFormat) {.cdecl, 
-    importcpp: "SetAlign", header: "<wx/wx.h>".}
+    importcpp: "SetAlign", header: wxh.}
 proc setTextColour*(this: var WxListItem; colText: WxColour) {.cdecl, 
-    importcpp: "SetTextColour", header: "<wx/wx.h>".}
+    importcpp: "SetTextColour", header: wxh.}
 proc setBackgroundColour*(this: var WxListItem; colBack: WxColour) {.cdecl, 
-    importcpp: "SetBackgroundColour", header: "<wx/wx.h>".}
+    importcpp: "SetBackgroundColour", header: wxh.}
 proc setFont*(this: var WxListItem; font: WxFont) {.cdecl, importcpp: "SetFont", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc getMask*(this: WxListItem): clong {.noSideEffect, cdecl, 
-    importcpp: "GetMask", header: "<wx/wx.h>".}
+    importcpp: "GetMask", header: wxh.}
 proc getId*(this: WxListItem): clong {.noSideEffect, cdecl, importcpp: "GetId", 
-                                       header: "<wx/wx.h>".}
+                                       header: wxh.}
 proc getColumn*(this: WxListItem): cint {.noSideEffect, cdecl, 
-    importcpp: "GetColumn", header: "<wx/wx.h>".}
+    importcpp: "GetColumn", header: wxh.}
 proc getState*(this: WxListItem): clong {.noSideEffect, cdecl, 
-    importcpp: "GetState", header: "<wx/wx.h>".}
+    importcpp: "GetState", header: wxh.}
 proc getText*(this: WxListItem): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetText", header: "<wx/wx.h>".}
+    importcpp: "GetText", header: wxh.}
 proc getImage*(this: WxListItem): cint {.noSideEffect, cdecl, 
-    importcpp: "GetImage", header: "<wx/wx.h>".}
+    importcpp: "GetImage", header: wxh.}
 proc getData*(this: WxListItem): culong {.noSideEffect, cdecl, 
-    importcpp: "GetData", header: "<wx/wx.h>".}
+    importcpp: "GetData", header: wxh.}
 proc getWidth*(this: WxListItem): cint {.noSideEffect, cdecl, 
-    importcpp: "GetWidth", header: "<wx/wx.h>".}
+    importcpp: "GetWidth", header: wxh.}
 proc getAlign*(this: WxListItem): WxListColumnFormat {.noSideEffect, cdecl, 
-    importcpp: "GetAlign", header: "<wx/wx.h>".}
+    importcpp: "GetAlign", header: wxh.}
 proc getAttributes*(this: WxListItem): ptr WxListItemAttr {.noSideEffect, cdecl, 
-    importcpp: "GetAttributes", header: "<wx/wx.h>".}
+    importcpp: "GetAttributes", header: wxh.}
 proc hasAttributes*(this: WxListItem): bool {.noSideEffect, cdecl, 
-    importcpp: "HasAttributes", header: "<wx/wx.h>".}
+    importcpp: "HasAttributes", header: wxh.}
 proc getTextColour*(this: WxListItem): WxColour {.noSideEffect, cdecl, 
-    importcpp: "GetTextColour", header: "<wx/wx.h>".}
+    importcpp: "GetTextColour", header: wxh.}
 proc getBackgroundColour*(this: WxListItem): WxColour {.noSideEffect, cdecl, 
-    importcpp: "GetBackgroundColour", header: "<wx/wx.h>".}
+    importcpp: "GetBackgroundColour", header: wxh.}
 proc getFont*(this: WxListItem): WxFont {.noSideEffect, cdecl, 
-    importcpp: "GetFont", header: "<wx/wx.h>".}
+    importcpp: "GetFont", header: wxh.}
 
 type 
-  WxListCtrlBase* {.importcpp: "wxListCtrlBase", header: "<wx/wx.h>".} = object of WxControl
+  WxListCtrlBase* {.importcpp: "wxListCtrlBase", header: wxh.} = object of WxControl
   
 
 proc constructwxListCtrlBase*(): WxListCtrlBase {.cdecl, constructor, 
-    importcpp: "wxListCtrlBase(@)", header: "<wx/wx.h>".}
+    importcpp: "wxListCtrlBase(@)", header: wxh.}
 proc assignImageList*(this: var WxListCtrlBase; imageList: ptr WxImageList; 
                       which: cint) {.cdecl, importcpp: "AssignImageList", 
-                                     header: "<wx/wx.h>".}
+                                     header: wxh.}
 proc setImageList*(this: var WxListCtrlBase; imageList: ptr WxImageList; 
-                   which: cint) {.cdecl, importcpp: "SetImageList", 
-                                  header: "<wx/wx.h>".}
+                   which: cint) {.cdecl, importcpp: "SetImageList", header: wxh.}
 proc getImageList*(this: WxListCtrlBase; which: cint): ptr WxImageList {.
-    noSideEffect, cdecl, importcpp: "GetImageList", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetImageList", header: wxh.}
 proc appendColumn*(this: var WxListCtrlBase; heading: WxString; 
                    format: WxListColumnFormat = wxLIST_FORMAT_LEFT; 
                    width: cint = - 1): clong {.cdecl, importcpp: "AppendColumn", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc insertColumn*(this: var WxListCtrlBase; col: clong; info: WxListItem): clong {.
-    cdecl, importcpp: "InsertColumn", header: "<wx/wx.h>".}
+    cdecl, importcpp: "InsertColumn", header: wxh.}
 proc insertColumn*(this: var WxListCtrlBase; col: clong; heading: WxString; 
                    format: WxListColumnFormat = wxLIST_FORMAT_LEFT; 
                    width: cint = wxLIST_AUTOSIZE): clong {.cdecl, 
-    importcpp: "InsertColumn", header: "<wx/wx.h>".}
+    importcpp: "InsertColumn", header: wxh.}
 proc deleteColumn*(this: var WxListCtrlBase; col: cint): bool {.cdecl, 
-    importcpp: "DeleteColumn", header: "<wx/wx.h>".}
+    importcpp: "DeleteColumn", header: wxh.}
 proc deleteAllColumns*(this: var WxListCtrlBase): bool {.cdecl, 
-    importcpp: "DeleteAllColumns", header: "<wx/wx.h>".}
+    importcpp: "DeleteAllColumns", header: wxh.}
 proc getColumnCount*(this: WxListCtrlBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetColumnCount", header: "<wx/wx.h>".}
+    importcpp: "GetColumnCount", header: wxh.}
 proc getColumn*(this: WxListCtrlBase; col: cint; item: var WxListItem): bool {.
-    noSideEffect, cdecl, importcpp: "GetColumn", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetColumn", header: wxh.}
 proc setColumn*(this: var WxListCtrlBase; col: cint; item: WxListItem): bool {.
-    cdecl, importcpp: "SetColumn", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetColumn", header: wxh.}
 proc getColumnWidth*(this: WxListCtrlBase; col: cint): cint {.noSideEffect, 
-    cdecl, importcpp: "GetColumnWidth", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetColumnWidth", header: wxh.}
 proc setColumnWidth*(this: var WxListCtrlBase; col: cint; width: cint): bool {.
-    cdecl, importcpp: "SetColumnWidth", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetColumnWidth", header: wxh.}
 proc onGetItemAttr*(this: WxListCtrlBase; item: clong): ptr WxListItemAttr {.
-    noSideEffect, cdecl, importcpp: "OnGetItemAttr", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "OnGetItemAttr", header: wxh.}
 proc inReportView*(this: WxListCtrlBase): bool {.noSideEffect, cdecl, 
-    importcpp: "InReportView", header: "<wx/wx.h>".}
+    importcpp: "InReportView", header: wxh.}
 proc isVirtual*(this: WxListCtrlBase): bool {.noSideEffect, cdecl, 
-    importcpp: "IsVirtual", header: "<wx/wx.h>".}
+    importcpp: "IsVirtual", header: wxh.}
 proc enableBellOnNoMatch*(this: var WxListCtrlBase; on: bool = true) {.cdecl, 
-    importcpp: "EnableBellOnNoMatch", header: "<wx/wx.h>".}
+    importcpp: "EnableBellOnNoMatch", header: wxh.}
 proc enableAlternateRowColours*(this: var WxListCtrlBase; enable: bool = true) {.
-    cdecl, importcpp: "EnableAlternateRowColours", header: "<wx/wx.h>".}
+    cdecl, importcpp: "EnableAlternateRowColours", header: wxh.}
 proc setAlternateRowColour*(this: var WxListCtrlBase; colour: WxColour) {.cdecl, 
-    importcpp: "SetAlternateRowColour", header: "<wx/wx.h>".}
+    importcpp: "SetAlternateRowColour", header: wxh.}
 
 type 
-  WxListEvent* {.importcpp: "wxListEvent", header: "<wx/wx.h>".} = object of WxNotifyEvent
+  WxListEvent* {.importcpp: "wxListEvent", header: wxh.} = object of WxNotifyEvent
     mCode* {.importc: "m_code".}: cint
     mOldItemIndex* {.importc: "m_oldItemIndex".}: clong
     mItemIndex* {.importc: "m_itemIndex".}: clong
@@ -290,116 +288,106 @@ type
 
 proc constructwxListEvent*(commandType: WxEventType = wxEVT_NULL; 
                            winid: cint = 0): WxListEvent {.cdecl, constructor, 
-    importcpp: "wxListEvent(@)", header: "<wx/wx.h>".}
+    importcpp: "wxListEvent(@)", header: wxh.}
 proc constructwxListEvent*(event: WxListEvent): WxListEvent {.cdecl, 
-    constructor, importcpp: "wxListEvent(@)", header: "<wx/wx.h>".}
+    constructor, importcpp: "wxListEvent(@)", header: wxh.}
 proc getKeyCode*(this: WxListEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetKeyCode", header: "<wx/wx.h>".}
+    importcpp: "GetKeyCode", header: wxh.}
 proc getIndex*(this: WxListEvent): clong {.noSideEffect, cdecl, 
-    importcpp: "GetIndex", header: "<wx/wx.h>".}
+    importcpp: "GetIndex", header: wxh.}
 proc getColumn*(this: WxListEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetColumn", header: "<wx/wx.h>".}
+    importcpp: "GetColumn", header: wxh.}
 proc getPoint*(this: WxListEvent): WxPoint {.noSideEffect, cdecl, 
-    importcpp: "GetPoint", header: "<wx/wx.h>".}
+    importcpp: "GetPoint", header: wxh.}
 proc getLabel*(this: WxListEvent): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetLabel", header: "<wx/wx.h>".}
+    importcpp: "GetLabel", header: wxh.}
 proc getText*(this: WxListEvent): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetText", header: "<wx/wx.h>".}
+    importcpp: "GetText", header: wxh.}
 proc getImage*(this: WxListEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetImage", header: "<wx/wx.h>".}
+    importcpp: "GetImage", header: wxh.}
 proc getData*(this: WxListEvent): culong {.noSideEffect, cdecl, 
-    importcpp: "GetData", header: "<wx/wx.h>".}
+    importcpp: "GetData", header: wxh.}
 proc getMask*(this: WxListEvent): clong {.noSideEffect, cdecl, 
-    importcpp: "GetMask", header: "<wx/wx.h>".}
+    importcpp: "GetMask", header: wxh.}
 proc getItem*(this: WxListEvent): WxListItem {.noSideEffect, cdecl, 
-    importcpp: "GetItem", header: "<wx/wx.h>".}
+    importcpp: "GetItem", header: wxh.}
 proc getCacheFrom*(this: WxListEvent): clong {.noSideEffect, cdecl, 
-    importcpp: "GetCacheFrom", header: "<wx/wx.h>".}
+    importcpp: "GetCacheFrom", header: wxh.}
 proc getCacheTo*(this: WxListEvent): clong {.noSideEffect, cdecl, 
-    importcpp: "GetCacheTo", header: "<wx/wx.h>".}
+    importcpp: "GetCacheTo", header: wxh.}
 proc isEditCancelled*(this: WxListEvent): bool {.noSideEffect, cdecl, 
-    importcpp: "IsEditCancelled", header: "<wx/wx.h>".}
+    importcpp: "IsEditCancelled", header: wxh.}
 proc setEditCanceled*(this: var WxListEvent; editCancelled: bool) {.cdecl, 
-    importcpp: "SetEditCanceled", header: "<wx/wx.h>".}
+    importcpp: "SetEditCanceled", header: wxh.}
 proc clone*(this: WxListEvent): ptr WxEvent {.noSideEffect, cdecl, 
-    importcpp: "Clone", header: "<wx/wx.h>".}
+    importcpp: "Clone", header: wxh.}
 
-var wxEVT_LIST_BEGIN_DRAG* {.importcpp: "wxEVT_LIST_BEGIN_DRAG", 
-                             header: "<wx/wx.h>".}: WxEventTypeTag[WxListEvent]
+var wxEVT_LIST_BEGIN_DRAG* {.importcpp: "wxEVT_LIST_BEGIN_DRAG", header: wxh.}: WxEventTypeTag[
+    WxListEvent]
 
-var wxEVT_LIST_BEGIN_RDRAG* {.importcpp: "wxEVT_LIST_BEGIN_RDRAG", 
-                              header: "<wx/wx.h>".}: WxEventTypeTag[WxListEvent]
+var wxEVT_LIST_BEGIN_RDRAG* {.importcpp: "wxEVT_LIST_BEGIN_RDRAG", header: wxh.}: WxEventTypeTag[
+    WxListEvent]
 
 var wxEVT_LIST_BEGIN_LABEL_EDIT* {.importcpp: "wxEVT_LIST_BEGIN_LABEL_EDIT", 
-                                   header: "<wx/wx.h>".}: WxEventTypeTag[
-    WxListEvent]
+                                   header: wxh.}: WxEventTypeTag[WxListEvent]
 
 var wxEVT_LIST_END_LABEL_EDIT* {.importcpp: "wxEVT_LIST_END_LABEL_EDIT", 
-                                 header: "<wx/wx.h>".}: WxEventTypeTag[
-    WxListEvent]
+                                 header: wxh.}: WxEventTypeTag[WxListEvent]
 
-var wxEVT_LIST_DELETE_ITEM* {.importcpp: "wxEVT_LIST_DELETE_ITEM", 
-                              header: "<wx/wx.h>".}: WxEventTypeTag[WxListEvent]
+var wxEVT_LIST_DELETE_ITEM* {.importcpp: "wxEVT_LIST_DELETE_ITEM", header: wxh.}: WxEventTypeTag[
+    WxListEvent]
 
 var wxEVT_LIST_DELETE_ALL_ITEMS* {.importcpp: "wxEVT_LIST_DELETE_ALL_ITEMS", 
-                                   header: "<wx/wx.h>".}: WxEventTypeTag[
-    WxListEvent]
+                                   header: wxh.}: WxEventTypeTag[WxListEvent]
 
 var wxEVT_LIST_ITEM_SELECTED* {.importcpp: "wxEVT_LIST_ITEM_SELECTED", 
-                                header: "<wx/wx.h>".}: WxEventTypeTag[
-    WxListEvent]
+                                header: wxh.}: WxEventTypeTag[WxListEvent]
 
 var wxEVT_LIST_ITEM_DESELECTED* {.importcpp: "wxEVT_LIST_ITEM_DESELECTED", 
-                                  header: "<wx/wx.h>".}: WxEventTypeTag[
+                                  header: wxh.}: WxEventTypeTag[WxListEvent]
+
+var wxEVT_LIST_KEY_DOWN* {.importcpp: "wxEVT_LIST_KEY_DOWN", header: wxh.}: WxEventTypeTag[
     WxListEvent]
 
-var wxEVT_LIST_KEY_DOWN* {.importcpp: "wxEVT_LIST_KEY_DOWN", header: "<wx/wx.h>".}: WxEventTypeTag[
+var wxEVT_LIST_INSERT_ITEM* {.importcpp: "wxEVT_LIST_INSERT_ITEM", header: wxh.}: WxEventTypeTag[
     WxListEvent]
 
-var wxEVT_LIST_INSERT_ITEM* {.importcpp: "wxEVT_LIST_INSERT_ITEM", 
-                              header: "<wx/wx.h>".}: WxEventTypeTag[WxListEvent]
-
-var wxEVT_LIST_COL_CLICK* {.importcpp: "wxEVT_LIST_COL_CLICK", 
-                            header: "<wx/wx.h>".}: WxEventTypeTag[WxListEvent]
+var wxEVT_LIST_COL_CLICK* {.importcpp: "wxEVT_LIST_COL_CLICK", header: wxh.}: WxEventTypeTag[
+    WxListEvent]
 
 var wxEVT_LIST_ITEM_RIGHT_CLICK* {.importcpp: "wxEVT_LIST_ITEM_RIGHT_CLICK", 
-                                   header: "<wx/wx.h>".}: WxEventTypeTag[
-    WxListEvent]
+                                   header: wxh.}: WxEventTypeTag[WxListEvent]
 
 var wxEVT_LIST_ITEM_MIDDLE_CLICK* {.importcpp: "wxEVT_LIST_ITEM_MIDDLE_CLICK", 
-                                    header: "<wx/wx.h>".}: WxEventTypeTag[
-    WxListEvent]
+                                    header: wxh.}: WxEventTypeTag[WxListEvent]
 
 var wxEVT_LIST_ITEM_ACTIVATED* {.importcpp: "wxEVT_LIST_ITEM_ACTIVATED", 
-                                 header: "<wx/wx.h>".}: WxEventTypeTag[
-    WxListEvent]
+                                 header: wxh.}: WxEventTypeTag[WxListEvent]
 
-var wxEVT_LIST_CACHE_HINT* {.importcpp: "wxEVT_LIST_CACHE_HINT", 
-                             header: "<wx/wx.h>".}: WxEventTypeTag[WxListEvent]
+var wxEVT_LIST_CACHE_HINT* {.importcpp: "wxEVT_LIST_CACHE_HINT", header: wxh.}: WxEventTypeTag[
+    WxListEvent]
 
 var wxEVT_LIST_COL_RIGHT_CLICK* {.importcpp: "wxEVT_LIST_COL_RIGHT_CLICK", 
-                                  header: "<wx/wx.h>".}: WxEventTypeTag[
-    WxListEvent]
+                                  header: wxh.}: WxEventTypeTag[WxListEvent]
 
 var wxEVT_LIST_COL_BEGIN_DRAG* {.importcpp: "wxEVT_LIST_COL_BEGIN_DRAG", 
-                                 header: "<wx/wx.h>".}: WxEventTypeTag[
+                                 header: wxh.}: WxEventTypeTag[WxListEvent]
+
+var wxEVT_LIST_COL_DRAGGING* {.importcpp: "wxEVT_LIST_COL_DRAGGING", header: wxh.}: WxEventTypeTag[
     WxListEvent]
 
-var wxEVT_LIST_COL_DRAGGING* {.importcpp: "wxEVT_LIST_COL_DRAGGING", 
-                               header: "<wx/wx.h>".}: WxEventTypeTag[WxListEvent]
+var wxEVT_LIST_COL_END_DRAG* {.importcpp: "wxEVT_LIST_COL_END_DRAG", header: wxh.}: WxEventTypeTag[
+    WxListEvent]
 
-var wxEVT_LIST_COL_END_DRAG* {.importcpp: "wxEVT_LIST_COL_END_DRAG", 
-                               header: "<wx/wx.h>".}: WxEventTypeTag[WxListEvent]
-
-var wxEVT_LIST_ITEM_FOCUSED* {.importcpp: "wxEVT_LIST_ITEM_FOCUSED", 
-                               header: "<wx/wx.h>".}: WxEventTypeTag[WxListEvent]
+var wxEVT_LIST_ITEM_FOCUSED* {.importcpp: "wxEVT_LIST_ITEM_FOCUSED", header: wxh.}: WxEventTypeTag[
+    WxListEvent]
 
 type 
-  WxListCtrl* {.importcpp: "wxListCtrl", header: "<wx/wx.h>".} = object of WxListCtrlBase
+  WxListCtrl* {.importcpp: "wxListCtrl", header: wxh.} = object of WxListCtrlBase
   
 
 proc constructwxListCtrl*(): WxListCtrl {.cdecl, constructor, 
-    importcpp: "wxListCtrl(@)", header: "<wx/wx.h>".}
+    importcpp: "wxListCtrl(@)", header: wxh.}
 proc constructwxListCtrl*(parent: ptr WxWindow; 
                           id: WxWindowID = WxWindowID(wxID_ANY); 
                           pos: WxPoint = wxDefaultPosition; 
@@ -407,185 +395,182 @@ proc constructwxListCtrl*(parent: ptr WxWindow;
                           style: clong = wxLC_ICON; 
                           validator: WxValidator = wxDefaultValidator; 
                           name: WxString = constructWxString("listCtrl")): WxListCtrl {.
-    cdecl, constructor, importcpp: "wxListCtrl(@)", header: "<wx/wx.h>".}
+    cdecl, constructor, importcpp: "wxListCtrl(@)", header: wxh.}
 proc destroywxListCtrl*(this: var WxListCtrl) {.cdecl, 
-    importcpp: "#.~wxListCtrl()", header: "<wx/wx.h>".}
+    importcpp: "#.~wxListCtrl()", header: wxh.}
 proc create*(this: var WxListCtrl; parent: ptr WxWindow; 
              id: WxWindowID = WxWindowID(wxID_ANY); 
              pos: WxPoint = wxDefaultPosition; size: WxSize = wxDefaultSize; 
              style: clong = wxLC_ICON; 
              validator: WxValidator = wxDefaultValidator; 
              name: WxString = constructWxString("listCtrl")): bool {.cdecl, 
-    importcpp: "Create", header: "<wx/wx.h>".}
+    importcpp: "Create", header: wxh.}
 proc setForegroundColour*(this: var WxListCtrl; col: WxColour): bool {.cdecl, 
-    importcpp: "SetForegroundColour", header: "<wx/wx.h>".}
+    importcpp: "SetForegroundColour", header: wxh.}
 proc setBackgroundColour*(this: var WxListCtrl; col: WxColour): bool {.cdecl, 
-    importcpp: "SetBackgroundColour", header: "<wx/wx.h>".}
+    importcpp: "SetBackgroundColour", header: wxh.}
 proc getColumn*(this: WxListCtrl; col: cint; item: var WxListItem): bool {.
-    noSideEffect, cdecl, importcpp: "GetColumn", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetColumn", header: wxh.}
 proc setColumn*(this: var WxListCtrl; col: cint; item: WxListItem): bool {.
-    cdecl, importcpp: "SetColumn", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetColumn", header: wxh.}
 proc getColumnWidth*(this: WxListCtrl; col: cint): cint {.noSideEffect, cdecl, 
-    importcpp: "GetColumnWidth", header: "<wx/wx.h>".}
+    importcpp: "GetColumnWidth", header: wxh.}
 proc setColumnWidth*(this: var WxListCtrl; col: cint; width: cint): bool {.
-    cdecl, importcpp: "SetColumnWidth", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetColumnWidth", header: wxh.}
 proc getColumnOrder*(this: WxListCtrl; col: cint): cint {.noSideEffect, cdecl, 
-    importcpp: "GetColumnOrder", header: "<wx/wx.h>".}
+    importcpp: "GetColumnOrder", header: wxh.}
 proc getColumnIndexFromOrder*(this: WxListCtrl; order: cint): cint {.
-    noSideEffect, cdecl, importcpp: "GetColumnIndexFromOrder", 
-    header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetColumnIndexFromOrder", header: wxh.}
 proc getColumnsOrder*(this: WxListCtrl): WxArrayInt {.noSideEffect, cdecl, 
-    importcpp: "GetColumnsOrder", header: "<wx/wx.h>".}
+    importcpp: "GetColumnsOrder", header: wxh.}
 proc setColumnsOrder*(this: var WxListCtrl; orders: WxArrayInt): bool {.cdecl, 
-    importcpp: "SetColumnsOrder", header: "<wx/wx.h>".}
+    importcpp: "SetColumnsOrder", header: wxh.}
 proc getCountPerPage*(this: WxListCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetCountPerPage", header: "<wx/wx.h>".}
+    importcpp: "GetCountPerPage", header: wxh.}
 proc getViewRect*(this: WxListCtrl): WxRect {.noSideEffect, cdecl, 
-    importcpp: "GetViewRect", header: "<wx/wx.h>".}
+    importcpp: "GetViewRect", header: wxh.}
 proc getEditControl*(this: WxListCtrl): ptr WxTextCtrl {.noSideEffect, cdecl, 
-    importcpp: "GetEditControl", header: "<wx/wx.h>".}
+    importcpp: "GetEditControl", header: wxh.}
 proc getItem*(this: WxListCtrl; info: var WxListItem): bool {.noSideEffect, 
-    cdecl, importcpp: "GetItem", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetItem", header: wxh.}
 proc setItem*(this: var WxListCtrl; info: var WxListItem): bool {.cdecl, 
-    importcpp: "SetItem", header: "<wx/wx.h>".}
+    importcpp: "SetItem", header: wxh.}
 proc setItem*(this: var WxListCtrl; index: clong; col: cint; label: WxString; 
               imageId: cint = - 1): clong {.cdecl, importcpp: "SetItem", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc getItemState*(this: WxListCtrl; item: clong; stateMask: clong): cint {.
-    noSideEffect, cdecl, importcpp: "GetItemState", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetItemState", header: wxh.}
 proc setItemState*(this: var WxListCtrl; item: clong; state: clong; 
                    stateMask: clong): bool {.cdecl, importcpp: "SetItemState", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc setItemImage*(this: var WxListCtrl; item: clong; image: cint; 
                    selImage: cint = - 1): bool {.cdecl, 
-    importcpp: "SetItemImage", header: "<wx/wx.h>".}
+    importcpp: "SetItemImage", header: wxh.}
 proc setItemColumnImage*(this: var WxListCtrl; item: clong; column: clong; 
                          image: cint): bool {.cdecl, 
-    importcpp: "SetItemColumnImage", header: "<wx/wx.h>".}
+    importcpp: "SetItemColumnImage", header: wxh.}
 proc getItemText*(this: WxListCtrl; item: clong; col: cint = 0): WxString {.
-    noSideEffect, cdecl, importcpp: "GetItemText", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetItemText", header: wxh.}
 proc setItemText*(this: var WxListCtrl; item: clong; str: WxString) {.cdecl, 
-    importcpp: "SetItemText", header: "<wx/wx.h>".}
+    importcpp: "SetItemText", header: wxh.}
 proc getItemData*(this: WxListCtrl; item: clong): culong {.noSideEffect, cdecl, 
-    importcpp: "GetItemData", header: "<wx/wx.h>".}
+    importcpp: "GetItemData", header: wxh.}
 proc setItemPtrData*(this: var WxListCtrl; item: clong; data: culong): bool {.
-    cdecl, importcpp: "SetItemPtrData", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetItemPtrData", header: wxh.}
 proc setItemData*(this: var WxListCtrl; item: clong; data: clong): bool {.cdecl, 
-    importcpp: "SetItemData", header: "<wx/wx.h>".}
+    importcpp: "SetItemData", header: wxh.}
 proc getItemRect*(this: WxListCtrl; item: clong; rect: var WxRect; 
                   code: cint = wxLIST_RECT_BOUNDS): bool {.noSideEffect, cdecl, 
-    importcpp: "GetItemRect", header: "<wx/wx.h>".}
+    importcpp: "GetItemRect", header: wxh.}
 proc getSubItemRect*(this: WxListCtrl; item: clong; subItem: clong; 
                      rect: var WxRect; code: cint = wxLIST_RECT_BOUNDS): bool {.
-    noSideEffect, cdecl, importcpp: "GetSubItemRect", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetSubItemRect", header: wxh.}
 proc getItemPosition*(this: WxListCtrl; item: clong; pos: var WxPoint): bool {.
-    noSideEffect, cdecl, importcpp: "GetItemPosition", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetItemPosition", header: wxh.}
 proc setItemPosition*(this: var WxListCtrl; item: clong; pos: WxPoint): bool {.
-    cdecl, importcpp: "SetItemPosition", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetItemPosition", header: wxh.}
 proc getItemCount*(this: WxListCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetItemCount", header: "<wx/wx.h>".}
+    importcpp: "GetItemCount", header: wxh.}
 proc getColumnCount*(this: WxListCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetColumnCount", header: "<wx/wx.h>".}
+    importcpp: "GetColumnCount", header: wxh.}
 proc getItemSpacing*(this: WxListCtrl): WxSize {.noSideEffect, cdecl, 
-    importcpp: "GetItemSpacing", header: "<wx/wx.h>".}
+    importcpp: "GetItemSpacing", header: wxh.}
 proc setItemTextColour*(this: var WxListCtrl; item: clong; col: WxColour) {.
-    cdecl, importcpp: "SetItemTextColour", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetItemTextColour", header: wxh.}
 proc getItemTextColour*(this: WxListCtrl; item: clong): WxColour {.noSideEffect, 
-    cdecl, importcpp: "GetItemTextColour", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetItemTextColour", header: wxh.}
 proc setItemBackgroundColour*(this: var WxListCtrl; item: clong; col: WxColour) {.
-    cdecl, importcpp: "SetItemBackgroundColour", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetItemBackgroundColour", header: wxh.}
 proc getItemBackgroundColour*(this: WxListCtrl; item: clong): WxColour {.
-    noSideEffect, cdecl, importcpp: "GetItemBackgroundColour", 
-    header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetItemBackgroundColour", header: wxh.}
 proc setItemFont*(this: var WxListCtrl; item: clong; f: WxFont) {.cdecl, 
-    importcpp: "SetItemFont", header: "<wx/wx.h>".}
+    importcpp: "SetItemFont", header: wxh.}
 proc getItemFont*(this: WxListCtrl; item: clong): WxFont {.noSideEffect, cdecl, 
-    importcpp: "GetItemFont", header: "<wx/wx.h>".}
+    importcpp: "GetItemFont", header: wxh.}
 proc getSelectedItemCount*(this: WxListCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetSelectedItemCount", header: "<wx/wx.h>".}
+    importcpp: "GetSelectedItemCount", header: wxh.}
 proc getTextColour*(this: WxListCtrl): WxColour {.noSideEffect, cdecl, 
-    importcpp: "GetTextColour", header: "<wx/wx.h>".}
+    importcpp: "GetTextColour", header: wxh.}
 proc setTextColour*(this: var WxListCtrl; col: WxColour) {.cdecl, 
-    importcpp: "SetTextColour", header: "<wx/wx.h>".}
+    importcpp: "SetTextColour", header: wxh.}
 proc getTopItem*(this: WxListCtrl): clong {.noSideEffect, cdecl, 
-    importcpp: "GetTopItem", header: "<wx/wx.h>".}
+    importcpp: "GetTopItem", header: wxh.}
 proc setSingleStyle*(this: var WxListCtrl; style: clong; add: bool = true) {.
-    cdecl, importcpp: "SetSingleStyle", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetSingleStyle", header: wxh.}
 proc setWindowStyleFlag*(this: var WxListCtrl; style: clong) {.cdecl, 
-    importcpp: "SetWindowStyleFlag", header: "<wx/wx.h>".}
+    importcpp: "SetWindowStyleFlag", header: wxh.}
 proc getNextItem*(this: WxListCtrl; item: clong; 
                   geometry: cint = wxLIST_NEXT_ALL; 
                   state: cint = wxLIST_STATE_DONTCARE): clong {.noSideEffect, 
-    cdecl, importcpp: "GetNextItem", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetNextItem", header: wxh.}
 proc getImageList*(this: WxListCtrl; which: cint): ptr WxImageList {.
-    noSideEffect, cdecl, importcpp: "GetImageList", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetImageList", header: wxh.}
 proc setImageList*(this: var WxListCtrl; imageList: ptr WxImageList; which: cint) {.
-    cdecl, importcpp: "SetImageList", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetImageList", header: wxh.}
 proc assignImageList*(this: var WxListCtrl; imageList: ptr WxImageList; 
                       which: cint) {.cdecl, importcpp: "AssignImageList", 
-                                     header: "<wx/wx.h>".}
+                                     header: wxh.}
 proc refreshItem*(this: var WxListCtrl; item: clong) {.cdecl, 
-    importcpp: "RefreshItem", header: "<wx/wx.h>".}
+    importcpp: "RefreshItem", header: wxh.}
 proc refreshItems*(this: var WxListCtrl; itemFrom: clong; itemTo: clong) {.
-    cdecl, importcpp: "RefreshItems", header: "<wx/wx.h>".}
+    cdecl, importcpp: "RefreshItems", header: wxh.}
 proc arrange*(this: var WxListCtrl; flag: cint = wxLIST_ALIGN_DEFAULT): bool {.
-    cdecl, importcpp: "Arrange", header: "<wx/wx.h>".}
+    cdecl, importcpp: "Arrange", header: wxh.}
 proc deleteItem*(this: var WxListCtrl; item: clong): bool {.cdecl, 
-    importcpp: "DeleteItem", header: "<wx/wx.h>".}
+    importcpp: "DeleteItem", header: wxh.}
 proc deleteAllItems*(this: var WxListCtrl): bool {.cdecl, 
-    importcpp: "DeleteAllItems", header: "<wx/wx.h>".}
+    importcpp: "DeleteAllItems", header: wxh.}
 proc deleteColumn*(this: var WxListCtrl; col: cint): bool {.cdecl, 
-    importcpp: "DeleteColumn", header: "<wx/wx.h>".}
+    importcpp: "DeleteColumn", header: wxh.}
 proc deleteAllColumns*(this: var WxListCtrl): bool {.cdecl, 
-    importcpp: "DeleteAllColumns", header: "<wx/wx.h>".}
-proc clearAll*(this: var WxListCtrl) {.cdecl, importcpp: "ClearAll", 
-                                       header: "<wx/wx.h>".}
+    importcpp: "DeleteAllColumns", header: wxh.}
+proc clearAll*(this: var WxListCtrl) {.cdecl, importcpp: "ClearAll", header: wxh.}
 proc editLabel*(this: var WxListCtrl; item: clong): ptr WxTextCtrl {.cdecl, 
-    importcpp: "EditLabel", header: "<wx/wx.h>".}
+    importcpp: "EditLabel", header: wxh.}
 proc endEditLabel*(this: var WxListCtrl; cancel: bool): bool {.cdecl, 
-    importcpp: "EndEditLabel", header: "<wx/wx.h>".}
+    importcpp: "EndEditLabel", header: wxh.}
 proc ensureVisible*(this: var WxListCtrl; item: clong): bool {.cdecl, 
-    importcpp: "EnsureVisible", header: "<wx/wx.h>".}
+    importcpp: "EnsureVisible", header: wxh.}
 proc findItem*(this: var WxListCtrl; start: clong; str: WxString; 
                partial: bool = false): clong {.cdecl, importcpp: "FindItem", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc findItem*(this: var WxListCtrl; start: clong; data: culong): clong {.cdecl, 
-    importcpp: "FindItem", header: "<wx/wx.h>".}
+    importcpp: "FindItem", header: wxh.}
 proc findItem*(this: var WxListCtrl; start: clong; pt: WxPoint; direction: cint): clong {.
-    cdecl, importcpp: "FindItem", header: "<wx/wx.h>".}
+    cdecl, importcpp: "FindItem", header: wxh.}
 proc hitTest*(this: WxListCtrl; point: WxPoint; flags: var cint; 
               ptrSubItem: ptr clong = nil): clong {.noSideEffect, cdecl, 
-    importcpp: "HitTest", header: "<wx/wx.h>".}
+    importcpp: "HitTest", header: wxh.}
 proc insertItem*(this: var WxListCtrl; info: WxListItem): clong {.cdecl, 
-    importcpp: "InsertItem", header: "<wx/wx.h>".}
+    importcpp: "InsertItem", header: wxh.}
 proc insertItem*(this: var WxListCtrl; index: clong; label: WxString): clong {.
-    cdecl, importcpp: "InsertItem", header: "<wx/wx.h>".}
+    cdecl, importcpp: "InsertItem", header: wxh.}
 proc insertItem*(this: var WxListCtrl; index: clong; imageIndex: cint): clong {.
-    cdecl, importcpp: "InsertItem", header: "<wx/wx.h>".}
+    cdecl, importcpp: "InsertItem", header: wxh.}
 proc insertItem*(this: var WxListCtrl; index: clong; label: WxString; 
                  imageIndex: cint): clong {.cdecl, importcpp: "InsertItem", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc setItemCount*(this: var WxListCtrl; count: clong) {.cdecl, 
-    importcpp: "SetItemCount", header: "<wx/wx.h>".}
+    importcpp: "SetItemCount", header: wxh.}
 proc scrollList*(this: var WxListCtrl; dx: cint; dy: cint): bool {.cdecl, 
-    importcpp: "ScrollList", header: "<wx/wx.h>".}
+    importcpp: "ScrollList", header: wxh.}
 proc sortItems*(this: var WxListCtrl; fn: WxListCtrlCompare; data: clong): bool {.
-    cdecl, importcpp: "SortItems", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SortItems", header: wxh.}
 proc updateStyle*(this: var WxListCtrl) {.cdecl, importcpp: "UpdateStyle", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc onPaint*(this: var WxListCtrl; event: var WxPaintEvent) {.cdecl, 
-    importcpp: "OnPaint", header: "<wx/wx.h>".}
+    importcpp: "OnPaint", header: wxh.}
 proc shouldInheritColours*(this: WxListCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "ShouldInheritColours", header: "<wx/wx.h>".}
+    importcpp: "ShouldInheritColours", header: wxh.}
 proc getDefaultAttributes*(this: WxListCtrl): WxVisualAttributes {.noSideEffect, 
-    cdecl, importcpp: "GetDefaultAttributes", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetDefaultAttributes", header: wxh.}
 
 type 
-  WxListView* {.importcpp: "wxListView", header: "<wx/wx.h>".} = object of WxListCtrl
+  WxListView* {.importcpp: "wxListView", header: wxh.} = object of WxListCtrl
   
 
 proc constructwxListView*(): WxListView {.cdecl, constructor, 
-    importcpp: "wxListView(@)", header: "<wx/wx.h>".}
+    importcpp: "wxListView(@)", header: wxh.}
 proc constructwxListView*(parent: ptr WxWindow; 
                           winid: WxWindowID = WxWindowID(wxID_ANY); 
                           pos: WxPoint = wxDefaultPosition; 
@@ -593,20 +578,20 @@ proc constructwxListView*(parent: ptr WxWindow;
                           style: clong = wxLC_REPORT; 
                           validator: WxValidator = wxDefaultValidator; 
                           name: WxString = constructWxString("listCtrl")): WxListView {.
-    cdecl, constructor, importcpp: "wxListView(@)", header: "<wx/wx.h>".}
+    cdecl, constructor, importcpp: "wxListView(@)", header: wxh.}
 proc select*(this: var WxListView; n: clong; on: bool = true) {.cdecl, 
-    importcpp: "Select", header: "<wx/wx.h>".}
+    importcpp: "Select", header: wxh.}
 proc focus*(this: var WxListView; index: clong) {.cdecl, importcpp: "Focus", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc getFocusedItem*(this: WxListView): clong {.noSideEffect, cdecl, 
-    importcpp: "GetFocusedItem", header: "<wx/wx.h>".}
+    importcpp: "GetFocusedItem", header: wxh.}
 proc getNextSelected*(this: WxListView; item: clong): clong {.noSideEffect, 
-    cdecl, importcpp: "GetNextSelected", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetNextSelected", header: wxh.}
 proc getFirstSelected*(this: WxListView): clong {.noSideEffect, cdecl, 
-    importcpp: "GetFirstSelected", header: "<wx/wx.h>".}
+    importcpp: "GetFirstSelected", header: wxh.}
 proc isSelected*(this: WxListView; index: clong): bool {.noSideEffect, cdecl, 
-    importcpp: "IsSelected", header: "<wx/wx.h>".}
+    importcpp: "IsSelected", header: wxh.}
 proc setColumnImage*(this: var WxListView; col: cint; image: cint) {.cdecl, 
-    importcpp: "SetColumnImage", header: "<wx/wx.h>".}
+    importcpp: "SetColumnImage", header: wxh.}
 proc clearColumnImage*(this: var WxListView; col: cint) {.cdecl, 
-    importcpp: "ClearColumnImage", header: "<wx/wx.h>".}
+    importcpp: "ClearColumnImage", header: wxh.}

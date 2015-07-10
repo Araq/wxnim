@@ -24,50 +24,50 @@ const
 
 
 type 
-  WxSliderBase* {.importcpp: "wxSliderBase", header: "<wx/wx.h>".} = object of WxControl
+  WxSliderBase* {.importcpp: "wxSliderBase", header: wxh.} = object of WxControl
   
 
 proc constructwxSliderBase*(): WxSliderBase {.cdecl, constructor, 
-    importcpp: "wxSliderBase(@)", header: "<wx/wx.h>".}
+    importcpp: "wxSliderBase(@)", header: wxh.}
 proc getValue*(this: WxSliderBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetValue", header: "<wx/wx.h>".}
+    importcpp: "GetValue", header: wxh.}
 proc setValue*(this: var WxSliderBase; value: cint) {.cdecl, 
-    importcpp: "SetValue", header: "<wx/wx.h>".}
+    importcpp: "SetValue", header: wxh.}
 proc setRange*(this: var WxSliderBase; minValue: cint; maxValue: cint) {.cdecl, 
-    importcpp: "SetRange", header: "<wx/wx.h>".}
+    importcpp: "SetRange", header: wxh.}
 proc getMin*(this: WxSliderBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetMin", header: "<wx/wx.h>".}
+    importcpp: "GetMin", header: wxh.}
 proc getMax*(this: WxSliderBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetMax", header: "<wx/wx.h>".}
+    importcpp: "GetMax", header: wxh.}
 proc setMin*(this: var WxSliderBase; minValue: cint) {.cdecl, 
-    importcpp: "SetMin", header: "<wx/wx.h>".}
+    importcpp: "SetMin", header: wxh.}
 proc setMax*(this: var WxSliderBase; maxValue: cint) {.cdecl, 
-    importcpp: "SetMax", header: "<wx/wx.h>".}
+    importcpp: "SetMax", header: wxh.}
 proc setLineSize*(this: var WxSliderBase; lineSize: cint) {.cdecl, 
-    importcpp: "SetLineSize", header: "<wx/wx.h>".}
+    importcpp: "SetLineSize", header: wxh.}
 proc setPageSize*(this: var WxSliderBase; pageSize: cint) {.cdecl, 
-    importcpp: "SetPageSize", header: "<wx/wx.h>".}
+    importcpp: "SetPageSize", header: wxh.}
 proc getLineSize*(this: WxSliderBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetLineSize", header: "<wx/wx.h>".}
+    importcpp: "GetLineSize", header: wxh.}
 proc getPageSize*(this: WxSliderBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetPageSize", header: "<wx/wx.h>".}
+    importcpp: "GetPageSize", header: wxh.}
 proc setThumbLength*(this: var WxSliderBase; lenPixels: cint) {.cdecl, 
-    importcpp: "SetThumbLength", header: "<wx/wx.h>".}
+    importcpp: "SetThumbLength", header: wxh.}
 proc getThumbLength*(this: WxSliderBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetThumbLength", header: "<wx/wx.h>".}
+    importcpp: "GetThumbLength", header: wxh.}
 proc setTickFreq*(this: var WxSliderBase; freq: cint) {.cdecl, 
-    importcpp: "SetTickFreq", header: "<wx/wx.h>".}
+    importcpp: "SetTickFreq", header: wxh.}
 proc getTickFreq*(this: WxSliderBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetTickFreq", header: "<wx/wx.h>".}
+    importcpp: "GetTickFreq", header: wxh.}
 proc clearTicks*(this: var WxSliderBase) {.cdecl, importcpp: "ClearTicks", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc setTick*(this: var WxSliderBase; tickPos: cint) {.cdecl, 
-    importcpp: "SetTick", header: "<wx/wx.h>".}
+    importcpp: "SetTick", header: wxh.}
 proc clearSel*(this: var WxSliderBase) {.cdecl, importcpp: "ClearSel", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc getSelEnd*(this: WxSliderBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetSelEnd", header: "<wx/wx.h>".}
+    importcpp: "GetSelEnd", header: wxh.}
 proc getSelStart*(this: WxSliderBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetSelStart", header: "<wx/wx.h>".}
+    importcpp: "GetSelStart", header: wxh.}
 proc setSelection*(this: var WxSliderBase; min: cint; max: cint) {.cdecl, 
-    importcpp: "SetSelection", header: "<wx/wx.h>".}
+    importcpp: "SetSelection", header: wxh.}

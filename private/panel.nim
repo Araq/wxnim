@@ -3,31 +3,31 @@
 
 discard "forward decl of wxControlContainer"
 type 
-  WxPanelBase* {.importcpp: "wxPanelBase", header: "<wx/wx.h>".} = object of WxWindow
+  WxPanelBase* {.importcpp: "wxPanelBase", header: wxh.} = object of WxWindow
   
 
 proc constructwxPanelBase*(): WxPanelBase {.cdecl, constructor, 
-    importcpp: "wxPanelBase(@)", header: "<wx/wx.h>".}
+    importcpp: "wxPanelBase(@)", header: wxh.}
 proc create*(this: var WxPanelBase; parent: ptr WxWindow; 
              winid: WxWindowID = WxWindowID(wxID_ANY); 
              pos: WxPoint = wxDefaultPosition; size: WxSize = wxDefaultSize; 
              style: clong = int(wxTAB_TRAVERSAL) or int(wxNO_BORDER); 
              name: WxString = constructWxString("panel")): bool {.cdecl, 
-    importcpp: "Create", header: "<wx/wx.h>".}
+    importcpp: "Create", header: wxh.}
 proc initDialog*(this: var WxPanelBase) {.cdecl, importcpp: "InitDialog", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 type 
-  WxPanel* {.importcpp: "wxPanel", header: "<wx/wx.h>".} = object of WxPanelBase
+  WxPanel* {.importcpp: "wxPanel", header: wxh.} = object of WxPanelBase
   
 
 proc constructwxPanel*(): WxPanel {.cdecl, constructor, importcpp: "wxPanel(@)", 
-                                    header: "<wx/wx.h>".}
+                                    header: wxh.}
 proc constructwxPanel*(parent: ptr WxWindow; 
                        winid: WxWindowID = WxWindowID(wxID_ANY); 
                        pos: WxPoint = wxDefaultPosition; 
                        size: WxSize = wxDefaultSize; 
                        style: clong = int(wxTAB_TRAVERSAL) or int(wxNO_BORDER); 
                        name: WxString = constructWxString("panel")): WxPanel {.
-    cdecl, constructor, importcpp: "wxPanel(@)", header: "<wx/wx.h>".}
+    cdecl, constructor, importcpp: "wxPanel(@)", header: wxh.}
 proc hasTransparentBackground*(this: var WxPanel): bool {.cdecl, 
-    importcpp: "HasTransparentBackground", header: "<wx/wx.h>".}
+    importcpp: "HasTransparentBackground", header: wxh.}

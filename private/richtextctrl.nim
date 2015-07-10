@@ -50,7 +50,7 @@ const
 
 type 
   WxRichTextCtrlSelectionState* {.size: sizeof(cint), importcpp: "wxRichTextStyleDefinition::wxRichTextCtrlSelectionState", 
-                                  header: "<wx/wx.h>".} = enum 
+                                  header: wxh.} = enum 
     wxRichTextCtrlSelectionStateNormal, 
     wxRichTextCtrlSelectionStateCommonAncestor
 
@@ -58,49 +58,49 @@ type
 
 type 
   WxRichTextContextMenuPropertiesInfo* {.
-      importcpp: "wxRichTextContextMenuPropertiesInfo", header: "<wx/wx.h>".} = object 
+      importcpp: "wxRichTextContextMenuPropertiesInfo", header: wxh.} = object 
     mObjects* {.importc: "m_objects".}: WxRichTextObjectPtrArray
     mLabels* {.importc: "m_labels".}: WxArrayString
 
 
 proc constructwxRichTextContextMenuPropertiesInfo*(): WxRichTextContextMenuPropertiesInfo {.
     cdecl, constructor, importcpp: "wxRichTextContextMenuPropertiesInfo(@)", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc init*(this: var WxRichTextContextMenuPropertiesInfo) {.cdecl, 
-    importcpp: "Init", header: "<wx/wx.h>".}
+    importcpp: "Init", header: wxh.}
 proc addItem*(this: var WxRichTextContextMenuPropertiesInfo; label: WxString; 
               obj: ptr WxRichTextObject): bool {.cdecl, importcpp: "AddItem", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc addMenuItems*(this: WxRichTextContextMenuPropertiesInfo; menu: ptr WxMenu; 
                    startCmd: cint = wxID_RICHTEXT_PROPERTIES1): cint {.
-    noSideEffect, cdecl, importcpp: "AddMenuItems", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "AddMenuItems", header: wxh.}
 proc addItems*(this: var WxRichTextContextMenuPropertiesInfo; 
                ctrl: ptr WxRichTextCtrl; container: ptr WxRichTextObject; 
                obj: ptr WxRichTextObject): cint {.cdecl, importcpp: "AddItems", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc clear*(this: var WxRichTextContextMenuPropertiesInfo) {.cdecl, 
-    importcpp: "Clear", header: "<wx/wx.h>".}
+    importcpp: "Clear", header: wxh.}
 proc getLabel*(this: WxRichTextContextMenuPropertiesInfo; n: cint): WxString {.
-    noSideEffect, cdecl, importcpp: "GetLabel", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetLabel", header: wxh.}
 proc getObject*(this: WxRichTextContextMenuPropertiesInfo; n: cint): ptr WxRichTextObject {.
-    noSideEffect, cdecl, importcpp: "GetObject", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetObject", header: wxh.}
 proc getObjects*(this: var WxRichTextContextMenuPropertiesInfo): var WxRichTextObjectPtrArray {.
-    cdecl, importcpp: "GetObjects", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetObjects", header: wxh.}
 proc getObjects*(this: WxRichTextContextMenuPropertiesInfo): WxRichTextObjectPtrArray {.
-    noSideEffect, cdecl, importcpp: "GetObjects", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetObjects", header: wxh.}
 proc getLabels*(this: var WxRichTextContextMenuPropertiesInfo): var WxArrayString {.
-    cdecl, importcpp: "GetLabels", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetLabels", header: wxh.}
 proc getLabels*(this: WxRichTextContextMenuPropertiesInfo): WxArrayString {.
-    noSideEffect, cdecl, importcpp: "GetLabels", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetLabels", header: wxh.}
 proc getCount*(this: WxRichTextContextMenuPropertiesInfo): cint {.noSideEffect, 
-    cdecl, importcpp: "GetCount", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetCount", header: wxh.}
 
 type 
-  WxRichTextCtrl* {.importcpp: "wxRichTextCtrl", header: "<wx/wx.h>".} = object of WxControl
+  WxRichTextCtrl* {.importcpp: "wxRichTextCtrl", header: wxh.} = object of WxControl
   
 
 proc constructwxRichTextCtrl*(): WxRichTextCtrl {.cdecl, constructor, 
-    importcpp: "wxRichTextCtrl(@)", header: "<wx/wx.h>".}
+    importcpp: "wxRichTextCtrl(@)", header: wxh.}
 proc constructwxRichTextCtrl*(parent: ptr WxWindow; id: WxWindowID = - 1; 
                               value: WxString = wxEmptyString; 
                               pos: WxPoint = wxDefaultPosition; 
@@ -108,915 +108,890 @@ proc constructwxRichTextCtrl*(parent: ptr WxWindow; id: WxWindowID = - 1;
                               style: clong = wxRE_MULTILINE; 
                               validator: WxValidator = wxDefaultValidator; 
                               name: WxString = constructWxString("text")): WxRichTextCtrl {.
-    cdecl, constructor, importcpp: "wxRichTextCtrl(@)", header: "<wx/wx.h>".}
+    cdecl, constructor, importcpp: "wxRichTextCtrl(@)", header: wxh.}
 proc destroywxRichTextCtrl*(this: var WxRichTextCtrl) {.cdecl, 
-    importcpp: "#.~wxRichTextCtrl()", header: "<wx/wx.h>".}
+    importcpp: "#.~wxRichTextCtrl()", header: wxh.}
 proc create*(this: var WxRichTextCtrl; parent: ptr WxWindow; 
              id: WxWindowID = - 1; value: WxString = wxEmptyString; 
              pos: WxPoint = wxDefaultPosition; size: WxSize = wxDefaultSize; 
              style: clong = wxRE_MULTILINE; 
              validator: WxValidator = wxDefaultValidator; 
              name: WxString = constructWxString("text")): bool {.cdecl, 
-    importcpp: "Create", header: "<wx/wx.h>".}
-proc init*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Init", 
-                                       header: "<wx/wx.h>".}
+    importcpp: "Create", header: wxh.}
+proc init*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Init", header: wxh.}
 proc getRange*(this: WxRichTextCtrl; `from`: clong; to: clong): WxString {.
-    noSideEffect, cdecl, importcpp: "GetRange", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetRange", header: wxh.}
 proc getLineLength*(this: WxRichTextCtrl; lineNo: clong): cint {.noSideEffect, 
-    cdecl, importcpp: "GetLineLength", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetLineLength", header: wxh.}
 proc getLineText*(this: WxRichTextCtrl; lineNo: clong): WxString {.noSideEffect, 
-    cdecl, importcpp: "GetLineText", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetLineText", header: wxh.}
 proc getNumberOfLines*(this: WxRichTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetNumberOfLines", header: "<wx/wx.h>".}
+    importcpp: "GetNumberOfLines", header: wxh.}
 proc isModified*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "IsModified", header: "<wx/wx.h>".}
+    importcpp: "IsModified", header: wxh.}
 proc isEditable*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "IsEditable", header: "<wx/wx.h>".}
+    importcpp: "IsEditable", header: wxh.}
 proc isSingleLine*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "IsSingleLine", header: "<wx/wx.h>".}
+    importcpp: "IsSingleLine", header: wxh.}
 proc isMultiLine*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "IsMultiLine", header: "<wx/wx.h>".}
+    importcpp: "IsMultiLine", header: wxh.}
 proc getSelection*(this: WxRichTextCtrl; `from`: ptr clong; to: ptr clong) {.
-    noSideEffect, cdecl, importcpp: "GetSelection", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetSelection", header: wxh.}
 proc getSelection*(this: WxRichTextCtrl): WxRichTextSelection {.noSideEffect, 
-    cdecl, importcpp: "GetSelection", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetSelection", header: wxh.}
 proc getSelection*(this: var WxRichTextCtrl): var WxRichTextSelection {.cdecl, 
-    importcpp: "GetSelection", header: "<wx/wx.h>".}
+    importcpp: "GetSelection", header: wxh.}
 proc getStringSelection*(this: WxRichTextCtrl): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetStringSelection", header: "<wx/wx.h>".}
+    importcpp: "GetStringSelection", header: wxh.}
 proc getFilename*(this: WxRichTextCtrl): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetFilename", header: "<wx/wx.h>".}
+    importcpp: "GetFilename", header: wxh.}
 proc setFilename*(this: var WxRichTextCtrl; filename: WxString) {.cdecl, 
-    importcpp: "SetFilename", header: "<wx/wx.h>".}
+    importcpp: "SetFilename", header: wxh.}
 proc setDelayedLayoutThreshold*(this: var WxRichTextCtrl; threshold: clong) {.
-    cdecl, importcpp: "SetDelayedLayoutThreshold", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetDelayedLayoutThreshold", header: wxh.}
 proc getDelayedLayoutThreshold*(this: WxRichTextCtrl): clong {.noSideEffect, 
-    cdecl, importcpp: "GetDelayedLayoutThreshold", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetDelayedLayoutThreshold", header: wxh.}
 proc getFullLayoutRequired*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetFullLayoutRequired", header: "<wx/wx.h>".}
+    importcpp: "GetFullLayoutRequired", header: wxh.}
 proc setFullLayoutRequired*(this: var WxRichTextCtrl; b: bool) {.cdecl, 
-    importcpp: "SetFullLayoutRequired", header: "<wx/wx.h>".}
+    importcpp: "SetFullLayoutRequired", header: wxh.}
 proc getFullLayoutTime*(this: WxRichTextCtrl): int64 {.noSideEffect, cdecl, 
-    importcpp: "GetFullLayoutTime", header: "<wx/wx.h>".}
+    importcpp: "GetFullLayoutTime", header: wxh.}
 proc setFullLayoutTime*(this: var WxRichTextCtrl; t: int64) {.cdecl, 
-    importcpp: "SetFullLayoutTime", header: "<wx/wx.h>".}
+    importcpp: "SetFullLayoutTime", header: wxh.}
 proc getFullLayoutSavedPosition*(this: WxRichTextCtrl): clong {.noSideEffect, 
-    cdecl, importcpp: "GetFullLayoutSavedPosition", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetFullLayoutSavedPosition", header: wxh.}
 proc setFullLayoutSavedPosition*(this: var WxRichTextCtrl; p: clong) {.cdecl, 
-    importcpp: "SetFullLayoutSavedPosition", header: "<wx/wx.h>".}
+    importcpp: "SetFullLayoutSavedPosition", header: wxh.}
 proc forceDelayedLayout*(this: var WxRichTextCtrl) {.cdecl, 
-    importcpp: "ForceDelayedLayout", header: "<wx/wx.h>".}
+    importcpp: "ForceDelayedLayout", header: wxh.}
 proc setTextCursor*(this: var WxRichTextCtrl; cursor: WxCursor) {.cdecl, 
-    importcpp: "SetTextCursor", header: "<wx/wx.h>".}
+    importcpp: "SetTextCursor", header: wxh.}
 proc getTextCursor*(this: WxRichTextCtrl): WxCursor {.noSideEffect, cdecl, 
-    importcpp: "GetTextCursor", header: "<wx/wx.h>".}
+    importcpp: "GetTextCursor", header: wxh.}
 proc setURLCursor*(this: var WxRichTextCtrl; cursor: WxCursor) {.cdecl, 
-    importcpp: "SetURLCursor", header: "<wx/wx.h>".}
+    importcpp: "SetURLCursor", header: wxh.}
 proc getURLCursor*(this: WxRichTextCtrl): WxCursor {.noSideEffect, cdecl, 
-    importcpp: "GetURLCursor", header: "<wx/wx.h>".}
+    importcpp: "GetURLCursor", header: wxh.}
 proc getCaretAtLineStart*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetCaretAtLineStart", header: "<wx/wx.h>".}
+    importcpp: "GetCaretAtLineStart", header: wxh.}
 proc setCaretAtLineStart*(this: var WxRichTextCtrl; atStart: bool) {.cdecl, 
-    importcpp: "SetCaretAtLineStart", header: "<wx/wx.h>".}
+    importcpp: "SetCaretAtLineStart", header: wxh.}
 proc getDragging*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetDragging", header: "<wx/wx.h>".}
+    importcpp: "GetDragging", header: wxh.}
 proc setDragging*(this: var WxRichTextCtrl; dragging: bool) {.cdecl, 
-    importcpp: "SetDragging", header: "<wx/wx.h>".}
+    importcpp: "SetDragging", header: wxh.}
 proc getPreDrag*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetPreDrag", header: "<wx/wx.h>".}
+    importcpp: "GetPreDrag", header: wxh.}
 proc setPreDrag*(this: var WxRichTextCtrl; pd: bool) {.cdecl, 
-    importcpp: "SetPreDrag", header: "<wx/wx.h>".}
+    importcpp: "SetPreDrag", header: wxh.}
 proc getDragStartPoint*(this: WxRichTextCtrl): WxPoint {.noSideEffect, cdecl, 
-    importcpp: "GetDragStartPoint", header: "<wx/wx.h>".}
+    importcpp: "GetDragStartPoint", header: wxh.}
 proc setDragStartPoint*(this: var WxRichTextCtrl; sp: WxPoint) {.cdecl, 
-    importcpp: "SetDragStartPoint", header: "<wx/wx.h>".}
+    importcpp: "SetDragStartPoint", header: wxh.}
 proc getDragStartTime*(this: WxRichTextCtrl): WxDateTime {.noSideEffect, cdecl, 
-    importcpp: "GetDragStartTime", header: "<wx/wx.h>".}
+    importcpp: "GetDragStartTime", header: wxh.}
 proc setDragStartTime*(this: var WxRichTextCtrl; st: WxDateTime) {.cdecl, 
-    importcpp: "SetDragStartTime", header: "<wx/wx.h>".}
+    importcpp: "SetDragStartTime", header: wxh.}
 proc getBufferBitmap*(this: WxRichTextCtrl): WxBitmap {.noSideEffect, cdecl, 
-    importcpp: "GetBufferBitmap", header: "<wx/wx.h>".}
+    importcpp: "GetBufferBitmap", header: wxh.}
 proc getBufferBitmap*(this: var WxRichTextCtrl): var WxBitmap {.cdecl, 
-    importcpp: "GetBufferBitmap", header: "<wx/wx.h>".}
+    importcpp: "GetBufferBitmap", header: wxh.}
 proc getContextMenu*(this: WxRichTextCtrl): ptr WxMenu {.noSideEffect, cdecl, 
-    importcpp: "GetContextMenu", header: "<wx/wx.h>".}
+    importcpp: "GetContextMenu", header: wxh.}
 proc setContextMenu*(this: var WxRichTextCtrl; menu: ptr WxMenu) {.cdecl, 
-    importcpp: "SetContextMenu", header: "<wx/wx.h>".}
+    importcpp: "SetContextMenu", header: wxh.}
 proc getSelectionAnchor*(this: WxRichTextCtrl): clong {.noSideEffect, cdecl, 
-    importcpp: "GetSelectionAnchor", header: "<wx/wx.h>".}
+    importcpp: "GetSelectionAnchor", header: wxh.}
 proc setSelectionAnchor*(this: var WxRichTextCtrl; anchor: clong) {.cdecl, 
-    importcpp: "SetSelectionAnchor", header: "<wx/wx.h>".}
+    importcpp: "SetSelectionAnchor", header: wxh.}
 proc getSelectionAnchorObject*(this: WxRichTextCtrl): ptr WxRichTextObject {.
-    noSideEffect, cdecl, importcpp: "GetSelectionAnchorObject", 
-    header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetSelectionAnchorObject", header: wxh.}
 proc setSelectionAnchorObject*(this: var WxRichTextCtrl; 
                                anchor: ptr WxRichTextObject) {.cdecl, 
-    importcpp: "SetSelectionAnchorObject", header: "<wx/wx.h>".}
+    importcpp: "SetSelectionAnchorObject", header: wxh.}
 proc getContextMenuPropertiesInfo*(this: var WxRichTextCtrl): var WxRichTextContextMenuPropertiesInfo {.
-    cdecl, importcpp: "GetContextMenuPropertiesInfo", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetContextMenuPropertiesInfo", header: wxh.}
 proc getContextMenuPropertiesInfo*(this: WxRichTextCtrl): WxRichTextContextMenuPropertiesInfo {.
-    noSideEffect, cdecl, importcpp: "GetContextMenuPropertiesInfo", 
-    header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetContextMenuPropertiesInfo", header: wxh.}
 proc getFocusObject*(this: WxRichTextCtrl): ptr WxRichTextParagraphLayoutBox {.
-    noSideEffect, cdecl, importcpp: "GetFocusObject", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetFocusObject", header: wxh.}
 proc storeFocusObject*(this: var WxRichTextCtrl; 
                        obj: ptr WxRichTextParagraphLayoutBox) {.cdecl, 
-    importcpp: "StoreFocusObject", header: "<wx/wx.h>".}
+    importcpp: "StoreFocusObject", header: wxh.}
 proc setFocusObject*(this: var WxRichTextCtrl; 
                      obj: ptr WxRichTextParagraphLayoutBox; 
                      setCaretPosition: bool = true): bool {.cdecl, 
-    importcpp: "SetFocusObject", header: "<wx/wx.h>".}
+    importcpp: "SetFocusObject", header: wxh.}
 proc invalidate*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Invalidate", 
-    header: "<wx/wx.h>".}
-proc clear*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Clear", 
-                                        header: "<wx/wx.h>".}
+    header: wxh.}
+proc clear*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Clear", header: wxh.}
 proc replace*(this: var WxRichTextCtrl; `from`: clong; to: clong; 
-              value: WxString) {.cdecl, importcpp: "Replace", 
-                                 header: "<wx/wx.h>".}
+              value: WxString) {.cdecl, importcpp: "Replace", header: wxh.}
 proc remove*(this: var WxRichTextCtrl; `from`: clong; to: clong) {.cdecl, 
-    importcpp: "Remove", header: "<wx/wx.h>".}
+    importcpp: "Remove", header: wxh.}
 proc loadFile*(this: var WxRichTextCtrl; file: WxString; 
                `type`: cint = wxRICHTEXT_TYPE_ANY): bool {.cdecl, 
-    importcpp: "LoadFile", header: "<wx/wx.h>".}
+    importcpp: "LoadFile", header: wxh.}
 proc saveFile*(this: var WxRichTextCtrl; file: WxString = wxEmptyString; 
                `type`: cint = wxRICHTEXT_TYPE_ANY): bool {.cdecl, 
-    importcpp: "SaveFile", header: "<wx/wx.h>".}
+    importcpp: "SaveFile", header: wxh.}
 proc doSaveFile*(this: var WxRichTextCtrl; file: WxString = wxEmptyString; 
                  fileType: cint = wxRICHTEXT_TYPE_ANY): bool {.cdecl, 
-    importcpp: "DoSaveFile", header: "<wx/wx.h>".}
+    importcpp: "DoSaveFile", header: wxh.}
 proc setHandlerFlags*(this: var WxRichTextCtrl; flags: cint) {.cdecl, 
-    importcpp: "SetHandlerFlags", header: "<wx/wx.h>".}
+    importcpp: "SetHandlerFlags", header: wxh.}
 proc getHandlerFlags*(this: WxRichTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetHandlerFlags", header: "<wx/wx.h>".}
+    importcpp: "GetHandlerFlags", header: wxh.}
 proc markDirty*(this: var WxRichTextCtrl) {.cdecl, importcpp: "MarkDirty", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc discardEdits*(this: var WxRichTextCtrl) {.cdecl, importcpp: "DiscardEdits", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc setMaxLength*(this: var WxRichTextCtrl; len: culong) {.cdecl, 
-    importcpp: "SetMaxLength", header: "<wx/wx.h>".}
+    importcpp: "SetMaxLength", header: wxh.}
 proc writeText*(this: var WxRichTextCtrl; text: WxString) {.cdecl, 
-    importcpp: "WriteText", header: "<wx/wx.h>".}
+    importcpp: "WriteText", header: wxh.}
 proc appendText*(this: var WxRichTextCtrl; text: WxString) {.cdecl, 
-    importcpp: "AppendText", header: "<wx/wx.h>".}
+    importcpp: "AppendText", header: wxh.}
 proc getStyle*(this: var WxRichTextCtrl; position: clong; style: var WxTextAttr): bool {.
-    cdecl, importcpp: "GetStyle", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetStyle", header: wxh.}
 proc getStyle*(this: var WxRichTextCtrl; position: clong; 
                style: var WxRichTextAttr): bool {.cdecl, importcpp: "GetStyle", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc getStyle*(this: var WxRichTextCtrl; position: clong; 
                style: var WxRichTextAttr; 
                container: ptr WxRichTextParagraphLayoutBox): bool {.cdecl, 
-    importcpp: "GetStyle", header: "<wx/wx.h>".}
+    importcpp: "GetStyle", header: wxh.}
 proc setStyle*(this: var WxRichTextCtrl; start: clong; `end`: clong; 
                style: WxTextAttr): bool {.cdecl, importcpp: "SetStyle", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc setStyle*(this: var WxRichTextCtrl; start: clong; `end`: clong; 
                style: WxRichTextAttr): bool {.cdecl, importcpp: "SetStyle", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc setStyle*(this: var WxRichTextCtrl; range: WxRichTextRange; 
                style: WxTextAttr): bool {.cdecl, importcpp: "SetStyle", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc setStyle*(this: var WxRichTextCtrl; range: WxRichTextRange; 
                style: WxRichTextAttr): bool {.cdecl, importcpp: "SetStyle", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc setStyle*(this: var WxRichTextCtrl; obj: ptr WxRichTextObject; 
                textAttr: WxRichTextAttr; 
                flags: cint = wxRICHTEXT_SETSTYLE_WITH_UNDO) {.cdecl, 
-    importcpp: "SetStyle", header: "<wx/wx.h>".}
+    importcpp: "SetStyle", header: wxh.}
 proc getStyleForRange*(this: var WxRichTextCtrl; range: WxRichTextRange; 
                        style: var WxTextAttr): bool {.cdecl, 
-    importcpp: "GetStyleForRange", header: "<wx/wx.h>".}
+    importcpp: "GetStyleForRange", header: wxh.}
 proc getStyleForRange*(this: var WxRichTextCtrl; range: WxRichTextRange; 
                        style: var WxRichTextAttr): bool {.cdecl, 
-    importcpp: "GetStyleForRange", header: "<wx/wx.h>".}
+    importcpp: "GetStyleForRange", header: wxh.}
 proc getStyleForRange*(this: var WxRichTextCtrl; range: WxRichTextRange; 
                        style: var WxRichTextAttr; 
                        container: ptr WxRichTextParagraphLayoutBox): bool {.
-    cdecl, importcpp: "GetStyleForRange", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetStyleForRange", header: wxh.}
 proc setStyleEx*(this: var WxRichTextCtrl; range: WxRichTextRange; 
                  style: WxRichTextAttr; 
                  flags: cint = wxRICHTEXT_SETSTYLE_WITH_UNDO): bool {.cdecl, 
-    importcpp: "SetStyleEx", header: "<wx/wx.h>".}
+    importcpp: "SetStyleEx", header: wxh.}
 proc getUncombinedStyle*(this: var WxRichTextCtrl; position: clong; 
                          style: var WxRichTextAttr): bool {.cdecl, 
-    importcpp: "GetUncombinedStyle", header: "<wx/wx.h>".}
+    importcpp: "GetUncombinedStyle", header: wxh.}
 proc getUncombinedStyle*(this: var WxRichTextCtrl; position: clong; 
                          style: var WxRichTextAttr; 
                          container: ptr WxRichTextParagraphLayoutBox): bool {.
-    cdecl, importcpp: "GetUncombinedStyle", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetUncombinedStyle", header: wxh.}
 proc setDefaultStyle*(this: var WxRichTextCtrl; style: WxTextAttr): bool {.
-    cdecl, importcpp: "SetDefaultStyle", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetDefaultStyle", header: wxh.}
 proc setDefaultStyle*(this: var WxRichTextCtrl; style: WxRichTextAttr): bool {.
-    cdecl, importcpp: "SetDefaultStyle", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetDefaultStyle", header: wxh.}
 proc getDefaultStyleEx*(this: WxRichTextCtrl): WxRichTextAttr {.noSideEffect, 
-    cdecl, importcpp: "GetDefaultStyleEx", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetDefaultStyleEx", header: wxh.}
 proc setListStyle*(this: var WxRichTextCtrl; range: WxRichTextRange; 
                    def: ptr WxRichTextListStyleDefinition; 
                    flags: cint = wxRICHTEXT_SETSTYLE_WITH_UNDO; 
                    startFrom: cint = 1; specifiedLevel: cint = - 1): bool {.
-    cdecl, importcpp: "SetListStyle", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetListStyle", header: wxh.}
 proc setListStyle*(this: var WxRichTextCtrl; range: WxRichTextRange; 
                    defName: WxString; 
                    flags: cint = wxRICHTEXT_SETSTYLE_WITH_UNDO; 
                    startFrom: cint = 1; specifiedLevel: cint = - 1): bool {.
-    cdecl, importcpp: "SetListStyle", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetListStyle", header: wxh.}
 proc clearListStyle*(this: var WxRichTextCtrl; range: WxRichTextRange; 
                      flags: cint = wxRICHTEXT_SETSTYLE_WITH_UNDO): bool {.cdecl, 
-    importcpp: "ClearListStyle", header: "<wx/wx.h>".}
+    importcpp: "ClearListStyle", header: wxh.}
 proc numberList*(this: var WxRichTextCtrl; range: WxRichTextRange; 
                  def: ptr WxRichTextListStyleDefinition = nil; 
                  flags: cint = wxRICHTEXT_SETSTYLE_WITH_UNDO; 
                  startFrom: cint = 1; specifiedLevel: cint = - 1): bool {.cdecl, 
-    importcpp: "NumberList", header: "<wx/wx.h>".}
+    importcpp: "NumberList", header: wxh.}
 proc numberList*(this: var WxRichTextCtrl; range: WxRichTextRange; 
                  defName: WxString; flags: cint = wxRICHTEXT_SETSTYLE_WITH_UNDO; 
                  startFrom: cint = 1; specifiedLevel: cint = - 1): bool {.cdecl, 
-    importcpp: "NumberList", header: "<wx/wx.h>".}
+    importcpp: "NumberList", header: wxh.}
 proc promoteList*(this: var WxRichTextCtrl; promoteBy: cint; 
                   range: WxRichTextRange; 
                   def: ptr WxRichTextListStyleDefinition = nil; 
                   flags: cint = wxRICHTEXT_SETSTYLE_WITH_UNDO; 
                   specifiedLevel: cint = - 1): bool {.cdecl, 
-    importcpp: "PromoteList", header: "<wx/wx.h>".}
+    importcpp: "PromoteList", header: wxh.}
 proc promoteList*(this: var WxRichTextCtrl; promoteBy: cint; 
                   range: WxRichTextRange; defName: WxString; 
                   flags: cint = wxRICHTEXT_SETSTYLE_WITH_UNDO; 
                   specifiedLevel: cint = - 1): bool {.cdecl, 
-    importcpp: "PromoteList", header: "<wx/wx.h>".}
+    importcpp: "PromoteList", header: wxh.}
 proc setProperties*(this: var WxRichTextCtrl; range: WxRichTextRange; 
                     properties: WxRichTextProperties; 
                     flags: cint = wxRICHTEXT_SETPROPERTIES_WITH_UNDO): bool {.
-    cdecl, importcpp: "SetProperties", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetProperties", header: wxh.}
 proc delete*(this: var WxRichTextCtrl; range: WxRichTextRange): bool {.cdecl, 
-    importcpp: "Delete", header: "<wx/wx.h>".}
+    importcpp: "Delete", header: wxh.}
 proc xYToPosition*(this: WxRichTextCtrl; x: clong; y: clong): clong {.
-    noSideEffect, cdecl, importcpp: "XYToPosition", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "XYToPosition", header: wxh.}
 proc positionToXY*(this: WxRichTextCtrl; pos: clong; x: ptr clong; y: ptr clong): bool {.
-    noSideEffect, cdecl, importcpp: "PositionToXY", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "PositionToXY", header: wxh.}
 proc showPosition*(this: var WxRichTextCtrl; pos: clong) {.cdecl, 
-    importcpp: "ShowPosition", header: "<wx/wx.h>".}
+    importcpp: "ShowPosition", header: wxh.}
 proc hitTest*(this: WxRichTextCtrl; pt: WxPoint; pos: ptr clong): WxTextCtrlHitTestResult {.
-    noSideEffect, cdecl, importcpp: "HitTest", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "HitTest", header: wxh.}
 proc hitTest*(this: WxRichTextCtrl; pt: WxPoint; col: ptr WxTextCoord; 
               row: ptr WxTextCoord): WxTextCtrlHitTestResult {.noSideEffect, 
-    cdecl, importcpp: "HitTest", header: "<wx/wx.h>".}
+    cdecl, importcpp: "HitTest", header: wxh.}
 proc findContainerAtPoint*(this: var WxRichTextCtrl; pt: WxPoint; 
                            position: var clong; hit: var cint; 
                            hitObj: ptr WxRichTextObject; flags: cint = 0): ptr WxRichTextParagraphLayoutBox {.
-    cdecl, importcpp: "FindContainerAtPoint", header: "<wx/wx.h>".}
+    cdecl, importcpp: "FindContainerAtPoint", header: wxh.}
 proc onDrop*(this: var WxRichTextCtrl; x: WxCoord; y: WxCoord; 
              def: WxDragResult; dataObj: ptr WxDataObject) {.cdecl, 
-    importcpp: "OnDrop", header: "<wx/wx.h>".}
-proc copy*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Copy", 
-                                       header: "<wx/wx.h>".}
-proc cut*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Cut", 
-                                      header: "<wx/wx.h>".}
-proc paste*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Paste", 
-                                        header: "<wx/wx.h>".}
+    importcpp: "OnDrop", header: wxh.}
+proc copy*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Copy", header: wxh.}
+proc cut*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Cut", header: wxh.}
+proc paste*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Paste", header: wxh.}
 proc deleteSelection*(this: var WxRichTextCtrl) {.cdecl, 
-    importcpp: "DeleteSelection", header: "<wx/wx.h>".}
+    importcpp: "DeleteSelection", header: wxh.}
 proc canCopy*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "CanCopy", header: "<wx/wx.h>".}
+    importcpp: "CanCopy", header: wxh.}
 proc canCut*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "CanCut", header: "<wx/wx.h>".}
+    importcpp: "CanCut", header: wxh.}
 proc canPaste*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "CanPaste", header: "<wx/wx.h>".}
+    importcpp: "CanPaste", header: wxh.}
 proc canDeleteSelection*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "CanDeleteSelection", header: "<wx/wx.h>".}
-proc undo*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Undo", 
-                                       header: "<wx/wx.h>".}
-proc redo*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Redo", 
-                                       header: "<wx/wx.h>".}
+    importcpp: "CanDeleteSelection", header: wxh.}
+proc undo*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Undo", header: wxh.}
+proc redo*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Redo", header: wxh.}
 proc canUndo*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "CanUndo", header: "<wx/wx.h>".}
+    importcpp: "CanUndo", header: wxh.}
 proc canRedo*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "CanRedo", header: "<wx/wx.h>".}
+    importcpp: "CanRedo", header: wxh.}
 proc setInsertionPoint*(this: var WxRichTextCtrl; pos: clong) {.cdecl, 
-    importcpp: "SetInsertionPoint", header: "<wx/wx.h>".}
+    importcpp: "SetInsertionPoint", header: wxh.}
 proc setInsertionPointEnd*(this: var WxRichTextCtrl) {.cdecl, 
-    importcpp: "SetInsertionPointEnd", header: "<wx/wx.h>".}
+    importcpp: "SetInsertionPointEnd", header: wxh.}
 proc getInsertionPoint*(this: WxRichTextCtrl): clong {.noSideEffect, cdecl, 
-    importcpp: "GetInsertionPoint", header: "<wx/wx.h>".}
+    importcpp: "GetInsertionPoint", header: wxh.}
 proc getLastPosition*(this: WxRichTextCtrl): WxTextPos {.noSideEffect, cdecl, 
-    importcpp: "GetLastPosition", header: "<wx/wx.h>".}
+    importcpp: "GetLastPosition", header: wxh.}
 proc setSelection*(this: var WxRichTextCtrl; `from`: clong; to: clong) {.cdecl, 
-    importcpp: "SetSelection", header: "<wx/wx.h>".}
+    importcpp: "SetSelection", header: wxh.}
 proc setSelection*(this: var WxRichTextCtrl; sel: WxRichTextSelection) {.cdecl, 
-    importcpp: "SetSelection", header: "<wx/wx.h>".}
+    importcpp: "SetSelection", header: wxh.}
 proc setEditable*(this: var WxRichTextCtrl; editable: bool) {.cdecl, 
-    importcpp: "SetEditable", header: "<wx/wx.h>".}
+    importcpp: "SetEditable", header: wxh.}
 proc hasSelection*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "HasSelection", header: "<wx/wx.h>".}
+    importcpp: "HasSelection", header: wxh.}
 proc hasUnfocusedSelection*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "HasUnfocusedSelection", header: "<wx/wx.h>".}
+    importcpp: "HasUnfocusedSelection", header: wxh.}
 proc writeImage*(this: var WxRichTextCtrl; image: WxImage; 
                  bitmapType: WxBitmapType = wxBITMAP_TYPE_PNG; 
                  textAttr: WxRichTextAttr = wxRichTextAttr()): bool {.cdecl, 
-    importcpp: "WriteImage", header: "<wx/wx.h>".}
+    importcpp: "WriteImage", header: wxh.}
 proc writeImage*(this: var WxRichTextCtrl; bitmap: WxBitmap; 
                  bitmapType: WxBitmapType = wxBITMAP_TYPE_PNG; 
                  textAttr: WxRichTextAttr = wxRichTextAttr()): bool {.cdecl, 
-    importcpp: "WriteImage", header: "<wx/wx.h>".}
+    importcpp: "WriteImage", header: wxh.}
 proc writeImage*(this: var WxRichTextCtrl; filename: WxString; 
                  bitmapType: WxBitmapType; 
                  textAttr: WxRichTextAttr = wxRichTextAttr()): bool {.cdecl, 
-    importcpp: "WriteImage", header: "<wx/wx.h>".}
+    importcpp: "WriteImage", header: wxh.}
 proc writeImage*(this: var WxRichTextCtrl; imageBlock: WxRichTextImageBlock; 
                  textAttr: WxRichTextAttr = wxRichTextAttr()): bool {.cdecl, 
-    importcpp: "WriteImage", header: "<wx/wx.h>".}
+    importcpp: "WriteImage", header: wxh.}
 proc writeTextBox*(this: var WxRichTextCtrl; 
                    textAttr: WxRichTextAttr = wxRichTextAttr()): ptr WxRichTextBox {.
-    cdecl, importcpp: "WriteTextBox", header: "<wx/wx.h>".}
+    cdecl, importcpp: "WriteTextBox", header: wxh.}
 proc writeField*(this: var WxRichTextCtrl; fieldType: WxString; 
                  properties: WxRichTextProperties; 
                  textAttr: WxRichTextAttr = wxRichTextAttr()): ptr WxRichTextField {.
-    cdecl, importcpp: "WriteField", header: "<wx/wx.h>".}
+    cdecl, importcpp: "WriteField", header: wxh.}
 proc writeTable*(this: var WxRichTextCtrl; rows: cint; cols: cint; 
                  tableAttr: WxRichTextAttr = wxRichTextAttr(); 
                  cellAttr: WxRichTextAttr = wxRichTextAttr()): ptr WxRichTextTable {.
-    cdecl, importcpp: "WriteTable", header: "<wx/wx.h>".}
+    cdecl, importcpp: "WriteTable", header: wxh.}
 proc newline*(this: var WxRichTextCtrl): bool {.cdecl, importcpp: "Newline", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc lineBreak*(this: var WxRichTextCtrl): bool {.cdecl, importcpp: "LineBreak", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc setBasicStyle*(this: var WxRichTextCtrl; style: WxRichTextAttr) {.cdecl, 
-    importcpp: "SetBasicStyle", header: "<wx/wx.h>".}
+    importcpp: "SetBasicStyle", header: wxh.}
 proc getBasicStyle*(this: WxRichTextCtrl): WxRichTextAttr {.noSideEffect, cdecl, 
-    importcpp: "GetBasicStyle", header: "<wx/wx.h>".}
+    importcpp: "GetBasicStyle", header: wxh.}
 proc beginStyle*(this: var WxRichTextCtrl; style: WxRichTextAttr): bool {.cdecl, 
-    importcpp: "BeginStyle", header: "<wx/wx.h>".}
+    importcpp: "BeginStyle", header: wxh.}
 proc endStyle*(this: var WxRichTextCtrl): bool {.cdecl, importcpp: "EndStyle", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc endAllStyles*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "EndAllStyles", header: "<wx/wx.h>".}
+    importcpp: "EndAllStyles", header: wxh.}
 proc beginBold*(this: var WxRichTextCtrl): bool {.cdecl, importcpp: "BeginBold", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc endBold*(this: var WxRichTextCtrl): bool {.cdecl, importcpp: "EndBold", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc beginItalic*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "BeginItalic", header: "<wx/wx.h>".}
+    importcpp: "BeginItalic", header: wxh.}
 proc endItalic*(this: var WxRichTextCtrl): bool {.cdecl, importcpp: "EndItalic", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc beginUnderline*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "BeginUnderline", header: "<wx/wx.h>".}
+    importcpp: "BeginUnderline", header: wxh.}
 proc endUnderline*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "EndUnderline", header: "<wx/wx.h>".}
+    importcpp: "EndUnderline", header: wxh.}
 proc beginFontSize*(this: var WxRichTextCtrl; pointSize: cint): bool {.cdecl, 
-    importcpp: "BeginFontSize", header: "<wx/wx.h>".}
+    importcpp: "BeginFontSize", header: wxh.}
 proc endFontSize*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "EndFontSize", header: "<wx/wx.h>".}
+    importcpp: "EndFontSize", header: wxh.}
 proc beginFont*(this: var WxRichTextCtrl; font: WxFont): bool {.cdecl, 
-    importcpp: "BeginFont", header: "<wx/wx.h>".}
+    importcpp: "BeginFont", header: wxh.}
 proc endFont*(this: var WxRichTextCtrl): bool {.cdecl, importcpp: "EndFont", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc beginTextColour*(this: var WxRichTextCtrl; colour: WxColour): bool {.cdecl, 
-    importcpp: "BeginTextColour", header: "<wx/wx.h>".}
+    importcpp: "BeginTextColour", header: wxh.}
 proc endTextColour*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "EndTextColour", header: "<wx/wx.h>".}
+    importcpp: "EndTextColour", header: wxh.}
 proc beginAlignment*(this: var WxRichTextCtrl; alignment: WxTextAttrAlignment): bool {.
-    cdecl, importcpp: "BeginAlignment", header: "<wx/wx.h>".}
+    cdecl, importcpp: "BeginAlignment", header: wxh.}
 proc endAlignment*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "EndAlignment", header: "<wx/wx.h>".}
+    importcpp: "EndAlignment", header: wxh.}
 proc beginLeftIndent*(this: var WxRichTextCtrl; leftIndent: cint; 
                       leftSubIndent: cint = 0): bool {.cdecl, 
-    importcpp: "BeginLeftIndent", header: "<wx/wx.h>".}
+    importcpp: "BeginLeftIndent", header: wxh.}
 proc endLeftIndent*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "EndLeftIndent", header: "<wx/wx.h>".}
+    importcpp: "EndLeftIndent", header: wxh.}
 proc beginRightIndent*(this: var WxRichTextCtrl; rightIndent: cint): bool {.
-    cdecl, importcpp: "BeginRightIndent", header: "<wx/wx.h>".}
+    cdecl, importcpp: "BeginRightIndent", header: wxh.}
 proc endRightIndent*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "EndRightIndent", header: "<wx/wx.h>".}
+    importcpp: "EndRightIndent", header: wxh.}
 proc beginParagraphSpacing*(this: var WxRichTextCtrl; before: cint; after: cint): bool {.
-    cdecl, importcpp: "BeginParagraphSpacing", header: "<wx/wx.h>".}
+    cdecl, importcpp: "BeginParagraphSpacing", header: wxh.}
 proc endParagraphSpacing*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "EndParagraphSpacing", header: "<wx/wx.h>".}
+    importcpp: "EndParagraphSpacing", header: wxh.}
 proc beginLineSpacing*(this: var WxRichTextCtrl; lineSpacing: cint): bool {.
-    cdecl, importcpp: "BeginLineSpacing", header: "<wx/wx.h>".}
+    cdecl, importcpp: "BeginLineSpacing", header: wxh.}
 proc endLineSpacing*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "EndLineSpacing", header: "<wx/wx.h>".}
+    importcpp: "EndLineSpacing", header: wxh.}
 proc beginNumberedBullet*(this: var WxRichTextCtrl; bulletNumber: cint; 
                           leftIndent: cint; leftSubIndent: cint; bulletStyle: cint = wxTEXT_ATTR_BULLET_STYLE_ARABIC or
     wxTEXT_ATTR_BULLET_STYLE_PERIOD): bool {.cdecl, 
-    importcpp: "BeginNumberedBullet", header: "<wx/wx.h>".}
+    importcpp: "BeginNumberedBullet", header: wxh.}
 proc endNumberedBullet*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "EndNumberedBullet", header: "<wx/wx.h>".}
+    importcpp: "EndNumberedBullet", header: wxh.}
 proc beginSymbolBullet*(this: var WxRichTextCtrl; symbol: WxString; 
                         leftIndent: cint; leftSubIndent: cint; 
                         bulletStyle: cint = wxTEXT_ATTR_BULLET_STYLE_SYMBOL): bool {.
-    cdecl, importcpp: "BeginSymbolBullet", header: "<wx/wx.h>".}
+    cdecl, importcpp: "BeginSymbolBullet", header: wxh.}
 proc endSymbolBullet*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "EndSymbolBullet", header: "<wx/wx.h>".}
+    importcpp: "EndSymbolBullet", header: wxh.}
 proc beginStandardBullet*(this: var WxRichTextCtrl; bulletName: WxString; 
                           leftIndent: cint; leftSubIndent: cint; 
                           bulletStyle: cint = wxTEXT_ATTR_BULLET_STYLE_STANDARD): bool {.
-    cdecl, importcpp: "BeginStandardBullet", header: "<wx/wx.h>".}
+    cdecl, importcpp: "BeginStandardBullet", header: wxh.}
 proc endStandardBullet*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "EndStandardBullet", header: "<wx/wx.h>".}
+    importcpp: "EndStandardBullet", header: wxh.}
 proc beginCharacterStyle*(this: var WxRichTextCtrl; characterStyle: WxString): bool {.
-    cdecl, importcpp: "BeginCharacterStyle", header: "<wx/wx.h>".}
+    cdecl, importcpp: "BeginCharacterStyle", header: wxh.}
 proc endCharacterStyle*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "EndCharacterStyle", header: "<wx/wx.h>".}
+    importcpp: "EndCharacterStyle", header: wxh.}
 proc beginParagraphStyle*(this: var WxRichTextCtrl; paragraphStyle: WxString): bool {.
-    cdecl, importcpp: "BeginParagraphStyle", header: "<wx/wx.h>".}
+    cdecl, importcpp: "BeginParagraphStyle", header: wxh.}
 proc endParagraphStyle*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "EndParagraphStyle", header: "<wx/wx.h>".}
+    importcpp: "EndParagraphStyle", header: wxh.}
 proc beginListStyle*(this: var WxRichTextCtrl; listStyle: WxString; 
                      level: cint = 1; number: cint = 1): bool {.cdecl, 
-    importcpp: "BeginListStyle", header: "<wx/wx.h>".}
+    importcpp: "BeginListStyle", header: wxh.}
 proc endListStyle*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "EndListStyle", header: "<wx/wx.h>".}
+    importcpp: "EndListStyle", header: wxh.}
 proc beginURL*(this: var WxRichTextCtrl; url: WxString; 
                characterStyle: WxString = wxEmptyString): bool {.cdecl, 
-    importcpp: "BeginURL", header: "<wx/wx.h>".}
+    importcpp: "BeginURL", header: wxh.}
 proc endURL*(this: var WxRichTextCtrl): bool {.cdecl, importcpp: "EndURL", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc setDefaultStyleToCursorStyle*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "SetDefaultStyleToCursorStyle", header: "<wx/wx.h>".}
+    importcpp: "SetDefaultStyleToCursorStyle", header: wxh.}
 proc selectNone*(this: var WxRichTextCtrl) {.cdecl, importcpp: "SelectNone", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc selectWord*(this: var WxRichTextCtrl; position: clong): bool {.cdecl, 
-    importcpp: "SelectWord", header: "<wx/wx.h>".}
+    importcpp: "SelectWord", header: wxh.}
 proc getSelectionRange*(this: WxRichTextCtrl): WxRichTextRange {.noSideEffect, 
-    cdecl, importcpp: "GetSelectionRange", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetSelectionRange", header: wxh.}
 proc setSelectionRange*(this: var WxRichTextCtrl; range: WxRichTextRange) {.
-    cdecl, importcpp: "SetSelectionRange", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetSelectionRange", header: wxh.}
 proc getInternalSelectionRange*(this: WxRichTextCtrl): WxRichTextRange {.
-    noSideEffect, cdecl, importcpp: "GetInternalSelectionRange", 
-    header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetInternalSelectionRange", header: wxh.}
 proc setInternalSelectionRange*(this: var WxRichTextCtrl; range: WxRichTextRange) {.
-    cdecl, importcpp: "SetInternalSelectionRange", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetInternalSelectionRange", header: wxh.}
 proc addParagraph*(this: var WxRichTextCtrl; text: WxString): WxRichTextRange {.
-    cdecl, importcpp: "AddParagraph", header: "<wx/wx.h>".}
+    cdecl, importcpp: "AddParagraph", header: wxh.}
 proc addImage*(this: var WxRichTextCtrl; image: WxImage): WxRichTextRange {.
-    cdecl, importcpp: "AddImage", header: "<wx/wx.h>".}
+    cdecl, importcpp: "AddImage", header: wxh.}
 proc layoutContent*(this: var WxRichTextCtrl; onlyVisibleRect: bool = false): bool {.
-    cdecl, importcpp: "LayoutContent", header: "<wx/wx.h>".}
+    cdecl, importcpp: "LayoutContent", header: wxh.}
 proc moveCaret*(this: var WxRichTextCtrl; pos: clong; 
                 showAtLineStart: bool = false; 
                 container: ptr WxRichTextParagraphLayoutBox = nil): bool {.
-    cdecl, importcpp: "MoveCaret", header: "<wx/wx.h>".}
+    cdecl, importcpp: "MoveCaret", header: wxh.}
 proc moveRight*(this: var WxRichTextCtrl; noPositions: cint = 1; flags: cint = 0): bool {.
-    cdecl, importcpp: "MoveRight", header: "<wx/wx.h>".}
+    cdecl, importcpp: "MoveRight", header: wxh.}
 proc moveLeft*(this: var WxRichTextCtrl; noPositions: cint = 1; flags: cint = 0): bool {.
-    cdecl, importcpp: "MoveLeft", header: "<wx/wx.h>".}
+    cdecl, importcpp: "MoveLeft", header: wxh.}
 proc moveUp*(this: var WxRichTextCtrl; noLines: cint = 1; flags: cint = 0): bool {.
-    cdecl, importcpp: "MoveUp", header: "<wx/wx.h>".}
+    cdecl, importcpp: "MoveUp", header: wxh.}
 proc moveDown*(this: var WxRichTextCtrl; noLines: cint = 1; flags: cint = 0): bool {.
-    cdecl, importcpp: "MoveDown", header: "<wx/wx.h>".}
+    cdecl, importcpp: "MoveDown", header: wxh.}
 proc moveToLineEnd*(this: var WxRichTextCtrl; flags: cint = 0): bool {.cdecl, 
-    importcpp: "MoveToLineEnd", header: "<wx/wx.h>".}
+    importcpp: "MoveToLineEnd", header: wxh.}
 proc moveToLineStart*(this: var WxRichTextCtrl; flags: cint = 0): bool {.cdecl, 
-    importcpp: "MoveToLineStart", header: "<wx/wx.h>".}
+    importcpp: "MoveToLineStart", header: wxh.}
 proc moveToParagraphEnd*(this: var WxRichTextCtrl; flags: cint = 0): bool {.
-    cdecl, importcpp: "MoveToParagraphEnd", header: "<wx/wx.h>".}
+    cdecl, importcpp: "MoveToParagraphEnd", header: wxh.}
 proc moveToParagraphStart*(this: var WxRichTextCtrl; flags: cint = 0): bool {.
-    cdecl, importcpp: "MoveToParagraphStart", header: "<wx/wx.h>".}
+    cdecl, importcpp: "MoveToParagraphStart", header: wxh.}
 proc moveHome*(this: var WxRichTextCtrl; flags: cint = 0): bool {.cdecl, 
-    importcpp: "MoveHome", header: "<wx/wx.h>".}
+    importcpp: "MoveHome", header: wxh.}
 proc moveEnd*(this: var WxRichTextCtrl; flags: cint = 0): bool {.cdecl, 
-    importcpp: "MoveEnd", header: "<wx/wx.h>".}
+    importcpp: "MoveEnd", header: wxh.}
 proc pageUp*(this: var WxRichTextCtrl; noPages: cint = 1; flags: cint = 0): bool {.
-    cdecl, importcpp: "PageUp", header: "<wx/wx.h>".}
+    cdecl, importcpp: "PageUp", header: wxh.}
 proc pageDown*(this: var WxRichTextCtrl; noPages: cint = 1; flags: cint = 0): bool {.
-    cdecl, importcpp: "PageDown", header: "<wx/wx.h>".}
+    cdecl, importcpp: "PageDown", header: wxh.}
 proc wordLeft*(this: var WxRichTextCtrl; noPages: cint = 1; flags: cint = 0): bool {.
-    cdecl, importcpp: "WordLeft", header: "<wx/wx.h>".}
+    cdecl, importcpp: "WordLeft", header: wxh.}
 proc wordRight*(this: var WxRichTextCtrl; noPages: cint = 1; flags: cint = 0): bool {.
-    cdecl, importcpp: "WordRight", header: "<wx/wx.h>".}
+    cdecl, importcpp: "WordRight", header: wxh.}
 proc getBuffer*(this: var WxRichTextCtrl): var WxRichTextBuffer {.cdecl, 
-    importcpp: "GetBuffer", header: "<wx/wx.h>".}
+    importcpp: "GetBuffer", header: wxh.}
 proc getBuffer*(this: WxRichTextCtrl): WxRichTextBuffer {.noSideEffect, cdecl, 
-    importcpp: "GetBuffer", header: "<wx/wx.h>".}
+    importcpp: "GetBuffer", header: wxh.}
 proc beginBatchUndo*(this: var WxRichTextCtrl; cmdName: WxString): bool {.cdecl, 
-    importcpp: "BeginBatchUndo", header: "<wx/wx.h>".}
+    importcpp: "BeginBatchUndo", header: wxh.}
 proc endBatchUndo*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "EndBatchUndo", header: "<wx/wx.h>".}
+    importcpp: "EndBatchUndo", header: wxh.}
 proc batchingUndo*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "BatchingUndo", header: "<wx/wx.h>".}
+    importcpp: "BatchingUndo", header: wxh.}
 proc beginSuppressUndo*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "BeginSuppressUndo", header: "<wx/wx.h>".}
+    importcpp: "BeginSuppressUndo", header: wxh.}
 proc endSuppressUndo*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "EndSuppressUndo", header: "<wx/wx.h>".}
+    importcpp: "EndSuppressUndo", header: wxh.}
 proc suppressingUndo*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "SuppressingUndo", header: "<wx/wx.h>".}
+    importcpp: "SuppressingUndo", header: wxh.}
 proc hasCharacterAttributes*(this: WxRichTextCtrl; range: WxRichTextRange; 
                              style: WxRichTextAttr): bool {.noSideEffect, cdecl, 
-    importcpp: "HasCharacterAttributes", header: "<wx/wx.h>".}
+    importcpp: "HasCharacterAttributes", header: wxh.}
 proc hasParagraphAttributes*(this: WxRichTextCtrl; range: WxRichTextRange; 
                              style: WxRichTextAttr): bool {.noSideEffect, cdecl, 
-    importcpp: "HasParagraphAttributes", header: "<wx/wx.h>".}
+    importcpp: "HasParagraphAttributes", header: wxh.}
 proc isSelectionBold*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "IsSelectionBold", header: "<wx/wx.h>".}
+    importcpp: "IsSelectionBold", header: wxh.}
 proc isSelectionItalics*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "IsSelectionItalics", header: "<wx/wx.h>".}
+    importcpp: "IsSelectionItalics", header: wxh.}
 proc isSelectionUnderlined*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "IsSelectionUnderlined", header: "<wx/wx.h>".}
+    importcpp: "IsSelectionUnderlined", header: wxh.}
 proc doesSelectionHaveTextEffectFlag*(this: var WxRichTextCtrl; flag: cint): bool {.
-    cdecl, importcpp: "DoesSelectionHaveTextEffectFlag", header: "<wx/wx.h>".}
+    cdecl, importcpp: "DoesSelectionHaveTextEffectFlag", header: wxh.}
 proc isSelectionAligned*(this: var WxRichTextCtrl; 
                          alignment: WxTextAttrAlignment): bool {.cdecl, 
-    importcpp: "IsSelectionAligned", header: "<wx/wx.h>".}
+    importcpp: "IsSelectionAligned", header: wxh.}
 proc applyBoldToSelection*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "ApplyBoldToSelection", header: "<wx/wx.h>".}
+    importcpp: "ApplyBoldToSelection", header: wxh.}
 proc applyItalicToSelection*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "ApplyItalicToSelection", header: "<wx/wx.h>".}
+    importcpp: "ApplyItalicToSelection", header: wxh.}
 proc applyUnderlineToSelection*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "ApplyUnderlineToSelection", header: "<wx/wx.h>".}
+    importcpp: "ApplyUnderlineToSelection", header: wxh.}
 proc applyTextEffectToSelection*(this: var WxRichTextCtrl; flags: cint): bool {.
-    cdecl, importcpp: "ApplyTextEffectToSelection", header: "<wx/wx.h>".}
+    cdecl, importcpp: "ApplyTextEffectToSelection", header: wxh.}
 proc applyAlignmentToSelection*(this: var WxRichTextCtrl; 
                                 alignment: WxTextAttrAlignment): bool {.cdecl, 
-    importcpp: "ApplyAlignmentToSelection", header: "<wx/wx.h>".}
+    importcpp: "ApplyAlignmentToSelection", header: wxh.}
 proc applyStyle*(this: var WxRichTextCtrl; def: ptr WxRichTextStyleDefinition): bool {.
-    cdecl, importcpp: "ApplyStyle", header: "<wx/wx.h>".}
+    cdecl, importcpp: "ApplyStyle", header: wxh.}
 proc setStyleSheet*(this: var WxRichTextCtrl; 
                     styleSheet: ptr WxRichTextStyleSheet) {.cdecl, 
-    importcpp: "SetStyleSheet", header: "<wx/wx.h>".}
+    importcpp: "SetStyleSheet", header: wxh.}
 proc getStyleSheet*(this: WxRichTextCtrl): ptr WxRichTextStyleSheet {.
-    noSideEffect, cdecl, importcpp: "GetStyleSheet", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetStyleSheet", header: wxh.}
 proc pushStyleSheet*(this: var WxRichTextCtrl; 
                      styleSheet: ptr WxRichTextStyleSheet): bool {.cdecl, 
-    importcpp: "PushStyleSheet", header: "<wx/wx.h>".}
+    importcpp: "PushStyleSheet", header: wxh.}
 proc popStyleSheet*(this: var WxRichTextCtrl): ptr WxRichTextStyleSheet {.cdecl, 
-    importcpp: "PopStyleSheet", header: "<wx/wx.h>".}
+    importcpp: "PopStyleSheet", header: wxh.}
 proc applyStyleSheet*(this: var WxRichTextCtrl; 
                       styleSheet: ptr WxRichTextStyleSheet = nil): bool {.cdecl, 
-    importcpp: "ApplyStyleSheet", header: "<wx/wx.h>".}
+    importcpp: "ApplyStyleSheet", header: wxh.}
 proc showContextMenu*(this: var WxRichTextCtrl; menu: ptr WxMenu; pt: WxPoint; 
                       addPropertyCommands: bool = true): bool {.cdecl, 
-    importcpp: "ShowContextMenu", header: "<wx/wx.h>".}
+    importcpp: "ShowContextMenu", header: wxh.}
 proc prepareContextMenu*(this: var WxRichTextCtrl; menu: ptr WxMenu; 
                          pt: WxPoint; addPropertyCommands: bool = true): cint {.
-    cdecl, importcpp: "PrepareContextMenu", header: "<wx/wx.h>".}
+    cdecl, importcpp: "PrepareContextMenu", header: wxh.}
 proc canEditProperties*(this: WxRichTextCtrl; obj: ptr WxRichTextObject): bool {.
-    noSideEffect, cdecl, importcpp: "CanEditProperties", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "CanEditProperties", header: wxh.}
 proc editProperties*(this: var WxRichTextCtrl; obj: ptr WxRichTextObject; 
                      parent: ptr WxWindow): bool {.cdecl, 
-    importcpp: "EditProperties", header: "<wx/wx.h>".}
+    importcpp: "EditProperties", header: wxh.}
 proc getPropertiesMenuLabel*(this: var WxRichTextCtrl; obj: ptr WxRichTextObject): WxString {.
-    cdecl, importcpp: "GetPropertiesMenuLabel", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetPropertiesMenuLabel", header: wxh.}
 proc prepareContent*(this: var WxRichTextCtrl; 
                      container: var WxRichTextParagraphLayoutBox) {.cdecl, 
-    importcpp: "PrepareContent", header: "<wx/wx.h>".}
+    importcpp: "PrepareContent", header: wxh.}
 proc canDeleteRange*(this: WxRichTextCtrl; 
                      container: var WxRichTextParagraphLayoutBox; 
                      range: WxRichTextRange): bool {.noSideEffect, cdecl, 
-    importcpp: "CanDeleteRange", header: "<wx/wx.h>".}
+    importcpp: "CanDeleteRange", header: wxh.}
 proc canInsertContent*(this: WxRichTextCtrl; 
                        container: var WxRichTextParagraphLayoutBox; pos: clong): bool {.
-    noSideEffect, cdecl, importcpp: "CanInsertContent", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "CanInsertContent", header: wxh.}
 proc enableVerticalScrollbar*(this: var WxRichTextCtrl; enable: bool) {.cdecl, 
-    importcpp: "EnableVerticalScrollbar", header: "<wx/wx.h>".}
+    importcpp: "EnableVerticalScrollbar", header: wxh.}
 proc getVerticalScrollbarEnabled*(this: WxRichTextCtrl): bool {.noSideEffect, 
-    cdecl, importcpp: "GetVerticalScrollbarEnabled", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetVerticalScrollbarEnabled", header: wxh.}
 proc setFontScale*(this: var WxRichTextCtrl; fontScale: cdouble; 
                    refresh: bool = false) {.cdecl, importcpp: "SetFontScale", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc getFontScale*(this: WxRichTextCtrl): cdouble {.noSideEffect, cdecl, 
-    importcpp: "GetFontScale", header: "<wx/wx.h>".}
+    importcpp: "GetFontScale", header: wxh.}
 proc setDimensionScale*(this: var WxRichTextCtrl; dimScale: cdouble; 
                         refresh: bool = false) {.cdecl, 
-    importcpp: "SetDimensionScale", header: "<wx/wx.h>".}
+    importcpp: "SetDimensionScale", header: wxh.}
 proc getDimensionScale*(this: WxRichTextCtrl): cdouble {.noSideEffect, cdecl, 
-    importcpp: "GetDimensionScale", header: "<wx/wx.h>".}
+    importcpp: "GetDimensionScale", header: wxh.}
 proc setScale*(this: var WxRichTextCtrl; scale: cdouble; refresh: bool = false) {.
-    cdecl, importcpp: "SetScale", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetScale", header: wxh.}
 proc getScale*(this: WxRichTextCtrl): cdouble {.noSideEffect, cdecl, 
-    importcpp: "GetScale", header: "<wx/wx.h>".}
+    importcpp: "GetScale", header: wxh.}
 proc getUnscaledPoint*(this: WxRichTextCtrl; pt: WxPoint): WxPoint {.
-    noSideEffect, cdecl, importcpp: "GetUnscaledPoint", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetUnscaledPoint", header: wxh.}
 proc getScaledPoint*(this: WxRichTextCtrl; pt: WxPoint): WxPoint {.noSideEffect, 
-    cdecl, importcpp: "GetScaledPoint", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetScaledPoint", header: wxh.}
 proc getUnscaledSize*(this: WxRichTextCtrl; sz: WxSize): WxSize {.noSideEffect, 
-    cdecl, importcpp: "GetUnscaledSize", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetUnscaledSize", header: wxh.}
 proc getScaledSize*(this: WxRichTextCtrl; sz: WxSize): WxSize {.noSideEffect, 
-    cdecl, importcpp: "GetScaledSize", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetScaledSize", header: wxh.}
 proc getUnscaledRect*(this: WxRichTextCtrl; rect: WxRect): WxRect {.
-    noSideEffect, cdecl, importcpp: "GetUnscaledRect", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetUnscaledRect", header: wxh.}
 proc getScaledRect*(this: WxRichTextCtrl; rect: WxRect): WxRect {.noSideEffect, 
-    cdecl, importcpp: "GetScaledRect", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetScaledRect", header: wxh.}
 proc getVirtualAttributesEnabled*(this: WxRichTextCtrl): bool {.noSideEffect, 
-    cdecl, importcpp: "GetVirtualAttributesEnabled", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetVirtualAttributesEnabled", header: wxh.}
 proc enableVirtualAttributes*(this: var WxRichTextCtrl; b: bool) {.cdecl, 
-    importcpp: "EnableVirtualAttributes", header: "<wx/wx.h>".}
+    importcpp: "EnableVirtualAttributes", header: wxh.}
 proc command*(this: var WxRichTextCtrl; event: var WxCommandEvent) {.cdecl, 
-    importcpp: "Command", header: "<wx/wx.h>".}
+    importcpp: "Command", header: wxh.}
 proc onDropFiles*(this: var WxRichTextCtrl; event: var WxDropFilesEvent) {.
-    cdecl, importcpp: "OnDropFiles", header: "<wx/wx.h>".}
+    cdecl, importcpp: "OnDropFiles", header: wxh.}
 proc onCaptureLost*(this: var WxRichTextCtrl; event: var WxMouseCaptureLostEvent) {.
-    cdecl, importcpp: "OnCaptureLost", header: "<wx/wx.h>".}
+    cdecl, importcpp: "OnCaptureLost", header: wxh.}
 proc onSysColourChanged*(this: var WxRichTextCtrl; 
                          event: var WxSysColourChangedEvent) {.cdecl, 
-    importcpp: "OnSysColourChanged", header: "<wx/wx.h>".}
+    importcpp: "OnSysColourChanged", header: wxh.}
 proc onCut*(this: var WxRichTextCtrl; event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnCut", header: "<wx/wx.h>".}
+    importcpp: "OnCut", header: wxh.}
 proc onCopy*(this: var WxRichTextCtrl; event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnCopy", header: "<wx/wx.h>".}
+    importcpp: "OnCopy", header: wxh.}
 proc onPaste*(this: var WxRichTextCtrl; event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnPaste", header: "<wx/wx.h>".}
+    importcpp: "OnPaste", header: wxh.}
 proc onUndo*(this: var WxRichTextCtrl; event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnUndo", header: "<wx/wx.h>".}
+    importcpp: "OnUndo", header: wxh.}
 proc onRedo*(this: var WxRichTextCtrl; event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnRedo", header: "<wx/wx.h>".}
+    importcpp: "OnRedo", header: wxh.}
 proc onSelectAll*(this: var WxRichTextCtrl; event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnSelectAll", header: "<wx/wx.h>".}
+    importcpp: "OnSelectAll", header: wxh.}
 proc onProperties*(this: var WxRichTextCtrl; event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnProperties", header: "<wx/wx.h>".}
+    importcpp: "OnProperties", header: wxh.}
 proc onClear*(this: var WxRichTextCtrl; event: var WxCommandEvent) {.cdecl, 
-    importcpp: "OnClear", header: "<wx/wx.h>".}
+    importcpp: "OnClear", header: wxh.}
 proc onUpdateCut*(this: var WxRichTextCtrl; event: var WxUpdateUIEvent) {.cdecl, 
-    importcpp: "OnUpdateCut", header: "<wx/wx.h>".}
+    importcpp: "OnUpdateCut", header: wxh.}
 proc onUpdateCopy*(this: var WxRichTextCtrl; event: var WxUpdateUIEvent) {.
-    cdecl, importcpp: "OnUpdateCopy", header: "<wx/wx.h>".}
+    cdecl, importcpp: "OnUpdateCopy", header: wxh.}
 proc onUpdatePaste*(this: var WxRichTextCtrl; event: var WxUpdateUIEvent) {.
-    cdecl, importcpp: "OnUpdatePaste", header: "<wx/wx.h>".}
+    cdecl, importcpp: "OnUpdatePaste", header: wxh.}
 proc onUpdateUndo*(this: var WxRichTextCtrl; event: var WxUpdateUIEvent) {.
-    cdecl, importcpp: "OnUpdateUndo", header: "<wx/wx.h>".}
+    cdecl, importcpp: "OnUpdateUndo", header: wxh.}
 proc onUpdateRedo*(this: var WxRichTextCtrl; event: var WxUpdateUIEvent) {.
-    cdecl, importcpp: "OnUpdateRedo", header: "<wx/wx.h>".}
+    cdecl, importcpp: "OnUpdateRedo", header: wxh.}
 proc onUpdateSelectAll*(this: var WxRichTextCtrl; event: var WxUpdateUIEvent) {.
-    cdecl, importcpp: "OnUpdateSelectAll", header: "<wx/wx.h>".}
+    cdecl, importcpp: "OnUpdateSelectAll", header: wxh.}
 proc onUpdateProperties*(this: var WxRichTextCtrl; event: var WxUpdateUIEvent) {.
-    cdecl, importcpp: "OnUpdateProperties", header: "<wx/wx.h>".}
+    cdecl, importcpp: "OnUpdateProperties", header: wxh.}
 proc onUpdateClear*(this: var WxRichTextCtrl; event: var WxUpdateUIEvent) {.
-    cdecl, importcpp: "OnUpdateClear", header: "<wx/wx.h>".}
+    cdecl, importcpp: "OnUpdateClear", header: wxh.}
 proc onContextMenu*(this: var WxRichTextCtrl; event: var WxContextMenuEvent) {.
-    cdecl, importcpp: "OnContextMenu", header: "<wx/wx.h>".}
+    cdecl, importcpp: "OnContextMenu", header: wxh.}
 proc onPaint*(this: var WxRichTextCtrl; event: var WxPaintEvent) {.cdecl, 
-    importcpp: "OnPaint", header: "<wx/wx.h>".}
+    importcpp: "OnPaint", header: wxh.}
 proc onEraseBackground*(this: var WxRichTextCtrl; event: var WxEraseEvent) {.
-    cdecl, importcpp: "OnEraseBackground", header: "<wx/wx.h>".}
+    cdecl, importcpp: "OnEraseBackground", header: wxh.}
 proc onLeftClick*(this: var WxRichTextCtrl; event: var WxMouseEvent) {.cdecl, 
-    importcpp: "OnLeftClick", header: "<wx/wx.h>".}
+    importcpp: "OnLeftClick", header: wxh.}
 proc onLeftUp*(this: var WxRichTextCtrl; event: var WxMouseEvent) {.cdecl, 
-    importcpp: "OnLeftUp", header: "<wx/wx.h>".}
+    importcpp: "OnLeftUp", header: wxh.}
 proc onMoveMouse*(this: var WxRichTextCtrl; event: var WxMouseEvent) {.cdecl, 
-    importcpp: "OnMoveMouse", header: "<wx/wx.h>".}
+    importcpp: "OnMoveMouse", header: wxh.}
 proc onLeftDClick*(this: var WxRichTextCtrl; event: var WxMouseEvent) {.cdecl, 
-    importcpp: "OnLeftDClick", header: "<wx/wx.h>".}
+    importcpp: "OnLeftDClick", header: wxh.}
 proc onMiddleClick*(this: var WxRichTextCtrl; event: var WxMouseEvent) {.cdecl, 
-    importcpp: "OnMiddleClick", header: "<wx/wx.h>".}
+    importcpp: "OnMiddleClick", header: wxh.}
 proc onRightClick*(this: var WxRichTextCtrl; event: var WxMouseEvent) {.cdecl, 
-    importcpp: "OnRightClick", header: "<wx/wx.h>".}
+    importcpp: "OnRightClick", header: wxh.}
 proc onChar*(this: var WxRichTextCtrl; event: var WxKeyEvent) {.cdecl, 
-    importcpp: "OnChar", header: "<wx/wx.h>".}
+    importcpp: "OnChar", header: wxh.}
 proc onSize*(this: var WxRichTextCtrl; event: var WxSizeEvent) {.cdecl, 
-    importcpp: "OnSize", header: "<wx/wx.h>".}
+    importcpp: "OnSize", header: wxh.}
 proc onSetFocus*(this: var WxRichTextCtrl; event: var WxFocusEvent) {.cdecl, 
-    importcpp: "OnSetFocus", header: "<wx/wx.h>".}
+    importcpp: "OnSetFocus", header: wxh.}
 proc onKillFocus*(this: var WxRichTextCtrl; event: var WxFocusEvent) {.cdecl, 
-    importcpp: "OnKillFocus", header: "<wx/wx.h>".}
+    importcpp: "OnKillFocus", header: wxh.}
 proc onIdle*(this: var WxRichTextCtrl; event: var WxIdleEvent) {.cdecl, 
-    importcpp: "OnIdle", header: "<wx/wx.h>".}
+    importcpp: "OnIdle", header: wxh.}
 proc onScroll*(this: var WxRichTextCtrl; event: var WxScrollWinEvent) {.cdecl, 
-    importcpp: "OnScroll", header: "<wx/wx.h>".}
+    importcpp: "OnScroll", header: wxh.}
 proc setFont*(this: var WxRichTextCtrl; font: WxFont): bool {.cdecl, 
-    importcpp: "SetFont", header: "<wx/wx.h>".}
+    importcpp: "SetFont", header: wxh.}
 proc setupScrollbars*(this: var WxRichTextCtrl; atTop: bool = false) {.cdecl, 
-    importcpp: "SetupScrollbars", header: "<wx/wx.h>".}
+    importcpp: "SetupScrollbars", header: wxh.}
 proc keyboardNavigate*(this: var WxRichTextCtrl; keyCode: cint; flags: cint): bool {.
-    cdecl, importcpp: "KeyboardNavigate", header: "<wx/wx.h>".}
+    cdecl, importcpp: "KeyboardNavigate", header: wxh.}
 proc paintBackground*(this: var WxRichTextCtrl; dc: var WxDC) {.cdecl, 
-    importcpp: "PaintBackground", header: "<wx/wx.h>".}
+    importcpp: "PaintBackground", header: wxh.}
 proc paintAboveContent*(this: var WxRichTextCtrl; dc: var WxDC) {.cdecl, 
-    importcpp: "PaintAboveContent", header: "<wx/wx.h>".}
+    importcpp: "PaintAboveContent", header: wxh.}
 proc doWriteText*(this: var WxRichTextCtrl; value: WxString; flags: cint = 0) {.
-    cdecl, importcpp: "DoWriteText", header: "<wx/wx.h>".}
+    cdecl, importcpp: "DoWriteText", header: wxh.}
 proc shouldInheritColours*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "ShouldInheritColours", header: "<wx/wx.h>".}
+    importcpp: "ShouldInheritColours", header: wxh.}
 proc positionCaret*(this: var WxRichTextCtrl; 
                     container: ptr WxRichTextParagraphLayoutBox = nil) {.cdecl, 
-    importcpp: "PositionCaret", header: "<wx/wx.h>".}
+    importcpp: "PositionCaret", header: wxh.}
 proc extendSelection*(this: var WxRichTextCtrl; oldPosition: clong; 
                       newPosition: clong; flags: cint): bool {.cdecl, 
-    importcpp: "ExtendSelection", header: "<wx/wx.h>".}
+    importcpp: "ExtendSelection", header: wxh.}
 proc scrollIntoView*(this: var WxRichTextCtrl; position: clong; keyCode: cint): bool {.
-    cdecl, importcpp: "ScrollIntoView", header: "<wx/wx.h>".}
+    cdecl, importcpp: "ScrollIntoView", header: wxh.}
 proc refreshForSelectionChange*(this: var WxRichTextCtrl; 
                                 oldSelection: WxRichTextSelection; 
                                 newSelection: WxRichTextSelection): bool {.
-    cdecl, importcpp: "RefreshForSelectionChange", header: "<wx/wx.h>".}
+    cdecl, importcpp: "RefreshForSelectionChange", header: wxh.}
 proc setCaretPosition*(this: var WxRichTextCtrl; position: clong; 
                        showAtLineStart: bool = false) {.cdecl, 
-    importcpp: "SetCaretPosition", header: "<wx/wx.h>".}
+    importcpp: "SetCaretPosition", header: wxh.}
 proc getCaretPosition*(this: WxRichTextCtrl): clong {.noSideEffect, cdecl, 
-    importcpp: "GetCaretPosition", header: "<wx/wx.h>".}
+    importcpp: "GetCaretPosition", header: wxh.}
 proc getAdjustedCaretPosition*(this: WxRichTextCtrl; caretPos: clong): clong {.
-    noSideEffect, cdecl, importcpp: "GetAdjustedCaretPosition", 
-    header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetAdjustedCaretPosition", header: wxh.}
 proc moveCaretForward*(this: var WxRichTextCtrl; oldPosition: clong) {.cdecl, 
-    importcpp: "MoveCaretForward", header: "<wx/wx.h>".}
+    importcpp: "MoveCaretForward", header: wxh.}
 proc moveCaretBack*(this: var WxRichTextCtrl; oldPosition: clong) {.cdecl, 
-    importcpp: "MoveCaretBack", header: "<wx/wx.h>".}
+    importcpp: "MoveCaretBack", header: wxh.}
 proc getCaretPositionForIndex*(this: var WxRichTextCtrl; position: clong; 
                                rect: var WxRect; container: ptr WxRichTextParagraphLayoutBox = nil): bool {.
-    cdecl, importcpp: "GetCaretPositionForIndex", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetCaretPositionForIndex", header: wxh.}
 proc getVisibleLineForCaretPosition*(this: WxRichTextCtrl; caretPosition: clong): ptr WxRichTextLine {.
     noSideEffect, cdecl, importcpp: "GetVisibleLineForCaretPosition", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc getCommandProcessor*(this: WxRichTextCtrl): ptr WxCommandProcessor {.
-    noSideEffect, cdecl, importcpp: "GetCommandProcessor", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetCommandProcessor", header: wxh.}
 proc deleteSelectedContent*(this: var WxRichTextCtrl; newPos: ptr clong = nil): bool {.
-    cdecl, importcpp: "DeleteSelectedContent", header: "<wx/wx.h>".}
+    cdecl, importcpp: "DeleteSelectedContent", header: wxh.}
 proc getPhysicalPoint*(this: WxRichTextCtrl; ptLogical: WxPoint): WxPoint {.
-    noSideEffect, cdecl, importcpp: "GetPhysicalPoint", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetPhysicalPoint", header: wxh.}
 proc getLogicalPoint*(this: WxRichTextCtrl; ptPhysical: WxPoint): WxPoint {.
-    noSideEffect, cdecl, importcpp: "GetLogicalPoint", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetLogicalPoint", header: wxh.}
 proc findNextWordPosition*(this: WxRichTextCtrl; direction: cint = 1): clong {.
-    noSideEffect, cdecl, importcpp: "FindNextWordPosition", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "FindNextWordPosition", header: wxh.}
 proc isPositionVisible*(this: WxRichTextCtrl; pos: clong): bool {.noSideEffect, 
-    cdecl, importcpp: "IsPositionVisible", header: "<wx/wx.h>".}
+    cdecl, importcpp: "IsPositionVisible", header: wxh.}
 proc getFirstVisiblePosition*(this: WxRichTextCtrl): clong {.noSideEffect, 
-    cdecl, importcpp: "GetFirstVisiblePosition", header: "<wx/wx.h>".}
+    cdecl, importcpp: "GetFirstVisiblePosition", header: wxh.}
 proc getCaretPositionForDefaultStyle*(this: WxRichTextCtrl): clong {.
     noSideEffect, cdecl, importcpp: "GetCaretPositionForDefaultStyle", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc setCaretPositionForDefaultStyle*(this: var WxRichTextCtrl; pos: clong) {.
-    cdecl, importcpp: "SetCaretPositionForDefaultStyle", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetCaretPositionForDefaultStyle", header: wxh.}
 proc isDefaultStyleShowing*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "IsDefaultStyleShowing", header: "<wx/wx.h>".}
+    importcpp: "IsDefaultStyleShowing", header: wxh.}
 proc setAndShowDefaultStyle*(this: var WxRichTextCtrl; attr: WxRichTextAttr) {.
-    cdecl, importcpp: "SetAndShowDefaultStyle", header: "<wx/wx.h>".}
+    cdecl, importcpp: "SetAndShowDefaultStyle", header: wxh.}
 proc getFirstVisiblePoint*(this: WxRichTextCtrl): WxPoint {.noSideEffect, cdecl, 
-    importcpp: "GetFirstVisiblePoint", header: "<wx/wx.h>".}
+    importcpp: "GetFirstVisiblePoint", header: wxh.}
 proc getValue*(this: WxRichTextCtrl): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetValue", header: "<wx/wx.h>".}
+    importcpp: "GetValue", header: wxh.}
 proc setValue*(this: var WxRichTextCtrl; value: WxString) {.cdecl, 
-    importcpp: "SetValue", header: "<wx/wx.h>".}
-proc freeze*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Freeze", 
-    header: "<wx/wx.h>".}
-proc thaw*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Thaw", 
-                                       header: "<wx/wx.h>".}
+    importcpp: "SetValue", header: wxh.}
+proc freeze*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Freeze", header: wxh.}
+proc thaw*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Thaw", header: wxh.}
 proc isFrozen*(this: WxRichTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "IsFrozen", header: "<wx/wx.h>".}
+    importcpp: "IsFrozen", header: wxh.}
 proc processBackKey*(this: var WxRichTextCtrl; event: var WxKeyEvent; 
                      flags: cint): bool {.cdecl, importcpp: "ProcessBackKey", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 proc findRangeForList*(this: var WxRichTextCtrl; pos: clong; 
                        isNumberedList: var bool): WxRichTextRange {.cdecl, 
-    importcpp: "FindRangeForList", header: "<wx/wx.h>".}
+    importcpp: "FindRangeForList", header: wxh.}
 proc setCaretPositionAfterClick*(this: var WxRichTextCtrl; 
                                  container: ptr WxRichTextParagraphLayoutBox; 
                                  position: clong; hitTestFlags: cint; 
                                  extendSelection: bool = false): bool {.cdecl, 
-    importcpp: "SetCaretPositionAfterClick", header: "<wx/wx.h>".}
+    importcpp: "SetCaretPositionAfterClick", header: wxh.}
 proc findCaretPositionForCharacterPosition*(this: var WxRichTextCtrl; 
     position: clong; hitTestFlags: cint; 
     container: ptr WxRichTextParagraphLayoutBox; caretLineStart: var bool): clong {.
-    cdecl, importcpp: "FindCaretPositionForCharacterPosition", 
-    header: "<wx/wx.h>".}
+    cdecl, importcpp: "FindCaretPositionForCharacterPosition", header: wxh.}
 proc processMouseMovement*(this: var WxRichTextCtrl; 
                            container: ptr WxRichTextParagraphLayoutBox; 
                            obj: ptr WxRichTextObject; position: clong; 
                            pos: WxPoint): bool {.cdecl, 
-    importcpp: "ProcessMouseMovement", header: "<wx/wx.h>".}
+    importcpp: "ProcessMouseMovement", header: wxh.}
 proc getAvailableFontNames*(): WxArrayString {.cdecl, 
-    importcpp: "wxRichTextCtrl::GetAvailableFontNames(@)", header: "<wx/wx.h>".}
+    importcpp: "wxRichTextCtrl::GetAvailableFontNames(@)", header: wxh.}
 proc clearAvailableFontNames*() {.cdecl, importcpp: "wxRichTextCtrl::ClearAvailableFontNames(@)", 
-                                  header: "<wx/wx.h>".}
+                                  header: wxh.}
 proc doGetValue*(this: WxRichTextCtrl): WxString {.noSideEffect, cdecl, 
-    importcpp: "DoGetValue", header: "<wx/wx.h>".}
+    importcpp: "DoGetValue", header: wxh.}
 type 
-  WxRichTextDropSource* {.importcpp: "wxRichTextDropSource", header: "<wx/wx.h>".} = object of WxDropSource
+  WxRichTextDropSource* {.importcpp: "wxRichTextDropSource", header: wxh.} = object of WxDropSource
   
 
 proc constructwxRichTextDropSource*(data: var WxDataObject; 
                                     tc: ptr WxRichTextCtrl): WxRichTextDropSource {.
-    cdecl, constructor, importcpp: "wxRichTextDropSource(@)", 
-    header: "<wx/wx.h>".}
+    cdecl, constructor, importcpp: "wxRichTextDropSource(@)", header: wxh.}
 type 
-  WxRichTextDropTarget* {.importcpp: "wxRichTextDropTarget", header: "<wx/wx.h>".} = object of WxDropTarget
+  WxRichTextDropTarget* {.importcpp: "wxRichTextDropTarget", header: wxh.} = object of WxDropTarget
   
 
 proc constructwxRichTextDropTarget*(tc: ptr WxRichTextCtrl): WxRichTextDropTarget {.
-    cdecl, constructor, importcpp: "wxRichTextDropTarget(@)", 
-    header: "<wx/wx.h>".}
+    cdecl, constructor, importcpp: "wxRichTextDropTarget(@)", header: wxh.}
 proc onData*(this: var WxRichTextDropTarget; x: WxCoord; y: WxCoord; 
              def: WxDragResult): WxDragResult {.cdecl, importcpp: "OnData", 
-    header: "<wx/wx.h>".}
+    header: wxh.}
 
 type 
-  WxRichTextEvent* {.importcpp: "wxRichTextEvent", header: "<wx/wx.h>".} = object of WxNotifyEvent
+  WxRichTextEvent* {.importcpp: "wxRichTextEvent", header: wxh.} = object of WxNotifyEvent
   
 
 proc constructwxRichTextEvent*(commandType: WxEventType = wxEVT_NULL; 
                                winid: cint = 0): WxRichTextEvent {.cdecl, 
-    constructor, importcpp: "wxRichTextEvent(@)", header: "<wx/wx.h>".}
+    constructor, importcpp: "wxRichTextEvent(@)", header: wxh.}
 proc constructwxRichTextEvent*(event: WxRichTextEvent): WxRichTextEvent {.cdecl, 
-    constructor, importcpp: "wxRichTextEvent(@)", header: "<wx/wx.h>".}
+    constructor, importcpp: "wxRichTextEvent(@)", header: wxh.}
 proc getPosition*(this: WxRichTextEvent): clong {.noSideEffect, cdecl, 
-    importcpp: "GetPosition", header: "<wx/wx.h>".}
+    importcpp: "GetPosition", header: wxh.}
 proc setPosition*(this: var WxRichTextEvent; pos: clong) {.cdecl, 
-    importcpp: "SetPosition", header: "<wx/wx.h>".}
+    importcpp: "SetPosition", header: wxh.}
 proc getFlags*(this: WxRichTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetFlags", header: "<wx/wx.h>".}
+    importcpp: "GetFlags", header: wxh.}
 proc setFlags*(this: var WxRichTextEvent; flags: cint) {.cdecl, 
-    importcpp: "SetFlags", header: "<wx/wx.h>".}
+    importcpp: "SetFlags", header: wxh.}
 proc getOldStyleSheet*(this: WxRichTextEvent): ptr WxRichTextStyleSheet {.
-    noSideEffect, cdecl, importcpp: "GetOldStyleSheet", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetOldStyleSheet", header: wxh.}
 proc setOldStyleSheet*(this: var WxRichTextEvent; 
                        sheet: ptr WxRichTextStyleSheet) {.cdecl, 
-    importcpp: "SetOldStyleSheet", header: "<wx/wx.h>".}
+    importcpp: "SetOldStyleSheet", header: wxh.}
 proc getNewStyleSheet*(this: WxRichTextEvent): ptr WxRichTextStyleSheet {.
-    noSideEffect, cdecl, importcpp: "GetNewStyleSheet", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetNewStyleSheet", header: wxh.}
 proc setNewStyleSheet*(this: var WxRichTextEvent; 
                        sheet: ptr WxRichTextStyleSheet) {.cdecl, 
-    importcpp: "SetNewStyleSheet", header: "<wx/wx.h>".}
+    importcpp: "SetNewStyleSheet", header: wxh.}
 proc getRange*(this: WxRichTextEvent): WxRichTextRange {.noSideEffect, cdecl, 
-    importcpp: "GetRange", header: "<wx/wx.h>".}
+    importcpp: "GetRange", header: wxh.}
 proc setRange*(this: var WxRichTextEvent; range: WxRichTextRange) {.cdecl, 
-    importcpp: "SetRange", header: "<wx/wx.h>".}
+    importcpp: "SetRange", header: wxh.}
 proc getCharacter*(this: WxRichTextEvent): WxChar {.noSideEffect, cdecl, 
-    importcpp: "GetCharacter", header: "<wx/wx.h>".}
+    importcpp: "GetCharacter", header: wxh.}
 proc setCharacter*(this: var WxRichTextEvent; ch: WxChar) {.cdecl, 
-    importcpp: "SetCharacter", header: "<wx/wx.h>".}
+    importcpp: "SetCharacter", header: wxh.}
 proc getContainer*(this: WxRichTextEvent): ptr WxRichTextParagraphLayoutBox {.
-    noSideEffect, cdecl, importcpp: "GetContainer", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetContainer", header: wxh.}
 proc setContainer*(this: var WxRichTextEvent; 
                    container: ptr WxRichTextParagraphLayoutBox) {.cdecl, 
-    importcpp: "SetContainer", header: "<wx/wx.h>".}
+    importcpp: "SetContainer", header: wxh.}
 proc getOldContainer*(this: WxRichTextEvent): ptr WxRichTextParagraphLayoutBox {.
-    noSideEffect, cdecl, importcpp: "GetOldContainer", header: "<wx/wx.h>".}
+    noSideEffect, cdecl, importcpp: "GetOldContainer", header: wxh.}
 proc setOldContainer*(this: var WxRichTextEvent; 
                       container: ptr WxRichTextParagraphLayoutBox) {.cdecl, 
-    importcpp: "SetOldContainer", header: "<wx/wx.h>".}
+    importcpp: "SetOldContainer", header: wxh.}
 proc clone*(this: WxRichTextEvent): ptr WxEvent {.noSideEffect, cdecl, 
-    importcpp: "Clone", header: "<wx/wx.h>".}
+    importcpp: "Clone", header: wxh.}
 
 var wxEVT_RICHTEXT_LEFT_CLICK* {.importcpp: "wxEVT_RICHTEXT_LEFT_CLICK", 
-                                 header: "<wx/wx.h>".}: WxEventTypeTag[
-    WxRichTextEvent]
+                                 header: wxh.}: WxEventTypeTag[WxRichTextEvent]
 
 var wxEVT_RICHTEXT_RIGHT_CLICK* {.importcpp: "wxEVT_RICHTEXT_RIGHT_CLICK", 
-                                  header: "<wx/wx.h>".}: WxEventTypeTag[
-    WxRichTextEvent]
+                                  header: wxh.}: WxEventTypeTag[WxRichTextEvent]
 
 var wxEVT_RICHTEXT_MIDDLE_CLICK* {.importcpp: "wxEVT_RICHTEXT_MIDDLE_CLICK", 
-                                   header: "<wx/wx.h>".}: WxEventTypeTag[
-    WxRichTextEvent]
+                                   header: wxh.}: WxEventTypeTag[WxRichTextEvent]
 
 var wxEVT_RICHTEXT_LEFT_DCLICK* {.importcpp: "wxEVT_RICHTEXT_LEFT_DCLICK", 
-                                  header: "<wx/wx.h>".}: WxEventTypeTag[
-    WxRichTextEvent]
+                                  header: wxh.}: WxEventTypeTag[WxRichTextEvent]
 
-var wxEVT_RICHTEXT_RETURN* {.importcpp: "wxEVT_RICHTEXT_RETURN", 
-                             header: "<wx/wx.h>".}: WxEventTypeTag[
+var wxEVT_RICHTEXT_RETURN* {.importcpp: "wxEVT_RICHTEXT_RETURN", header: wxh.}: WxEventTypeTag[
     WxRichTextEvent]
 
 var wxEVT_RICHTEXT_CHARACTER* {.importcpp: "wxEVT_RICHTEXT_CHARACTER", 
-                                header: "<wx/wx.h>".}: WxEventTypeTag[
-    WxRichTextEvent]
+                                header: wxh.}: WxEventTypeTag[WxRichTextEvent]
 
 var wxEVT_RICHTEXT_CONSUMING_CHARACTER* {.
-    importcpp: "wxEVT_RICHTEXT_CONSUMING_CHARACTER", header: "<wx/wx.h>".}: WxEventTypeTag[
+    importcpp: "wxEVT_RICHTEXT_CONSUMING_CHARACTER", header: wxh.}: WxEventTypeTag[
     WxRichTextEvent]
 
-var wxEVT_RICHTEXT_DELETE* {.importcpp: "wxEVT_RICHTEXT_DELETE", 
-                             header: "<wx/wx.h>".}: WxEventTypeTag[
+var wxEVT_RICHTEXT_DELETE* {.importcpp: "wxEVT_RICHTEXT_DELETE", header: wxh.}: WxEventTypeTag[
     WxRichTextEvent]
 
 var wxEVT_RICHTEXT_STYLESHEET_CHANGING* {.
-    importcpp: "wxEVT_RICHTEXT_STYLESHEET_CHANGING", header: "<wx/wx.h>".}: WxEventTypeTag[
+    importcpp: "wxEVT_RICHTEXT_STYLESHEET_CHANGING", header: wxh.}: WxEventTypeTag[
     WxRichTextEvent]
 
 var wxEVT_RICHTEXT_STYLESHEET_CHANGED* {.
-    importcpp: "wxEVT_RICHTEXT_STYLESHEET_CHANGED", header: "<wx/wx.h>".}: WxEventTypeTag[
+    importcpp: "wxEVT_RICHTEXT_STYLESHEET_CHANGED", header: wxh.}: WxEventTypeTag[
     WxRichTextEvent]
 
 var wxEVT_RICHTEXT_STYLESHEET_REPLACING* {.
-    importcpp: "wxEVT_RICHTEXT_STYLESHEET_REPLACING", header: "<wx/wx.h>".}: WxEventTypeTag[
+    importcpp: "wxEVT_RICHTEXT_STYLESHEET_REPLACING", header: wxh.}: WxEventTypeTag[
     WxRichTextEvent]
 
 var wxEVT_RICHTEXT_STYLESHEET_REPLACED* {.
-    importcpp: "wxEVT_RICHTEXT_STYLESHEET_REPLACED", header: "<wx/wx.h>".}: WxEventTypeTag[
+    importcpp: "wxEVT_RICHTEXT_STYLESHEET_REPLACED", header: wxh.}: WxEventTypeTag[
     WxRichTextEvent]
 
 var wxEVT_RICHTEXT_CONTENT_INSERTED* {.importcpp: "wxEVT_RICHTEXT_CONTENT_INSERTED", 
-                                       header: "<wx/wx.h>".}: WxEventTypeTag[
+                                       header: wxh.}: WxEventTypeTag[
     WxRichTextEvent]
 
 var wxEVT_RICHTEXT_CONTENT_DELETED* {.importcpp: "wxEVT_RICHTEXT_CONTENT_DELETED", 
-                                      header: "<wx/wx.h>".}: WxEventTypeTag[
+                                      header: wxh.}: WxEventTypeTag[
     WxRichTextEvent]
 
 var wxEVT_RICHTEXT_STYLE_CHANGED* {.importcpp: "wxEVT_RICHTEXT_STYLE_CHANGED", 
-                                    header: "<wx/wx.h>".}: WxEventTypeTag[
+                                    header: wxh.}: WxEventTypeTag[
     WxRichTextEvent]
 
 var wxEVT_RICHTEXT_PROPERTIES_CHANGED* {.
-    importcpp: "wxEVT_RICHTEXT_PROPERTIES_CHANGED", header: "<wx/wx.h>".}: WxEventTypeTag[
+    importcpp: "wxEVT_RICHTEXT_PROPERTIES_CHANGED", header: wxh.}: WxEventTypeTag[
     WxRichTextEvent]
 
 var wxEVT_RICHTEXT_SELECTION_CHANGED* {.importcpp: "wxEVT_RICHTEXT_SELECTION_CHANGED", 
-                                        header: "<wx/wx.h>".}: WxEventTypeTag[
+                                        header: wxh.}: WxEventTypeTag[
     WxRichTextEvent]
 
 var wxEVT_RICHTEXT_BUFFER_RESET* {.importcpp: "wxEVT_RICHTEXT_BUFFER_RESET", 
-                                   header: "<wx/wx.h>".}: WxEventTypeTag[
-    WxRichTextEvent]
+                                   header: wxh.}: WxEventTypeTag[WxRichTextEvent]
 
 var wxEVT_RICHTEXT_FOCUS_OBJECT_CHANGED* {.
-    importcpp: "wxEVT_RICHTEXT_FOCUS_OBJECT_CHANGED", header: "<wx/wx.h>".}: WxEventTypeTag[
+    importcpp: "wxEVT_RICHTEXT_FOCUS_OBJECT_CHANGED", header: wxh.}: WxEventTypeTag[
     WxRichTextEvent]
 
 

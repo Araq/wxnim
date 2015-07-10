@@ -2,25 +2,25 @@
 
 
 type 
-  WxScrollBarBase* {.importcpp: "wxScrollBarBase", header: "<wx/wx.h>".} = object of WxControl
+  WxScrollBarBase* {.importcpp: "wxScrollBarBase", header: wxh.} = object of WxControl
   
 
 proc constructwxScrollBarBase*(): WxScrollBarBase {.cdecl, constructor, 
-    importcpp: "wxScrollBarBase(@)", header: "<wx/wx.h>".}
+    importcpp: "wxScrollBarBase(@)", header: wxh.}
 proc getThumbPosition*(this: WxScrollBarBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetThumbPosition", header: "<wx/wx.h>".}
+    importcpp: "GetThumbPosition", header: wxh.}
 proc getThumbSize*(this: WxScrollBarBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetThumbSize", header: "<wx/wx.h>".}
+    importcpp: "GetThumbSize", header: wxh.}
 proc getPageSize*(this: WxScrollBarBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetPageSize", header: "<wx/wx.h>".}
+    importcpp: "GetPageSize", header: wxh.}
 proc getRange*(this: WxScrollBarBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetRange", header: "<wx/wx.h>".}
+    importcpp: "GetRange", header: wxh.}
 proc isVertical*(this: WxScrollBarBase): bool {.noSideEffect, cdecl, 
-    importcpp: "IsVertical", header: "<wx/wx.h>".}
+    importcpp: "IsVertical", header: wxh.}
 proc setThumbPosition*(this: var WxScrollBarBase; viewStart: cint) {.cdecl, 
-    importcpp: "SetThumbPosition", header: "<wx/wx.h>".}
+    importcpp: "SetThumbPosition", header: wxh.}
 proc setScrollbar*(this: var WxScrollBarBase; position: cint; thumbSize: cint; 
                    range: cint; pageSize: cint; refresh: bool = true) {.cdecl, 
-    importcpp: "SetScrollbar", header: "<wx/wx.h>".}
+    importcpp: "SetScrollbar", header: wxh.}
 proc isNeeded*(this: WxScrollBarBase): bool {.noSideEffect, cdecl, 
-    importcpp: "IsNeeded", header: "<wx/wx.h>".}
+    importcpp: "IsNeeded", header: wxh.}
