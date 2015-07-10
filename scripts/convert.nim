@@ -1,11 +1,25 @@
 
 import os, strutils
 
+const whatif = false
+
 proc exec(cmd: string) =
-  if os.execShellCmd(cmd) != 0:
-    echo "FAILURE ", cmd
+  when whatif:
+    echo cmd
   else:
-    echo "SUCCESS ", cmd
+    if os.execShellCmd(cmd) != 0:
+      echo "FAILURE ", cmd
+    else:
+      echo "SUCCESS ", cmd
+
+when not declared(os.tailDir):
+  proc tailDir(path: string): string =
+    var q = 1
+    if len(path) >= 1 and path[len(path)-1] in {DirSep, AltSep}: q = 2
+    for i in 0..len(path)-q:
+      if path[i] in {DirSep, AltSep}:
+        return substr(path, i+1)
+    result = ""
 
 proc main(dir: string; rec: bool) =
   for kind, file in walkDir(dir):
@@ -14,8 +28,8 @@ proc main(dir: string; rec: bool) =
       if rec: main(file, rec)
     of pcFile:
       if file.endswith(".h"):
-        exec "c2nim headers/wx.c2nim headers/$1.h --out:private/$1.nim" %
-          file.splitFile.name
+        exec "c2nim headers/wx.c2nim " & file &
+             " --out:private" / file.tailDir.changeFileExt("nim")
     else: discard
 
-main("headers", false)
+main("headers", true)
