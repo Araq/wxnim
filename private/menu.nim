@@ -24,67 +24,68 @@ proc constructwxMenuBase*(style: clong = 0): WxMenuBase {.cdecl, constructor,
     importcpp: "wxMenuBase(@)", header: "<wx/wx.h>".}
 proc destroywxMenuBase*(this: var WxMenuBase) {.cdecl, 
     importcpp: "#.~wxMenuBase()", header: "<wx/wx.h>".}
-proc append*(this: var WxMenuBase; itemid: cint; text: WxString = wxEmptyString; 
-             help: WxString = wxEmptyString; kind: WxItemKind = wxITEM_NORMAL): ptr WxMenuItem {.
-    cdecl, importcpp: "Append", header: "<wx/wx.h>".}
-proc appendSeparator*(this: var WxMenuBase): ptr WxMenuItem {.cdecl, 
+proc append*(this: var WxMenuBase; itemid: WxWindowID; 
+             text: WxString = wxEmptyString; help: WxString = wxEmptyString; 
+             kind: WxItemKind = wxITEM_NORMAL) {.cdecl, importcpp: "Append", 
+    header: "<wx/wx.h>".}
+proc appendSeparator*(this: var WxMenuBase) {.cdecl, 
     importcpp: "AppendSeparator", header: "<wx/wx.h>".}
-proc appendCheckItem*(this: var WxMenuBase; itemid: cint; text: WxString; 
+proc appendCheckItem*(this: var WxMenuBase; itemid: WxWindowID; text: WxString; 
                       help: WxString = wxEmptyString): ptr WxMenuItem {.cdecl, 
     importcpp: "AppendCheckItem", header: "<wx/wx.h>".}
-proc appendRadioItem*(this: var WxMenuBase; itemid: cint; text: WxString; 
+proc appendRadioItem*(this: var WxMenuBase; itemid: WxWindowID; text: WxString; 
                       help: WxString = wxEmptyString): ptr WxMenuItem {.cdecl, 
     importcpp: "AppendRadioItem", header: "<wx/wx.h>".}
 proc appendSubMenu*(this: var WxMenuBase; submenu: ptr WxMenu; text: WxString; 
                     help: WxString = wxEmptyString): ptr WxMenuItem {.cdecl, 
     importcpp: "AppendSubMenu", header: "<wx/wx.h>".}
-proc append*(this: var WxMenuBase; item: ptr WxMenuItem): ptr WxMenuItem {.
-    cdecl, importcpp: "Append", header: "<wx/wx.h>".}
+proc append*(this: var WxMenuBase; item: ptr WxMenuItem) {.cdecl, 
+    importcpp: "Append", header: "<wx/wx.h>".}
 proc `break`*(this: var WxMenuBase) {.cdecl, importcpp: "Break", 
                                       header: "<wx/wx.h>".}
 proc insert*(this: var WxMenuBase; pos: csize; item: ptr WxMenuItem): ptr WxMenuItem {.
     cdecl, importcpp: "Insert", header: "<wx/wx.h>".}
-proc insert*(this: var WxMenuBase; pos: csize; itemid: cint; 
+proc insert*(this: var WxMenuBase; pos: csize; itemid: WxWindowID; 
              text: WxString = wxEmptyString; help: WxString = wxEmptyString; 
              kind: WxItemKind = wxITEM_NORMAL): ptr WxMenuItem {.cdecl, 
     importcpp: "Insert", header: "<wx/wx.h>".}
 proc insertSeparator*(this: var WxMenuBase; pos: csize): ptr WxMenuItem {.cdecl, 
     importcpp: "InsertSeparator", header: "<wx/wx.h>".}
-proc insertCheckItem*(this: var WxMenuBase; pos: csize; itemid: cint; 
+proc insertCheckItem*(this: var WxMenuBase; pos: csize; itemid: WxWindowID; 
                       text: WxString; help: WxString = wxEmptyString): ptr WxMenuItem {.
     cdecl, importcpp: "InsertCheckItem", header: "<wx/wx.h>".}
-proc insertRadioItem*(this: var WxMenuBase; pos: csize; itemid: cint; 
+proc insertRadioItem*(this: var WxMenuBase; pos: csize; itemid: WxWindowID; 
                       text: WxString; help: WxString = wxEmptyString): ptr WxMenuItem {.
     cdecl, importcpp: "InsertRadioItem", header: "<wx/wx.h>".}
-proc insert*(this: var WxMenuBase; pos: csize; itemid: cint; text: WxString; 
-             submenu: ptr WxMenu; help: WxString = wxEmptyString): ptr WxMenuItem {.
+proc insert*(this: var WxMenuBase; pos: csize; itemid: WxWindowID; 
+             text: WxString; submenu: ptr WxMenu; help: WxString = wxEmptyString): ptr WxMenuItem {.
     cdecl, importcpp: "Insert", header: "<wx/wx.h>".}
 proc prepend*(this: var WxMenuBase; item: ptr WxMenuItem): ptr WxMenuItem {.
     cdecl, importcpp: "Prepend", header: "<wx/wx.h>".}
-proc prepend*(this: var WxMenuBase; itemid: cint; 
+proc prepend*(this: var WxMenuBase; itemid: WxWindowID; 
               text: WxString = wxEmptyString; help: WxString = wxEmptyString; 
               kind: WxItemKind = wxITEM_NORMAL): ptr WxMenuItem {.cdecl, 
     importcpp: "Prepend", header: "<wx/wx.h>".}
 proc prependSeparator*(this: var WxMenuBase): ptr WxMenuItem {.cdecl, 
     importcpp: "PrependSeparator", header: "<wx/wx.h>".}
-proc prependCheckItem*(this: var WxMenuBase; itemid: cint; text: WxString; 
+proc prependCheckItem*(this: var WxMenuBase; itemid: WxWindowID; text: WxString; 
                        help: WxString = wxEmptyString): ptr WxMenuItem {.cdecl, 
     importcpp: "PrependCheckItem", header: "<wx/wx.h>".}
-proc prependRadioItem*(this: var WxMenuBase; itemid: cint; text: WxString; 
+proc prependRadioItem*(this: var WxMenuBase; itemid: WxWindowID; text: WxString; 
                        help: WxString = wxEmptyString): ptr WxMenuItem {.cdecl, 
     importcpp: "PrependRadioItem", header: "<wx/wx.h>".}
-proc prepend*(this: var WxMenuBase; itemid: cint; text: WxString; 
+proc prepend*(this: var WxMenuBase; itemid: WxWindowID; text: WxString; 
               submenu: ptr WxMenu; help: WxString = wxEmptyString): ptr WxMenuItem {.
     cdecl, importcpp: "Prepend", header: "<wx/wx.h>".}
-proc remove*(this: var WxMenuBase; itemid: cint): ptr WxMenuItem {.cdecl, 
+proc remove*(this: var WxMenuBase; itemid: WxWindowID): ptr WxMenuItem {.cdecl, 
     importcpp: "Remove", header: "<wx/wx.h>".}
 proc remove*(this: var WxMenuBase; item: ptr WxMenuItem): ptr WxMenuItem {.
     cdecl, importcpp: "Remove", header: "<wx/wx.h>".}
-proc delete*(this: var WxMenuBase; itemid: cint): bool {.cdecl, 
+proc delete*(this: var WxMenuBase; itemid: WxWindowID): bool {.cdecl, 
     importcpp: "Delete", header: "<wx/wx.h>".}
 proc delete*(this: var WxMenuBase; item: ptr WxMenuItem): bool {.cdecl, 
     importcpp: "Delete", header: "<wx/wx.h>".}
-proc destroy*(this: var WxMenuBase; itemid: cint): bool {.cdecl, 
+proc destroy*(this: var WxMenuBase; itemid: WxWindowID): bool {.cdecl, 
     importcpp: "Destroy", header: "<wx/wx.h>".}
 proc destroy*(this: var WxMenuBase; item: ptr WxMenuItem): bool {.cdecl, 
     importcpp: "Destroy", header: "<wx/wx.h>".}
@@ -92,28 +93,29 @@ proc getMenuItemCount*(this: WxMenuBase): csize {.noSideEffect, cdecl,
     importcpp: "GetMenuItemCount", header: "<wx/wx.h>".}
 proc findItem*(this: WxMenuBase; item: WxString): cint {.noSideEffect, cdecl, 
     importcpp: "FindItem", header: "<wx/wx.h>".}
-proc findItem*(this: WxMenuBase; itemid: cint; menu: ptr ptr WxMenu = nil): ptr WxMenuItem {.
+proc findItem*(this: WxMenuBase; itemid: WxWindowID; menu: ptr ptr WxMenu = nil): ptr WxMenuItem {.
     noSideEffect, cdecl, importcpp: "FindItem", header: "<wx/wx.h>".}
 proc findItemByPosition*(this: WxMenuBase; position: csize): ptr WxMenuItem {.
     noSideEffect, cdecl, importcpp: "FindItemByPosition", header: "<wx/wx.h>".}
-proc enable*(this: var WxMenuBase; itemid: cint; enable: bool) {.cdecl, 
+proc enable*(this: var WxMenuBase; itemid: WxWindowID; enable: bool) {.cdecl, 
     importcpp: "Enable", header: "<wx/wx.h>".}
-proc isEnabled*(this: WxMenuBase; itemid: cint): bool {.noSideEffect, cdecl, 
-    importcpp: "IsEnabled", header: "<wx/wx.h>".}
-proc check*(this: var WxMenuBase; itemid: cint; check: bool) {.cdecl, 
+proc isEnabled*(this: WxMenuBase; itemid: WxWindowID): bool {.noSideEffect, 
+    cdecl, importcpp: "IsEnabled", header: "<wx/wx.h>".}
+proc check*(this: var WxMenuBase; itemid: WxWindowID; check: bool) {.cdecl, 
     importcpp: "Check", header: "<wx/wx.h>".}
-proc isChecked*(this: WxMenuBase; itemid: cint): bool {.noSideEffect, cdecl, 
-    importcpp: "IsChecked", header: "<wx/wx.h>".}
-proc setLabel*(this: var WxMenuBase; itemid: cint; label: WxString) {.cdecl, 
-    importcpp: "SetLabel", header: "<wx/wx.h>".}
-proc getLabel*(this: WxMenuBase; itemid: cint): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetLabel", header: "<wx/wx.h>".}
-proc getLabelText*(this: WxMenuBase; itemid: cint): WxString {.noSideEffect, 
-    cdecl, importcpp: "GetLabelText", header: "<wx/wx.h>".}
-proc setHelpString*(this: var WxMenuBase; itemid: cint; helpString: WxString) {.
-    cdecl, importcpp: "SetHelpString", header: "<wx/wx.h>".}
-proc getHelpString*(this: WxMenuBase; itemid: cint): WxString {.noSideEffect, 
-    cdecl, importcpp: "GetHelpString", header: "<wx/wx.h>".}
+proc isChecked*(this: WxMenuBase; itemid: WxWindowID): bool {.noSideEffect, 
+    cdecl, importcpp: "IsChecked", header: "<wx/wx.h>".}
+proc setLabel*(this: var WxMenuBase; itemid: WxWindowID; label: WxString) {.
+    cdecl, importcpp: "SetLabel", header: "<wx/wx.h>".}
+proc getLabel*(this: WxMenuBase; itemid: WxWindowID): WxString {.noSideEffect, 
+    cdecl, importcpp: "GetLabel", header: "<wx/wx.h>".}
+proc getLabelText*(this: WxMenuBase; itemid: WxWindowID): WxString {.
+    noSideEffect, cdecl, importcpp: "GetLabelText", header: "<wx/wx.h>".}
+proc setHelpString*(this: var WxMenuBase; itemid: WxWindowID; 
+                    helpString: WxString) {.cdecl, importcpp: "SetHelpString", 
+    header: "<wx/wx.h>".}
+proc getHelpString*(this: WxMenuBase; itemid: WxWindowID): WxString {.
+    noSideEffect, cdecl, importcpp: "GetHelpString", header: "<wx/wx.h>".}
 proc setTitle*(this: var WxMenuBase; title: WxString) {.cdecl, 
     importcpp: "SetTitle", header: "<wx/wx.h>".}
 proc getTitle*(this: WxMenuBase): WxString {.noSideEffect, cdecl, 
@@ -144,20 +146,20 @@ proc setParent*(this: var WxMenuBase; parent: ptr WxMenu) {.cdecl,
     importcpp: "SetParent", header: "<wx/wx.h>".}
 proc getParent*(this: WxMenuBase): ptr WxMenu {.noSideEffect, cdecl, 
     importcpp: "GetParent", header: "<wx/wx.h>".}
-proc findChildItem*(this: WxMenuBase; itemid: cint; pos: ptr csize = nil): ptr WxMenuItem {.
+proc findChildItem*(this: WxMenuBase; itemid: WxWindowID; pos: ptr csize = nil): ptr WxMenuItem {.
     noSideEffect, cdecl, importcpp: "FindChildItem", header: "<wx/wx.h>".}
-proc sendEvent*(this: var WxMenuBase; itemid: cint; checked: cint = - 1): bool {.
+proc sendEvent*(this: var WxMenuBase; itemid: WxWindowID; checked: cint = - 1): bool {.
     cdecl, importcpp: "SendEvent", header: "<wx/wx.h>".}
-proc append*(this: var WxMenuBase; itemid: cint; text: WxString; help: WxString; 
-             isCheckable: bool) {.cdecl, importcpp: "Append", 
-                                  header: "<wx/wx.h>".}
-proc append*(this: var WxMenuBase; itemid: cint; text: WxString; 
-             submenu: ptr WxMenu; help: WxString = wxEmptyString): ptr WxMenuItem {.
-    cdecl, importcpp: "Append", header: "<wx/wx.h>".}
-proc insert*(this: var WxMenuBase; pos: csize; itemid: cint; text: WxString; 
-             help: WxString; isCheckable: bool) {.cdecl, importcpp: "Insert", 
+proc append*(this: var WxMenuBase; itemid: WxWindowID; text: WxString; 
+             help: WxString; isCheckable: bool) {.cdecl, importcpp: "Append", 
     header: "<wx/wx.h>".}
-proc prepend*(this: var WxMenuBase; itemid: cint; text: WxString; 
+proc append*(this: var WxMenuBase; itemid: WxWindowID; text: WxString; 
+             submenu: ptr WxMenu; help: WxString = wxEmptyString) {.cdecl, 
+    importcpp: "Append", header: "<wx/wx.h>".}
+proc insert*(this: var WxMenuBase; pos: csize; itemid: WxWindowID; 
+             text: WxString; help: WxString; isCheckable: bool) {.cdecl, 
+    importcpp: "Insert", header: "<wx/wx.h>".}
+proc prepend*(this: var WxMenuBase; itemid: WxWindowID; text: WxString; 
               help: WxString; isCheckable: bool) {.cdecl, importcpp: "Prepend", 
     header: "<wx/wx.h>".}
 proc lockAccels*(locked: bool) {.cdecl, importcpp: "wxMenuBase::LockAccels(@)", 
@@ -187,7 +189,7 @@ proc constructwxMenuBarBase*(): WxMenuBarBase {.cdecl, constructor,
     importcpp: "wxMenuBarBase(@)", header: "<wx/wx.h>".}
 proc destroywxMenuBarBase*(this: var WxMenuBarBase) {.cdecl, 
     importcpp: "#.~wxMenuBarBase()", header: "<wx/wx.h>".}
-proc append*(this: var WxMenuBarBase; menu: ptr WxMenu; title: WxString): bool {.
+proc append*(this: var WxMenuBarBase; menu: ptr WxMenu; title: WxString) {.
     cdecl, importcpp: "Append", header: "<wx/wx.h>".}
 proc insert*(this: var WxMenuBarBase; pos: csize; menu: ptr WxMenu; 
              title: WxString): bool {.cdecl, importcpp: "Insert", 
@@ -213,28 +215,30 @@ proc getMenuLabelText*(this: WxMenuBarBase; pos: csize): WxString {.
     noSideEffect, cdecl, importcpp: "GetMenuLabelText", header: "<wx/wx.h>".}
 proc findMenuItem*(this: WxMenuBarBase; menu: WxString; item: WxString): cint {.
     noSideEffect, cdecl, importcpp: "FindMenuItem", header: "<wx/wx.h>".}
-proc findItem*(this: WxMenuBarBase; itemid: cint; menu: ptr ptr WxMenu = nil): ptr WxMenuItem {.
-    noSideEffect, cdecl, importcpp: "FindItem", header: "<wx/wx.h>".}
+proc findItem*(this: WxMenuBarBase; itemid: WxWindowID; 
+               menu: ptr ptr WxMenu = nil): ptr WxMenuItem {.noSideEffect, 
+    cdecl, importcpp: "FindItem", header: "<wx/wx.h>".}
 proc findMenu*(this: WxMenuBarBase; title: WxString): cint {.noSideEffect, 
     cdecl, importcpp: "FindMenu", header: "<wx/wx.h>".}
-proc enable*(this: var WxMenuBarBase; itemid: cint; enable: bool) {.cdecl, 
+proc enable*(this: var WxMenuBarBase; itemid: WxWindowID; enable: bool) {.cdecl, 
     importcpp: "Enable", header: "<wx/wx.h>".}
-proc check*(this: var WxMenuBarBase; itemid: cint; check: bool) {.cdecl, 
+proc check*(this: var WxMenuBarBase; itemid: WxWindowID; check: bool) {.cdecl, 
     importcpp: "Check", header: "<wx/wx.h>".}
-proc isChecked*(this: WxMenuBarBase; itemid: cint): bool {.noSideEffect, cdecl, 
-    importcpp: "IsChecked", header: "<wx/wx.h>".}
-proc isEnabled*(this: WxMenuBarBase; itemid: cint): bool {.noSideEffect, cdecl, 
-    importcpp: "IsEnabled", header: "<wx/wx.h>".}
+proc isChecked*(this: WxMenuBarBase; itemid: WxWindowID): bool {.noSideEffect, 
+    cdecl, importcpp: "IsChecked", header: "<wx/wx.h>".}
+proc isEnabled*(this: WxMenuBarBase; itemid: WxWindowID): bool {.noSideEffect, 
+    cdecl, importcpp: "IsEnabled", header: "<wx/wx.h>".}
 proc isEnabled*(this: WxMenuBarBase): bool {.noSideEffect, cdecl, 
     importcpp: "IsEnabled", header: "<wx/wx.h>".}
-proc setLabel*(this: var WxMenuBarBase; itemid: cint; label: WxString) {.cdecl, 
-    importcpp: "SetLabel", header: "<wx/wx.h>".}
-proc getLabel*(this: WxMenuBarBase; itemid: cint): WxString {.noSideEffect, 
-    cdecl, importcpp: "GetLabel", header: "<wx/wx.h>".}
-proc setHelpString*(this: var WxMenuBarBase; itemid: cint; helpString: WxString) {.
-    cdecl, importcpp: "SetHelpString", header: "<wx/wx.h>".}
-proc getHelpString*(this: WxMenuBarBase; itemid: cint): WxString {.noSideEffect, 
-    cdecl, importcpp: "GetHelpString", header: "<wx/wx.h>".}
+proc setLabel*(this: var WxMenuBarBase; itemid: WxWindowID; label: WxString) {.
+    cdecl, importcpp: "SetLabel", header: "<wx/wx.h>".}
+proc getLabel*(this: WxMenuBarBase; itemid: WxWindowID): WxString {.
+    noSideEffect, cdecl, importcpp: "GetLabel", header: "<wx/wx.h>".}
+proc setHelpString*(this: var WxMenuBarBase; itemid: WxWindowID; 
+                    helpString: WxString) {.cdecl, importcpp: "SetHelpString", 
+    header: "<wx/wx.h>".}
+proc getHelpString*(this: WxMenuBarBase; itemid: WxWindowID): WxString {.
+    noSideEffect, cdecl, importcpp: "GetHelpString", header: "<wx/wx.h>".}
 proc getFrame*(this: WxMenuBarBase): ptr WxFrame {.noSideEffect, cdecl, 
     importcpp: "GetFrame", header: "<wx/wx.h>".}
 proc isAttached*(this: WxMenuBarBase): bool {.noSideEffect, cdecl, 
@@ -307,8 +311,8 @@ proc constructwxMenuBar*(n: csize; menus: ptr ptr WxMenu; titles: ptr WxString;
     importcpp: "wxMenuBar(@)", header: "<wx/wx.h>".}
 proc destroywxMenuBar*(this: var WxMenuBar) {.cdecl, 
     importcpp: "#.~wxMenuBar()", header: "<wx/wx.h>".}
-proc append*(this: var WxMenuBar; menu: ptr WxMenu; title: WxString): bool {.
-    cdecl, importcpp: "Append", header: "<wx/wx.h>".}
+proc append*(this: var WxMenuBar; menu: ptr WxMenu; title: WxString) {.cdecl, 
+    importcpp: "Append", header: "<wx/wx.h>".}
 proc insert*(this: var WxMenuBar; pos: csize; menu: ptr WxMenu; title: WxString): bool {.
     cdecl, importcpp: "Insert", header: "<wx/wx.h>".}
 proc replace*(this: var WxMenuBar; pos: csize; menu: ptr WxMenu; title: WxString): ptr WxMenu {.

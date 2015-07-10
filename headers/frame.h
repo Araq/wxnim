@@ -123,9 +123,9 @@ public:
     // --------------------
 
     // create the main status bar by calling OnCreateStatusBar()
-    virtual wxStatusBar* CreateStatusBar(int number = 1,
+    virtual void CreateStatusBar(int number = 1,
                                          long style = wxSTB_DEFAULT_STYLE,
-                                         wxWindowID winid = 0,
+                                         wxWindowID winid = {.WxWindowID(0).},
                                          const wxString& name = wxStatusLineNameStr);
     // return a new status bar
     virtual wxStatusBar *OnCreateStatusBar(int number,

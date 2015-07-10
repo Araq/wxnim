@@ -767,7 +767,7 @@ enum wxStandardID
 /*  the cast itself is recommended. Note that this type can't be unsigned */
 /*  because wxID_ANY == -1 is a valid (and largely used) value for window id. */
 
-typedef int wxWindowID;
+typedef wxStandardID wxWindowID;
 
 /*  ---------------------------------------------------------------------------- */
 /*  other constants */

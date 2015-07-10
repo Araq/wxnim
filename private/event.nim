@@ -1022,7 +1022,7 @@ type
   WxUpdateUIEvent* {.importcpp: "wxUpdateUIEvent", header: "<wx/wx.h>".} = object of WxCommandEvent
   
 
-proc constructwxUpdateUIEvent*(commandId: WxWindowID = 0): WxUpdateUIEvent {.
+proc constructwxUpdateUIEvent*(commandId: WxWindowID = WxWindowID(0)): WxUpdateUIEvent {.
     cdecl, constructor, importcpp: "wxUpdateUIEvent(@)", header: "<wx/wx.h>".}
 proc constructwxUpdateUIEvent*(event: WxUpdateUIEvent): WxUpdateUIEvent {.cdecl, 
     constructor, importcpp: "wxUpdateUIEvent(@)", header: "<wx/wx.h>".}
@@ -1083,7 +1083,7 @@ type
                                 header: "<wx/wx.h>".} = object of WxEvent
   
 
-proc constructwxMouseCaptureChangedEvent*(winid: WxWindowID = 0; 
+proc constructwxMouseCaptureChangedEvent*(winid: WxWindowID = WxWindowID(0); 
     gainedCapture: ptr WxWindow = nil): WxMouseCaptureChangedEvent {.cdecl, 
     constructor, importcpp: "wxMouseCaptureChangedEvent(@)", header: "<wx/wx.h>".}
 proc constructwxMouseCaptureChangedEvent*(event: WxMouseCaptureChangedEvent): WxMouseCaptureChangedEvent {.
@@ -1099,7 +1099,7 @@ type
                              header: "<wx/wx.h>".} = object of WxEvent
   
 
-proc constructwxMouseCaptureLostEvent*(winid: WxWindowID = 0): WxMouseCaptureLostEvent {.
+proc constructwxMouseCaptureLostEvent*(winid: WxWindowID = WxWindowID(0)): WxMouseCaptureLostEvent {.
     cdecl, constructor, importcpp: "wxMouseCaptureLostEvent(@)", 
     header: "<wx/wx.h>".}
 proc constructwxMouseCaptureLostEvent*(event: WxMouseCaptureLostEvent): WxMouseCaptureLostEvent {.
@@ -1123,7 +1123,7 @@ type
                            header: "<wx/wx.h>".} = object of WxEvent
   
 
-proc constructwxPaletteChangedEvent*(winid: WxWindowID = 0): WxPaletteChangedEvent {.
+proc constructwxPaletteChangedEvent*(winid: WxWindowID = WxWindowID(0)): WxPaletteChangedEvent {.
     cdecl, constructor, importcpp: "wxPaletteChangedEvent(@)", 
     header: "<wx/wx.h>".}
 proc constructwxPaletteChangedEvent*(event: WxPaletteChangedEvent): WxPaletteChangedEvent {.
@@ -1141,7 +1141,7 @@ type
                             header: "<wx/wx.h>".} = object of WxEvent
   
 
-proc constructwxQueryNewPaletteEvent*(winid: WxWindowID = 0): WxQueryNewPaletteEvent {.
+proc constructwxQueryNewPaletteEvent*(winid: WxWindowID = WxWindowID(0)): WxQueryNewPaletteEvent {.
     cdecl, constructor, importcpp: "wxQueryNewPaletteEvent(@)", 
     header: "<wx/wx.h>".}
 proc constructwxQueryNewPaletteEvent*(event: WxQueryNewPaletteEvent): WxQueryNewPaletteEvent {.
@@ -1224,7 +1224,7 @@ type
 
 
 proc constructwxHelpEvent*(`type`: WxEventType = wxEVT_NULL; 
-                           winid: WxWindowID = 0; 
+                           winid: WxWindowID = WxWindowID(0); 
                            pt: WxPoint = wxDefaultPosition; 
                            origin: Origin = Origin_Unknown): WxHelpEvent {.
     cdecl, constructor, importcpp: "wxHelpEvent(@)", header: "<wx/wx.h>".}
@@ -1254,7 +1254,7 @@ type
   
 
 proc constructwxClipboardTextEvent*(`type`: WxEventType = wxEVT_NULL; 
-                                    winid: WxWindowID = 0): WxClipboardTextEvent {.
+                                    winid: WxWindowID = WxWindowID(0)): WxClipboardTextEvent {.
     cdecl, constructor, importcpp: "wxClipboardTextEvent(@)", 
     header: "<wx/wx.h>".}
 proc constructwxClipboardTextEvent*(event: WxClipboardTextEvent): WxClipboardTextEvent {.
@@ -1268,7 +1268,7 @@ type
   
 
 proc constructwxContextMenuEvent*(`type`: WxEventType = wxEVT_NULL; 
-                                  winid: WxWindowID = 0; 
+                                  winid: WxWindowID = WxWindowID(0); 
                                   pt: WxPoint = wxDefaultPosition): WxContextMenuEvent {.
     cdecl, constructor, importcpp: "wxContextMenuEvent(@)", header: "<wx/wx.h>".}
 proc constructwxContextMenuEvent*(event: WxContextMenuEvent): WxContextMenuEvent {.

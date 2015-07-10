@@ -409,7 +409,7 @@ const
 
 
 type 
-  WxWindowID* = cint
+  WxWindowID* = WxStandardID
 
 
 type 

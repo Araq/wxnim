@@ -68,8 +68,9 @@ proc processCommand*(this: var WxFrameBase; item: ptr WxMenuItem): bool {.cdecl,
 proc processCommand*(this: var WxFrameBase; winid: cint): bool {.cdecl, 
     importcpp: "ProcessCommand", header: "<wx/wx.h>".}
 proc createStatusBar*(this: var WxFrameBase; number: cint = 1; 
-                      style: clong = wxSTB_DEFAULT_STYLE; winid: WxWindowID = 0; 
-                      name: WxString = constructWxString("status_line")): ptr WxStatusBar {.
+                      style: clong = wxSTB_DEFAULT_STYLE; 
+                      winid: WxWindowID = WxWindowID(0); 
+                      name: WxString = constructWxString("status_line")) {.
     cdecl, importcpp: "CreateStatusBar", header: "<wx/wx.h>".}
 proc onCreateStatusBar*(this: var WxFrameBase; number: cint; style: clong; 
                         winid: WxWindowID; name: WxString): ptr WxStatusBar {.

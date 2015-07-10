@@ -2018,7 +2018,7 @@ enum wxUpdateUIMode
 class WXDLLIMPEXP_CORE wxUpdateUIEvent : public wxCommandEvent
 {
 public:
-    wxUpdateUIEvent(wxWindowID commandId = 0)
+    wxUpdateUIEvent(wxWindowID commandId = {.WxWindowID(0).})
         : wxCommandEvent(wxEVT_UPDATE_UI, commandId)
     {
         m_checked =
@@ -2107,7 +2107,7 @@ private:
 class WXDLLIMPEXP_CORE wxMouseCaptureChangedEvent : public wxEvent
 {
 public:
-    wxMouseCaptureChangedEvent(wxWindowID winid = 0, wxWindow* gainedCapture = NULL)
+    wxMouseCaptureChangedEvent(wxWindowID winid = {.WxWindowID(0).}, wxWindow* gainedCapture = NULL)
         : wxEvent(winid, wxEVT_MOUSE_CAPTURE_CHANGED),
           m_gainedCapture(gainedCapture)
         { }
@@ -2132,7 +2132,7 @@ public:
 class WXDLLIMPEXP_CORE wxMouseCaptureLostEvent : public wxEvent
 {
 public:
-    wxMouseCaptureLostEvent(wxWindowID winid = 0)
+    wxMouseCaptureLostEvent(wxWindowID winid = {.WxWindowID(0).})
         : wxEvent(winid, wxEVT_MOUSE_CAPTURE_LOST)
     {}
 
@@ -2163,7 +2163,7 @@ public:
 class WXDLLIMPEXP_CORE wxPaletteChangedEvent : public wxEvent
 {
 public:
-    wxPaletteChangedEvent(wxWindowID winid = 0)
+    wxPaletteChangedEvent(wxWindowID winid = {.WxWindowID(0).})
         : wxEvent(winid, wxEVT_PALETTE_CHANGED),
           m_changedWindow(NULL)
         { }
@@ -2193,7 +2193,7 @@ private:
 class WXDLLIMPEXP_CORE wxQueryNewPaletteEvent : public wxEvent
 {
 public:
-    wxQueryNewPaletteEvent(wxWindowID winid = 0)
+    wxQueryNewPaletteEvent(wxWindowID winid = {.WxWindowID(0).})
         : wxEvent(winid, wxEVT_QUERY_NEW_PALETTE),
           m_paletteRealized(false)
         { }
@@ -2336,7 +2336,7 @@ public:
     };
 
     wxHelpEvent(wxEventType type = wxEVT_NULL,
-                wxWindowID winid = 0,
+                wxWindowID winid = {.WxWindowID(0).},
                 const wxPoint& pt = wxDefaultPosition,
                 Origin origin = #@ Origin_Unknown
                 @#)
@@ -2386,7 +2386,7 @@ class WXDLLIMPEXP_CORE wxClipboardTextEvent : public wxCommandEvent
 {
 public:
     wxClipboardTextEvent(wxEventType type = wxEVT_NULL,
-                     wxWindowID winid = 0)
+                     wxWindowID winid = {.WxWindowID(0).})
         : wxCommandEvent(type, winid)
     { }
     wxClipboardTextEvent(const wxClipboardTextEvent& event)
@@ -2408,7 +2408,7 @@ class WXDLLIMPEXP_CORE wxContextMenuEvent : public wxCommandEvent
 {
 public:
     wxContextMenuEvent(wxEventType type = wxEVT_NULL,
-                       wxWindowID winid = 0,
+                       wxWindowID winid = {.WxWindowID(0).},
                        const wxPoint& pt = wxDefaultPosition)
         : wxCommandEvent(type, winid),
           m_pos(pt)
