@@ -1,15 +1,17 @@
 
 
+{.deadcodeelim: on.}
+
 import wx
 
 {.noforward: on.}
 
 type 
-  WxScrollBar* {.importcpp: "wxScrollBar", header: wxh.} = object 
+  WxScrollBar* {.importcpp: "wxScrollBar", header: "<wx/stc/stc.h>".} = object 
   
-  WxMemoryBuffer* {.importcpp: "wxMemoryBuffer", header: wxh.} = object 
+  WxMemoryBuffer* {.importcpp: "wxMemoryBuffer", header: "<wx/stc/stc.h>".} = object 
   
-  WxCharBuffer* {.importcpp: "wxCharBuffer", header: wxh.} = object 
+  WxCharBuffer* {.importcpp: "wxCharBuffer", header: "<wx/stc/stc.h>".} = object 
   
 
 
@@ -2605,1617 +2607,1679 @@ discard "forward decl of wxStyledTextCtrl"
 discard "forward decl of wxStyledTextEvent"
 
 type 
-  WxStyledTextCtrl* {.importcpp: "wxStyledTextCtrl", header: wxh.} = object of WxControl
+  WxStyledTextCtrl* {.importcpp: "wxStyledTextCtrl", header: "<wx/stc/stc.h>".} = object of WxControl
   
 
 proc constructwxStyledTextCtrl*(parent: ptr WxWindow; id: WxWindowID = wxID_ANY; 
                                 pos: WxPoint = wxDefaultPosition; 
                                 size: WxSize = wxDefaultSize; style: clong = 0; 
                                 name: WxString = "STC"): WxStyledTextCtrl {.
-    cdecl, constructor, importcpp: "wxStyledTextCtrl(@)", header: wxh.}
+    cdecl, constructor, importcpp: "wxStyledTextCtrl(@)", 
+    header: "<wx/stc/stc.h>".}
 proc constructwxStyledTextCtrl*(): WxStyledTextCtrl {.cdecl, constructor, 
-    importcpp: "wxStyledTextCtrl(@)", header: wxh.}
+    importcpp: "wxStyledTextCtrl(@)", header: "<wx/stc/stc.h>".}
 proc destroywxStyledTextCtrl*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "#.~wxStyledTextCtrl()", header: wxh.}
+    importcpp: "#.~wxStyledTextCtrl()", header: "<wx/stc/stc.h>".}
 proc create*(this: var WxStyledTextCtrl; parent: ptr WxWindow; 
              id: WxWindowID = wxID_ANY; pos: WxPoint = wxDefaultPosition; 
              size: WxSize = wxDefaultSize; style: clong = 0; 
              name: WxString = "STC"): bool {.cdecl, importcpp: "Create", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc addText*(this: var WxStyledTextCtrl; text: WxString) {.cdecl, 
-    importcpp: "AddText", header: wxh.}
+    importcpp: "AddText", header: "<wx/stc/stc.h>".}
 proc addStyledText*(this: var WxStyledTextCtrl; data: WxMemoryBuffer) {.cdecl, 
-    importcpp: "AddStyledText", header: wxh.}
+    importcpp: "AddStyledText", header: "<wx/stc/stc.h>".}
 proc insertText*(this: var WxStyledTextCtrl; pos: cint; text: WxString) {.cdecl, 
-    importcpp: "InsertText", header: wxh.}
+    importcpp: "InsertText", header: "<wx/stc/stc.h>".}
 proc clearAll*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "ClearAll", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc deleteRange*(this: var WxStyledTextCtrl; pos: cint; deleteLength: cint) {.
-    cdecl, importcpp: "DeleteRange", header: wxh.}
+    cdecl, importcpp: "DeleteRange", header: "<wx/stc/stc.h>".}
 proc clearDocumentStyle*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "ClearDocumentStyle", header: wxh.}
+    importcpp: "ClearDocumentStyle", header: "<wx/stc/stc.h>".}
 proc getLength*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetLength", header: wxh.}
+    importcpp: "GetLength", header: "<wx/stc/stc.h>".}
 proc getCharAt*(this: WxStyledTextCtrl; pos: cint): cint {.noSideEffect, cdecl, 
-    importcpp: "GetCharAt", header: wxh.}
+    importcpp: "GetCharAt", header: "<wx/stc/stc.h>".}
 proc getCurrentPos*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetCurrentPos", header: wxh.}
+    importcpp: "GetCurrentPos", header: "<wx/stc/stc.h>".}
 proc getAnchor*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetAnchor", header: wxh.}
+    importcpp: "GetAnchor", header: "<wx/stc/stc.h>".}
 proc getStyleAt*(this: WxStyledTextCtrl; pos: cint): cint {.noSideEffect, cdecl, 
-    importcpp: "GetStyleAt", header: wxh.}
-proc redo*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "Redo", header: wxh.}
+    importcpp: "GetStyleAt", header: "<wx/stc/stc.h>".}
+proc redo*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "Redo", 
+    header: "<wx/stc/stc.h>".}
 proc setUndoCollection*(this: var WxStyledTextCtrl; collectUndo: bool) {.cdecl, 
-    importcpp: "SetUndoCollection", header: wxh.}
+    importcpp: "SetUndoCollection", header: "<wx/stc/stc.h>".}
 proc selectAll*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "SelectAll", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc setSavePoint*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "SetSavePoint", header: wxh.}
+    importcpp: "SetSavePoint", header: "<wx/stc/stc.h>".}
 proc getStyledText*(this: var WxStyledTextCtrl; startPos: cint; endPos: cint): WxMemoryBuffer {.
-    cdecl, importcpp: "GetStyledText", header: wxh.}
+    cdecl, importcpp: "GetStyledText", header: "<wx/stc/stc.h>".}
 proc canRedo*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "CanRedo", header: wxh.}
+    importcpp: "CanRedo", header: "<wx/stc/stc.h>".}
 proc markerLineFromHandle*(this: var WxStyledTextCtrl; handle: cint): cint {.
-    cdecl, importcpp: "MarkerLineFromHandle", header: wxh.}
+    cdecl, importcpp: "MarkerLineFromHandle", header: "<wx/stc/stc.h>".}
 proc markerDeleteHandle*(this: var WxStyledTextCtrl; handle: cint) {.cdecl, 
-    importcpp: "MarkerDeleteHandle", header: wxh.}
+    importcpp: "MarkerDeleteHandle", header: "<wx/stc/stc.h>".}
 proc getUndoCollection*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetUndoCollection", header: wxh.}
+    importcpp: "GetUndoCollection", header: "<wx/stc/stc.h>".}
 proc getViewWhiteSpace*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetViewWhiteSpace", header: wxh.}
+    importcpp: "GetViewWhiteSpace", header: "<wx/stc/stc.h>".}
 proc setViewWhiteSpace*(this: var WxStyledTextCtrl; viewWS: cint) {.cdecl, 
-    importcpp: "SetViewWhiteSpace", header: wxh.}
+    importcpp: "SetViewWhiteSpace", header: "<wx/stc/stc.h>".}
 proc positionFromPoint*(this: WxStyledTextCtrl; pt: WxPoint): cint {.
-    noSideEffect, cdecl, importcpp: "PositionFromPoint", header: wxh.}
+    noSideEffect, cdecl, importcpp: "PositionFromPoint", 
+    header: "<wx/stc/stc.h>".}
 proc positionFromPointClose*(this: var WxStyledTextCtrl; x: cint; y: cint): cint {.
-    cdecl, importcpp: "PositionFromPointClose", header: wxh.}
+    cdecl, importcpp: "PositionFromPointClose", header: "<wx/stc/stc.h>".}
 proc gotoLine*(this: var WxStyledTextCtrl; line: cint) {.cdecl, 
-    importcpp: "GotoLine", header: wxh.}
+    importcpp: "GotoLine", header: "<wx/stc/stc.h>".}
 proc gotoPos*(this: var WxStyledTextCtrl; pos: cint) {.cdecl, 
-    importcpp: "GotoPos", header: wxh.}
+    importcpp: "GotoPos", header: "<wx/stc/stc.h>".}
 proc setAnchor*(this: var WxStyledTextCtrl; posAnchor: cint) {.cdecl, 
-    importcpp: "SetAnchor", header: wxh.}
+    importcpp: "SetAnchor", header: "<wx/stc/stc.h>".}
 proc getCurLine*(this: var WxStyledTextCtrl; linePos: ptr cint = nil): WxString {.
-    cdecl, importcpp: "GetCurLine", header: wxh.}
+    cdecl, importcpp: "GetCurLine", header: "<wx/stc/stc.h>".}
 proc getEndStyled*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetEndStyled", header: wxh.}
+    importcpp: "GetEndStyled", header: "<wx/stc/stc.h>".}
 proc convertEOLs*(this: var WxStyledTextCtrl; eolMode: cint) {.cdecl, 
-    importcpp: "ConvertEOLs", header: wxh.}
+    importcpp: "ConvertEOLs", header: "<wx/stc/stc.h>".}
 proc getEOLMode*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetEOLMode", header: wxh.}
+    importcpp: "GetEOLMode", header: "<wx/stc/stc.h>".}
 proc setEOLMode*(this: var WxStyledTextCtrl; eolMode: cint) {.cdecl, 
-    importcpp: "SetEOLMode", header: wxh.}
+    importcpp: "SetEOLMode", header: "<wx/stc/stc.h>".}
 proc startStyling*(this: var WxStyledTextCtrl; pos: cint; mask: cint) {.cdecl, 
-    importcpp: "StartStyling", header: wxh.}
+    importcpp: "StartStyling", header: "<wx/stc/stc.h>".}
 proc setStyling*(this: var WxStyledTextCtrl; length: cint; style: cint) {.cdecl, 
-    importcpp: "SetStyling", header: wxh.}
+    importcpp: "SetStyling", header: "<wx/stc/stc.h>".}
 proc getBufferedDraw*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetBufferedDraw", header: wxh.}
+    importcpp: "GetBufferedDraw", header: "<wx/stc/stc.h>".}
 proc setBufferedDraw*(this: var WxStyledTextCtrl; buffered: bool) {.cdecl, 
-    importcpp: "SetBufferedDraw", header: wxh.}
+    importcpp: "SetBufferedDraw", header: "<wx/stc/stc.h>".}
 proc setTabWidth*(this: var WxStyledTextCtrl; tabWidth: cint) {.cdecl, 
-    importcpp: "SetTabWidth", header: wxh.}
+    importcpp: "SetTabWidth", header: "<wx/stc/stc.h>".}
 proc getTabWidth*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetTabWidth", header: wxh.}
+    importcpp: "GetTabWidth", header: "<wx/stc/stc.h>".}
 proc setCodePage*(this: var WxStyledTextCtrl; codePage: cint) {.cdecl, 
-    importcpp: "SetCodePage", header: wxh.}
+    importcpp: "SetCodePage", header: "<wx/stc/stc.h>".}
 proc markerDefine*(this: var WxStyledTextCtrl; markerNumber: cint; 
                    markerSymbol: cint; foreground: WxColour = wxNullColour; 
                    background: WxColour = wxNullColour) {.cdecl, 
-    importcpp: "MarkerDefine", header: wxh.}
+    importcpp: "MarkerDefine", header: "<wx/stc/stc.h>".}
 proc markerSetForeground*(this: var WxStyledTextCtrl; markerNumber: cint; 
                           fore: WxColour) {.cdecl, 
-    importcpp: "MarkerSetForeground", header: wxh.}
+    importcpp: "MarkerSetForeground", header: "<wx/stc/stc.h>".}
 proc markerSetBackground*(this: var WxStyledTextCtrl; markerNumber: cint; 
                           back: WxColour) {.cdecl, 
-    importcpp: "MarkerSetBackground", header: wxh.}
+    importcpp: "MarkerSetBackground", header: "<wx/stc/stc.h>".}
 proc markerSetBackgroundSelected*(this: var WxStyledTextCtrl; 
                                   markerNumber: cint; back: WxColour) {.cdecl, 
-    importcpp: "MarkerSetBackgroundSelected", header: wxh.}
+    importcpp: "MarkerSetBackgroundSelected", header: "<wx/stc/stc.h>".}
 proc markerEnableHighlight*(this: var WxStyledTextCtrl; enabled: bool) {.cdecl, 
-    importcpp: "MarkerEnableHighlight", header: wxh.}
+    importcpp: "MarkerEnableHighlight", header: "<wx/stc/stc.h>".}
 proc markerAdd*(this: var WxStyledTextCtrl; line: cint; markerNumber: cint): cint {.
-    cdecl, importcpp: "MarkerAdd", header: wxh.}
+    cdecl, importcpp: "MarkerAdd", header: "<wx/stc/stc.h>".}
 proc markerDelete*(this: var WxStyledTextCtrl; line: cint; markerNumber: cint) {.
-    cdecl, importcpp: "MarkerDelete", header: wxh.}
+    cdecl, importcpp: "MarkerDelete", header: "<wx/stc/stc.h>".}
 proc markerDeleteAll*(this: var WxStyledTextCtrl; markerNumber: cint) {.cdecl, 
-    importcpp: "MarkerDeleteAll", header: wxh.}
+    importcpp: "MarkerDeleteAll", header: "<wx/stc/stc.h>".}
 proc markerGet*(this: var WxStyledTextCtrl; line: cint): cint {.cdecl, 
-    importcpp: "MarkerGet", header: wxh.}
+    importcpp: "MarkerGet", header: "<wx/stc/stc.h>".}
 proc markerNext*(this: var WxStyledTextCtrl; lineStart: cint; markerMask: cint): cint {.
-    cdecl, importcpp: "MarkerNext", header: wxh.}
+    cdecl, importcpp: "MarkerNext", header: "<wx/stc/stc.h>".}
 proc markerPrevious*(this: var WxStyledTextCtrl; lineStart: cint; 
                      markerMask: cint): cint {.cdecl, 
-    importcpp: "MarkerPrevious", header: wxh.}
+    importcpp: "MarkerPrevious", header: "<wx/stc/stc.h>".}
 proc markerDefineBitmap*(this: var WxStyledTextCtrl; markerNumber: cint; 
                          bmp: WxBitmap) {.cdecl, 
-    importcpp: "MarkerDefineBitmap", header: wxh.}
+    importcpp: "MarkerDefineBitmap", header: "<wx/stc/stc.h>".}
 proc markerAddSet*(this: var WxStyledTextCtrl; line: cint; set: cint) {.cdecl, 
-    importcpp: "MarkerAddSet", header: wxh.}
+    importcpp: "MarkerAddSet", header: "<wx/stc/stc.h>".}
 proc markerSetAlpha*(this: var WxStyledTextCtrl; markerNumber: cint; alpha: cint) {.
-    cdecl, importcpp: "MarkerSetAlpha", header: wxh.}
+    cdecl, importcpp: "MarkerSetAlpha", header: "<wx/stc/stc.h>".}
 proc setMarginType*(this: var WxStyledTextCtrl; margin: cint; marginType: cint) {.
-    cdecl, importcpp: "SetMarginType", header: wxh.}
+    cdecl, importcpp: "SetMarginType", header: "<wx/stc/stc.h>".}
 proc getMarginType*(this: WxStyledTextCtrl; margin: cint): cint {.noSideEffect, 
-    cdecl, importcpp: "GetMarginType", header: wxh.}
+    cdecl, importcpp: "GetMarginType", header: "<wx/stc/stc.h>".}
 proc setMarginWidth*(this: var WxStyledTextCtrl; margin: cint; pixelWidth: cint) {.
-    cdecl, importcpp: "SetMarginWidth", header: wxh.}
+    cdecl, importcpp: "SetMarginWidth", header: "<wx/stc/stc.h>".}
 proc getMarginWidth*(this: WxStyledTextCtrl; margin: cint): cint {.noSideEffect, 
-    cdecl, importcpp: "GetMarginWidth", header: wxh.}
+    cdecl, importcpp: "GetMarginWidth", header: "<wx/stc/stc.h>".}
 proc setMarginMask*(this: var WxStyledTextCtrl; margin: cint; mask: cint) {.
-    cdecl, importcpp: "SetMarginMask", header: wxh.}
+    cdecl, importcpp: "SetMarginMask", header: "<wx/stc/stc.h>".}
 proc getMarginMask*(this: WxStyledTextCtrl; margin: cint): cint {.noSideEffect, 
-    cdecl, importcpp: "GetMarginMask", header: wxh.}
+    cdecl, importcpp: "GetMarginMask", header: "<wx/stc/stc.h>".}
 proc setMarginSensitive*(this: var WxStyledTextCtrl; margin: cint; 
                          sensitive: bool) {.cdecl, 
-    importcpp: "SetMarginSensitive", header: wxh.}
+    importcpp: "SetMarginSensitive", header: "<wx/stc/stc.h>".}
 proc getMarginSensitive*(this: WxStyledTextCtrl; margin: cint): bool {.
-    noSideEffect, cdecl, importcpp: "GetMarginSensitive", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetMarginSensitive", 
+    header: "<wx/stc/stc.h>".}
 proc setMarginCursor*(this: var WxStyledTextCtrl; margin: cint; cursor: cint) {.
-    cdecl, importcpp: "SetMarginCursor", header: wxh.}
+    cdecl, importcpp: "SetMarginCursor", header: "<wx/stc/stc.h>".}
 proc getMarginCursor*(this: WxStyledTextCtrl; margin: cint): cint {.
-    noSideEffect, cdecl, importcpp: "GetMarginCursor", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetMarginCursor", header: "<wx/stc/stc.h>".}
 proc styleClearAll*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "StyleClearAll", header: wxh.}
+    importcpp: "StyleClearAll", header: "<wx/stc/stc.h>".}
 proc styleSetForeground*(this: var WxStyledTextCtrl; style: cint; fore: WxColour) {.
-    cdecl, importcpp: "StyleSetForeground", header: wxh.}
+    cdecl, importcpp: "StyleSetForeground", header: "<wx/stc/stc.h>".}
 proc styleSetBackground*(this: var WxStyledTextCtrl; style: cint; back: WxColour) {.
-    cdecl, importcpp: "StyleSetBackground", header: wxh.}
+    cdecl, importcpp: "StyleSetBackground", header: "<wx/stc/stc.h>".}
 proc styleSetBold*(this: var WxStyledTextCtrl; style: cint; bold: bool) {.cdecl, 
-    importcpp: "StyleSetBold", header: wxh.}
+    importcpp: "StyleSetBold", header: "<wx/stc/stc.h>".}
 proc styleSetItalic*(this: var WxStyledTextCtrl; style: cint; italic: bool) {.
-    cdecl, importcpp: "StyleSetItalic", header: wxh.}
+    cdecl, importcpp: "StyleSetItalic", header: "<wx/stc/stc.h>".}
 proc styleSetSize*(this: var WxStyledTextCtrl; style: cint; sizePoints: cint) {.
-    cdecl, importcpp: "StyleSetSize", header: wxh.}
+    cdecl, importcpp: "StyleSetSize", header: "<wx/stc/stc.h>".}
 proc styleSetFaceName*(this: var WxStyledTextCtrl; style: cint; 
                        fontName: WxString) {.cdecl, 
-    importcpp: "StyleSetFaceName", header: wxh.}
+    importcpp: "StyleSetFaceName", header: "<wx/stc/stc.h>".}
 proc styleSetEOLFilled*(this: var WxStyledTextCtrl; style: cint; filled: bool) {.
-    cdecl, importcpp: "StyleSetEOLFilled", header: wxh.}
+    cdecl, importcpp: "StyleSetEOLFilled", header: "<wx/stc/stc.h>".}
 proc styleResetDefault*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "StyleResetDefault", header: wxh.}
+    importcpp: "StyleResetDefault", header: "<wx/stc/stc.h>".}
 proc styleSetUnderline*(this: var WxStyledTextCtrl; style: cint; underline: bool) {.
-    cdecl, importcpp: "StyleSetUnderline", header: wxh.}
+    cdecl, importcpp: "StyleSetUnderline", header: "<wx/stc/stc.h>".}
 proc styleGetForeground*(this: WxStyledTextCtrl; style: cint): WxColour {.
-    noSideEffect, cdecl, importcpp: "StyleGetForeground", header: wxh.}
+    noSideEffect, cdecl, importcpp: "StyleGetForeground", 
+    header: "<wx/stc/stc.h>".}
 proc styleGetBackground*(this: WxStyledTextCtrl; style: cint): WxColour {.
-    noSideEffect, cdecl, importcpp: "StyleGetBackground", header: wxh.}
+    noSideEffect, cdecl, importcpp: "StyleGetBackground", 
+    header: "<wx/stc/stc.h>".}
 proc styleGetBold*(this: WxStyledTextCtrl; style: cint): bool {.noSideEffect, 
-    cdecl, importcpp: "StyleGetBold", header: wxh.}
+    cdecl, importcpp: "StyleGetBold", header: "<wx/stc/stc.h>".}
 proc styleGetItalic*(this: WxStyledTextCtrl; style: cint): bool {.noSideEffect, 
-    cdecl, importcpp: "StyleGetItalic", header: wxh.}
+    cdecl, importcpp: "StyleGetItalic", header: "<wx/stc/stc.h>".}
 proc styleGetSize*(this: WxStyledTextCtrl; style: cint): cint {.noSideEffect, 
-    cdecl, importcpp: "StyleGetSize", header: wxh.}
+    cdecl, importcpp: "StyleGetSize", header: "<wx/stc/stc.h>".}
 proc styleGetFaceName*(this: var WxStyledTextCtrl; style: cint): WxString {.
-    cdecl, importcpp: "StyleGetFaceName", header: wxh.}
+    cdecl, importcpp: "StyleGetFaceName", header: "<wx/stc/stc.h>".}
 proc styleGetEOLFilled*(this: WxStyledTextCtrl; style: cint): bool {.
-    noSideEffect, cdecl, importcpp: "StyleGetEOLFilled", header: wxh.}
+    noSideEffect, cdecl, importcpp: "StyleGetEOLFilled", 
+    header: "<wx/stc/stc.h>".}
 proc styleGetUnderline*(this: WxStyledTextCtrl; style: cint): bool {.
-    noSideEffect, cdecl, importcpp: "StyleGetUnderline", header: wxh.}
+    noSideEffect, cdecl, importcpp: "StyleGetUnderline", 
+    header: "<wx/stc/stc.h>".}
 proc styleGetCase*(this: WxStyledTextCtrl; style: cint): cint {.noSideEffect, 
-    cdecl, importcpp: "StyleGetCase", header: wxh.}
+    cdecl, importcpp: "StyleGetCase", header: "<wx/stc/stc.h>".}
 proc styleGetCharacterSet*(this: WxStyledTextCtrl; style: cint): cint {.
-    noSideEffect, cdecl, importcpp: "StyleGetCharacterSet", header: wxh.}
+    noSideEffect, cdecl, importcpp: "StyleGetCharacterSet", 
+    header: "<wx/stc/stc.h>".}
 proc styleGetVisible*(this: WxStyledTextCtrl; style: cint): bool {.noSideEffect, 
-    cdecl, importcpp: "StyleGetVisible", header: wxh.}
+    cdecl, importcpp: "StyleGetVisible", header: "<wx/stc/stc.h>".}
 proc styleGetChangeable*(this: WxStyledTextCtrl; style: cint): bool {.
-    noSideEffect, cdecl, importcpp: "StyleGetChangeable", header: wxh.}
+    noSideEffect, cdecl, importcpp: "StyleGetChangeable", 
+    header: "<wx/stc/stc.h>".}
 proc styleGetHotSpot*(this: WxStyledTextCtrl; style: cint): bool {.noSideEffect, 
-    cdecl, importcpp: "StyleGetHotSpot", header: wxh.}
+    cdecl, importcpp: "StyleGetHotSpot", header: "<wx/stc/stc.h>".}
 proc styleSetCase*(this: var WxStyledTextCtrl; style: cint; caseForce: cint) {.
-    cdecl, importcpp: "StyleSetCase", header: wxh.}
+    cdecl, importcpp: "StyleSetCase", header: "<wx/stc/stc.h>".}
 proc styleSetSizeFractional*(this: var WxStyledTextCtrl; style: cint; 
                              caseForce: cint) {.cdecl, 
-    importcpp: "StyleSetSizeFractional", header: wxh.}
+    importcpp: "StyleSetSizeFractional", header: "<wx/stc/stc.h>".}
 proc styleGetSizeFractional*(this: WxStyledTextCtrl; style: cint): cint {.
-    noSideEffect, cdecl, importcpp: "StyleGetSizeFractional", header: wxh.}
+    noSideEffect, cdecl, importcpp: "StyleGetSizeFractional", 
+    header: "<wx/stc/stc.h>".}
 proc styleSetWeight*(this: var WxStyledTextCtrl; style: cint; weight: cint) {.
-    cdecl, importcpp: "StyleSetWeight", header: wxh.}
+    cdecl, importcpp: "StyleSetWeight", header: "<wx/stc/stc.h>".}
 proc styleGetWeight*(this: WxStyledTextCtrl; style: cint): cint {.noSideEffect, 
-    cdecl, importcpp: "StyleGetWeight", header: wxh.}
+    cdecl, importcpp: "StyleGetWeight", header: "<wx/stc/stc.h>".}
 proc styleSetHotSpot*(this: var WxStyledTextCtrl; style: cint; hotspot: bool) {.
-    cdecl, importcpp: "StyleSetHotSpot", header: wxh.}
+    cdecl, importcpp: "StyleSetHotSpot", header: "<wx/stc/stc.h>".}
 proc setSelForeground*(this: var WxStyledTextCtrl; useSetting: bool; 
                        fore: WxColour) {.cdecl, importcpp: "SetSelForeground", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc setSelBackground*(this: var WxStyledTextCtrl; useSetting: bool; 
                        back: WxColour) {.cdecl, importcpp: "SetSelBackground", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc getSelAlpha*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetSelAlpha", header: wxh.}
+    importcpp: "GetSelAlpha", header: "<wx/stc/stc.h>".}
 proc setSelAlpha*(this: var WxStyledTextCtrl; alpha: cint) {.cdecl, 
-    importcpp: "SetSelAlpha", header: wxh.}
+    importcpp: "SetSelAlpha", header: "<wx/stc/stc.h>".}
 proc getSelEOLFilled*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetSelEOLFilled", header: wxh.}
+    importcpp: "GetSelEOLFilled", header: "<wx/stc/stc.h>".}
 proc setSelEOLFilled*(this: var WxStyledTextCtrl; filled: bool) {.cdecl, 
-    importcpp: "SetSelEOLFilled", header: wxh.}
+    importcpp: "SetSelEOLFilled", header: "<wx/stc/stc.h>".}
 proc setCaretForeground*(this: var WxStyledTextCtrl; fore: WxColour) {.cdecl, 
-    importcpp: "SetCaretForeground", header: wxh.}
+    importcpp: "SetCaretForeground", header: "<wx/stc/stc.h>".}
 proc cmdKeyAssign*(this: var WxStyledTextCtrl; key: cint; modifiers: cint; 
-                   cmd: cint) {.cdecl, importcpp: "CmdKeyAssign", header: wxh.}
+                   cmd: cint) {.cdecl, importcpp: "CmdKeyAssign", 
+                                header: "<wx/stc/stc.h>".}
 proc cmdKeyClear*(this: var WxStyledTextCtrl; key: cint; modifiers: cint) {.
-    cdecl, importcpp: "CmdKeyClear", header: wxh.}
+    cdecl, importcpp: "CmdKeyClear", header: "<wx/stc/stc.h>".}
 proc cmdKeyClearAll*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "CmdKeyClearAll", header: wxh.}
+    importcpp: "CmdKeyClearAll", header: "<wx/stc/stc.h>".}
 proc setStyleBytes*(this: var WxStyledTextCtrl; length: cint; 
                     styleBytes: cstring) {.cdecl, importcpp: "SetStyleBytes", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc styleSetVisible*(this: var WxStyledTextCtrl; style: cint; visible: bool) {.
-    cdecl, importcpp: "StyleSetVisible", header: wxh.}
+    cdecl, importcpp: "StyleSetVisible", header: "<wx/stc/stc.h>".}
 proc getCaretPeriod*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetCaretPeriod", header: wxh.}
+    importcpp: "GetCaretPeriod", header: "<wx/stc/stc.h>".}
 proc setCaretPeriod*(this: var WxStyledTextCtrl; periodMilliseconds: cint) {.
-    cdecl, importcpp: "SetCaretPeriod", header: wxh.}
+    cdecl, importcpp: "SetCaretPeriod", header: "<wx/stc/stc.h>".}
 proc setWordChars*(this: var WxStyledTextCtrl; characters: WxString) {.cdecl, 
-    importcpp: "SetWordChars", header: wxh.}
+    importcpp: "SetWordChars", header: "<wx/stc/stc.h>".}
 proc getWordChars*(this: WxStyledTextCtrl): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetWordChars", header: wxh.}
+    importcpp: "GetWordChars", header: "<wx/stc/stc.h>".}
 proc beginUndoAction*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "BeginUndoAction", header: wxh.}
+    importcpp: "BeginUndoAction", header: "<wx/stc/stc.h>".}
 proc endUndoAction*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "EndUndoAction", header: wxh.}
+    importcpp: "EndUndoAction", header: "<wx/stc/stc.h>".}
 proc indicatorSetStyle*(this: var WxStyledTextCtrl; indic: cint; style: cint) {.
-    cdecl, importcpp: "IndicatorSetStyle", header: wxh.}
+    cdecl, importcpp: "IndicatorSetStyle", header: "<wx/stc/stc.h>".}
 proc indicatorGetStyle*(this: WxStyledTextCtrl; indic: cint): cint {.
-    noSideEffect, cdecl, importcpp: "IndicatorGetStyle", header: wxh.}
+    noSideEffect, cdecl, importcpp: "IndicatorGetStyle", 
+    header: "<wx/stc/stc.h>".}
 proc indicatorSetForeground*(this: var WxStyledTextCtrl; indic: cint; 
                              fore: WxColour) {.cdecl, 
-    importcpp: "IndicatorSetForeground", header: wxh.}
+    importcpp: "IndicatorSetForeground", header: "<wx/stc/stc.h>".}
 proc indicatorGetForeground*(this: WxStyledTextCtrl; indic: cint): WxColour {.
-    noSideEffect, cdecl, importcpp: "IndicatorGetForeground", header: wxh.}
+    noSideEffect, cdecl, importcpp: "IndicatorGetForeground", 
+    header: "<wx/stc/stc.h>".}
 proc indicatorSetUnder*(this: var WxStyledTextCtrl; indic: cint; under: bool) {.
-    cdecl, importcpp: "IndicatorSetUnder", header: wxh.}
+    cdecl, importcpp: "IndicatorSetUnder", header: "<wx/stc/stc.h>".}
 proc indicatorGetUnder*(this: WxStyledTextCtrl; indic: cint): bool {.
-    noSideEffect, cdecl, importcpp: "IndicatorGetUnder", header: wxh.}
+    noSideEffect, cdecl, importcpp: "IndicatorGetUnder", 
+    header: "<wx/stc/stc.h>".}
 proc setWhitespaceForeground*(this: var WxStyledTextCtrl; useSetting: bool; 
                               fore: WxColour) {.cdecl, 
-    importcpp: "SetWhitespaceForeground", header: wxh.}
+    importcpp: "SetWhitespaceForeground", header: "<wx/stc/stc.h>".}
 proc setWhitespaceBackground*(this: var WxStyledTextCtrl; useSetting: bool; 
                               back: WxColour) {.cdecl, 
-    importcpp: "SetWhitespaceBackground", header: wxh.}
+    importcpp: "SetWhitespaceBackground", header: "<wx/stc/stc.h>".}
 proc setWhitespaceSize*(this: var WxStyledTextCtrl; size: cint) {.cdecl, 
-    importcpp: "SetWhitespaceSize", header: wxh.}
+    importcpp: "SetWhitespaceSize", header: "<wx/stc/stc.h>".}
 proc getWhitespaceSize*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetWhitespaceSize", header: wxh.}
+    importcpp: "GetWhitespaceSize", header: "<wx/stc/stc.h>".}
 proc setStyleBits*(this: var WxStyledTextCtrl; bits: cint) {.cdecl, 
-    importcpp: "SetStyleBits", header: wxh.}
+    importcpp: "SetStyleBits", header: "<wx/stc/stc.h>".}
 proc getStyleBits*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetStyleBits", header: wxh.}
+    importcpp: "GetStyleBits", header: "<wx/stc/stc.h>".}
 proc setLineState*(this: var WxStyledTextCtrl; line: cint; state: cint) {.cdecl, 
-    importcpp: "SetLineState", header: wxh.}
+    importcpp: "SetLineState", header: "<wx/stc/stc.h>".}
 proc getLineState*(this: WxStyledTextCtrl; line: cint): cint {.noSideEffect, 
-    cdecl, importcpp: "GetLineState", header: wxh.}
+    cdecl, importcpp: "GetLineState", header: "<wx/stc/stc.h>".}
 proc getMaxLineState*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetMaxLineState", header: wxh.}
+    importcpp: "GetMaxLineState", header: "<wx/stc/stc.h>".}
 proc getCaretLineVisible*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetCaretLineVisible", header: wxh.}
+    importcpp: "GetCaretLineVisible", header: "<wx/stc/stc.h>".}
 proc setCaretLineVisible*(this: var WxStyledTextCtrl; show: bool) {.cdecl, 
-    importcpp: "SetCaretLineVisible", header: wxh.}
+    importcpp: "SetCaretLineVisible", header: "<wx/stc/stc.h>".}
 proc getCaretLineBackground*(this: WxStyledTextCtrl): WxColour {.noSideEffect, 
-    cdecl, importcpp: "GetCaretLineBackground", header: wxh.}
+    cdecl, importcpp: "GetCaretLineBackground", header: "<wx/stc/stc.h>".}
 proc setCaretLineBackground*(this: var WxStyledTextCtrl; back: WxColour) {.
-    cdecl, importcpp: "SetCaretLineBackground", header: wxh.}
+    cdecl, importcpp: "SetCaretLineBackground", header: "<wx/stc/stc.h>".}
 proc styleSetChangeable*(this: var WxStyledTextCtrl; style: cint; 
                          changeable: bool) {.cdecl, 
-    importcpp: "StyleSetChangeable", header: wxh.}
+    importcpp: "StyleSetChangeable", header: "<wx/stc/stc.h>".}
 proc autoCompShow*(this: var WxStyledTextCtrl; lenEntered: cint; 
                    itemList: WxString) {.cdecl, importcpp: "AutoCompShow", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc autoCompCancel*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "AutoCompCancel", header: wxh.}
+    importcpp: "AutoCompCancel", header: "<wx/stc/stc.h>".}
 proc autoCompActive*(this: var WxStyledTextCtrl): bool {.cdecl, 
-    importcpp: "AutoCompActive", header: wxh.}
+    importcpp: "AutoCompActive", header: "<wx/stc/stc.h>".}
 proc autoCompPosStart*(this: var WxStyledTextCtrl): cint {.cdecl, 
-    importcpp: "AutoCompPosStart", header: wxh.}
+    importcpp: "AutoCompPosStart", header: "<wx/stc/stc.h>".}
 proc autoCompComplete*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "AutoCompComplete", header: wxh.}
+    importcpp: "AutoCompComplete", header: "<wx/stc/stc.h>".}
 proc autoCompStops*(this: var WxStyledTextCtrl; characterSet: WxString) {.cdecl, 
-    importcpp: "AutoCompStops", header: wxh.}
+    importcpp: "AutoCompStops", header: "<wx/stc/stc.h>".}
 proc autoCompSetSeparator*(this: var WxStyledTextCtrl; separatorCharacter: cint) {.
-    cdecl, importcpp: "AutoCompSetSeparator", header: wxh.}
+    cdecl, importcpp: "AutoCompSetSeparator", header: "<wx/stc/stc.h>".}
 proc autoCompGetSeparator*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "AutoCompGetSeparator", header: wxh.}
+    importcpp: "AutoCompGetSeparator", header: "<wx/stc/stc.h>".}
 proc autoCompSelect*(this: var WxStyledTextCtrl; text: WxString) {.cdecl, 
-    importcpp: "AutoCompSelect", header: wxh.}
+    importcpp: "AutoCompSelect", header: "<wx/stc/stc.h>".}
 proc autoCompSetCancelAtStart*(this: var WxStyledTextCtrl; cancel: bool) {.
-    cdecl, importcpp: "AutoCompSetCancelAtStart", header: wxh.}
+    cdecl, importcpp: "AutoCompSetCancelAtStart", header: "<wx/stc/stc.h>".}
 proc autoCompGetCancelAtStart*(this: WxStyledTextCtrl): bool {.noSideEffect, 
-    cdecl, importcpp: "AutoCompGetCancelAtStart", header: wxh.}
+    cdecl, importcpp: "AutoCompGetCancelAtStart", header: "<wx/stc/stc.h>".}
 proc autoCompSetFillUps*(this: var WxStyledTextCtrl; characterSet: WxString) {.
-    cdecl, importcpp: "AutoCompSetFillUps", header: wxh.}
+    cdecl, importcpp: "AutoCompSetFillUps", header: "<wx/stc/stc.h>".}
 proc autoCompSetChooseSingle*(this: var WxStyledTextCtrl; chooseSingle: bool) {.
-    cdecl, importcpp: "AutoCompSetChooseSingle", header: wxh.}
+    cdecl, importcpp: "AutoCompSetChooseSingle", header: "<wx/stc/stc.h>".}
 proc autoCompGetChooseSingle*(this: WxStyledTextCtrl): bool {.noSideEffect, 
-    cdecl, importcpp: "AutoCompGetChooseSingle", header: wxh.}
+    cdecl, importcpp: "AutoCompGetChooseSingle", header: "<wx/stc/stc.h>".}
 proc autoCompSetIgnoreCase*(this: var WxStyledTextCtrl; ignoreCase: bool) {.
-    cdecl, importcpp: "AutoCompSetIgnoreCase", header: wxh.}
+    cdecl, importcpp: "AutoCompSetIgnoreCase", header: "<wx/stc/stc.h>".}
 proc autoCompGetIgnoreCase*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "AutoCompGetIgnoreCase", header: wxh.}
+    importcpp: "AutoCompGetIgnoreCase", header: "<wx/stc/stc.h>".}
 proc userListShow*(this: var WxStyledTextCtrl; listType: cint; 
                    itemList: WxString) {.cdecl, importcpp: "UserListShow", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc autoCompSetAutoHide*(this: var WxStyledTextCtrl; autoHide: bool) {.cdecl, 
-    importcpp: "AutoCompSetAutoHide", header: wxh.}
+    importcpp: "AutoCompSetAutoHide", header: "<wx/stc/stc.h>".}
 proc autoCompGetAutoHide*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "AutoCompGetAutoHide", header: wxh.}
+    importcpp: "AutoCompGetAutoHide", header: "<wx/stc/stc.h>".}
 proc autoCompSetDropRestOfWord*(this: var WxStyledTextCtrl; dropRestOfWord: bool) {.
-    cdecl, importcpp: "AutoCompSetDropRestOfWord", header: wxh.}
+    cdecl, importcpp: "AutoCompSetDropRestOfWord", header: "<wx/stc/stc.h>".}
 proc autoCompGetDropRestOfWord*(this: WxStyledTextCtrl): bool {.noSideEffect, 
-    cdecl, importcpp: "AutoCompGetDropRestOfWord", header: wxh.}
+    cdecl, importcpp: "AutoCompGetDropRestOfWord", header: "<wx/stc/stc.h>".}
 proc registerImage*(this: var WxStyledTextCtrl; `type`: cint; bmp: WxBitmap) {.
-    cdecl, importcpp: "RegisterImage", header: wxh.}
+    cdecl, importcpp: "RegisterImage", header: "<wx/stc/stc.h>".}
 proc clearRegisteredImages*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "ClearRegisteredImages", header: wxh.}
+    importcpp: "ClearRegisteredImages", header: "<wx/stc/stc.h>".}
 proc autoCompGetTypeSeparator*(this: WxStyledTextCtrl): cint {.noSideEffect, 
-    cdecl, importcpp: "AutoCompGetTypeSeparator", header: wxh.}
+    cdecl, importcpp: "AutoCompGetTypeSeparator", header: "<wx/stc/stc.h>".}
 proc autoCompSetTypeSeparator*(this: var WxStyledTextCtrl; 
                                separatorCharacter: cint) {.cdecl, 
-    importcpp: "AutoCompSetTypeSeparator", header: wxh.}
+    importcpp: "AutoCompSetTypeSeparator", header: "<wx/stc/stc.h>".}
 proc autoCompSetMaxWidth*(this: var WxStyledTextCtrl; characterCount: cint) {.
-    cdecl, importcpp: "AutoCompSetMaxWidth", header: wxh.}
+    cdecl, importcpp: "AutoCompSetMaxWidth", header: "<wx/stc/stc.h>".}
 proc autoCompGetMaxWidth*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "AutoCompGetMaxWidth", header: wxh.}
+    importcpp: "AutoCompGetMaxWidth", header: "<wx/stc/stc.h>".}
 proc autoCompSetMaxHeight*(this: var WxStyledTextCtrl; rowCount: cint) {.cdecl, 
-    importcpp: "AutoCompSetMaxHeight", header: wxh.}
+    importcpp: "AutoCompSetMaxHeight", header: "<wx/stc/stc.h>".}
 proc autoCompGetMaxHeight*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "AutoCompGetMaxHeight", header: wxh.}
+    importcpp: "AutoCompGetMaxHeight", header: "<wx/stc/stc.h>".}
 proc setIndent*(this: var WxStyledTextCtrl; indentSize: cint) {.cdecl, 
-    importcpp: "SetIndent", header: wxh.}
+    importcpp: "SetIndent", header: "<wx/stc/stc.h>".}
 proc getIndent*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetIndent", header: wxh.}
+    importcpp: "GetIndent", header: "<wx/stc/stc.h>".}
 proc setUseTabs*(this: var WxStyledTextCtrl; useTabs: bool) {.cdecl, 
-    importcpp: "SetUseTabs", header: wxh.}
+    importcpp: "SetUseTabs", header: "<wx/stc/stc.h>".}
 proc getUseTabs*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetUseTabs", header: wxh.}
+    importcpp: "GetUseTabs", header: "<wx/stc/stc.h>".}
 proc setLineIndentation*(this: var WxStyledTextCtrl; line: cint; 
                          indentSize: cint) {.cdecl, 
-    importcpp: "SetLineIndentation", header: wxh.}
+    importcpp: "SetLineIndentation", header: "<wx/stc/stc.h>".}
 proc getLineIndentation*(this: WxStyledTextCtrl; line: cint): cint {.
-    noSideEffect, cdecl, importcpp: "GetLineIndentation", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetLineIndentation", 
+    header: "<wx/stc/stc.h>".}
 proc getLineIndentPosition*(this: WxStyledTextCtrl; line: cint): cint {.
-    noSideEffect, cdecl, importcpp: "GetLineIndentPosition", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetLineIndentPosition", 
+    header: "<wx/stc/stc.h>".}
 proc getColumn*(this: WxStyledTextCtrl; pos: cint): cint {.noSideEffect, cdecl, 
-    importcpp: "GetColumn", header: wxh.}
+    importcpp: "GetColumn", header: "<wx/stc/stc.h>".}
 proc countCharacters*(this: var WxStyledTextCtrl; startPos: cint; endPos: cint): cint {.
-    cdecl, importcpp: "CountCharacters", header: wxh.}
+    cdecl, importcpp: "CountCharacters", header: "<wx/stc/stc.h>".}
 proc setUseHorizontalScrollBar*(this: var WxStyledTextCtrl; show: bool) {.cdecl, 
-    importcpp: "SetUseHorizontalScrollBar", header: wxh.}
+    importcpp: "SetUseHorizontalScrollBar", header: "<wx/stc/stc.h>".}
 proc getUseHorizontalScrollBar*(this: WxStyledTextCtrl): bool {.noSideEffect, 
-    cdecl, importcpp: "GetUseHorizontalScrollBar", header: wxh.}
+    cdecl, importcpp: "GetUseHorizontalScrollBar", header: "<wx/stc/stc.h>".}
 proc setIndentationGuides*(this: var WxStyledTextCtrl; indentView: cint) {.
-    cdecl, importcpp: "SetIndentationGuides", header: wxh.}
+    cdecl, importcpp: "SetIndentationGuides", header: "<wx/stc/stc.h>".}
 proc getIndentationGuides*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetIndentationGuides", header: wxh.}
+    importcpp: "GetIndentationGuides", header: "<wx/stc/stc.h>".}
 proc setHighlightGuide*(this: var WxStyledTextCtrl; column: cint) {.cdecl, 
-    importcpp: "SetHighlightGuide", header: wxh.}
+    importcpp: "SetHighlightGuide", header: "<wx/stc/stc.h>".}
 proc getHighlightGuide*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetHighlightGuide", header: wxh.}
+    importcpp: "GetHighlightGuide", header: "<wx/stc/stc.h>".}
 proc getLineEndPosition*(this: WxStyledTextCtrl; line: cint): cint {.
-    noSideEffect, cdecl, importcpp: "GetLineEndPosition", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetLineEndPosition", 
+    header: "<wx/stc/stc.h>".}
 proc getCodePage*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetCodePage", header: wxh.}
+    importcpp: "GetCodePage", header: "<wx/stc/stc.h>".}
 proc getCaretForeground*(this: WxStyledTextCtrl): WxColour {.noSideEffect, 
-    cdecl, importcpp: "GetCaretForeground", header: wxh.}
+    cdecl, importcpp: "GetCaretForeground", header: "<wx/stc/stc.h>".}
 proc getReadOnly*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetReadOnly", header: wxh.}
+    importcpp: "GetReadOnly", header: "<wx/stc/stc.h>".}
 proc setCurrentPos*(this: var WxStyledTextCtrl; pos: cint) {.cdecl, 
-    importcpp: "SetCurrentPos", header: wxh.}
+    importcpp: "SetCurrentPos", header: "<wx/stc/stc.h>".}
 proc setSelectionStart*(this: var WxStyledTextCtrl; pos: cint) {.cdecl, 
-    importcpp: "SetSelectionStart", header: wxh.}
+    importcpp: "SetSelectionStart", header: "<wx/stc/stc.h>".}
 proc getSelectionStart*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetSelectionStart", header: wxh.}
+    importcpp: "GetSelectionStart", header: "<wx/stc/stc.h>".}
 proc setSelectionEnd*(this: var WxStyledTextCtrl; pos: cint) {.cdecl, 
-    importcpp: "SetSelectionEnd", header: wxh.}
+    importcpp: "SetSelectionEnd", header: "<wx/stc/stc.h>".}
 proc getSelectionEnd*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetSelectionEnd", header: wxh.}
+    importcpp: "GetSelectionEnd", header: "<wx/stc/stc.h>".}
 proc setEmptySelection*(this: var WxStyledTextCtrl; pos: cint) {.cdecl, 
-    importcpp: "SetEmptySelection", header: wxh.}
+    importcpp: "SetEmptySelection", header: "<wx/stc/stc.h>".}
 proc setPrintMagnification*(this: var WxStyledTextCtrl; magnification: cint) {.
-    cdecl, importcpp: "SetPrintMagnification", header: wxh.}
+    cdecl, importcpp: "SetPrintMagnification", header: "<wx/stc/stc.h>".}
 proc getPrintMagnification*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetPrintMagnification", header: wxh.}
+    importcpp: "GetPrintMagnification", header: "<wx/stc/stc.h>".}
 proc setPrintColourMode*(this: var WxStyledTextCtrl; mode: cint) {.cdecl, 
-    importcpp: "SetPrintColourMode", header: wxh.}
+    importcpp: "SetPrintColourMode", header: "<wx/stc/stc.h>".}
 proc getPrintColourMode*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetPrintColourMode", header: wxh.}
+    importcpp: "GetPrintColourMode", header: "<wx/stc/stc.h>".}
 proc findText*(this: var WxStyledTextCtrl; minPos: cint; maxPos: cint; 
                text: WxString; flags: cint = 0): cint {.cdecl, 
-    importcpp: "FindText", header: wxh.}
+    importcpp: "FindText", header: "<wx/stc/stc.h>".}
 proc formatRange*(this: var WxStyledTextCtrl; doDraw: bool; startPos: cint; 
                   endPos: cint; draw: ptr WxDC; target: ptr WxDC; 
                   renderRect: WxRect; pageRect: WxRect): cint {.cdecl, 
-    importcpp: "FormatRange", header: wxh.}
+    importcpp: "FormatRange", header: "<wx/stc/stc.h>".}
 proc getFirstVisibleLine*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetFirstVisibleLine", header: wxh.}
+    importcpp: "GetFirstVisibleLine", header: "<wx/stc/stc.h>".}
 proc getLine*(this: WxStyledTextCtrl; line: cint): WxString {.noSideEffect, 
-    cdecl, importcpp: "GetLine", header: wxh.}
+    cdecl, importcpp: "GetLine", header: "<wx/stc/stc.h>".}
 proc getLineCount*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetLineCount", header: wxh.}
+    importcpp: "GetLineCount", header: "<wx/stc/stc.h>".}
 proc setMarginLeft*(this: var WxStyledTextCtrl; pixelWidth: cint) {.cdecl, 
-    importcpp: "SetMarginLeft", header: wxh.}
+    importcpp: "SetMarginLeft", header: "<wx/stc/stc.h>".}
 proc getMarginLeft*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetMarginLeft", header: wxh.}
+    importcpp: "GetMarginLeft", header: "<wx/stc/stc.h>".}
 proc setMarginRight*(this: var WxStyledTextCtrl; pixelWidth: cint) {.cdecl, 
-    importcpp: "SetMarginRight", header: wxh.}
+    importcpp: "SetMarginRight", header: "<wx/stc/stc.h>".}
 proc getMarginRight*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetMarginRight", header: wxh.}
+    importcpp: "GetMarginRight", header: "<wx/stc/stc.h>".}
 proc getModify*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetModify", header: wxh.}
+    importcpp: "GetModify", header: "<wx/stc/stc.h>".}
 proc getSelectedText*(this: var WxStyledTextCtrl): WxString {.cdecl, 
-    importcpp: "GetSelectedText", header: wxh.}
+    importcpp: "GetSelectedText", header: "<wx/stc/stc.h>".}
 proc getTextRange*(this: var WxStyledTextCtrl; startPos: cint; endPos: cint): WxString {.
-    cdecl, importcpp: "GetTextRange", header: wxh.}
+    cdecl, importcpp: "GetTextRange", header: "<wx/stc/stc.h>".}
 proc hideSelection*(this: var WxStyledTextCtrl; normal: bool) {.cdecl, 
-    importcpp: "HideSelection", header: wxh.}
+    importcpp: "HideSelection", header: "<wx/stc/stc.h>".}
 proc lineFromPosition*(this: WxStyledTextCtrl; pos: cint): cint {.noSideEffect, 
-    cdecl, importcpp: "LineFromPosition", header: wxh.}
+    cdecl, importcpp: "LineFromPosition", header: "<wx/stc/stc.h>".}
 proc positionFromLine*(this: WxStyledTextCtrl; line: cint): cint {.noSideEffect, 
-    cdecl, importcpp: "PositionFromLine", header: wxh.}
+    cdecl, importcpp: "PositionFromLine", header: "<wx/stc/stc.h>".}
 proc lineScroll*(this: var WxStyledTextCtrl; columns: cint; lines: cint) {.
-    cdecl, importcpp: "LineScroll", header: wxh.}
+    cdecl, importcpp: "LineScroll", header: "<wx/stc/stc.h>".}
 proc ensureCaretVisible*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "EnsureCaretVisible", header: wxh.}
+    importcpp: "EnsureCaretVisible", header: "<wx/stc/stc.h>".}
 proc replaceSelection*(this: var WxStyledTextCtrl; text: WxString) {.cdecl, 
-    importcpp: "ReplaceSelection", header: wxh.}
+    importcpp: "ReplaceSelection", header: "<wx/stc/stc.h>".}
 proc setReadOnly*(this: var WxStyledTextCtrl; readOnly: bool) {.cdecl, 
-    importcpp: "SetReadOnly", header: wxh.}
+    importcpp: "SetReadOnly", header: "<wx/stc/stc.h>".}
 proc canPaste*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "CanPaste", header: wxh.}
+    importcpp: "CanPaste", header: "<wx/stc/stc.h>".}
 proc canUndo*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "CanUndo", header: wxh.}
+    importcpp: "CanUndo", header: "<wx/stc/stc.h>".}
 proc emptyUndoBuffer*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "EmptyUndoBuffer", header: wxh.}
-proc undo*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "Undo", header: wxh.}
-proc cut*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "Cut", header: wxh.}
-proc copy*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "Copy", header: wxh.}
-proc paste*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "Paste", header: wxh.}
-proc clear*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "Clear", header: wxh.}
+    importcpp: "EmptyUndoBuffer", header: "<wx/stc/stc.h>".}
+proc undo*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "Undo", 
+    header: "<wx/stc/stc.h>".}
+proc cut*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "Cut", 
+                                        header: "<wx/stc/stc.h>".}
+proc copy*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "Copy", 
+    header: "<wx/stc/stc.h>".}
+proc paste*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "Paste", 
+    header: "<wx/stc/stc.h>".}
+proc clear*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "Clear", 
+    header: "<wx/stc/stc.h>".}
 proc setText*(this: var WxStyledTextCtrl; text: WxString) {.cdecl, 
-    importcpp: "SetText", header: wxh.}
+    importcpp: "SetText", header: "<wx/stc/stc.h>".}
 proc getText*(this: WxStyledTextCtrl): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetText", header: wxh.}
+    importcpp: "GetText", header: "<wx/stc/stc.h>".}
 proc getTextLength*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetTextLength", header: wxh.}
+    importcpp: "GetTextLength", header: "<wx/stc/stc.h>".}
 proc setOvertype*(this: var WxStyledTextCtrl; overtype: bool) {.cdecl, 
-    importcpp: "SetOvertype", header: wxh.}
+    importcpp: "SetOvertype", header: "<wx/stc/stc.h>".}
 proc getOvertype*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetOvertype", header: wxh.}
+    importcpp: "GetOvertype", header: "<wx/stc/stc.h>".}
 proc setCaretWidth*(this: var WxStyledTextCtrl; pixelWidth: cint) {.cdecl, 
-    importcpp: "SetCaretWidth", header: wxh.}
+    importcpp: "SetCaretWidth", header: "<wx/stc/stc.h>".}
 proc getCaretWidth*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetCaretWidth", header: wxh.}
+    importcpp: "GetCaretWidth", header: "<wx/stc/stc.h>".}
 proc setTargetStart*(this: var WxStyledTextCtrl; pos: cint) {.cdecl, 
-    importcpp: "SetTargetStart", header: wxh.}
+    importcpp: "SetTargetStart", header: "<wx/stc/stc.h>".}
 proc getTargetStart*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetTargetStart", header: wxh.}
+    importcpp: "GetTargetStart", header: "<wx/stc/stc.h>".}
 proc setTargetEnd*(this: var WxStyledTextCtrl; pos: cint) {.cdecl, 
-    importcpp: "SetTargetEnd", header: wxh.}
+    importcpp: "SetTargetEnd", header: "<wx/stc/stc.h>".}
 proc getTargetEnd*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetTargetEnd", header: wxh.}
+    importcpp: "GetTargetEnd", header: "<wx/stc/stc.h>".}
 proc replaceTarget*(this: var WxStyledTextCtrl; text: WxString): cint {.cdecl, 
-    importcpp: "ReplaceTarget", header: wxh.}
+    importcpp: "ReplaceTarget", header: "<wx/stc/stc.h>".}
 proc replaceTargetRE*(this: var WxStyledTextCtrl; text: WxString): cint {.cdecl, 
-    importcpp: "ReplaceTargetRE", header: wxh.}
+    importcpp: "ReplaceTargetRE", header: "<wx/stc/stc.h>".}
 proc searchInTarget*(this: var WxStyledTextCtrl; text: WxString): cint {.cdecl, 
-    importcpp: "SearchInTarget", header: wxh.}
+    importcpp: "SearchInTarget", header: "<wx/stc/stc.h>".}
 proc setSearchFlags*(this: var WxStyledTextCtrl; flags: cint) {.cdecl, 
-    importcpp: "SetSearchFlags", header: wxh.}
+    importcpp: "SetSearchFlags", header: "<wx/stc/stc.h>".}
 proc getSearchFlags*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetSearchFlags", header: wxh.}
+    importcpp: "GetSearchFlags", header: "<wx/stc/stc.h>".}
 proc callTipShow*(this: var WxStyledTextCtrl; pos: cint; definition: WxString) {.
-    cdecl, importcpp: "CallTipShow", header: wxh.}
+    cdecl, importcpp: "CallTipShow", header: "<wx/stc/stc.h>".}
 proc callTipCancel*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "CallTipCancel", header: wxh.}
+    importcpp: "CallTipCancel", header: "<wx/stc/stc.h>".}
 proc callTipActive*(this: var WxStyledTextCtrl): bool {.cdecl, 
-    importcpp: "CallTipActive", header: wxh.}
+    importcpp: "CallTipActive", header: "<wx/stc/stc.h>".}
 proc callTipPosAtStart*(this: var WxStyledTextCtrl): cint {.cdecl, 
-    importcpp: "CallTipPosAtStart", header: wxh.}
+    importcpp: "CallTipPosAtStart", header: "<wx/stc/stc.h>".}
 proc callTipSetHighlight*(this: var WxStyledTextCtrl; start: cint; `end`: cint) {.
-    cdecl, importcpp: "CallTipSetHighlight", header: wxh.}
+    cdecl, importcpp: "CallTipSetHighlight", header: "<wx/stc/stc.h>".}
 proc callTipSetBackground*(this: var WxStyledTextCtrl; back: WxColour) {.cdecl, 
-    importcpp: "CallTipSetBackground", header: wxh.}
+    importcpp: "CallTipSetBackground", header: "<wx/stc/stc.h>".}
 proc callTipSetForeground*(this: var WxStyledTextCtrl; fore: WxColour) {.cdecl, 
-    importcpp: "CallTipSetForeground", header: wxh.}
+    importcpp: "CallTipSetForeground", header: "<wx/stc/stc.h>".}
 proc callTipSetForegroundHighlight*(this: var WxStyledTextCtrl; fore: WxColour) {.
-    cdecl, importcpp: "CallTipSetForegroundHighlight", header: wxh.}
+    cdecl, importcpp: "CallTipSetForegroundHighlight", header: "<wx/stc/stc.h>".}
 proc callTipUseStyle*(this: var WxStyledTextCtrl; tabSize: cint) {.cdecl, 
-    importcpp: "CallTipUseStyle", header: wxh.}
+    importcpp: "CallTipUseStyle", header: "<wx/stc/stc.h>".}
 proc callTipSetPosition*(this: var WxStyledTextCtrl; above: bool) {.cdecl, 
-    importcpp: "CallTipSetPosition", header: wxh.}
+    importcpp: "CallTipSetPosition", header: "<wx/stc/stc.h>".}
 proc visibleFromDocLine*(this: var WxStyledTextCtrl; line: cint): cint {.cdecl, 
-    importcpp: "VisibleFromDocLine", header: wxh.}
+    importcpp: "VisibleFromDocLine", header: "<wx/stc/stc.h>".}
 proc docLineFromVisible*(this: var WxStyledTextCtrl; lineDisplay: cint): cint {.
-    cdecl, importcpp: "DocLineFromVisible", header: wxh.}
+    cdecl, importcpp: "DocLineFromVisible", header: "<wx/stc/stc.h>".}
 proc wrapCount*(this: var WxStyledTextCtrl; line: cint): cint {.cdecl, 
-    importcpp: "WrapCount", header: wxh.}
+    importcpp: "WrapCount", header: "<wx/stc/stc.h>".}
 proc setFoldLevel*(this: var WxStyledTextCtrl; line: cint; level: cint) {.cdecl, 
-    importcpp: "SetFoldLevel", header: wxh.}
+    importcpp: "SetFoldLevel", header: "<wx/stc/stc.h>".}
 proc getFoldLevel*(this: WxStyledTextCtrl; line: cint): cint {.noSideEffect, 
-    cdecl, importcpp: "GetFoldLevel", header: wxh.}
+    cdecl, importcpp: "GetFoldLevel", header: "<wx/stc/stc.h>".}
 proc getLastChild*(this: WxStyledTextCtrl; line: cint; level: cint): cint {.
-    noSideEffect, cdecl, importcpp: "GetLastChild", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetLastChild", header: "<wx/stc/stc.h>".}
 proc getFoldParent*(this: WxStyledTextCtrl; line: cint): cint {.noSideEffect, 
-    cdecl, importcpp: "GetFoldParent", header: wxh.}
+    cdecl, importcpp: "GetFoldParent", header: "<wx/stc/stc.h>".}
 proc showLines*(this: var WxStyledTextCtrl; lineStart: cint; lineEnd: cint) {.
-    cdecl, importcpp: "ShowLines", header: wxh.}
+    cdecl, importcpp: "ShowLines", header: "<wx/stc/stc.h>".}
 proc hideLines*(this: var WxStyledTextCtrl; lineStart: cint; lineEnd: cint) {.
-    cdecl, importcpp: "HideLines", header: wxh.}
+    cdecl, importcpp: "HideLines", header: "<wx/stc/stc.h>".}
 proc getLineVisible*(this: WxStyledTextCtrl; line: cint): bool {.noSideEffect, 
-    cdecl, importcpp: "GetLineVisible", header: wxh.}
+    cdecl, importcpp: "GetLineVisible", header: "<wx/stc/stc.h>".}
 proc getAllLinesVisible*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetAllLinesVisible", header: wxh.}
+    importcpp: "GetAllLinesVisible", header: "<wx/stc/stc.h>".}
 proc setFoldExpanded*(this: var WxStyledTextCtrl; line: cint; expanded: bool) {.
-    cdecl, importcpp: "SetFoldExpanded", header: wxh.}
+    cdecl, importcpp: "SetFoldExpanded", header: "<wx/stc/stc.h>".}
 proc getFoldExpanded*(this: WxStyledTextCtrl; line: cint): bool {.noSideEffect, 
-    cdecl, importcpp: "GetFoldExpanded", header: wxh.}
+    cdecl, importcpp: "GetFoldExpanded", header: "<wx/stc/stc.h>".}
 proc toggleFold*(this: var WxStyledTextCtrl; line: cint) {.cdecl, 
-    importcpp: "ToggleFold", header: wxh.}
+    importcpp: "ToggleFold", header: "<wx/stc/stc.h>".}
 proc ensureVisible*(this: var WxStyledTextCtrl; line: cint) {.cdecl, 
-    importcpp: "EnsureVisible", header: wxh.}
+    importcpp: "EnsureVisible", header: "<wx/stc/stc.h>".}
 proc setFoldFlags*(this: var WxStyledTextCtrl; flags: cint) {.cdecl, 
-    importcpp: "SetFoldFlags", header: wxh.}
+    importcpp: "SetFoldFlags", header: "<wx/stc/stc.h>".}
 proc ensureVisibleEnforcePolicy*(this: var WxStyledTextCtrl; line: cint) {.
-    cdecl, importcpp: "EnsureVisibleEnforcePolicy", header: wxh.}
+    cdecl, importcpp: "EnsureVisibleEnforcePolicy", header: "<wx/stc/stc.h>".}
 proc setTabIndents*(this: var WxStyledTextCtrl; tabIndents: bool) {.cdecl, 
-    importcpp: "SetTabIndents", header: wxh.}
+    importcpp: "SetTabIndents", header: "<wx/stc/stc.h>".}
 proc getTabIndents*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetTabIndents", header: wxh.}
+    importcpp: "GetTabIndents", header: "<wx/stc/stc.h>".}
 proc setBackSpaceUnIndents*(this: var WxStyledTextCtrl; bsUnIndents: bool) {.
-    cdecl, importcpp: "SetBackSpaceUnIndents", header: wxh.}
+    cdecl, importcpp: "SetBackSpaceUnIndents", header: "<wx/stc/stc.h>".}
 proc getBackSpaceUnIndents*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetBackSpaceUnIndents", header: wxh.}
+    importcpp: "GetBackSpaceUnIndents", header: "<wx/stc/stc.h>".}
 proc setMouseDwellTime*(this: var WxStyledTextCtrl; periodMilliseconds: cint) {.
-    cdecl, importcpp: "SetMouseDwellTime", header: wxh.}
+    cdecl, importcpp: "SetMouseDwellTime", header: "<wx/stc/stc.h>".}
 proc getMouseDwellTime*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetMouseDwellTime", header: wxh.}
+    importcpp: "GetMouseDwellTime", header: "<wx/stc/stc.h>".}
 proc wordStartPosition*(this: var WxStyledTextCtrl; pos: cint; 
                         onlyWordCharacters: bool): cint {.cdecl, 
-    importcpp: "WordStartPosition", header: wxh.}
+    importcpp: "WordStartPosition", header: "<wx/stc/stc.h>".}
 proc wordEndPosition*(this: var WxStyledTextCtrl; pos: cint; 
                       onlyWordCharacters: bool): cint {.cdecl, 
-    importcpp: "WordEndPosition", header: wxh.}
+    importcpp: "WordEndPosition", header: "<wx/stc/stc.h>".}
 proc setWrapMode*(this: var WxStyledTextCtrl; mode: cint) {.cdecl, 
-    importcpp: "SetWrapMode", header: wxh.}
+    importcpp: "SetWrapMode", header: "<wx/stc/stc.h>".}
 proc getWrapMode*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetWrapMode", header: wxh.}
+    importcpp: "GetWrapMode", header: "<wx/stc/stc.h>".}
 proc setWrapVisualFlags*(this: var WxStyledTextCtrl; wrapVisualFlags: cint) {.
-    cdecl, importcpp: "SetWrapVisualFlags", header: wxh.}
+    cdecl, importcpp: "SetWrapVisualFlags", header: "<wx/stc/stc.h>".}
 proc getWrapVisualFlags*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetWrapVisualFlags", header: wxh.}
+    importcpp: "GetWrapVisualFlags", header: "<wx/stc/stc.h>".}
 proc setWrapVisualFlagsLocation*(this: var WxStyledTextCtrl; 
                                  wrapVisualFlagsLocation: cint) {.cdecl, 
-    importcpp: "SetWrapVisualFlagsLocation", header: wxh.}
+    importcpp: "SetWrapVisualFlagsLocation", header: "<wx/stc/stc.h>".}
 proc getWrapVisualFlagsLocation*(this: WxStyledTextCtrl): cint {.noSideEffect, 
-    cdecl, importcpp: "GetWrapVisualFlagsLocation", header: wxh.}
+    cdecl, importcpp: "GetWrapVisualFlagsLocation", header: "<wx/stc/stc.h>".}
 proc setWrapStartIndent*(this: var WxStyledTextCtrl; indent: cint) {.cdecl, 
-    importcpp: "SetWrapStartIndent", header: wxh.}
+    importcpp: "SetWrapStartIndent", header: "<wx/stc/stc.h>".}
 proc getWrapStartIndent*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetWrapStartIndent", header: wxh.}
+    importcpp: "GetWrapStartIndent", header: "<wx/stc/stc.h>".}
 proc setWrapIndentMode*(this: var WxStyledTextCtrl; mode: cint) {.cdecl, 
-    importcpp: "SetWrapIndentMode", header: wxh.}
+    importcpp: "SetWrapIndentMode", header: "<wx/stc/stc.h>".}
 proc getWrapIndentMode*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetWrapIndentMode", header: wxh.}
+    importcpp: "GetWrapIndentMode", header: "<wx/stc/stc.h>".}
 proc setLayoutCache*(this: var WxStyledTextCtrl; mode: cint) {.cdecl, 
-    importcpp: "SetLayoutCache", header: wxh.}
+    importcpp: "SetLayoutCache", header: "<wx/stc/stc.h>".}
 proc getLayoutCache*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetLayoutCache", header: wxh.}
+    importcpp: "GetLayoutCache", header: "<wx/stc/stc.h>".}
 proc setScrollWidth*(this: var WxStyledTextCtrl; pixelWidth: cint) {.cdecl, 
-    importcpp: "SetScrollWidth", header: wxh.}
+    importcpp: "SetScrollWidth", header: "<wx/stc/stc.h>".}
 proc getScrollWidth*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetScrollWidth", header: wxh.}
+    importcpp: "GetScrollWidth", header: "<wx/stc/stc.h>".}
 proc setScrollWidthTracking*(this: var WxStyledTextCtrl; tracking: bool) {.
-    cdecl, importcpp: "SetScrollWidthTracking", header: wxh.}
+    cdecl, importcpp: "SetScrollWidthTracking", header: "<wx/stc/stc.h>".}
 proc getScrollWidthTracking*(this: WxStyledTextCtrl): bool {.noSideEffect, 
-    cdecl, importcpp: "GetScrollWidthTracking", header: wxh.}
+    cdecl, importcpp: "GetScrollWidthTracking", header: "<wx/stc/stc.h>".}
 proc textWidth*(this: var WxStyledTextCtrl; style: cint; text: WxString): cint {.
-    cdecl, importcpp: "TextWidth", header: wxh.}
+    cdecl, importcpp: "TextWidth", header: "<wx/stc/stc.h>".}
 proc setEndAtLastLine*(this: var WxStyledTextCtrl; endAtLastLine: bool) {.cdecl, 
-    importcpp: "SetEndAtLastLine", header: wxh.}
+    importcpp: "SetEndAtLastLine", header: "<wx/stc/stc.h>".}
 proc getEndAtLastLine*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetEndAtLastLine", header: wxh.}
+    importcpp: "GetEndAtLastLine", header: "<wx/stc/stc.h>".}
 proc textHeight*(this: var WxStyledTextCtrl; line: cint): cint {.cdecl, 
-    importcpp: "TextHeight", header: wxh.}
+    importcpp: "TextHeight", header: "<wx/stc/stc.h>".}
 proc setUseVerticalScrollBar*(this: var WxStyledTextCtrl; show: bool) {.cdecl, 
-    importcpp: "SetUseVerticalScrollBar", header: wxh.}
+    importcpp: "SetUseVerticalScrollBar", header: "<wx/stc/stc.h>".}
 proc getUseVerticalScrollBar*(this: WxStyledTextCtrl): bool {.noSideEffect, 
-    cdecl, importcpp: "GetUseVerticalScrollBar", header: wxh.}
+    cdecl, importcpp: "GetUseVerticalScrollBar", header: "<wx/stc/stc.h>".}
 proc appendText*(this: var WxStyledTextCtrl; text: WxString) {.cdecl, 
-    importcpp: "AppendText", header: wxh.}
+    importcpp: "AppendText", header: "<wx/stc/stc.h>".}
 proc getTwoPhaseDraw*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetTwoPhaseDraw", header: wxh.}
+    importcpp: "GetTwoPhaseDraw", header: "<wx/stc/stc.h>".}
 proc setTwoPhaseDraw*(this: var WxStyledTextCtrl; twoPhase: bool) {.cdecl, 
-    importcpp: "SetTwoPhaseDraw", header: wxh.}
+    importcpp: "SetTwoPhaseDraw", header: "<wx/stc/stc.h>".}
 proc setFirstVisibleLine*(this: var WxStyledTextCtrl; lineDisplay: cint) {.
-    cdecl, importcpp: "SetFirstVisibleLine", header: wxh.}
+    cdecl, importcpp: "SetFirstVisibleLine", header: "<wx/stc/stc.h>".}
 proc setMultiPaste*(this: var WxStyledTextCtrl; multiPaste: cint) {.cdecl, 
-    importcpp: "SetMultiPaste", header: wxh.}
+    importcpp: "SetMultiPaste", header: "<wx/stc/stc.h>".}
 proc getMultiPaste*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetMultiPaste", header: wxh.}
+    importcpp: "GetMultiPaste", header: "<wx/stc/stc.h>".}
 proc getTag*(this: WxStyledTextCtrl; tagNumber: cint): WxString {.noSideEffect, 
-    cdecl, importcpp: "GetTag", header: wxh.}
+    cdecl, importcpp: "GetTag", header: "<wx/stc/stc.h>".}
 proc targetFromSelection*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "TargetFromSelection", header: wxh.}
+    importcpp: "TargetFromSelection", header: "<wx/stc/stc.h>".}
 proc linesJoin*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "LinesJoin", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc linesSplit*(this: var WxStyledTextCtrl; pixelWidth: cint) {.cdecl, 
-    importcpp: "LinesSplit", header: wxh.}
+    importcpp: "LinesSplit", header: "<wx/stc/stc.h>".}
 proc setFoldMarginColour*(this: var WxStyledTextCtrl; useSetting: bool; 
                           back: WxColour) {.cdecl, 
-    importcpp: "SetFoldMarginColour", header: wxh.}
+    importcpp: "SetFoldMarginColour", header: "<wx/stc/stc.h>".}
 proc setFoldMarginHiColour*(this: var WxStyledTextCtrl; useSetting: bool; 
                             fore: WxColour) {.cdecl, 
-    importcpp: "SetFoldMarginHiColour", header: wxh.}
+    importcpp: "SetFoldMarginHiColour", header: "<wx/stc/stc.h>".}
 proc lineDown*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "LineDown", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc lineDownExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "LineDownExtend", header: wxh.}
+    importcpp: "LineDownExtend", header: "<wx/stc/stc.h>".}
 proc lineUp*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "LineUp", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc lineUpExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "LineUpExtend", header: wxh.}
+    importcpp: "LineUpExtend", header: "<wx/stc/stc.h>".}
 proc charLeft*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "CharLeft", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc charLeftExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "CharLeftExtend", header: wxh.}
+    importcpp: "CharLeftExtend", header: "<wx/stc/stc.h>".}
 proc charRight*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "CharRight", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc charRightExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "CharRightExtend", header: wxh.}
+    importcpp: "CharRightExtend", header: "<wx/stc/stc.h>".}
 proc wordLeft*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "WordLeft", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc wordLeftExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "WordLeftExtend", header: wxh.}
+    importcpp: "WordLeftExtend", header: "<wx/stc/stc.h>".}
 proc wordRight*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "WordRight", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc wordRightExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "WordRightExtend", header: wxh.}
-proc home*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "Home", header: wxh.}
+    importcpp: "WordRightExtend", header: "<wx/stc/stc.h>".}
+proc home*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "Home", 
+    header: "<wx/stc/stc.h>".}
 proc homeExtend*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "HomeExtend", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc lineEnd*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "LineEnd", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc lineEndExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "LineEndExtend", header: wxh.}
+    importcpp: "LineEndExtend", header: "<wx/stc/stc.h>".}
 proc documentStart*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "DocumentStart", header: wxh.}
+    importcpp: "DocumentStart", header: "<wx/stc/stc.h>".}
 proc documentStartExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "DocumentStartExtend", header: wxh.}
+    importcpp: "DocumentStartExtend", header: "<wx/stc/stc.h>".}
 proc documentEnd*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "DocumentEnd", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc documentEndExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "DocumentEndExtend", header: wxh.}
+    importcpp: "DocumentEndExtend", header: "<wx/stc/stc.h>".}
 proc pageUp*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "PageUp", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc pageUpExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "PageUpExtend", header: wxh.}
+    importcpp: "PageUpExtend", header: "<wx/stc/stc.h>".}
 proc pageDown*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "PageDown", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc pageDownExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "PageDownExtend", header: wxh.}
+    importcpp: "PageDownExtend", header: "<wx/stc/stc.h>".}
 proc editToggleOvertype*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "EditToggleOvertype", header: wxh.}
+    importcpp: "EditToggleOvertype", header: "<wx/stc/stc.h>".}
 proc cancel*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "Cancel", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc deleteBack*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "DeleteBack", 
-    header: wxh.}
-proc tab*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "Tab", header: wxh.}
+    header: "<wx/stc/stc.h>".}
+proc tab*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "Tab", 
+                                        header: "<wx/stc/stc.h>".}
 proc backTab*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "BackTab", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc newLine*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "NewLine", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc formFeed*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "FormFeed", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc vCHome*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "VCHome", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc vCHomeExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "VCHomeExtend", header: wxh.}
+    importcpp: "VCHomeExtend", header: "<wx/stc/stc.h>".}
 proc zoomIn*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "ZoomIn", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc zoomOut*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "ZoomOut", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc delWordLeft*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "DelWordLeft", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc delWordRight*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "DelWordRight", header: wxh.}
+    importcpp: "DelWordRight", header: "<wx/stc/stc.h>".}
 proc delWordRightEnd*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "DelWordRightEnd", header: wxh.}
+    importcpp: "DelWordRightEnd", header: "<wx/stc/stc.h>".}
 proc lineCut*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "LineCut", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc lineDelete*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "LineDelete", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc lineTranspose*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "LineTranspose", header: wxh.}
+    importcpp: "LineTranspose", header: "<wx/stc/stc.h>".}
 proc lineDuplicate*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "LineDuplicate", header: wxh.}
+    importcpp: "LineDuplicate", header: "<wx/stc/stc.h>".}
 proc lowerCase*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "LowerCase", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc upperCase*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "UpperCase", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc lineScrollDown*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "LineScrollDown", header: wxh.}
+    importcpp: "LineScrollDown", header: "<wx/stc/stc.h>".}
 proc lineScrollUp*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "LineScrollUp", header: wxh.}
+    importcpp: "LineScrollUp", header: "<wx/stc/stc.h>".}
 proc deleteBackNotLine*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "DeleteBackNotLine", header: wxh.}
+    importcpp: "DeleteBackNotLine", header: "<wx/stc/stc.h>".}
 proc homeDisplay*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "HomeDisplay", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc homeDisplayExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "HomeDisplayExtend", header: wxh.}
+    importcpp: "HomeDisplayExtend", header: "<wx/stc/stc.h>".}
 proc lineEndDisplay*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "LineEndDisplay", header: wxh.}
+    importcpp: "LineEndDisplay", header: "<wx/stc/stc.h>".}
 proc lineEndDisplayExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "LineEndDisplayExtend", header: wxh.}
+    importcpp: "LineEndDisplayExtend", header: "<wx/stc/stc.h>".}
 proc homeWrap*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "HomeWrap", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc homeWrapExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "HomeWrapExtend", header: wxh.}
+    importcpp: "HomeWrapExtend", header: "<wx/stc/stc.h>".}
 proc lineEndWrap*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "LineEndWrap", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc lineEndWrapExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "LineEndWrapExtend", header: wxh.}
+    importcpp: "LineEndWrapExtend", header: "<wx/stc/stc.h>".}
 proc vCHomeWrap*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "VCHomeWrap", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc vCHomeWrapExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "VCHomeWrapExtend", header: wxh.}
+    importcpp: "VCHomeWrapExtend", header: "<wx/stc/stc.h>".}
 proc lineCopy*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "LineCopy", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc moveCaretInsideView*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "MoveCaretInsideView", header: wxh.}
+    importcpp: "MoveCaretInsideView", header: "<wx/stc/stc.h>".}
 proc lineLength*(this: WxStyledTextCtrl; line: cint): cint {.noSideEffect, 
-    cdecl, importcpp: "LineLength", header: wxh.}
+    cdecl, importcpp: "LineLength", header: "<wx/stc/stc.h>".}
 proc braceHighlight*(this: var WxStyledTextCtrl; pos1: cint; pos2: cint) {.
-    cdecl, importcpp: "BraceHighlight", header: wxh.}
+    cdecl, importcpp: "BraceHighlight", header: "<wx/stc/stc.h>".}
 proc braceHighlightIndicator*(this: var WxStyledTextCtrl; 
                               useBraceHighlightIndicator: bool; indicator: cint) {.
-    cdecl, importcpp: "BraceHighlightIndicator", header: wxh.}
+    cdecl, importcpp: "BraceHighlightIndicator", header: "<wx/stc/stc.h>".}
 proc braceBadLight*(this: var WxStyledTextCtrl; pos: cint) {.cdecl, 
-    importcpp: "BraceBadLight", header: wxh.}
+    importcpp: "BraceBadLight", header: "<wx/stc/stc.h>".}
 proc braceBadLightIndicator*(this: var WxStyledTextCtrl; 
                              useBraceBadLightIndicator: bool; indicator: cint) {.
-    cdecl, importcpp: "BraceBadLightIndicator", header: wxh.}
+    cdecl, importcpp: "BraceBadLightIndicator", header: "<wx/stc/stc.h>".}
 proc braceMatch*(this: var WxStyledTextCtrl; pos: cint): cint {.cdecl, 
-    importcpp: "BraceMatch", header: wxh.}
+    importcpp: "BraceMatch", header: "<wx/stc/stc.h>".}
 proc getViewEOL*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetViewEOL", header: wxh.}
+    importcpp: "GetViewEOL", header: "<wx/stc/stc.h>".}
 proc setViewEOL*(this: var WxStyledTextCtrl; visible: bool) {.cdecl, 
-    importcpp: "SetViewEOL", header: wxh.}
+    importcpp: "SetViewEOL", header: "<wx/stc/stc.h>".}
 proc getDocPointer*(this: var WxStyledTextCtrl): pointer {.cdecl, 
-    importcpp: "GetDocPointer", header: wxh.}
+    importcpp: "GetDocPointer", header: "<wx/stc/stc.h>".}
 proc setDocPointer*(this: var WxStyledTextCtrl; docPointer: pointer) {.cdecl, 
-    importcpp: "SetDocPointer", header: wxh.}
+    importcpp: "SetDocPointer", header: "<wx/stc/stc.h>".}
 proc setModEventMask*(this: var WxStyledTextCtrl; mask: cint) {.cdecl, 
-    importcpp: "SetModEventMask", header: wxh.}
+    importcpp: "SetModEventMask", header: "<wx/stc/stc.h>".}
 proc getEdgeColumn*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetEdgeColumn", header: wxh.}
+    importcpp: "GetEdgeColumn", header: "<wx/stc/stc.h>".}
 proc setEdgeColumn*(this: var WxStyledTextCtrl; column: cint) {.cdecl, 
-    importcpp: "SetEdgeColumn", header: wxh.}
+    importcpp: "SetEdgeColumn", header: "<wx/stc/stc.h>".}
 proc getEdgeMode*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetEdgeMode", header: wxh.}
+    importcpp: "GetEdgeMode", header: "<wx/stc/stc.h>".}
 proc setEdgeMode*(this: var WxStyledTextCtrl; mode: cint) {.cdecl, 
-    importcpp: "SetEdgeMode", header: wxh.}
+    importcpp: "SetEdgeMode", header: "<wx/stc/stc.h>".}
 proc getEdgeColour*(this: WxStyledTextCtrl): WxColour {.noSideEffect, cdecl, 
-    importcpp: "GetEdgeColour", header: wxh.}
+    importcpp: "GetEdgeColour", header: "<wx/stc/stc.h>".}
 proc setEdgeColour*(this: var WxStyledTextCtrl; edgeColour: WxColour) {.cdecl, 
-    importcpp: "SetEdgeColour", header: wxh.}
+    importcpp: "SetEdgeColour", header: "<wx/stc/stc.h>".}
 proc searchAnchor*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "SearchAnchor", header: wxh.}
+    importcpp: "SearchAnchor", header: "<wx/stc/stc.h>".}
 proc searchNext*(this: var WxStyledTextCtrl; flags: cint; text: WxString): cint {.
-    cdecl, importcpp: "SearchNext", header: wxh.}
+    cdecl, importcpp: "SearchNext", header: "<wx/stc/stc.h>".}
 proc searchPrev*(this: var WxStyledTextCtrl; flags: cint; text: WxString): cint {.
-    cdecl, importcpp: "SearchPrev", header: wxh.}
+    cdecl, importcpp: "SearchPrev", header: "<wx/stc/stc.h>".}
 proc linesOnScreen*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "LinesOnScreen", header: wxh.}
+    importcpp: "LinesOnScreen", header: "<wx/stc/stc.h>".}
 proc usePopUp*(this: var WxStyledTextCtrl; allowPopUp: bool) {.cdecl, 
-    importcpp: "UsePopUp", header: wxh.}
+    importcpp: "UsePopUp", header: "<wx/stc/stc.h>".}
 proc selectionIsRectangle*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "SelectionIsRectangle", header: wxh.}
+    importcpp: "SelectionIsRectangle", header: "<wx/stc/stc.h>".}
 proc setZoom*(this: var WxStyledTextCtrl; zoom: cint) {.cdecl, 
-    importcpp: "SetZoom", header: wxh.}
+    importcpp: "SetZoom", header: "<wx/stc/stc.h>".}
 proc getZoom*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetZoom", header: wxh.}
+    importcpp: "GetZoom", header: "<wx/stc/stc.h>".}
 proc createDocument*(this: var WxStyledTextCtrl): pointer {.cdecl, 
-    importcpp: "CreateDocument", header: wxh.}
+    importcpp: "CreateDocument", header: "<wx/stc/stc.h>".}
 proc addRefDocument*(this: var WxStyledTextCtrl; docPointer: pointer) {.cdecl, 
-    importcpp: "AddRefDocument", header: wxh.}
+    importcpp: "AddRefDocument", header: "<wx/stc/stc.h>".}
 proc releaseDocument*(this: var WxStyledTextCtrl; docPointer: pointer) {.cdecl, 
-    importcpp: "ReleaseDocument", header: wxh.}
+    importcpp: "ReleaseDocument", header: "<wx/stc/stc.h>".}
 proc getModEventMask*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetModEventMask", header: wxh.}
+    importcpp: "GetModEventMask", header: "<wx/stc/stc.h>".}
 proc setSTCFocus*(this: var WxStyledTextCtrl; focus: bool) {.cdecl, 
-    importcpp: "SetSTCFocus", header: wxh.}
+    importcpp: "SetSTCFocus", header: "<wx/stc/stc.h>".}
 proc getSTCFocus*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetSTCFocus", header: wxh.}
+    importcpp: "GetSTCFocus", header: "<wx/stc/stc.h>".}
 proc setStatus*(this: var WxStyledTextCtrl; statusCode: cint) {.cdecl, 
-    importcpp: "SetStatus", header: wxh.}
+    importcpp: "SetStatus", header: "<wx/stc/stc.h>".}
 proc getStatus*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetStatus", header: wxh.}
+    importcpp: "GetStatus", header: "<wx/stc/stc.h>".}
 proc setMouseDownCaptures*(this: var WxStyledTextCtrl; captures: bool) {.cdecl, 
-    importcpp: "SetMouseDownCaptures", header: wxh.}
+    importcpp: "SetMouseDownCaptures", header: "<wx/stc/stc.h>".}
 proc getMouseDownCaptures*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetMouseDownCaptures", header: wxh.}
+    importcpp: "GetMouseDownCaptures", header: "<wx/stc/stc.h>".}
 proc setSTCCursor*(this: var WxStyledTextCtrl; cursorType: cint) {.cdecl, 
-    importcpp: "SetSTCCursor", header: wxh.}
+    importcpp: "SetSTCCursor", header: "<wx/stc/stc.h>".}
 proc getSTCCursor*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetSTCCursor", header: wxh.}
+    importcpp: "GetSTCCursor", header: "<wx/stc/stc.h>".}
 proc setControlCharSymbol*(this: var WxStyledTextCtrl; symbol: cint) {.cdecl, 
-    importcpp: "SetControlCharSymbol", header: wxh.}
+    importcpp: "SetControlCharSymbol", header: "<wx/stc/stc.h>".}
 proc getControlCharSymbol*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetControlCharSymbol", header: wxh.}
+    importcpp: "GetControlCharSymbol", header: "<wx/stc/stc.h>".}
 proc wordPartLeft*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "WordPartLeft", header: wxh.}
+    importcpp: "WordPartLeft", header: "<wx/stc/stc.h>".}
 proc wordPartLeftExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "WordPartLeftExtend", header: wxh.}
+    importcpp: "WordPartLeftExtend", header: "<wx/stc/stc.h>".}
 proc wordPartRight*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "WordPartRight", header: wxh.}
+    importcpp: "WordPartRight", header: "<wx/stc/stc.h>".}
 proc wordPartRightExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "WordPartRightExtend", header: wxh.}
+    importcpp: "WordPartRightExtend", header: "<wx/stc/stc.h>".}
 proc setVisiblePolicy*(this: var WxStyledTextCtrl; visiblePolicy: cint; 
                        visibleSlop: cint) {.cdecl, 
-    importcpp: "SetVisiblePolicy", header: wxh.}
+    importcpp: "SetVisiblePolicy", header: "<wx/stc/stc.h>".}
 proc delLineLeft*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "DelLineLeft", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc delLineRight*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "DelLineRight", header: wxh.}
+    importcpp: "DelLineRight", header: "<wx/stc/stc.h>".}
 proc setXOffset*(this: var WxStyledTextCtrl; newOffset: cint) {.cdecl, 
-    importcpp: "SetXOffset", header: wxh.}
+    importcpp: "SetXOffset", header: "<wx/stc/stc.h>".}
 proc getXOffset*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetXOffset", header: wxh.}
+    importcpp: "GetXOffset", header: "<wx/stc/stc.h>".}
 proc chooseCaretX*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "ChooseCaretX", header: wxh.}
+    importcpp: "ChooseCaretX", header: "<wx/stc/stc.h>".}
 proc setXCaretPolicy*(this: var WxStyledTextCtrl; caretPolicy: cint; 
                       caretSlop: cint) {.cdecl, importcpp: "SetXCaretPolicy", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc setYCaretPolicy*(this: var WxStyledTextCtrl; caretPolicy: cint; 
                       caretSlop: cint) {.cdecl, importcpp: "SetYCaretPolicy", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc setPrintWrapMode*(this: var WxStyledTextCtrl; mode: cint) {.cdecl, 
-    importcpp: "SetPrintWrapMode", header: wxh.}
+    importcpp: "SetPrintWrapMode", header: "<wx/stc/stc.h>".}
 proc getPrintWrapMode*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetPrintWrapMode", header: wxh.}
+    importcpp: "GetPrintWrapMode", header: "<wx/stc/stc.h>".}
 proc setHotspotActiveForeground*(this: var WxStyledTextCtrl; useSetting: bool; 
                                  fore: WxColour) {.cdecl, 
-    importcpp: "SetHotspotActiveForeground", header: wxh.}
+    importcpp: "SetHotspotActiveForeground", header: "<wx/stc/stc.h>".}
 proc getHotspotActiveForeground*(this: WxStyledTextCtrl): WxColour {.
-    noSideEffect, cdecl, importcpp: "GetHotspotActiveForeground", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetHotspotActiveForeground", 
+    header: "<wx/stc/stc.h>".}
 proc setHotspotActiveBackground*(this: var WxStyledTextCtrl; useSetting: bool; 
                                  back: WxColour) {.cdecl, 
-    importcpp: "SetHotspotActiveBackground", header: wxh.}
+    importcpp: "SetHotspotActiveBackground", header: "<wx/stc/stc.h>".}
 proc getHotspotActiveBackground*(this: WxStyledTextCtrl): WxColour {.
-    noSideEffect, cdecl, importcpp: "GetHotspotActiveBackground", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetHotspotActiveBackground", 
+    header: "<wx/stc/stc.h>".}
 proc setHotspotActiveUnderline*(this: var WxStyledTextCtrl; underline: bool) {.
-    cdecl, importcpp: "SetHotspotActiveUnderline", header: wxh.}
+    cdecl, importcpp: "SetHotspotActiveUnderline", header: "<wx/stc/stc.h>".}
 proc getHotspotActiveUnderline*(this: WxStyledTextCtrl): bool {.noSideEffect, 
-    cdecl, importcpp: "GetHotspotActiveUnderline", header: wxh.}
+    cdecl, importcpp: "GetHotspotActiveUnderline", header: "<wx/stc/stc.h>".}
 proc setHotspotSingleLine*(this: var WxStyledTextCtrl; singleLine: bool) {.
-    cdecl, importcpp: "SetHotspotSingleLine", header: wxh.}
+    cdecl, importcpp: "SetHotspotSingleLine", header: "<wx/stc/stc.h>".}
 proc getHotspotSingleLine*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetHotspotSingleLine", header: wxh.}
+    importcpp: "GetHotspotSingleLine", header: "<wx/stc/stc.h>".}
 proc paraDown*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "ParaDown", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc paraDownExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "ParaDownExtend", header: wxh.}
+    importcpp: "ParaDownExtend", header: "<wx/stc/stc.h>".}
 proc paraUp*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "ParaUp", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc paraUpExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "ParaUpExtend", header: wxh.}
+    importcpp: "ParaUpExtend", header: "<wx/stc/stc.h>".}
 proc positionBefore*(this: var WxStyledTextCtrl; pos: cint): cint {.cdecl, 
-    importcpp: "PositionBefore", header: wxh.}
+    importcpp: "PositionBefore", header: "<wx/stc/stc.h>".}
 proc positionAfter*(this: var WxStyledTextCtrl; pos: cint): cint {.cdecl, 
-    importcpp: "PositionAfter", header: wxh.}
+    importcpp: "PositionAfter", header: "<wx/stc/stc.h>".}
 proc copyRange*(this: var WxStyledTextCtrl; start: cint; `end`: cint) {.cdecl, 
-    importcpp: "CopyRange", header: wxh.}
+    importcpp: "CopyRange", header: "<wx/stc/stc.h>".}
 proc copyText*(this: var WxStyledTextCtrl; length: cint; text: WxString) {.
-    cdecl, importcpp: "CopyText", header: wxh.}
+    cdecl, importcpp: "CopyText", header: "<wx/stc/stc.h>".}
 proc setSelectionMode*(this: var WxStyledTextCtrl; mode: cint) {.cdecl, 
-    importcpp: "SetSelectionMode", header: wxh.}
+    importcpp: "SetSelectionMode", header: "<wx/stc/stc.h>".}
 proc getSelectionMode*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetSelectionMode", header: wxh.}
+    importcpp: "GetSelectionMode", header: "<wx/stc/stc.h>".}
 proc getLineSelStartPosition*(this: var WxStyledTextCtrl; line: cint): cint {.
-    cdecl, importcpp: "GetLineSelStartPosition", header: wxh.}
+    cdecl, importcpp: "GetLineSelStartPosition", header: "<wx/stc/stc.h>".}
 proc getLineSelEndPosition*(this: var WxStyledTextCtrl; line: cint): cint {.
-    cdecl, importcpp: "GetLineSelEndPosition", header: wxh.}
+    cdecl, importcpp: "GetLineSelEndPosition", header: "<wx/stc/stc.h>".}
 proc lineDownRectExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "LineDownRectExtend", header: wxh.}
+    importcpp: "LineDownRectExtend", header: "<wx/stc/stc.h>".}
 proc lineUpRectExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "LineUpRectExtend", header: wxh.}
+    importcpp: "LineUpRectExtend", header: "<wx/stc/stc.h>".}
 proc charLeftRectExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "CharLeftRectExtend", header: wxh.}
+    importcpp: "CharLeftRectExtend", header: "<wx/stc/stc.h>".}
 proc charRightRectExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "CharRightRectExtend", header: wxh.}
+    importcpp: "CharRightRectExtend", header: "<wx/stc/stc.h>".}
 proc homeRectExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "HomeRectExtend", header: wxh.}
+    importcpp: "HomeRectExtend", header: "<wx/stc/stc.h>".}
 proc vCHomeRectExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "VCHomeRectExtend", header: wxh.}
+    importcpp: "VCHomeRectExtend", header: "<wx/stc/stc.h>".}
 proc lineEndRectExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "LineEndRectExtend", header: wxh.}
+    importcpp: "LineEndRectExtend", header: "<wx/stc/stc.h>".}
 proc pageUpRectExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "PageUpRectExtend", header: wxh.}
+    importcpp: "PageUpRectExtend", header: "<wx/stc/stc.h>".}
 proc pageDownRectExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "PageDownRectExtend", header: wxh.}
+    importcpp: "PageDownRectExtend", header: "<wx/stc/stc.h>".}
 proc stutteredPageUp*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "StutteredPageUp", header: wxh.}
+    importcpp: "StutteredPageUp", header: "<wx/stc/stc.h>".}
 proc stutteredPageUpExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "StutteredPageUpExtend", header: wxh.}
+    importcpp: "StutteredPageUpExtend", header: "<wx/stc/stc.h>".}
 proc stutteredPageDown*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "StutteredPageDown", header: wxh.}
+    importcpp: "StutteredPageDown", header: "<wx/stc/stc.h>".}
 proc stutteredPageDownExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "StutteredPageDownExtend", header: wxh.}
+    importcpp: "StutteredPageDownExtend", header: "<wx/stc/stc.h>".}
 proc wordLeftEnd*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "WordLeftEnd", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc wordLeftEndExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "WordLeftEndExtend", header: wxh.}
+    importcpp: "WordLeftEndExtend", header: "<wx/stc/stc.h>".}
 proc wordRightEnd*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "WordRightEnd", header: wxh.}
+    importcpp: "WordRightEnd", header: "<wx/stc/stc.h>".}
 proc wordRightEndExtend*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "WordRightEndExtend", header: wxh.}
+    importcpp: "WordRightEndExtend", header: "<wx/stc/stc.h>".}
 proc setWhitespaceChars*(this: var WxStyledTextCtrl; characters: WxString) {.
-    cdecl, importcpp: "SetWhitespaceChars", header: wxh.}
+    cdecl, importcpp: "SetWhitespaceChars", header: "<wx/stc/stc.h>".}
 proc getWhitespaceChars*(this: WxStyledTextCtrl): WxString {.noSideEffect, 
-    cdecl, importcpp: "GetWhitespaceChars", header: wxh.}
+    cdecl, importcpp: "GetWhitespaceChars", header: "<wx/stc/stc.h>".}
 proc setPunctuationChars*(this: var WxStyledTextCtrl; characters: WxString) {.
-    cdecl, importcpp: "SetPunctuationChars", header: wxh.}
+    cdecl, importcpp: "SetPunctuationChars", header: "<wx/stc/stc.h>".}
 proc getPunctuationChars*(this: WxStyledTextCtrl): WxString {.noSideEffect, 
-    cdecl, importcpp: "GetPunctuationChars", header: wxh.}
+    cdecl, importcpp: "GetPunctuationChars", header: "<wx/stc/stc.h>".}
 proc setCharsDefault*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "SetCharsDefault", header: wxh.}
+    importcpp: "SetCharsDefault", header: "<wx/stc/stc.h>".}
 proc autoCompGetCurrent*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "AutoCompGetCurrent", header: wxh.}
+    importcpp: "AutoCompGetCurrent", header: "<wx/stc/stc.h>".}
 proc autoCompSetCaseInsensitiveBehaviour*(this: var WxStyledTextCtrl; 
     behaviour: cint) {.cdecl, importcpp: "AutoCompSetCaseInsensitiveBehaviour", 
-                       header: wxh.}
+                       header: "<wx/stc/stc.h>".}
 proc autoCompGetCaseInsensitiveBehaviour*(this: WxStyledTextCtrl): cint {.
     noSideEffect, cdecl, importcpp: "AutoCompGetCaseInsensitiveBehaviour", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc allocate*(this: var WxStyledTextCtrl; bytes: cint) {.cdecl, 
-    importcpp: "Allocate", header: wxh.}
+    importcpp: "Allocate", header: "<wx/stc/stc.h>".}
 proc findColumn*(this: var WxStyledTextCtrl; line: cint; column: cint): cint {.
-    cdecl, importcpp: "FindColumn", header: wxh.}
+    cdecl, importcpp: "FindColumn", header: "<wx/stc/stc.h>".}
 proc getCaretSticky*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetCaretSticky", header: wxh.}
+    importcpp: "GetCaretSticky", header: "<wx/stc/stc.h>".}
 proc setCaretSticky*(this: var WxStyledTextCtrl; useCaretStickyBehaviour: cint) {.
-    cdecl, importcpp: "SetCaretSticky", header: wxh.}
+    cdecl, importcpp: "SetCaretSticky", header: "<wx/stc/stc.h>".}
 proc toggleCaretSticky*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "ToggleCaretSticky", header: wxh.}
+    importcpp: "ToggleCaretSticky", header: "<wx/stc/stc.h>".}
 proc setPasteConvertEndings*(this: var WxStyledTextCtrl; convert: bool) {.cdecl, 
-    importcpp: "SetPasteConvertEndings", header: wxh.}
+    importcpp: "SetPasteConvertEndings", header: "<wx/stc/stc.h>".}
 proc getPasteConvertEndings*(this: WxStyledTextCtrl): bool {.noSideEffect, 
-    cdecl, importcpp: "GetPasteConvertEndings", header: wxh.}
+    cdecl, importcpp: "GetPasteConvertEndings", header: "<wx/stc/stc.h>".}
 proc selectionDuplicate*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "SelectionDuplicate", header: wxh.}
+    importcpp: "SelectionDuplicate", header: "<wx/stc/stc.h>".}
 proc setCaretLineBackAlpha*(this: var WxStyledTextCtrl; alpha: cint) {.cdecl, 
-    importcpp: "SetCaretLineBackAlpha", header: wxh.}
+    importcpp: "SetCaretLineBackAlpha", header: "<wx/stc/stc.h>".}
 proc getCaretLineBackAlpha*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetCaretLineBackAlpha", header: wxh.}
+    importcpp: "GetCaretLineBackAlpha", header: "<wx/stc/stc.h>".}
 proc setCaretStyle*(this: var WxStyledTextCtrl; caretStyle: cint) {.cdecl, 
-    importcpp: "SetCaretStyle", header: wxh.}
+    importcpp: "SetCaretStyle", header: "<wx/stc/stc.h>".}
 proc getCaretStyle*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetCaretStyle", header: wxh.}
+    importcpp: "GetCaretStyle", header: "<wx/stc/stc.h>".}
 proc setIndicatorCurrent*(this: var WxStyledTextCtrl; indicator: cint) {.cdecl, 
-    importcpp: "SetIndicatorCurrent", header: wxh.}
+    importcpp: "SetIndicatorCurrent", header: "<wx/stc/stc.h>".}
 proc getIndicatorCurrent*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetIndicatorCurrent", header: wxh.}
+    importcpp: "GetIndicatorCurrent", header: "<wx/stc/stc.h>".}
 proc setIndicatorValue*(this: var WxStyledTextCtrl; value: cint) {.cdecl, 
-    importcpp: "SetIndicatorValue", header: wxh.}
+    importcpp: "SetIndicatorValue", header: "<wx/stc/stc.h>".}
 proc getIndicatorValue*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetIndicatorValue", header: wxh.}
+    importcpp: "GetIndicatorValue", header: "<wx/stc/stc.h>".}
 proc indicatorFillRange*(this: var WxStyledTextCtrl; position: cint; 
                          fillLength: cint) {.cdecl, 
-    importcpp: "IndicatorFillRange", header: wxh.}
+    importcpp: "IndicatorFillRange", header: "<wx/stc/stc.h>".}
 proc indicatorClearRange*(this: var WxStyledTextCtrl; position: cint; 
                           clearLength: cint) {.cdecl, 
-    importcpp: "IndicatorClearRange", header: wxh.}
+    importcpp: "IndicatorClearRange", header: "<wx/stc/stc.h>".}
 proc indicatorAllOnFor*(this: var WxStyledTextCtrl; position: cint): cint {.
-    cdecl, importcpp: "IndicatorAllOnFor", header: wxh.}
+    cdecl, importcpp: "IndicatorAllOnFor", header: "<wx/stc/stc.h>".}
 proc indicatorValueAt*(this: var WxStyledTextCtrl; indicator: cint; 
                        position: cint): cint {.cdecl, 
-    importcpp: "IndicatorValueAt", header: wxh.}
+    importcpp: "IndicatorValueAt", header: "<wx/stc/stc.h>".}
 proc indicatorStart*(this: var WxStyledTextCtrl; indicator: cint; position: cint): cint {.
-    cdecl, importcpp: "IndicatorStart", header: wxh.}
+    cdecl, importcpp: "IndicatorStart", header: "<wx/stc/stc.h>".}
 proc indicatorEnd*(this: var WxStyledTextCtrl; indicator: cint; position: cint): cint {.
-    cdecl, importcpp: "IndicatorEnd", header: wxh.}
+    cdecl, importcpp: "IndicatorEnd", header: "<wx/stc/stc.h>".}
 proc setPositionCacheSize*(this: var WxStyledTextCtrl; size: cint) {.cdecl, 
-    importcpp: "SetPositionCacheSize", header: wxh.}
+    importcpp: "SetPositionCacheSize", header: "<wx/stc/stc.h>".}
 proc getPositionCacheSize*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetPositionCacheSize", header: wxh.}
+    importcpp: "GetPositionCacheSize", header: "<wx/stc/stc.h>".}
 proc copyAllowLine*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "CopyAllowLine", header: wxh.}
+    importcpp: "CopyAllowLine", header: "<wx/stc/stc.h>".}
 proc getCharacterPointer*(this: WxStyledTextCtrl): cstring {.noSideEffect, 
-    cdecl, importcpp: "GetCharacterPointer", header: wxh.}
+    cdecl, importcpp: "GetCharacterPointer", header: "<wx/stc/stc.h>".}
 proc getRangePointer*(this: WxStyledTextCtrl; position: cint; rangeLength: cint): cstring {.
-    noSideEffect, cdecl, importcpp: "GetRangePointer", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetRangePointer", header: "<wx/stc/stc.h>".}
 proc getGapPosition*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetGapPosition", header: wxh.}
+    importcpp: "GetGapPosition", header: "<wx/stc/stc.h>".}
 proc setKeysUnicode*(this: var WxStyledTextCtrl; keysUnicode: bool) {.cdecl, 
-    importcpp: "SetKeysUnicode", header: wxh.}
+    importcpp: "SetKeysUnicode", header: "<wx/stc/stc.h>".}
 proc getKeysUnicode*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetKeysUnicode", header: wxh.}
+    importcpp: "GetKeysUnicode", header: "<wx/stc/stc.h>".}
 proc indicatorSetAlpha*(this: var WxStyledTextCtrl; indicator: cint; alpha: cint) {.
-    cdecl, importcpp: "IndicatorSetAlpha", header: wxh.}
+    cdecl, importcpp: "IndicatorSetAlpha", header: "<wx/stc/stc.h>".}
 proc indicatorGetAlpha*(this: WxStyledTextCtrl; indicator: cint): cint {.
-    noSideEffect, cdecl, importcpp: "IndicatorGetAlpha", header: wxh.}
+    noSideEffect, cdecl, importcpp: "IndicatorGetAlpha", 
+    header: "<wx/stc/stc.h>".}
 proc indicatorSetOutlineAlpha*(this: var WxStyledTextCtrl; indicator: cint; 
                                alpha: cint) {.cdecl, 
-    importcpp: "IndicatorSetOutlineAlpha", header: wxh.}
+    importcpp: "IndicatorSetOutlineAlpha", header: "<wx/stc/stc.h>".}
 proc indicatorGetOutlineAlpha*(this: WxStyledTextCtrl; indicator: cint): cint {.
-    noSideEffect, cdecl, importcpp: "IndicatorGetOutlineAlpha", header: wxh.}
+    noSideEffect, cdecl, importcpp: "IndicatorGetOutlineAlpha", 
+    header: "<wx/stc/stc.h>".}
 proc setExtraAscent*(this: var WxStyledTextCtrl; extraAscent: cint) {.cdecl, 
-    importcpp: "SetExtraAscent", header: wxh.}
+    importcpp: "SetExtraAscent", header: "<wx/stc/stc.h>".}
 proc getExtraAscent*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetExtraAscent", header: wxh.}
+    importcpp: "GetExtraAscent", header: "<wx/stc/stc.h>".}
 proc setExtraDescent*(this: var WxStyledTextCtrl; extraDescent: cint) {.cdecl, 
-    importcpp: "SetExtraDescent", header: wxh.}
+    importcpp: "SetExtraDescent", header: "<wx/stc/stc.h>".}
 proc getExtraDescent*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetExtraDescent", header: wxh.}
+    importcpp: "GetExtraDescent", header: "<wx/stc/stc.h>".}
 proc getMarkerSymbolDefined*(this: var WxStyledTextCtrl; markerNumber: cint): cint {.
-    cdecl, importcpp: "GetMarkerSymbolDefined", header: wxh.}
+    cdecl, importcpp: "GetMarkerSymbolDefined", header: "<wx/stc/stc.h>".}
 proc marginSetText*(this: var WxStyledTextCtrl; line: cint; text: WxString) {.
-    cdecl, importcpp: "MarginSetText", header: wxh.}
+    cdecl, importcpp: "MarginSetText", header: "<wx/stc/stc.h>".}
 proc marginGetText*(this: WxStyledTextCtrl; line: cint): WxString {.
-    noSideEffect, cdecl, importcpp: "MarginGetText", header: wxh.}
+    noSideEffect, cdecl, importcpp: "MarginGetText", header: "<wx/stc/stc.h>".}
 proc marginSetStyle*(this: var WxStyledTextCtrl; line: cint; style: cint) {.
-    cdecl, importcpp: "MarginSetStyle", header: wxh.}
+    cdecl, importcpp: "MarginSetStyle", header: "<wx/stc/stc.h>".}
 proc marginGetStyle*(this: WxStyledTextCtrl; line: cint): cint {.noSideEffect, 
-    cdecl, importcpp: "MarginGetStyle", header: wxh.}
+    cdecl, importcpp: "MarginGetStyle", header: "<wx/stc/stc.h>".}
 proc marginSetStyles*(this: var WxStyledTextCtrl; line: cint; styles: WxString) {.
-    cdecl, importcpp: "MarginSetStyles", header: wxh.}
+    cdecl, importcpp: "MarginSetStyles", header: "<wx/stc/stc.h>".}
 proc marginGetStyles*(this: WxStyledTextCtrl; line: cint): WxString {.
-    noSideEffect, cdecl, importcpp: "MarginGetStyles", header: wxh.}
+    noSideEffect, cdecl, importcpp: "MarginGetStyles", header: "<wx/stc/stc.h>".}
 proc marginTextClearAll*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "MarginTextClearAll", header: wxh.}
+    importcpp: "MarginTextClearAll", header: "<wx/stc/stc.h>".}
 proc marginSetStyleOffset*(this: var WxStyledTextCtrl; style: cint) {.cdecl, 
-    importcpp: "MarginSetStyleOffset", header: wxh.}
+    importcpp: "MarginSetStyleOffset", header: "<wx/stc/stc.h>".}
 proc marginGetStyleOffset*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "MarginGetStyleOffset", header: wxh.}
+    importcpp: "MarginGetStyleOffset", header: "<wx/stc/stc.h>".}
 proc setMarginOptions*(this: var WxStyledTextCtrl; marginOptions: cint) {.cdecl, 
-    importcpp: "SetMarginOptions", header: wxh.}
+    importcpp: "SetMarginOptions", header: "<wx/stc/stc.h>".}
 proc getMarginOptions*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetMarginOptions", header: wxh.}
+    importcpp: "GetMarginOptions", header: "<wx/stc/stc.h>".}
 proc annotationSetText*(this: var WxStyledTextCtrl; line: cint; text: WxString) {.
-    cdecl, importcpp: "AnnotationSetText", header: wxh.}
+    cdecl, importcpp: "AnnotationSetText", header: "<wx/stc/stc.h>".}
 proc annotationGetText*(this: WxStyledTextCtrl; line: cint): WxString {.
-    noSideEffect, cdecl, importcpp: "AnnotationGetText", header: wxh.}
+    noSideEffect, cdecl, importcpp: "AnnotationGetText", 
+    header: "<wx/stc/stc.h>".}
 proc annotationSetStyle*(this: var WxStyledTextCtrl; line: cint; style: cint) {.
-    cdecl, importcpp: "AnnotationSetStyle", header: wxh.}
+    cdecl, importcpp: "AnnotationSetStyle", header: "<wx/stc/stc.h>".}
 proc annotationGetStyle*(this: WxStyledTextCtrl; line: cint): cint {.
-    noSideEffect, cdecl, importcpp: "AnnotationGetStyle", header: wxh.}
+    noSideEffect, cdecl, importcpp: "AnnotationGetStyle", 
+    header: "<wx/stc/stc.h>".}
 proc annotationSetStyles*(this: var WxStyledTextCtrl; line: cint; 
                           styles: WxString) {.cdecl, 
-    importcpp: "AnnotationSetStyles", header: wxh.}
+    importcpp: "AnnotationSetStyles", header: "<wx/stc/stc.h>".}
 proc annotationGetStyles*(this: WxStyledTextCtrl; line: cint): WxString {.
-    noSideEffect, cdecl, importcpp: "AnnotationGetStyles", header: wxh.}
+    noSideEffect, cdecl, importcpp: "AnnotationGetStyles", 
+    header: "<wx/stc/stc.h>".}
 proc annotationGetLines*(this: WxStyledTextCtrl; line: cint): cint {.
-    noSideEffect, cdecl, importcpp: "AnnotationGetLines", header: wxh.}
+    noSideEffect, cdecl, importcpp: "AnnotationGetLines", 
+    header: "<wx/stc/stc.h>".}
 proc annotationClearAll*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "AnnotationClearAll", header: wxh.}
+    importcpp: "AnnotationClearAll", header: "<wx/stc/stc.h>".}
 proc annotationSetVisible*(this: var WxStyledTextCtrl; visible: cint) {.cdecl, 
-    importcpp: "AnnotationSetVisible", header: wxh.}
+    importcpp: "AnnotationSetVisible", header: "<wx/stc/stc.h>".}
 proc annotationGetVisible*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "AnnotationGetVisible", header: wxh.}
+    importcpp: "AnnotationGetVisible", header: "<wx/stc/stc.h>".}
 proc annotationSetStyleOffset*(this: var WxStyledTextCtrl; style: cint) {.cdecl, 
-    importcpp: "AnnotationSetStyleOffset", header: wxh.}
+    importcpp: "AnnotationSetStyleOffset", header: "<wx/stc/stc.h>".}
 proc annotationGetStyleOffset*(this: WxStyledTextCtrl): cint {.noSideEffect, 
-    cdecl, importcpp: "AnnotationGetStyleOffset", header: wxh.}
+    cdecl, importcpp: "AnnotationGetStyleOffset", header: "<wx/stc/stc.h>".}
 proc addUndoAction*(this: var WxStyledTextCtrl; token: cint; flags: cint) {.
-    cdecl, importcpp: "AddUndoAction", header: wxh.}
+    cdecl, importcpp: "AddUndoAction", header: "<wx/stc/stc.h>".}
 proc charPositionFromPoint*(this: var WxStyledTextCtrl; x: cint; y: cint): cint {.
-    cdecl, importcpp: "CharPositionFromPoint", header: wxh.}
+    cdecl, importcpp: "CharPositionFromPoint", header: "<wx/stc/stc.h>".}
 proc charPositionFromPointClose*(this: var WxStyledTextCtrl; x: cint; y: cint): cint {.
-    cdecl, importcpp: "CharPositionFromPointClose", header: wxh.}
+    cdecl, importcpp: "CharPositionFromPointClose", header: "<wx/stc/stc.h>".}
 proc setMultipleSelection*(this: var WxStyledTextCtrl; multipleSelection: bool) {.
-    cdecl, importcpp: "SetMultipleSelection", header: wxh.}
+    cdecl, importcpp: "SetMultipleSelection", header: "<wx/stc/stc.h>".}
 proc getMultipleSelection*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "GetMultipleSelection", header: wxh.}
+    importcpp: "GetMultipleSelection", header: "<wx/stc/stc.h>".}
 proc setAdditionalSelectionTyping*(this: var WxStyledTextCtrl; 
                                    additionalSelectionTyping: bool) {.cdecl, 
-    importcpp: "SetAdditionalSelectionTyping", header: wxh.}
+    importcpp: "SetAdditionalSelectionTyping", header: "<wx/stc/stc.h>".}
 proc getAdditionalSelectionTyping*(this: WxStyledTextCtrl): bool {.noSideEffect, 
-    cdecl, importcpp: "GetAdditionalSelectionTyping", header: wxh.}
+    cdecl, importcpp: "GetAdditionalSelectionTyping", header: "<wx/stc/stc.h>".}
 proc setAdditionalCaretsBlink*(this: var WxStyledTextCtrl; 
                                additionalCaretsBlink: bool) {.cdecl, 
-    importcpp: "SetAdditionalCaretsBlink", header: wxh.}
+    importcpp: "SetAdditionalCaretsBlink", header: "<wx/stc/stc.h>".}
 proc getAdditionalCaretsBlink*(this: WxStyledTextCtrl): bool {.noSideEffect, 
-    cdecl, importcpp: "GetAdditionalCaretsBlink", header: wxh.}
+    cdecl, importcpp: "GetAdditionalCaretsBlink", header: "<wx/stc/stc.h>".}
 proc setAdditionalCaretsVisible*(this: var WxStyledTextCtrl; 
                                  additionalCaretsBlink: bool) {.cdecl, 
-    importcpp: "SetAdditionalCaretsVisible", header: wxh.}
+    importcpp: "SetAdditionalCaretsVisible", header: "<wx/stc/stc.h>".}
 proc getAdditionalCaretsVisible*(this: WxStyledTextCtrl): bool {.noSideEffect, 
-    cdecl, importcpp: "GetAdditionalCaretsVisible", header: wxh.}
+    cdecl, importcpp: "GetAdditionalCaretsVisible", header: "<wx/stc/stc.h>".}
 proc getSelections*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetSelections", header: wxh.}
+    importcpp: "GetSelections", header: "<wx/stc/stc.h>".}
 proc clearSelections*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "ClearSelections", header: wxh.}
+    importcpp: "ClearSelections", header: "<wx/stc/stc.h>".}
 proc addSelection*(this: var WxStyledTextCtrl; caret: cint; anchor: cint): cint {.
-    cdecl, importcpp: "AddSelection", header: wxh.}
+    discardable, cdecl, importcpp: "AddSelection", header: "<wx/stc/stc.h>".}
 proc setMainSelection*(this: var WxStyledTextCtrl; selection: cint) {.cdecl, 
-    importcpp: "SetMainSelection", header: wxh.}
+    importcpp: "SetMainSelection", header: "<wx/stc/stc.h>".}
 proc getMainSelection*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetMainSelection", header: wxh.}
+    importcpp: "GetMainSelection", header: "<wx/stc/stc.h>".}
 proc setSelectionNCaret*(this: var WxStyledTextCtrl; selection: cint; pos: cint) {.
-    cdecl, importcpp: "SetSelectionNCaret", header: wxh.}
+    cdecl, importcpp: "SetSelectionNCaret", header: "<wx/stc/stc.h>".}
 proc getSelectionNCaret*(this: WxStyledTextCtrl; selection: cint): cint {.
-    noSideEffect, cdecl, importcpp: "GetSelectionNCaret", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetSelectionNCaret", 
+    header: "<wx/stc/stc.h>".}
 proc setSelectionNAnchor*(this: var WxStyledTextCtrl; selection: cint; 
                           posAnchor: cint) {.cdecl, 
-    importcpp: "SetSelectionNAnchor", header: wxh.}
+    importcpp: "SetSelectionNAnchor", header: "<wx/stc/stc.h>".}
 proc getSelectionNAnchor*(this: WxStyledTextCtrl; selection: cint): cint {.
-    noSideEffect, cdecl, importcpp: "GetSelectionNAnchor", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetSelectionNAnchor", 
+    header: "<wx/stc/stc.h>".}
 proc setSelectionNCaretVirtualSpace*(this: var WxStyledTextCtrl; 
                                      selection: cint; space: cint) {.cdecl, 
-    importcpp: "SetSelectionNCaretVirtualSpace", header: wxh.}
+    importcpp: "SetSelectionNCaretVirtualSpace", header: "<wx/stc/stc.h>".}
 proc getSelectionNCaretVirtualSpace*(this: WxStyledTextCtrl; selection: cint): cint {.
     noSideEffect, cdecl, importcpp: "GetSelectionNCaretVirtualSpace", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc setSelectionNAnchorVirtualSpace*(this: var WxStyledTextCtrl; 
                                       selection: cint; space: cint) {.cdecl, 
-    importcpp: "SetSelectionNAnchorVirtualSpace", header: wxh.}
+    importcpp: "SetSelectionNAnchorVirtualSpace", header: "<wx/stc/stc.h>".}
 proc getSelectionNAnchorVirtualSpace*(this: WxStyledTextCtrl; selection: cint): cint {.
     noSideEffect, cdecl, importcpp: "GetSelectionNAnchorVirtualSpace", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc setSelectionNStart*(this: var WxStyledTextCtrl; selection: cint; pos: cint) {.
-    cdecl, importcpp: "SetSelectionNStart", header: wxh.}
+    cdecl, importcpp: "SetSelectionNStart", header: "<wx/stc/stc.h>".}
 proc getSelectionNStart*(this: WxStyledTextCtrl; selection: cint): cint {.
-    noSideEffect, cdecl, importcpp: "GetSelectionNStart", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetSelectionNStart", 
+    header: "<wx/stc/stc.h>".}
 proc setSelectionNEnd*(this: var WxStyledTextCtrl; selection: cint; pos: cint) {.
-    cdecl, importcpp: "SetSelectionNEnd", header: wxh.}
+    cdecl, importcpp: "SetSelectionNEnd", header: "<wx/stc/stc.h>".}
 proc getSelectionNEnd*(this: WxStyledTextCtrl; selection: cint): cint {.
-    noSideEffect, cdecl, importcpp: "GetSelectionNEnd", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetSelectionNEnd", header: "<wx/stc/stc.h>".}
 proc setRectangularSelectionCaret*(this: var WxStyledTextCtrl; pos: cint) {.
-    cdecl, importcpp: "SetRectangularSelectionCaret", header: wxh.}
+    cdecl, importcpp: "SetRectangularSelectionCaret", header: "<wx/stc/stc.h>".}
 proc getRectangularSelectionCaret*(this: WxStyledTextCtrl): cint {.noSideEffect, 
-    cdecl, importcpp: "GetRectangularSelectionCaret", header: wxh.}
+    cdecl, importcpp: "GetRectangularSelectionCaret", header: "<wx/stc/stc.h>".}
 proc setRectangularSelectionAnchor*(this: var WxStyledTextCtrl; posAnchor: cint) {.
-    cdecl, importcpp: "SetRectangularSelectionAnchor", header: wxh.}
+    cdecl, importcpp: "SetRectangularSelectionAnchor", header: "<wx/stc/stc.h>".}
 proc getRectangularSelectionAnchor*(this: WxStyledTextCtrl): cint {.
-    noSideEffect, cdecl, importcpp: "GetRectangularSelectionAnchor", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetRectangularSelectionAnchor", 
+    header: "<wx/stc/stc.h>".}
 proc setRectangularSelectionCaretVirtualSpace*(this: var WxStyledTextCtrl; 
     space: cint) {.cdecl, importcpp: "SetRectangularSelectionCaretVirtualSpace", 
-                   header: wxh.}
+                   header: "<wx/stc/stc.h>".}
 proc getRectangularSelectionCaretVirtualSpace*(this: WxStyledTextCtrl): cint {.
     noSideEffect, cdecl, importcpp: "GetRectangularSelectionCaretVirtualSpace", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc setRectangularSelectionAnchorVirtualSpace*(this: var WxStyledTextCtrl; 
     space: cint) {.cdecl, 
                    importcpp: "SetRectangularSelectionAnchorVirtualSpace", 
-                   header: wxh.}
+                   header: "<wx/stc/stc.h>".}
 proc getRectangularSelectionAnchorVirtualSpace*(this: WxStyledTextCtrl): cint {.
     noSideEffect, cdecl, importcpp: "GetRectangularSelectionAnchorVirtualSpace", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc setVirtualSpaceOptions*(this: var WxStyledTextCtrl; 
                              virtualSpaceOptions: cint) {.cdecl, 
-    importcpp: "SetVirtualSpaceOptions", header: wxh.}
+    importcpp: "SetVirtualSpaceOptions", header: "<wx/stc/stc.h>".}
 proc getVirtualSpaceOptions*(this: WxStyledTextCtrl): cint {.noSideEffect, 
-    cdecl, importcpp: "GetVirtualSpaceOptions", header: wxh.}
+    cdecl, importcpp: "GetVirtualSpaceOptions", header: "<wx/stc/stc.h>".}
 proc setRectangularSelectionModifier*(this: var WxStyledTextCtrl; modifier: cint) {.
-    cdecl, importcpp: "SetRectangularSelectionModifier", header: wxh.}
+    cdecl, importcpp: "SetRectangularSelectionModifier", 
+    header: "<wx/stc/stc.h>".}
 proc getRectangularSelectionModifier*(this: WxStyledTextCtrl): cint {.
     noSideEffect, cdecl, importcpp: "GetRectangularSelectionModifier", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc setAdditionalSelForeground*(this: var WxStyledTextCtrl; fore: WxColour) {.
-    cdecl, importcpp: "SetAdditionalSelForeground", header: wxh.}
+    cdecl, importcpp: "SetAdditionalSelForeground", header: "<wx/stc/stc.h>".}
 proc setAdditionalSelBackground*(this: var WxStyledTextCtrl; back: WxColour) {.
-    cdecl, importcpp: "SetAdditionalSelBackground", header: wxh.}
+    cdecl, importcpp: "SetAdditionalSelBackground", header: "<wx/stc/stc.h>".}
 proc setAdditionalSelAlpha*(this: var WxStyledTextCtrl; alpha: cint) {.cdecl, 
-    importcpp: "SetAdditionalSelAlpha", header: wxh.}
+    importcpp: "SetAdditionalSelAlpha", header: "<wx/stc/stc.h>".}
 proc getAdditionalSelAlpha*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetAdditionalSelAlpha", header: wxh.}
+    importcpp: "GetAdditionalSelAlpha", header: "<wx/stc/stc.h>".}
 proc setAdditionalCaretForeground*(this: var WxStyledTextCtrl; fore: WxColour) {.
-    cdecl, importcpp: "SetAdditionalCaretForeground", header: wxh.}
+    cdecl, importcpp: "SetAdditionalCaretForeground", header: "<wx/stc/stc.h>".}
 proc getAdditionalCaretForeground*(this: WxStyledTextCtrl): WxColour {.
-    noSideEffect, cdecl, importcpp: "GetAdditionalCaretForeground", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetAdditionalCaretForeground", 
+    header: "<wx/stc/stc.h>".}
 proc rotateSelection*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "RotateSelection", header: wxh.}
+    importcpp: "RotateSelection", header: "<wx/stc/stc.h>".}
 proc swapMainAnchorCaret*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "SwapMainAnchorCaret", header: wxh.}
+    importcpp: "SwapMainAnchorCaret", header: "<wx/stc/stc.h>".}
 proc changeLexerState*(this: var WxStyledTextCtrl; start: cint; `end`: cint): cint {.
-    cdecl, importcpp: "ChangeLexerState", header: wxh.}
+    cdecl, importcpp: "ChangeLexerState", header: "<wx/stc/stc.h>".}
 proc contractedFoldNext*(this: var WxStyledTextCtrl; lineStart: cint): cint {.
-    cdecl, importcpp: "ContractedFoldNext", header: wxh.}
+    cdecl, importcpp: "ContractedFoldNext", header: "<wx/stc/stc.h>".}
 proc verticalCentreCaret*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "VerticalCentreCaret", header: wxh.}
+    importcpp: "VerticalCentreCaret", header: "<wx/stc/stc.h>".}
 proc moveSelectedLinesUp*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "MoveSelectedLinesUp", header: wxh.}
+    importcpp: "MoveSelectedLinesUp", header: "<wx/stc/stc.h>".}
 proc moveSelectedLinesDown*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "MoveSelectedLinesDown", header: wxh.}
+    importcpp: "MoveSelectedLinesDown", header: "<wx/stc/stc.h>".}
 proc setIdentifier*(this: var WxStyledTextCtrl; identifier: cint) {.cdecl, 
-    importcpp: "SetIdentifier", header: wxh.}
+    importcpp: "SetIdentifier", header: "<wx/stc/stc.h>".}
 proc getIdentifier*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetIdentifier", header: wxh.}
+    importcpp: "GetIdentifier", header: "<wx/stc/stc.h>".}
 proc rGBAImageSetWidth*(this: var WxStyledTextCtrl; width: cint) {.cdecl, 
-    importcpp: "RGBAImageSetWidth", header: wxh.}
+    importcpp: "RGBAImageSetWidth", header: "<wx/stc/stc.h>".}
 proc rGBAImageSetHeight*(this: var WxStyledTextCtrl; height: cint) {.cdecl, 
-    importcpp: "RGBAImageSetHeight", header: wxh.}
+    importcpp: "RGBAImageSetHeight", header: "<wx/stc/stc.h>".}
 proc markerDefineRGBAImage*(this: var WxStyledTextCtrl; markerNumber: cint; 
                             pixels: ptr cuchar) {.cdecl, 
-    importcpp: "MarkerDefineRGBAImage", header: wxh.}
+    importcpp: "MarkerDefineRGBAImage", header: "<wx/stc/stc.h>".}
 proc registerRGBAImage*(this: var WxStyledTextCtrl; `type`: cint; 
                         pixels: ptr cuchar) {.cdecl, 
-    importcpp: "RegisterRGBAImage", header: wxh.}
+    importcpp: "RegisterRGBAImage", header: "<wx/stc/stc.h>".}
 proc scrollToStart*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "ScrollToStart", header: wxh.}
+    importcpp: "ScrollToStart", header: "<wx/stc/stc.h>".}
 proc scrollToEnd*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "ScrollToEnd", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc setTechnology*(this: var WxStyledTextCtrl; technology: cint) {.cdecl, 
-    importcpp: "SetTechnology", header: wxh.}
+    importcpp: "SetTechnology", header: "<wx/stc/stc.h>".}
 proc getTechnology*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetTechnology", header: wxh.}
+    importcpp: "GetTechnology", header: "<wx/stc/stc.h>".}
 proc createLoader*(this: WxStyledTextCtrl; bytes: cint): pointer {.noSideEffect, 
-    cdecl, importcpp: "CreateLoader", header: wxh.}
+    cdecl, importcpp: "CreateLoader", header: "<wx/stc/stc.h>".}
 proc startRecord*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "StartRecord", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc stopRecord*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "StopRecord", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc setLexer*(this: var WxStyledTextCtrl; lexer: cint) {.cdecl, 
-    importcpp: "SetLexer", header: wxh.}
+    importcpp: "SetLexer", header: "<wx/stc/stc.h>".}
 proc getLexer*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetLexer", header: wxh.}
+    importcpp: "GetLexer", header: "<wx/stc/stc.h>".}
 proc colourise*(this: var WxStyledTextCtrl; start: cint; `end`: cint) {.cdecl, 
-    importcpp: "Colourise", header: wxh.}
+    importcpp: "Colourise", header: "<wx/stc/stc.h>".}
 proc setProperty*(this: var WxStyledTextCtrl; key: WxString; value: WxString) {.
-    cdecl, importcpp: "SetProperty", header: wxh.}
+    cdecl, importcpp: "SetProperty", header: "<wx/stc/stc.h>".}
 proc setKeyWords*(this: var WxStyledTextCtrl; keywordSet: cint; 
                   keyWords: WxString) {.cdecl, importcpp: "SetKeyWords", 
-                                        header: wxh.}
+                                        header: "<wx/stc/stc.h>".}
 proc setLexerLanguage*(this: var WxStyledTextCtrl; language: WxString) {.cdecl, 
-    importcpp: "SetLexerLanguage", header: wxh.}
+    importcpp: "SetLexerLanguage", header: "<wx/stc/stc.h>".}
 proc getProperty*(this: var WxStyledTextCtrl; key: WxString): WxString {.cdecl, 
-    importcpp: "GetProperty", header: wxh.}
+    importcpp: "GetProperty", header: "<wx/stc/stc.h>".}
 proc getPropertyExpanded*(this: var WxStyledTextCtrl; key: WxString): WxString {.
-    cdecl, importcpp: "GetPropertyExpanded", header: wxh.}
+    cdecl, importcpp: "GetPropertyExpanded", header: "<wx/stc/stc.h>".}
 proc getPropertyInt*(this: WxStyledTextCtrl; key: WxString): cint {.
-    noSideEffect, cdecl, importcpp: "GetPropertyInt", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetPropertyInt", header: "<wx/stc/stc.h>".}
 proc getStyleBitsNeeded*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetStyleBitsNeeded", header: wxh.}
+    importcpp: "GetStyleBitsNeeded", header: "<wx/stc/stc.h>".}
 proc privateLexerCall*(this: var WxStyledTextCtrl; operation: cint; 
                        pointer: pointer): pointer {.cdecl, 
-    importcpp: "PrivateLexerCall", header: wxh.}
+    importcpp: "PrivateLexerCall", header: "<wx/stc/stc.h>".}
 proc propertyNames*(this: WxStyledTextCtrl): WxString {.noSideEffect, cdecl, 
-    importcpp: "PropertyNames", header: wxh.}
+    importcpp: "PropertyNames", header: "<wx/stc/stc.h>".}
 proc propertyType*(this: var WxStyledTextCtrl; name: WxString): cint {.cdecl, 
-    importcpp: "PropertyType", header: wxh.}
+    importcpp: "PropertyType", header: "<wx/stc/stc.h>".}
 proc describeProperty*(this: WxStyledTextCtrl; name: WxString): WxString {.
-    noSideEffect, cdecl, importcpp: "DescribeProperty", header: wxh.}
+    noSideEffect, cdecl, importcpp: "DescribeProperty", header: "<wx/stc/stc.h>".}
 proc describeKeyWordSets*(this: WxStyledTextCtrl): WxString {.noSideEffect, 
-    cdecl, importcpp: "DescribeKeyWordSets", header: wxh.}
+    cdecl, importcpp: "DescribeKeyWordSets", header: "<wx/stc/stc.h>".}
 proc getCurrentLine*(this: var WxStyledTextCtrl): cint {.cdecl, 
-    importcpp: "GetCurrentLine", header: wxh.}
+    importcpp: "GetCurrentLine", header: "<wx/stc/stc.h>".}
 proc styleSetSpec*(this: var WxStyledTextCtrl; styleNum: cint; spec: WxString) {.
-    cdecl, importcpp: "StyleSetSpec", header: wxh.}
+    cdecl, importcpp: "StyleSetSpec", header: "<wx/stc/stc.h>".}
 proc styleGetFont*(this: var WxStyledTextCtrl; style: cint): WxFont {.cdecl, 
-    importcpp: "StyleGetFont", header: wxh.}
+    importcpp: "StyleGetFont", header: "<wx/stc/stc.h>".}
 proc styleSetFont*(this: var WxStyledTextCtrl; styleNum: cint; font: var WxFont) {.
-    cdecl, importcpp: "StyleSetFont", header: wxh.}
+    cdecl, importcpp: "StyleSetFont", header: "<wx/stc/stc.h>".}
 proc styleSetFontAttr*(this: var WxStyledTextCtrl; styleNum: cint; size: cint; 
                        faceName: WxString; bold: bool; italic: bool; 
                        underline: bool; 
                        encoding: WxFontEncoding = wxFONTENCODING_DEFAULT) {.
-    cdecl, importcpp: "StyleSetFontAttr", header: wxh.}
+    cdecl, importcpp: "StyleSetFontAttr", header: "<wx/stc/stc.h>".}
 proc styleSetCharacterSet*(this: var WxStyledTextCtrl; style: cint; 
                            characterSet: cint) {.cdecl, 
-    importcpp: "StyleSetCharacterSet", header: wxh.}
+    importcpp: "StyleSetCharacterSet", header: "<wx/stc/stc.h>".}
 proc styleSetFontEncoding*(this: var WxStyledTextCtrl; style: cint; 
                            encoding: WxFontEncoding) {.cdecl, 
-    importcpp: "StyleSetFontEncoding", header: wxh.}
+    importcpp: "StyleSetFontEncoding", header: "<wx/stc/stc.h>".}
 proc cmdKeyExecute*(this: var WxStyledTextCtrl; cmd: cint) {.cdecl, 
-    importcpp: "CmdKeyExecute", header: wxh.}
+    importcpp: "CmdKeyExecute", header: "<wx/stc/stc.h>".}
 proc setMargins*(this: var WxStyledTextCtrl; left: cint; right: cint) {.cdecl, 
-    importcpp: "SetMargins", header: wxh.}
+    importcpp: "SetMargins", header: "<wx/stc/stc.h>".}
 proc pointFromPosition*(this: var WxStyledTextCtrl; pos: cint): WxPoint {.cdecl, 
-    importcpp: "PointFromPosition", header: wxh.}
+    importcpp: "PointFromPosition", header: "<wx/stc/stc.h>".}
 proc scrollToLine*(this: var WxStyledTextCtrl; line: cint) {.cdecl, 
-    importcpp: "ScrollToLine", header: wxh.}
+    importcpp: "ScrollToLine", header: "<wx/stc/stc.h>".}
 proc scrollToColumn*(this: var WxStyledTextCtrl; column: cint) {.cdecl, 
-    importcpp: "ScrollToColumn", header: wxh.}
+    importcpp: "ScrollToColumn", header: "<wx/stc/stc.h>".}
 proc sendMsg*(this: WxStyledTextCtrl; msg: cint; wp: culong = 0; lp: clong = 0): clong {.
-    noSideEffect, cdecl, importcpp: "SendMsg", header: wxh.}
+    noSideEffect, cdecl, importcpp: "SendMsg", header: "<wx/stc/stc.h>".}
 proc setVScrollBar*(this: var WxStyledTextCtrl; bar: ptr WxScrollBar) {.cdecl, 
-    importcpp: "SetVScrollBar", header: wxh.}
+    importcpp: "SetVScrollBar", header: "<wx/stc/stc.h>".}
 proc setHScrollBar*(this: var WxStyledTextCtrl; bar: ptr WxScrollBar) {.cdecl, 
-    importcpp: "SetHScrollBar", header: wxh.}
+    importcpp: "SetHScrollBar", header: "<wx/stc/stc.h>".}
 proc getLastKeydownProcessed*(this: var WxStyledTextCtrl): bool {.cdecl, 
-    importcpp: "GetLastKeydownProcessed", header: wxh.}
+    importcpp: "GetLastKeydownProcessed", header: "<wx/stc/stc.h>".}
 proc setLastKeydownProcessed*(this: var WxStyledTextCtrl; val: bool) {.cdecl, 
-    importcpp: "SetLastKeydownProcessed", header: wxh.}
+    importcpp: "SetLastKeydownProcessed", header: "<wx/stc/stc.h>".}
 proc saveFile*(this: var WxStyledTextCtrl; filename: WxString): bool {.cdecl, 
-    importcpp: "SaveFile", header: wxh.}
+    importcpp: "SaveFile", header: "<wx/stc/stc.h>".}
 proc loadFile*(this: var WxStyledTextCtrl; filename: WxString): bool {.cdecl, 
-    importcpp: "LoadFile", header: wxh.}
+    importcpp: "LoadFile", header: "<wx/stc/stc.h>".}
 proc doDragOver*(this: var WxStyledTextCtrl; x: WxCoord; y: WxCoord; 
                  def: WxDragResult): WxDragResult {.cdecl, 
-    importcpp: "DoDragOver", header: wxh.}
+    importcpp: "DoDragOver", header: "<wx/stc/stc.h>".}
 proc doDropText*(this: var WxStyledTextCtrl; x: clong; y: clong; data: WxString): bool {.
-    cdecl, importcpp: "DoDropText", header: wxh.}
+    cdecl, importcpp: "DoDropText", header: "<wx/stc/stc.h>".}
 proc setUseAntiAliasing*(this: var WxStyledTextCtrl; useAA: bool) {.cdecl, 
-    importcpp: "SetUseAntiAliasing", header: wxh.}
+    importcpp: "SetUseAntiAliasing", header: "<wx/stc/stc.h>".}
 proc getUseAntiAliasing*(this: var WxStyledTextCtrl): bool {.cdecl, 
-    importcpp: "GetUseAntiAliasing", header: wxh.}
+    importcpp: "GetUseAntiAliasing", header: "<wx/stc/stc.h>".}
 proc annotationClearLine*(this: var WxStyledTextCtrl; line: cint) {.cdecl, 
-    importcpp: "AnnotationClearLine", header: wxh.}
+    importcpp: "AnnotationClearLine", header: "<wx/stc/stc.h>".}
 proc addTextRaw*(this: var WxStyledTextCtrl; text: cstring; length: cint = - 1) {.
-    cdecl, importcpp: "AddTextRaw", header: wxh.}
+    cdecl, importcpp: "AddTextRaw", header: "<wx/stc/stc.h>".}
 proc insertTextRaw*(this: var WxStyledTextCtrl; pos: cint; text: cstring) {.
-    cdecl, importcpp: "InsertTextRaw", header: wxh.}
+    cdecl, importcpp: "InsertTextRaw", header: "<wx/stc/stc.h>".}
 proc getCurLineRaw*(this: var WxStyledTextCtrl; linePos: ptr cint = nil): WxCharBuffer {.
-    cdecl, importcpp: "GetCurLineRaw", header: wxh.}
+    cdecl, importcpp: "GetCurLineRaw", header: "<wx/stc/stc.h>".}
 proc getLineRaw*(this: var WxStyledTextCtrl; line: cint): WxCharBuffer {.cdecl, 
-    importcpp: "GetLineRaw", header: wxh.}
+    importcpp: "GetLineRaw", header: "<wx/stc/stc.h>".}
 proc getSelectedTextRaw*(this: var WxStyledTextCtrl): WxCharBuffer {.cdecl, 
-    importcpp: "GetSelectedTextRaw", header: wxh.}
+    importcpp: "GetSelectedTextRaw", header: "<wx/stc/stc.h>".}
 proc getTextRangeRaw*(this: var WxStyledTextCtrl; startPos: cint; endPos: cint): WxCharBuffer {.
-    cdecl, importcpp: "GetTextRangeRaw", header: wxh.}
+    cdecl, importcpp: "GetTextRangeRaw", header: "<wx/stc/stc.h>".}
 proc setTextRaw*(this: var WxStyledTextCtrl; text: cstring) {.cdecl, 
-    importcpp: "SetTextRaw", header: wxh.}
+    importcpp: "SetTextRaw", header: "<wx/stc/stc.h>".}
 proc getTextRaw*(this: var WxStyledTextCtrl): WxCharBuffer {.cdecl, 
-    importcpp: "GetTextRaw", header: wxh.}
+    importcpp: "GetTextRaw", header: "<wx/stc/stc.h>".}
 proc appendTextRaw*(this: var WxStyledTextCtrl; text: cstring; 
                     length: cint = - 1) {.cdecl, importcpp: "AppendTextRaw", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc writeText*(this: var WxStyledTextCtrl; text: WxString) {.cdecl, 
-    importcpp: "WriteText", header: wxh.}
+    importcpp: "WriteText", header: "<wx/stc/stc.h>".}
 proc remove*(this: var WxStyledTextCtrl; `from`: clong; to: clong) {.cdecl, 
-    importcpp: "Remove", header: wxh.}
+    importcpp: "Remove", header: "<wx/stc/stc.h>".}
 proc replace*(this: var WxStyledTextCtrl; `from`: clong; to: clong; 
-              text: WxString) {.cdecl, importcpp: "Replace", header: wxh.}
+              text: WxString) {.cdecl, importcpp: "Replace", 
+                                header: "<wx/stc/stc.h>".}
 proc setInsertionPoint*(this: var WxStyledTextCtrl; pos: clong) {.cdecl, 
-    importcpp: "SetInsertionPoint", header: wxh.}
+    importcpp: "SetInsertionPoint", header: "<wx/stc/stc.h>".}
 proc getInsertionPoint*(this: WxStyledTextCtrl): clong {.noSideEffect, cdecl, 
-    importcpp: "GetInsertionPoint", header: wxh.}
+    importcpp: "GetInsertionPoint", header: "<wx/stc/stc.h>".}
 proc getLastPosition*(this: WxStyledTextCtrl): clong {.noSideEffect, cdecl, 
-    importcpp: "GetLastPosition", header: wxh.}
+    importcpp: "GetLastPosition", header: "<wx/stc/stc.h>".}
 proc setSelection*(this: var WxStyledTextCtrl; `from`: clong; to: clong) {.
-    cdecl, importcpp: "SetSelection", header: wxh.}
+    cdecl, importcpp: "SetSelection", header: "<wx/stc/stc.h>".}
 proc selectNone*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "SelectNone", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc getSelection*(this: WxStyledTextCtrl; `from`: ptr clong; to: ptr clong) {.
-    noSideEffect, cdecl, importcpp: "GetSelection", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetSelection", header: "<wx/stc/stc.h>".}
 proc getSelection*(this: var WxStyledTextCtrl; `from`: ptr cint; to: ptr cint) {.
-    cdecl, importcpp: "GetSelection", header: wxh.}
+    cdecl, importcpp: "GetSelection", header: "<wx/stc/stc.h>".}
 proc isEditable*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "IsEditable", header: wxh.}
+    importcpp: "IsEditable", header: "<wx/stc/stc.h>".}
 proc setEditable*(this: var WxStyledTextCtrl; editable: bool) {.cdecl, 
-    importcpp: "SetEditable", header: wxh.}
+    importcpp: "SetEditable", header: "<wx/stc/stc.h>".}
 proc getLineLength*(this: WxStyledTextCtrl; lineNo: clong): cint {.noSideEffect, 
-    cdecl, importcpp: "GetLineLength", header: wxh.}
+    cdecl, importcpp: "GetLineLength", header: "<wx/stc/stc.h>".}
 proc getLineText*(this: WxStyledTextCtrl; lineNo: clong): WxString {.
-    noSideEffect, cdecl, importcpp: "GetLineText", header: wxh.}
+    noSideEffect, cdecl, importcpp: "GetLineText", header: "<wx/stc/stc.h>".}
 proc getNumberOfLines*(this: WxStyledTextCtrl): cint {.noSideEffect, cdecl, 
-    importcpp: "GetNumberOfLines", header: wxh.}
+    importcpp: "GetNumberOfLines", header: "<wx/stc/stc.h>".}
 proc isModified*(this: WxStyledTextCtrl): bool {.noSideEffect, cdecl, 
-    importcpp: "IsModified", header: wxh.}
+    importcpp: "IsModified", header: "<wx/stc/stc.h>".}
 proc markDirty*(this: var WxStyledTextCtrl) {.cdecl, importcpp: "MarkDirty", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc discardEdits*(this: var WxStyledTextCtrl) {.cdecl, 
-    importcpp: "DiscardEdits", header: wxh.}
+    importcpp: "DiscardEdits", header: "<wx/stc/stc.h>".}
 proc setStyle*(this: var WxStyledTextCtrl; start: clong; `end`: clong; 
-               style: WxTextAttr): bool {.cdecl, importcpp: "SetStyle", 
-    header: wxh.}
+               style: WxTextAttr): bool {.discardable, cdecl, 
+    importcpp: "SetStyle", header: "<wx/stc/stc.h>".}
 proc getStyle*(this: var WxStyledTextCtrl; position: clong; 
                style: var WxTextAttr): bool {.cdecl, importcpp: "GetStyle", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc setDefaultStyle*(this: var WxStyledTextCtrl; style: WxTextAttr): bool {.
-    cdecl, importcpp: "SetDefaultStyle", header: wxh.}
+    discardable, cdecl, importcpp: "SetDefaultStyle", header: "<wx/stc/stc.h>".}
 proc xYToPosition*(this: WxStyledTextCtrl; x: clong; y: clong): clong {.
-    noSideEffect, cdecl, importcpp: "XYToPosition", header: wxh.}
+    noSideEffect, cdecl, importcpp: "XYToPosition", header: "<wx/stc/stc.h>".}
 proc positionToXY*(this: WxStyledTextCtrl; pos: clong; x: ptr clong; 
                    y: ptr clong): bool {.noSideEffect, cdecl, 
-    importcpp: "PositionToXY", header: wxh.}
+    importcpp: "PositionToXY", header: "<wx/stc/stc.h>".}
 proc showPosition*(this: var WxStyledTextCtrl; pos: clong) {.cdecl, 
-    importcpp: "ShowPosition", header: wxh.}
+    importcpp: "ShowPosition", header: "<wx/stc/stc.h>".}
 proc hitTest*(this: WxStyledTextCtrl; pt: WxPoint; pos: ptr clong): WxTextCtrlHitTestResult {.
-    noSideEffect, cdecl, importcpp: "HitTest", header: wxh.}
+    noSideEffect, cdecl, importcpp: "HitTest", header: "<wx/stc/stc.h>".}
 proc hitTest*(this: WxStyledTextCtrl; pt: WxPoint; col: ptr WxTextCoord; 
               row: ptr WxTextCoord): WxTextCtrlHitTestResult {.noSideEffect, 
-    cdecl, importcpp: "HitTest", header: wxh.}
+    cdecl, importcpp: "HitTest", header: "<wx/stc/stc.h>".}
 
 type 
-  WxStyledTextEvent* {.importcpp: "wxStyledTextEvent", header: wxh.} = object of WxCommandEvent
+  WxStyledTextEvent* {.importcpp: "wxStyledTextEvent", header: "<wx/stc/stc.h>".} = object of WxCommandEvent
   
 
 proc constructwxStyledTextEvent*(commandType: WxEventType = 0; id: cint = 0): WxStyledTextEvent {.
-    cdecl, constructor, importcpp: "wxStyledTextEvent(@)", header: wxh.}
+    cdecl, constructor, importcpp: "wxStyledTextEvent(@)", 
+    header: "<wx/stc/stc.h>".}
 proc destroywxStyledTextEvent*(this: var WxStyledTextEvent) {.cdecl, 
-    importcpp: "#.~wxStyledTextEvent()", header: wxh.}
+    importcpp: "#.~wxStyledTextEvent()", header: "<wx/stc/stc.h>".}
 proc setPosition*(this: var WxStyledTextEvent; pos: cint) {.cdecl, 
-    importcpp: "SetPosition", header: wxh.}
+    importcpp: "SetPosition", header: "<wx/stc/stc.h>".}
 proc setKey*(this: var WxStyledTextEvent; k: cint) {.cdecl, importcpp: "SetKey", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc setModifiers*(this: var WxStyledTextEvent; m: cint) {.cdecl, 
-    importcpp: "SetModifiers", header: wxh.}
+    importcpp: "SetModifiers", header: "<wx/stc/stc.h>".}
 proc setModificationType*(this: var WxStyledTextEvent; t: cint) {.cdecl, 
-    importcpp: "SetModificationType", header: wxh.}
+    importcpp: "SetModificationType", header: "<wx/stc/stc.h>".}
 proc setText*(this: var WxStyledTextEvent; t: WxString) {.cdecl, 
-    importcpp: "SetText", header: wxh.}
+    importcpp: "SetText", header: "<wx/stc/stc.h>".}
 proc setLength*(this: var WxStyledTextEvent; len: cint) {.cdecl, 
-    importcpp: "SetLength", header: wxh.}
+    importcpp: "SetLength", header: "<wx/stc/stc.h>".}
 proc setLinesAdded*(this: var WxStyledTextEvent; num: cint) {.cdecl, 
-    importcpp: "SetLinesAdded", header: wxh.}
+    importcpp: "SetLinesAdded", header: "<wx/stc/stc.h>".}
 proc setLine*(this: var WxStyledTextEvent; val: cint) {.cdecl, 
-    importcpp: "SetLine", header: wxh.}
+    importcpp: "SetLine", header: "<wx/stc/stc.h>".}
 proc setFoldLevelNow*(this: var WxStyledTextEvent; val: cint) {.cdecl, 
-    importcpp: "SetFoldLevelNow", header: wxh.}
+    importcpp: "SetFoldLevelNow", header: "<wx/stc/stc.h>".}
 proc setFoldLevelPrev*(this: var WxStyledTextEvent; val: cint) {.cdecl, 
-    importcpp: "SetFoldLevelPrev", header: wxh.}
+    importcpp: "SetFoldLevelPrev", header: "<wx/stc/stc.h>".}
 proc setMargin*(this: var WxStyledTextEvent; val: cint) {.cdecl, 
-    importcpp: "SetMargin", header: wxh.}
+    importcpp: "SetMargin", header: "<wx/stc/stc.h>".}
 proc setMessage*(this: var WxStyledTextEvent; val: cint) {.cdecl, 
-    importcpp: "SetMessage", header: wxh.}
+    importcpp: "SetMessage", header: "<wx/stc/stc.h>".}
 proc setWParam*(this: var WxStyledTextEvent; val: cint) {.cdecl, 
-    importcpp: "SetWParam", header: wxh.}
+    importcpp: "SetWParam", header: "<wx/stc/stc.h>".}
 proc setLParam*(this: var WxStyledTextEvent; val: cint) {.cdecl, 
-    importcpp: "SetLParam", header: wxh.}
+    importcpp: "SetLParam", header: "<wx/stc/stc.h>".}
 proc setListType*(this: var WxStyledTextEvent; val: cint) {.cdecl, 
-    importcpp: "SetListType", header: wxh.}
+    importcpp: "SetListType", header: "<wx/stc/stc.h>".}
 proc setX*(this: var WxStyledTextEvent; val: cint) {.cdecl, importcpp: "SetX", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc setY*(this: var WxStyledTextEvent; val: cint) {.cdecl, importcpp: "SetY", 
-    header: wxh.}
+    header: "<wx/stc/stc.h>".}
 proc setToken*(this: var WxStyledTextEvent; val: cint) {.cdecl, 
-    importcpp: "SetToken", header: wxh.}
+    importcpp: "SetToken", header: "<wx/stc/stc.h>".}
 proc setAnnotationLinesAdded*(this: var WxStyledTextEvent; val: cint) {.cdecl, 
-    importcpp: "SetAnnotationLinesAdded", header: wxh.}
+    importcpp: "SetAnnotationLinesAdded", header: "<wx/stc/stc.h>".}
 proc setUpdated*(this: var WxStyledTextEvent; val: cint) {.cdecl, 
-    importcpp: "SetUpdated", header: wxh.}
+    importcpp: "SetUpdated", header: "<wx/stc/stc.h>".}
 proc setDragText*(this: var WxStyledTextEvent; val: WxString) {.cdecl, 
-    importcpp: "SetDragText", header: wxh.}
+    importcpp: "SetDragText", header: "<wx/stc/stc.h>".}
 proc setDragFlags*(this: var WxStyledTextEvent; flags: cint) {.cdecl, 
-    importcpp: "SetDragFlags", header: wxh.}
+    importcpp: "SetDragFlags", header: "<wx/stc/stc.h>".}
 proc setDragResult*(this: var WxStyledTextEvent; val: WxDragResult) {.cdecl, 
-    importcpp: "SetDragResult", header: wxh.}
+    importcpp: "SetDragResult", header: "<wx/stc/stc.h>".}
 proc setDragAllowMove*(this: var WxStyledTextEvent; allow: bool) {.cdecl, 
-    importcpp: "SetDragAllowMove", header: wxh.}
+    importcpp: "SetDragAllowMove", header: "<wx/stc/stc.h>".}
 proc getPosition*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetPosition", header: wxh.}
+    importcpp: "GetPosition", header: "<wx/stc/stc.h>".}
 proc getKey*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetKey", header: wxh.}
+    importcpp: "GetKey", header: "<wx/stc/stc.h>".}
 proc getModifiers*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetModifiers", header: wxh.}
+    importcpp: "GetModifiers", header: "<wx/stc/stc.h>".}
 proc getModificationType*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetModificationType", header: wxh.}
+    importcpp: "GetModificationType", header: "<wx/stc/stc.h>".}
 proc getText*(this: WxStyledTextEvent): WxString {.noSideEffect, cdecl, 
-    importcpp: "GetText", header: wxh.}
+    importcpp: "GetText", header: "<wx/stc/stc.h>".}
 proc getLength*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetLength", header: wxh.}
+    importcpp: "GetLength", header: "<wx/stc/stc.h>".}
 proc getLinesAdded*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetLinesAdded", header: wxh.}
+    importcpp: "GetLinesAdded", header: "<wx/stc/stc.h>".}
 proc getLine*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetLine", header: wxh.}
+    importcpp: "GetLine", header: "<wx/stc/stc.h>".}
 proc getFoldLevelNow*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetFoldLevelNow", header: wxh.}
+    importcpp: "GetFoldLevelNow", header: "<wx/stc/stc.h>".}
 proc getFoldLevelPrev*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetFoldLevelPrev", header: wxh.}
+    importcpp: "GetFoldLevelPrev", header: "<wx/stc/stc.h>".}
 proc getMargin*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetMargin", header: wxh.}
+    importcpp: "GetMargin", header: "<wx/stc/stc.h>".}
 proc getMessage*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetMessage", header: wxh.}
+    importcpp: "GetMessage", header: "<wx/stc/stc.h>".}
 proc getWParam*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetWParam", header: wxh.}
+    importcpp: "GetWParam", header: "<wx/stc/stc.h>".}
 proc getLParam*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetLParam", header: wxh.}
+    importcpp: "GetLParam", header: "<wx/stc/stc.h>".}
 proc getListType*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetListType", header: wxh.}
+    importcpp: "GetListType", header: "<wx/stc/stc.h>".}
 proc getX*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetX", header: wxh.}
+    importcpp: "GetX", header: "<wx/stc/stc.h>".}
 proc getY*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetY", header: wxh.}
+    importcpp: "GetY", header: "<wx/stc/stc.h>".}
 proc getToken*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetToken", header: wxh.}
+    importcpp: "GetToken", header: "<wx/stc/stc.h>".}
 proc getAnnotationsLinesAdded*(this: WxStyledTextEvent): cint {.noSideEffect, 
-    cdecl, importcpp: "GetAnnotationsLinesAdded", header: wxh.}
+    cdecl, importcpp: "GetAnnotationsLinesAdded", header: "<wx/stc/stc.h>".}
 proc getUpdated*(this: WxStyledTextEvent): cint {.noSideEffect, cdecl, 
-    importcpp: "GetUpdated", header: wxh.}
+    importcpp: "GetUpdated", header: "<wx/stc/stc.h>".}
 proc getDragText*(this: var WxStyledTextEvent): WxString {.cdecl, 
-    importcpp: "GetDragText", header: wxh.}
+    importcpp: "GetDragText", header: "<wx/stc/stc.h>".}
 proc getDragFlags*(this: var WxStyledTextEvent): cint {.cdecl, 
-    importcpp: "GetDragFlags", header: wxh.}
+    importcpp: "GetDragFlags", header: "<wx/stc/stc.h>".}
 proc getDragResult*(this: var WxStyledTextEvent): WxDragResult {.cdecl, 
-    importcpp: "GetDragResult", header: wxh.}
+    importcpp: "GetDragResult", header: "<wx/stc/stc.h>".}
 proc getDragAllowMove*(this: var WxStyledTextEvent): bool {.cdecl, 
-    importcpp: "GetDragAllowMove", header: wxh.}
+    importcpp: "GetDragAllowMove", header: "<wx/stc/stc.h>".}
 proc getShift*(this: WxStyledTextEvent): bool {.noSideEffect, cdecl, 
-    importcpp: "GetShift", header: wxh.}
+    importcpp: "GetShift", header: "<wx/stc/stc.h>".}
 proc getControl*(this: WxStyledTextEvent): bool {.noSideEffect, cdecl, 
-    importcpp: "GetControl", header: wxh.}
+    importcpp: "GetControl", header: "<wx/stc/stc.h>".}
 proc getAlt*(this: WxStyledTextEvent): bool {.noSideEffect, cdecl, 
-    importcpp: "GetAlt", header: wxh.}
+    importcpp: "GetAlt", header: "<wx/stc/stc.h>".}
 proc clone*(this: WxStyledTextEvent): ptr WxEvent {.noSideEffect, cdecl, 
-    importcpp: "Clone", header: wxh.}
-var wxEVT_STC_CHANGE* {.importcpp: "wxEVT_STC_CHANGE", header: wxh.}: WxEventTypeTag[
+    importcpp: "Clone", header: "<wx/stc/stc.h>".}
+var wxEVT_STC_CHANGE* {.importcpp: "wxEVT_STC_CHANGE", header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_STYLENEEDED* {.importcpp: "wxEVT_STC_STYLENEEDED", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_STYLENEEDED* {.importcpp: "wxEVT_STC_STYLENEEDED", 
+                             header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_CHARADDED* {.importcpp: "wxEVT_STC_CHARADDED", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_CHARADDED* {.importcpp: "wxEVT_STC_CHARADDED", 
+                           header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
 var wxEVT_STC_SAVEPOINTREACHED* {.importcpp: "wxEVT_STC_SAVEPOINTREACHED", 
-                                  header: wxh.}: WxEventTypeTag[
+                                  header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_SAVEPOINTLEFT* {.importcpp: "wxEVT_STC_SAVEPOINTLEFT", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_SAVEPOINTLEFT* {.importcpp: "wxEVT_STC_SAVEPOINTLEFT", 
+                               header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
 var wxEVT_STC_ROMODIFYATTEMPT* {.importcpp: "wxEVT_STC_ROMODIFYATTEMPT", 
-                                 header: wxh.}: WxEventTypeTag[WxStyledTextEvent]
-
-var wxEVT_STC_KEY* {.importcpp: "wxEVT_STC_KEY", header: wxh.}: WxEventTypeTag[
+                                 header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_DOUBLECLICK* {.importcpp: "wxEVT_STC_DOUBLECLICK", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_KEY* {.importcpp: "wxEVT_STC_KEY", header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_UPDATEUI* {.importcpp: "wxEVT_STC_UPDATEUI", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_DOUBLECLICK* {.importcpp: "wxEVT_STC_DOUBLECLICK", 
+                             header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_MODIFIED* {.importcpp: "wxEVT_STC_MODIFIED", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_UPDATEUI* {.importcpp: "wxEVT_STC_UPDATEUI", 
+                          header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_MACRORECORD* {.importcpp: "wxEVT_STC_MACRORECORD", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_MODIFIED* {.importcpp: "wxEVT_STC_MODIFIED", 
+                          header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_MARGINCLICK* {.importcpp: "wxEVT_STC_MARGINCLICK", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_MACRORECORD* {.importcpp: "wxEVT_STC_MACRORECORD", 
+                             header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_NEEDSHOWN* {.importcpp: "wxEVT_STC_NEEDSHOWN", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_MARGINCLICK* {.importcpp: "wxEVT_STC_MARGINCLICK", 
+                             header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_PAINTED* {.importcpp: "wxEVT_STC_PAINTED", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_NEEDSHOWN* {.importcpp: "wxEVT_STC_NEEDSHOWN", 
+                           header: "<wx/stc/stc.h>".}: WxEventTypeTag[
+    WxStyledTextEvent]
+
+var wxEVT_STC_PAINTED* {.importcpp: "wxEVT_STC_PAINTED", 
+                         header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
 var wxEVT_STC_USERLISTSELECTION* {.importcpp: "wxEVT_STC_USERLISTSELECTION", 
-                                   header: wxh.}: WxEventTypeTag[
+                                   header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_URIDROPPED* {.importcpp: "wxEVT_STC_URIDROPPED", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_URIDROPPED* {.importcpp: "wxEVT_STC_URIDROPPED", 
+                            header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_DWELLSTART* {.importcpp: "wxEVT_STC_DWELLSTART", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_DWELLSTART* {.importcpp: "wxEVT_STC_DWELLSTART", 
+                            header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_DWELLEND* {.importcpp: "wxEVT_STC_DWELLEND", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_DWELLEND* {.importcpp: "wxEVT_STC_DWELLEND", 
+                          header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_START_DRAG* {.importcpp: "wxEVT_STC_START_DRAG", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_START_DRAG* {.importcpp: "wxEVT_STC_START_DRAG", 
+                            header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_DRAG_OVER* {.importcpp: "wxEVT_STC_DRAG_OVER", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_DRAG_OVER* {.importcpp: "wxEVT_STC_DRAG_OVER", 
+                           header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_DO_DROP* {.importcpp: "wxEVT_STC_DO_DROP", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_DO_DROP* {.importcpp: "wxEVT_STC_DO_DROP", 
+                         header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_ZOOM* {.importcpp: "wxEVT_STC_ZOOM", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_ZOOM* {.importcpp: "wxEVT_STC_ZOOM", header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
-var wxEVT_STC_HOTSPOT_CLICK* {.importcpp: "wxEVT_STC_HOTSPOT_CLICK", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_HOTSPOT_CLICK* {.importcpp: "wxEVT_STC_HOTSPOT_CLICK", 
+                               header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
 var wxEVT_STC_HOTSPOT_DCLICK* {.importcpp: "wxEVT_STC_HOTSPOT_DCLICK", 
-                                header: wxh.}: WxEventTypeTag[WxStyledTextEvent]
+                                header: "<wx/stc/stc.h>".}: WxEventTypeTag[
+    WxStyledTextEvent]
 
-var wxEVT_STC_CALLTIP_CLICK* {.importcpp: "wxEVT_STC_CALLTIP_CLICK", header: wxh.}: WxEventTypeTag[
+var wxEVT_STC_CALLTIP_CLICK* {.importcpp: "wxEVT_STC_CALLTIP_CLICK", 
+                               header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
 var wxEVT_STC_AUTOCOMP_SELECTION* {.importcpp: "wxEVT_STC_AUTOCOMP_SELECTION", 
-                                    header: wxh.}: WxEventTypeTag[
+                                    header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
 var wxEVT_STC_INDICATOR_CLICK* {.importcpp: "wxEVT_STC_INDICATOR_CLICK", 
-                                 header: wxh.}: WxEventTypeTag[WxStyledTextEvent]
+                                 header: "<wx/stc/stc.h>".}: WxEventTypeTag[
+    WxStyledTextEvent]
 
 var wxEVT_STC_INDICATOR_RELEASE* {.importcpp: "wxEVT_STC_INDICATOR_RELEASE", 
-                                   header: wxh.}: WxEventTypeTag[
+                                   header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
 var wxEVT_STC_AUTOCOMP_CANCELLED* {.importcpp: "wxEVT_STC_AUTOCOMP_CANCELLED", 
-                                    header: wxh.}: WxEventTypeTag[
+                                    header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
 var wxEVT_STC_AUTOCOMP_CHAR_DELETED* {.importcpp: "wxEVT_STC_AUTOCOMP_CHAR_DELETED", 
-                                       header: wxh.}: WxEventTypeTag[
+                                       header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
 var wxEVT_STC_HOTSPOT_RELEASE_CLICK* {.importcpp: "wxEVT_STC_HOTSPOT_RELEASE_CLICK", 
-                                       header: wxh.}: WxEventTypeTag[
+                                       header: "<wx/stc/stc.h>".}: WxEventTypeTag[
     WxStyledTextEvent]
 
 type 

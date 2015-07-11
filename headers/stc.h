@@ -28,11 +28,15 @@
  */
 
 #@
+{.deadcodeelim: on.}
+
 import wx
 
 {.noforward: on.}
 
 @#
+
+#header "<wx/stc/stc.h>"
 
 #ifndef _WX_STC_STC_H_
 #define _WX_STC_STC_H_
