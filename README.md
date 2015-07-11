@@ -1,5 +1,6 @@
 # wxnim
-Nim wrapper for wxWidgets.
+Nim wrapper for wxWidgets. Most common widgets have been wrapped but it's likely
+that I missed a few.
 
 Still in development, needs way more testing!
 
