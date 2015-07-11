@@ -4,7 +4,7 @@
 # Andreas Rumpf 2015
 
 const
-  wxh = """#include <wx/wxprec.h>
+  wxh* = """#include <wx/wxprec.h>
 #ifndef WX_PRECOMP
     #include <wx/wx.h>
 #endif"""
@@ -13,6 +13,10 @@ const
 
 include "private/object"
 include private/string
+
+converter toWxString*(s: string): WxString =
+  result = constructWxString(cstring(s), s.len)
+
 include private/arrstr
 include private/colour
 include private/fontenc
@@ -85,12 +89,6 @@ include private/panel
 include private/position
 include private/radiobox
 include private/radiobut
-#include private/richtextbackgroundpage
-#include private/richtextbuffer
-#include private/richtextbulletspage
-#include private/richtextctrl
-#include private/richtooltip
-#include private/scrolbar
 include private/sizer
 #include private/slider
 include private/spinbutt
@@ -102,11 +100,9 @@ include private/treectrl
 include private/types
 include private/variant
 include private/webview
+include private/stattext
 
 proc cnew*[T](x: T): ptr T {.importcpp: "(new '*0#@)", nodecl.}
-
-converter toWxString*(s: string): WxString =
-  result = constructWxString(cstring(s), s.len)
 
 converter toEventType*[T](x: WxEventTypeTag[T]): WxEventType {.
   importcpp: "#", header: "<wx/wx.h>".}

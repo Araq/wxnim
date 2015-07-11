@@ -67,6 +67,129 @@ public:
     virtual int GetCurrentSelection() const { return GetSelection(); }
 };
 
+
+class WXDLLIMPEXP_CORE wxComboBox : public wxChoice,
+                                    public wxTextEntry
+{
+public:
+    wxComboBox() { Init(); }
+
+    wxComboBox(wxWindow *parent, wxWindowID id,
+            const wxString& value = wxEmptyString,
+            const wxPoint& pos = wxDefaultPosition,
+            const wxSize& size = wxDefaultSize,
+            int n = 0, const wxString choices[] = NULL,
+            long style = 0,
+            const wxValidator& validator = wxDefaultValidator,
+            const wxString& name = wxComboBoxNameStr)
+    {
+        Init();
+        Create(parent, id, value, pos, size, n, choices, style, validator, name);
+
+    }
+
+    wxComboBox(wxWindow *parent, wxWindowID id,
+            const wxString& value,
+            const wxPoint& pos,
+            const wxSize& size,
+            const wxArrayString& choices,
+            long style = 0,
+            const wxValidator& validator = wxDefaultValidator,
+            const wxString& name = wxComboBoxNameStr)
+    {
+        Init();
+
+        Create(parent, id, value, pos, size, choices, style, validator, name);
+    }
+
+    bool Create(wxWindow *parent,
+                wxWindowID id,
+                const wxString& value = wxEmptyString,
+                const wxPoint& pos = wxDefaultPosition,
+                const wxSize& size = wxDefaultSize,
+                int n = 0,
+                const wxString choices[] = NULL,
+                long style = 0,
+                const wxValidator& validator = wxDefaultValidator,
+                const wxString& name = wxComboBoxNameStr);
+    bool Create(wxWindow *parent,
+                wxWindowID id,
+                const wxString& value,
+                const wxPoint& pos,
+                const wxSize& size,
+                const wxArrayString& choices,
+                long style = 0,
+                const wxValidator& validator = wxDefaultValidator,
+                const wxString& name = wxComboBoxNameStr);
+
+    // See wxComboBoxBase discussion of IsEmpty().
+    bool IsListEmpty() const { return wxItemContainer::IsEmpty(); }
+    bool IsTextEmpty() const { return wxTextEntry::IsEmpty(); }
+
+    // resolve ambiguities among virtual functions inherited from both base
+    // classes
+    virtual void Clear();
+    virtual wxString GetValue() const;
+    virtual void SetValue(const wxString& value);
+    virtual wxString GetStringSelection() const
+        { return wxChoice::GetStringSelection(); }
+    virtual void Popup() { MSWDoPopupOrDismiss(true); }
+    virtual void Dismiss() { MSWDoPopupOrDismiss(false); }
+    virtual void SetSelection(int n) { wxChoice::SetSelection(n); }
+    virtual void SetSelection(long from, long to)
+        { wxTextEntry::SetSelection(from, to); }
+    virtual int GetSelection() const { return wxChoice::GetSelection(); }
+
+    virtual void GetSelection(long *from, long *to) const;
+
+    virtual bool IsEditable() const;
+
+    // Standard event handling
+    void OnCut(wxCommandEvent& event);
+    void OnCopy(wxCommandEvent& event);
+    void OnPaste(wxCommandEvent& event);
+    void OnUndo(wxCommandEvent& event);
+    void OnRedo(wxCommandEvent& event);
+    void OnDelete(wxCommandEvent& event);
+    void OnSelectAll(wxCommandEvent& event);
+
+    void OnUpdateCut(wxUpdateUIEvent& event);
+    void OnUpdateCopy(wxUpdateUIEvent& event);
+    void OnUpdatePaste(wxUpdateUIEvent& event);
+    void OnUpdateUndo(wxUpdateUIEvent& event);
+    void OnUpdateRedo(wxUpdateUIEvent& event);
+    void OnUpdateDelete(wxUpdateUIEvent& event);
+    void OnUpdateSelectAll(wxUpdateUIEvent& event);
+
+    // override wxTextEntry method to work around Windows bug
+    virtual bool SetHint(const wxString& hint);
+
+protected:
+    virtual void DoSetToolTip(wxToolTip *tip);
+
+    virtual wxSize DoGetSizeFromTextSize(int xlen, int ylen = -1) const;
+
+    virtual void EnableTextChangedEvents(bool enable)
+    {
+        m_allowTextEvents = enable;
+    }
+
+private:
+    // there are the overridden wxTextEntry methods which should only be called
+    // when we do have an edit control so they assert if this is not the case
+    virtual wxWindow *GetEditableWindow();
+    virtual WXHWND GetEditHWND() const;
+
+    // common part of all ctors
+    void Init()
+    {
+        m_allowTextEvents = true;
+    }
+
+    // normally true, false if text events are currently disabled
+    bool m_allowTextEvents;
+
+};
 #endif // wxUSE_COMBOBOX
 
 #endif // _WX_COMBOBOX_H_BASE_

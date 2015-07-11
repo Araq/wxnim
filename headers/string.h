@@ -36,9 +36,6 @@ public:
     // copy ctor
   wxString(const wxString& stringSrc) : m_impl(stringSrc.m_impl) { }
 
-    // ctors from char* strings:
-  wxString(const char *psz)
-    : m_impl(ImplStr(psz)) {}
   wxString(const char *psz, size_t nLength)
     { assign(psz, nLength); }
 

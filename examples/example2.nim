@@ -1,5 +1,5 @@
 
-import "../wx", driver
+import "../wx", driver, "../richtext", "../stc"
 
 {.experimental.}
 

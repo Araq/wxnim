@@ -271,6 +271,7 @@ enum wxTextAttrLineSpacing
 // wxTextAttr: a structure containing the visual attributes of a text
 // ----------------------------------------------------------------------------
 
+#inheritable wxTextAttr
 class WXDLLIMPEXP_CORE wxTextAttr
 {
 public:

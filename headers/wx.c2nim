@@ -45,6 +45,8 @@
 #def wxHyperlinkCtrlNameStr  constructWxString("hyperlink")
 #def wxListCtrlNameStr  constructWxString("listCtrl")
 #def wxFrameNameStr constructWxString("frame")
+#def wxStaticTextNameStr constructWxString("staticText")
+#def wxChoiceNameStr constructWxString("choice")
 
 #def wxStatusLineNameStr  constructWxString("status_line")
 #def wxToolBarNameStr constructWxString("toolbar")

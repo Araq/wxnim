@@ -463,15 +463,15 @@ type
   WxBoxSizer* {.importcpp: "wxBoxSizer", header: wxh.} = object of WxSizer
   
 
-proc constructwxBoxSizer*(orient: cint): WxBoxSizer {.cdecl, constructor, 
-    importcpp: "wxBoxSizer(@)", header: wxh.}
+proc constructwxBoxSizer*(orient: WxOrientation): WxBoxSizer {.cdecl, 
+    constructor, importcpp: "wxBoxSizer(@)", header: wxh.}
 proc addSpacer*(this: var WxBoxSizer; size: cint): ptr WxSizerItem {.cdecl, 
     importcpp: "AddSpacer", header: wxh.}
-proc getOrientation*(this: WxBoxSizer): cint {.noSideEffect, cdecl, 
+proc getOrientation*(this: WxBoxSizer): WxOrientation {.noSideEffect, cdecl, 
     importcpp: "GetOrientation", header: wxh.}
 proc isVertical*(this: WxBoxSizer): bool {.noSideEffect, cdecl, 
     importcpp: "IsVertical", header: wxh.}
-proc setOrientation*(this: var WxBoxSizer; orient: cint) {.cdecl, 
+proc setOrientation*(this: var WxBoxSizer; orient: WxOrientation) {.cdecl, 
     importcpp: "SetOrientation", header: wxh.}
 proc calcMin*(this: var WxBoxSizer): WxSize {.cdecl, importcpp: "CalcMin", 
     header: wxh.}
@@ -484,9 +484,9 @@ type
   WxStaticBoxSizer* {.importcpp: "wxStaticBoxSizer", header: wxh.} = object of WxBoxSizer
   
 
-proc constructwxStaticBoxSizer*(box: ptr WxStaticBox; orient: cint): WxStaticBoxSizer {.
+proc constructwxStaticBoxSizer*(box: ptr WxStaticBox; orient: WxOrientation): WxStaticBoxSizer {.
     cdecl, constructor, importcpp: "wxStaticBoxSizer(@)", header: wxh.}
-proc constructwxStaticBoxSizer*(orient: cint; win: ptr WxWindow; 
+proc constructwxStaticBoxSizer*(orient: WxOrientation; win: ptr WxWindow; 
                                 label: WxString = wxEmptyString): WxStaticBoxSizer {.
     cdecl, constructor, importcpp: "wxStaticBoxSizer(@)", header: wxh.}
 proc destroywxStaticBoxSizer*(this: var WxStaticBoxSizer) {.cdecl, 

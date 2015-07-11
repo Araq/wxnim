@@ -43,6 +43,56 @@ proc setValue*(this: var WxSpinDoubleEvent; value: cdouble) {.cdecl,
     importcpp: "SetValue", header: wxh.}
 proc clone*(this: WxSpinDoubleEvent): ptr WxEvent {.noSideEffect, cdecl, 
     importcpp: "Clone", header: wxh.}
+type 
+  WxSpinCtrl* {.importcpp: "wxSpinCtrl", header: wxh.} = object of WxSpinButton
+  
+
+proc constructwxSpinCtrl*(): WxSpinCtrl {.cdecl, constructor, 
+    importcpp: "wxSpinCtrl(@)", header: wxh.}
+proc constructwxSpinCtrl*(parent: ptr WxWindow; id: WxWindowID = wxID_ANY; 
+                          value: WxString = wxEmptyString; 
+                          pos: WxPoint = wxDefaultPosition; 
+                          size: WxSize = wxDefaultSize; 
+                          style: clong = wxSP_ARROW_KEYS or int(wxALIGN_RIGHT); 
+                          min: cint = 0; max: cint = 100; initial: cint = 0; 
+                          name: WxString = constructWxString("wxSpinCtrl")): WxSpinCtrl {.
+    cdecl, constructor, importcpp: "wxSpinCtrl(@)", header: wxh.}
+proc create*(this: var WxSpinCtrl; parent: ptr WxWindow; 
+             id: WxWindowID = wxID_ANY; value: WxString = wxEmptyString; 
+             pos: WxPoint = wxDefaultPosition; size: WxSize = wxDefaultSize; 
+             style: clong = wxSP_ARROW_KEYS or int(wxALIGN_RIGHT); 
+             min: cint = 0; max: cint = 100; initial: cint = 0; 
+             name: WxString = constructWxString("wxSpinCtrl")): bool {.cdecl, 
+    importcpp: "Create", header: wxh.}
+proc setValue*(this: var WxSpinCtrl; text: WxString) {.cdecl, 
+    importcpp: "SetValue", header: wxh.}
+proc setSelection*(this: var WxSpinCtrl; `from`: clong; to: clong) {.cdecl, 
+    importcpp: "SetSelection", header: wxh.}
+proc getBase*(this: WxSpinCtrl): cint {.noSideEffect, cdecl, 
+                                        importcpp: "GetBase", header: wxh.}
+proc setBase*(this: var WxSpinCtrl; base: cint): bool {.cdecl, 
+    importcpp: "SetBase", header: wxh.}
+proc destroywxSpinCtrl*(this: var WxSpinCtrl) {.cdecl, 
+    importcpp: "#.~wxSpinCtrl()", header: wxh.}
+proc setValue*(this: var WxSpinCtrl; val: cint) {.cdecl, importcpp: "SetValue", 
+    header: wxh.}
+proc getValue*(this: WxSpinCtrl): cint {.noSideEffect, cdecl, 
+    importcpp: "GetValue", header: wxh.}
+proc setRange*(this: var WxSpinCtrl; minVal: cint; maxVal: cint) {.cdecl, 
+    importcpp: "SetRange", header: wxh.}
+proc setFont*(this: var WxSpinCtrl; font: WxFont): bool {.cdecl, 
+    importcpp: "SetFont", header: wxh.}
+proc setFocus*(this: var WxSpinCtrl) {.cdecl, importcpp: "SetFocus", header: wxh.}
+proc enable*(this: var WxSpinCtrl; enable: bool = true): bool {.cdecl, 
+    importcpp: "Enable", header: wxh.}
+proc show*(this: var WxSpinCtrl; show: bool = true): bool {.cdecl, 
+    importcpp: "Show", header: wxh.}
+proc reparent*(this: var WxSpinCtrl; newParent: ptr WxWindowBase): bool {.cdecl, 
+    importcpp: "Reparent", header: wxh.}
+proc acceptsFocus*(this: WxSpinCtrl): bool {.noSideEffect, cdecl, 
+    importcpp: "AcceptsFocus", header: wxh.}
+proc getDefaultAttributes*(this: WxSpinCtrl): WxVisualAttributes {.noSideEffect, 
+    cdecl, importcpp: "GetDefaultAttributes", header: wxh.}
 
 template wxSpinDoubleEventHandler*(`func`: expr): expr = 
   wxEVENT_HANDLER_CAST(wxSpinDoubleEventFunction, `func`)

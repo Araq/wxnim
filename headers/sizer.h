@@ -719,7 +719,7 @@ public:
 class WXDLLIMPEXP_CORE wxBoxSizer: public wxSizer
 {
 public:
-    wxBoxSizer(int orient)
+    wxBoxSizer(wxOrientation orient)
     {
         m_orient = orient;
         m_totalProportion = 0;
@@ -730,11 +730,11 @@ public:
 
     virtual wxSizerItem *AddSpacer(int size);
 
-    int GetOrientation() const { return m_orient; }
+    wxOrientation GetOrientation() const { return m_orient; }
 
     bool IsVertical() const { return m_orient == wxVERTICAL; }
 
-    void SetOrientation(int orient) { m_orient = orient; }
+    void SetOrientation(wxOrientation orient) { m_orient = orient; }
 
     // implementation of our resizing logic
     virtual wxSize CalcMin();
@@ -752,8 +752,8 @@ class WXDLLIMPEXP_FWD_CORE wxStaticBox {};
 class WXDLLIMPEXP_CORE wxStaticBoxSizer: public wxBoxSizer
 {
 public:
-    wxStaticBoxSizer(wxStaticBox *box, int orient);
-    wxStaticBoxSizer(int orient, wxWindow *win, const wxString& label = wxEmptyString);
+    wxStaticBoxSizer(wxStaticBox *box, wxOrientation orient);
+    wxStaticBoxSizer(wxOrientation orient, wxWindow *win, const wxString& label = wxEmptyString);
     virtual ~wxStaticBoxSizer();
 
     void RecalcSizes();

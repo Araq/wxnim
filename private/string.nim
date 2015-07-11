@@ -12,8 +12,6 @@ proc constructwxString*(): WxString {.cdecl, constructor,
                                       importcpp: "wxString(@)", header: wxh.}
 proc constructwxString*(stringSrc: WxString): WxString {.cdecl, constructor, 
     importcpp: "wxString(@)", header: wxh.}
-proc constructwxString*(psz: cstring): WxString {.cdecl, constructor, 
-    importcpp: "wxString(@)", header: wxh.}
 proc constructwxString*(psz: cstring; nLength: csize): WxString {.cdecl, 
     constructor, importcpp: "wxString(@)", header: wxh.}
 proc clone*(this: WxString): WxString {.noSideEffect, cdecl, importcpp: "Clone", 

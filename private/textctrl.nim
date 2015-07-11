@@ -172,7 +172,7 @@ type
 
 
 type 
-  WxTextAttr* {.importcpp: "wxTextAttr", header: wxh.} = object 
+  WxTextAttr* {.importcpp: "wxTextAttr", header: wxh, inheritable.} = object 
   
 
 proc constructwxTextAttr*(): WxTextAttr {.cdecl, constructor, 

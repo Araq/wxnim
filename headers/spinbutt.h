@@ -30,7 +30,7 @@ public :
     int GetMax() const { return m_maxVal; }
 };
 
-#define wxSPIN_BUTTON_NAME "wxSpinButton"
+#def wxSPIN_BUTTON_NAME constructWxString("wxSpinButton")
 
 // ----------------------------------------------------------------------------
 //  The wxSpinButton is like a small scrollbar than is often placed next
@@ -103,6 +103,54 @@ public:
 
 private:
     DECLARE_DYNAMIC_CLASS_NO_ASSIGN(wxSpinEvent)
+};
+
+
+class WXDLLIMPEXP_CORE wxSpinButton : public wxSpinButtonBase
+{
+public:
+    // construction
+    wxSpinButton() { }
+
+    wxSpinButton(wxWindow *parent,
+                 wxWindowID id = wxID_ANY,
+                 const wxPoint& pos = wxDefaultPosition,
+                 const wxSize& size = wxDefaultSize,
+                 long style = int(wxSP_VERTICAL) | int(wxSP_ARROW_KEYS),
+                 const wxString& name = wxSPIN_BUTTON_NAME)
+    {
+        Create(parent, id, pos, size, style, name);
+    }
+
+    virtual ~wxSpinButton();
+
+    bool Create(wxWindow *parent,
+                wxWindowID id = wxID_ANY,
+                const wxPoint& pos = wxDefaultPosition,
+                const wxSize& size = wxDefaultSize,
+                long style = int(wxSP_VERTICAL) | int(wxSP_ARROW_KEYS),
+                const wxString& name = wxSPIN_BUTTON_NAME);
+
+
+    // accessors
+    virtual int GetValue() const;
+    virtual void SetValue(int val);
+    virtual void SetRange(int minVal, int maxVal);
+
+    // a wxSpinButton can't do anything useful with focus, only wxSpinCtrl can
+    virtual bool AcceptsFocus() const { return false; }
+
+    // returns true if the platform should explicitly apply a theme border
+    virtual bool CanApplyThemeBorder() const { return false; }
+
+protected:
+   virtual wxSize DoGetBestSize() const;
+
+   // ensure that the control displays a value in the current range
+   virtual void NormalizeValue();
+
+private:
+    DECLARE_DYNAMIC_CLASS_NO_COPY(wxSpinButton)
 };
 
 
