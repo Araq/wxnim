@@ -327,8 +327,8 @@ proc setToolBar*(this: var WxMenuBar; toolBar: ptr WxToolBar) {.cdecl,
     importcpp: "SetToolBar", header: wxh.}
 proc getToolBar*(this: WxMenuBar): ptr WxToolBar {.noSideEffect, cdecl, 
     importcpp: "GetToolBar", header: wxh.}
-proc addAdornments*(this: var WxMenuBar; style: clong): bool {.cdecl, 
-    importcpp: "AddAdornments", header: wxh.}
+proc addAdornments*(this: var WxMenuBar; style: clong): bool {.discardable, 
+    cdecl, importcpp: "AddAdornments", header: wxh.}
 proc rebuildAccelTable*(this: var WxMenuBar) {.cdecl, 
     importcpp: "RebuildAccelTable", header: wxh.}
 proc refresh*(this: var WxMenuBar) {.cdecl, importcpp: "Refresh", header: wxh.}

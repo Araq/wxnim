@@ -182,8 +182,8 @@ proc getExitOnFrameDelete*(this: WxAppBase): bool {.noSideEffect, cdecl,
     importcpp: "GetExitOnFrameDelete", header: wxh.}
 proc getDisplayMode*(this: WxAppBase): WxVideoMode {.noSideEffect, cdecl, 
     importcpp: "GetDisplayMode", header: wxh.}
-proc setDisplayMode*(this: var WxAppBase; info: WxVideoMode): bool {.cdecl, 
-    importcpp: "SetDisplayMode", header: wxh.}
+proc setDisplayMode*(this: var WxAppBase; info: WxVideoMode): bool {.
+    discardable, cdecl, importcpp: "SetDisplayMode", header: wxh.}
 proc setUseBestVisual*(this: var WxAppBase; flag: bool; 
                        forceTrueColour: bool = false) {.cdecl, 
     importcpp: "SetUseBestVisual", header: wxh.}
@@ -195,8 +195,8 @@ proc getPrintMode*(this: WxAppBase): cint {.noSideEffect, cdecl,
     importcpp: "GetPrintMode", header: wxh.}
 proc getLayoutDirection*(this: WxAppBase): WxLayoutDirection {.noSideEffect, 
     cdecl, importcpp: "GetLayoutDirection", header: wxh.}
-proc setNativeTheme*(this: var WxAppBase; theme: WxString): bool {.cdecl, 
-    importcpp: "SetNativeTheme", header: wxh.}
+proc setNativeTheme*(this: var WxAppBase; theme: WxString): bool {.discardable, 
+    cdecl, importcpp: "SetNativeTheme", header: wxh.}
 proc setActive*(this: var WxAppBase; isActive: bool; lastFocus: ptr WxWindow) {.
     cdecl, importcpp: "SetActive", header: wxh.}
 

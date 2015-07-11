@@ -44,7 +44,7 @@ proc index*(this: WxArrayString; str: WxString; bCase: bool = true;
             bFromEnd: bool = false): cint {.noSideEffect, cdecl, 
     importcpp: "Index", header: wxh.}
 proc add*(this: var WxArrayString; str: WxString; nInsert: csize = 1): csize {.
-    cdecl, importcpp: "Add", header: wxh.}
+    discardable, cdecl, importcpp: "Add", header: wxh.}
 proc insert*(this: var WxArrayString; str: WxString; uiIndex: csize; 
              nInsert: csize = 1) {.cdecl, importcpp: "Insert", header: wxh.}
 proc setCount*(this: var WxArrayString; count: csize) {.cdecl, 

@@ -23,7 +23,7 @@ proc setSnapToTicks*(this: var WxSpinCtrlBase; snapToTicks: bool) {.cdecl,
     importcpp: "SetSnapToTicks", header: wxh.}
 proc getBase*(this: WxSpinCtrlBase): cint {.noSideEffect, cdecl, 
     importcpp: "GetBase", header: wxh.}
-proc setBase*(this: var WxSpinCtrlBase; base: cint): bool {.cdecl, 
+proc setBase*(this: var WxSpinCtrlBase; base: cint): bool {.discardable, cdecl, 
     importcpp: "SetBase", header: wxh.}
 proc setSelection*(this: var WxSpinCtrlBase; `from`: clong; to: clong) {.cdecl, 
     importcpp: "SetSelection", header: wxh.}
@@ -70,7 +70,7 @@ proc setSelection*(this: var WxSpinCtrl; `from`: clong; to: clong) {.cdecl,
     importcpp: "SetSelection", header: wxh.}
 proc getBase*(this: WxSpinCtrl): cint {.noSideEffect, cdecl, 
                                         importcpp: "GetBase", header: wxh.}
-proc setBase*(this: var WxSpinCtrl; base: cint): bool {.cdecl, 
+proc setBase*(this: var WxSpinCtrl; base: cint): bool {.discardable, cdecl, 
     importcpp: "SetBase", header: wxh.}
 proc destroywxSpinCtrl*(this: var WxSpinCtrl) {.cdecl, 
     importcpp: "#.~wxSpinCtrl()", header: wxh.}
@@ -80,12 +80,12 @@ proc getValue*(this: WxSpinCtrl): cint {.noSideEffect, cdecl,
     importcpp: "GetValue", header: wxh.}
 proc setRange*(this: var WxSpinCtrl; minVal: cint; maxVal: cint) {.cdecl, 
     importcpp: "SetRange", header: wxh.}
-proc setFont*(this: var WxSpinCtrl; font: WxFont): bool {.cdecl, 
+proc setFont*(this: var WxSpinCtrl; font: WxFont): bool {.discardable, cdecl, 
     importcpp: "SetFont", header: wxh.}
 proc setFocus*(this: var WxSpinCtrl) {.cdecl, importcpp: "SetFocus", header: wxh.}
 proc enable*(this: var WxSpinCtrl; enable: bool = true): bool {.cdecl, 
     importcpp: "Enable", header: wxh.}
-proc show*(this: var WxSpinCtrl; show: bool = true): bool {.cdecl, 
+proc show*(this: var WxSpinCtrl; show: bool = true): bool {.discardable, cdecl, 
     importcpp: "Show", header: wxh.}
 proc reparent*(this: var WxSpinCtrl; newParent: ptr WxWindowBase): bool {.cdecl, 
     importcpp: "Reparent", header: wxh.}

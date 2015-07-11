@@ -398,7 +398,7 @@ proc getPrevVisible*(this: WxTreeCtrlBase; item: WxTreeItemId): WxTreeItemId {.
     noSideEffect, cdecl, importcpp: "GetPrevVisible", header: wxh.}
 proc addRoot*(this: var WxTreeCtrlBase; text: WxString; image: cint = - 1; 
               selImage: cint = - 1; data: ptr WxTreeItemData = nil): WxTreeItemId {.
-    cdecl, importcpp: "AddRoot", header: wxh.}
+    discardable, cdecl, importcpp: "AddRoot", header: wxh.}
 proc prependItem*(this: var WxTreeCtrlBase; parent: WxTreeItemId; 
                   text: WxString; image: cint = - 1; selImage: cint = - 1; 
                   data: ptr WxTreeItemData = nil): WxTreeItemId {.cdecl, 

@@ -25,13 +25,13 @@ proc destroywxDialog*(this: var WxDialog) {.cdecl, importcpp: "#.~wxDialog()",
     header: wxh.}
 proc isModal*(this: WxDialog): bool {.noSideEffect, cdecl, importcpp: "IsModal", 
                                       header: wxh.}
-proc showModal*(this: var WxDialog): cint {.cdecl, importcpp: "ShowModal", 
-    header: wxh.}
+proc showModal*(this: var WxDialog): cint {.discardable, cdecl, 
+    importcpp: "ShowModal", header: wxh.}
 proc endModal*(this: var WxDialog; retCode: cint) {.cdecl, 
     importcpp: "EndModal", header: wxh.}
 proc isModalShowing*(this: WxDialog): bool {.noSideEffect, cdecl, 
     importcpp: "IsModalShowing", header: wxh.}
-proc show*(this: var WxDialog; show: bool = true): bool {.cdecl, 
+proc show*(this: var WxDialog; show: bool = true): bool {.discardable, cdecl, 
     importcpp: "Show", header: wxh.}
 proc onCloseWindow*(this: var WxDialog; event: var WxCloseEvent) {.cdecl, 
     importcpp: "OnCloseWindow", header: wxh.}

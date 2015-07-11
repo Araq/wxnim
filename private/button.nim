@@ -11,7 +11,7 @@ proc setAuthNeeded*(this: var WxButtonBase; show: bool = true) {.cdecl,
     importcpp: "SetAuthNeeded", header: wxh.}
 proc getAuthNeeded*(this: WxButtonBase): bool {.noSideEffect, cdecl, 
     importcpp: "GetAuthNeeded", header: wxh.}
-proc setDefault*(this: var WxButtonBase): ptr WxWindow {.cdecl, 
+proc setDefault*(this: var WxButtonBase): ptr WxWindow {.discardable, cdecl, 
     importcpp: "SetDefault", header: wxh.}
 proc getDefaultSize*(): WxSize {.cdecl, 
                                  importcpp: "wxButtonBase::GetDefaultSize(@)", 
@@ -37,7 +37,7 @@ proc create*(this: var WxButton; parent: ptr WxWindow; id: WxWindowID;
     importcpp: "Create", header: wxh.}
 proc destroywxButton*(this: var WxButton) {.cdecl, importcpp: "#.~wxButton()", 
     header: wxh.}
-proc setDefault*(this: var WxButton): ptr WxWindow {.cdecl, 
+proc setDefault*(this: var WxButton): ptr WxWindow {.discardable, cdecl, 
     importcpp: "SetDefault", header: wxh.}
 proc command*(this: var WxButton; event: var WxCommandEvent) {.cdecl, 
     importcpp: "Command", header: wxh.}

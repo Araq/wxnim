@@ -64,11 +64,11 @@ proc getPageIdCount*(this: WxRichTextFormattingDialogFactory): cint {.
 proc getPageImage*(this: WxRichTextFormattingDialogFactory; id: cint): cint {.
     noSideEffect, cdecl, importcpp: "GetPageImage", header: wxh.}
 proc showHelp*(this: var WxRichTextFormattingDialogFactory; page: cint; 
-               dialog: ptr WxRichTextFormattingDialog): bool {.cdecl, 
-    importcpp: "ShowHelp", header: wxh.}
+               dialog: ptr WxRichTextFormattingDialog): bool {.discardable, 
+    cdecl, importcpp: "ShowHelp", header: wxh.}
 proc setSheetStyle*(this: var WxRichTextFormattingDialogFactory; 
-                    dialog: ptr WxRichTextFormattingDialog): bool {.cdecl, 
-    importcpp: "SetSheetStyle", header: wxh.}
+                    dialog: ptr WxRichTextFormattingDialog): bool {.discardable, 
+    cdecl, importcpp: "SetSheetStyle", header: wxh.}
 proc createButtons*(this: var WxRichTextFormattingDialogFactory; 
                     dialog: ptr WxRichTextFormattingDialog): bool {.cdecl, 
     importcpp: "CreateButtons", header: wxh.}
@@ -101,12 +101,12 @@ proc getStyle*(this: var WxRichTextFormattingDialog; ctrl: ptr WxRichTextCtrl;
                range: WxRichTextRange): bool {.cdecl, importcpp: "GetStyle", 
     header: wxh.}
 proc setStyle*(this: var WxRichTextFormattingDialog; style: WxRichTextAttr; 
-               update: bool = true): bool {.cdecl, importcpp: "SetStyle", 
-    header: wxh.}
+               update: bool = true): bool {.discardable, cdecl, 
+    importcpp: "SetStyle", header: wxh.}
 proc setStyleDefinition*(this: var WxRichTextFormattingDialog; 
                          styleDef: WxRichTextStyleDefinition; 
                          sheet: ptr WxRichTextStyleSheet; update: bool = true): bool {.
-    cdecl, importcpp: "SetStyleDefinition", header: wxh.}
+    discardable, cdecl, importcpp: "SetStyleDefinition", header: wxh.}
 proc getStyleDefinition*(this: WxRichTextFormattingDialog): ptr WxRichTextStyleDefinition {.
     noSideEffect, cdecl, importcpp: "GetStyleDefinition", header: wxh.}
 proc getStyleSheet*(this: WxRichTextFormattingDialog): ptr WxRichTextStyleSheet {.
@@ -242,7 +242,7 @@ proc createHTML*(this: WxRichTextFontListBox; facename: WxString): WxString {.
 proc getFaceName*(this: WxRichTextFontListBox; i: csize): WxString {.
     noSideEffect, cdecl, importcpp: "GetFaceName", header: wxh.}
 proc setFaceNameSelection*(this: var WxRichTextFontListBox; name: WxString): cint {.
-    cdecl, importcpp: "SetFaceNameSelection", header: wxh.}
+    discardable, cdecl, importcpp: "SetFaceNameSelection", header: wxh.}
 proc updateFonts*(this: var WxRichTextFontListBox) {.cdecl, 
     importcpp: "UpdateFonts", header: wxh.}
 proc hasFaceName*(this: WxRichTextFontListBox; faceName: WxString): bool {.

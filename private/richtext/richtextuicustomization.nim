@@ -11,7 +11,7 @@ proc constructwxRichTextUICustomization*(): WxRichTextUICustomization {.cdecl,
 proc destroywxRichTextUICustomization*(this: var WxRichTextUICustomization) {.
     cdecl, importcpp: "#.~wxRichTextUICustomization()", header: wxh.}
 proc showHelp*(this: var WxRichTextUICustomization; win: ptr WxWindow; id: clong): bool {.
-    cdecl, importcpp: "ShowHelp", header: wxh.}
+    discardable, cdecl, importcpp: "ShowHelp", header: wxh.}
 
 type 
   WxRichTextHelpInfo* {.importcpp: "wxRichTextHelpInfo", header: wxh.} = object 
@@ -21,8 +21,8 @@ proc constructwxRichTextHelpInfo*(): WxRichTextHelpInfo {.cdecl, constructor,
     importcpp: "wxRichTextHelpInfo(@)", header: wxh.}
 proc destroywxRichTextHelpInfo*(this: var WxRichTextHelpInfo) {.cdecl, 
     importcpp: "#.~wxRichTextHelpInfo()", header: wxh.}
-proc showHelp*(this: var WxRichTextHelpInfo; win: ptr WxWindow): bool {.cdecl, 
-    importcpp: "ShowHelp", header: wxh.}
+proc showHelp*(this: var WxRichTextHelpInfo; win: ptr WxWindow): bool {.
+    discardable, cdecl, importcpp: "ShowHelp", header: wxh.}
 proc getHelpId*(this: WxRichTextHelpInfo): clong {.noSideEffect, cdecl, 
     importcpp: "GetHelpId", header: wxh.}
 proc setHelpId*(this: var WxRichTextHelpInfo; id: clong) {.cdecl, 

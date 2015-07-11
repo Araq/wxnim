@@ -78,15 +78,15 @@ proc constructwxRichTextContextMenuPropertiesInfo*(): WxRichTextContextMenuPrope
 proc init*(this: var WxRichTextContextMenuPropertiesInfo) {.cdecl, 
     importcpp: "Init", header: wxh.}
 proc addItem*(this: var WxRichTextContextMenuPropertiesInfo; label: WxString; 
-              obj: ptr WxRichTextObject): bool {.cdecl, importcpp: "AddItem", 
-    header: wxh.}
+              obj: ptr WxRichTextObject): bool {.discardable, cdecl, 
+    importcpp: "AddItem", header: wxh.}
 proc addMenuItems*(this: WxRichTextContextMenuPropertiesInfo; menu: ptr WxMenu; 
-                   startCmd: cint): cint {.noSideEffect, cdecl, 
+                   startCmd: cint): cint {.discardable, noSideEffect, cdecl, 
     importcpp: "AddMenuItems", header: wxh.}
 proc addItems*(this: var WxRichTextContextMenuPropertiesInfo; 
                ctrl: ptr WxRichTextCtrl; container: ptr WxRichTextObject; 
-               obj: ptr WxRichTextObject): cint {.cdecl, importcpp: "AddItems", 
-    header: wxh.}
+               obj: ptr WxRichTextObject): cint {.discardable, cdecl, 
+    importcpp: "AddItems", header: wxh.}
 proc clear*(this: var WxRichTextContextMenuPropertiesInfo) {.cdecl, 
     importcpp: "Clear", header: wxh.}
 proc getLabel*(this: WxRichTextContextMenuPropertiesInfo; n: cint): WxString {.
@@ -219,7 +219,7 @@ proc storeFocusObject*(this: var WxRichTextCtrl;
     importcpp: "StoreFocusObject", header: wxh.}
 proc setFocusObject*(this: var WxRichTextCtrl; 
                      obj: ptr WxRichTextParagraphLayoutBox; 
-                     setCaretPosition: bool = true): bool {.cdecl, 
+                     setCaretPosition: bool = true): bool {.discardable, cdecl, 
     importcpp: "SetFocusObject", header: wxh.}
 proc invalidate*(this: var WxRichTextCtrl) {.cdecl, importcpp: "Invalidate", 
     header: wxh.}
@@ -258,17 +258,17 @@ proc getStyle*(this: var WxRichTextCtrl; position: clong;
                container: ptr WxRichTextParagraphLayoutBox): bool {.cdecl, 
     importcpp: "GetStyle", header: wxh.}
 proc setStyle*(this: var WxRichTextCtrl; start: clong; `end`: clong; 
-               style: WxTextAttr): bool {.cdecl, importcpp: "SetStyle", 
-    header: wxh.}
+               style: WxTextAttr): bool {.discardable, cdecl, 
+    importcpp: "SetStyle", header: wxh.}
 proc setStyle*(this: var WxRichTextCtrl; start: clong; `end`: clong; 
-               style: WxRichTextAttr): bool {.cdecl, importcpp: "SetStyle", 
-    header: wxh.}
+               style: WxRichTextAttr): bool {.discardable, cdecl, 
+    importcpp: "SetStyle", header: wxh.}
 proc setStyle*(this: var WxRichTextCtrl; range: WxRichTextRange; 
-               style: WxTextAttr): bool {.cdecl, importcpp: "SetStyle", 
-    header: wxh.}
+               style: WxTextAttr): bool {.discardable, cdecl, 
+    importcpp: "SetStyle", header: wxh.}
 proc setStyle*(this: var WxRichTextCtrl; range: WxRichTextRange; 
-               style: WxRichTextAttr): bool {.cdecl, importcpp: "SetStyle", 
-    header: wxh.}
+               style: WxRichTextAttr): bool {.discardable, cdecl, 
+    importcpp: "SetStyle", header: wxh.}
 proc setStyle*(this: var WxRichTextCtrl; obj: ptr WxRichTextObject; 
                textAttr: WxRichTextAttr; flags = wxRICHTEXT_SETSTYLE_WITH_UNDO) {.
     cdecl, importcpp: "SetStyle", header: wxh.}
@@ -284,7 +284,7 @@ proc getStyleForRange*(this: var WxRichTextCtrl; range: WxRichTextRange;
     cdecl, importcpp: "GetStyleForRange", header: wxh.}
 proc setStyleEx*(this: var WxRichTextCtrl; range: WxRichTextRange; 
                  style: WxRichTextAttr; flags = wxRICHTEXT_SETSTYLE_WITH_UNDO): bool {.
-    cdecl, importcpp: "SetStyleEx", header: wxh.}
+    discardable, cdecl, importcpp: "SetStyleEx", header: wxh.}
 proc getUncombinedStyle*(this: var WxRichTextCtrl; position: clong; 
                          style: var WxRichTextAttr): bool {.cdecl, 
     importcpp: "GetUncombinedStyle", header: wxh.}
@@ -293,20 +293,20 @@ proc getUncombinedStyle*(this: var WxRichTextCtrl; position: clong;
                          container: ptr WxRichTextParagraphLayoutBox): bool {.
     cdecl, importcpp: "GetUncombinedStyle", header: wxh.}
 proc setDefaultStyle*(this: var WxRichTextCtrl; style: WxTextAttr): bool {.
-    cdecl, importcpp: "SetDefaultStyle", header: wxh.}
+    discardable, cdecl, importcpp: "SetDefaultStyle", header: wxh.}
 proc setDefaultStyle*(this: var WxRichTextCtrl; style: WxRichTextAttr): bool {.
-    cdecl, importcpp: "SetDefaultStyle", header: wxh.}
+    discardable, cdecl, importcpp: "SetDefaultStyle", header: wxh.}
 proc getDefaultStyleEx*(this: WxRichTextCtrl): WxRichTextAttr {.noSideEffect, 
     cdecl, importcpp: "GetDefaultStyleEx", header: wxh.}
 proc setListStyle*(this: var WxRichTextCtrl; range: WxRichTextRange; 
                    def: ptr WxRichTextListStyleDefinition; 
                    flags = wxRICHTEXT_SETSTYLE_WITH_UNDO; startFrom: cint = 1; 
-                   specifiedLevel: cint = - 1): bool {.cdecl, 
+                   specifiedLevel: cint = - 1): bool {.discardable, cdecl, 
     importcpp: "SetListStyle", header: wxh.}
 proc setListStyle*(this: var WxRichTextCtrl; range: WxRichTextRange; 
                    defName: WxString; flags = wxRICHTEXT_SETSTYLE_WITH_UNDO; 
                    startFrom: cint = 1; specifiedLevel: cint = - 1): bool {.
-    cdecl, importcpp: "SetListStyle", header: wxh.}
+    discardable, cdecl, importcpp: "SetListStyle", header: wxh.}
 proc clearListStyle*(this: var WxRichTextCtrl; range: WxRichTextRange; 
                      flags = wxRICHTEXT_SETSTYLE_WITH_UNDO): bool {.cdecl, 
     importcpp: "ClearListStyle", header: wxh.}
@@ -333,7 +333,7 @@ proc promoteList*(this: var WxRichTextCtrl; promoteBy: cint;
 proc setProperties*(this: var WxRichTextCtrl; range: WxRichTextRange; 
                     properties: WxRichTextProperties; 
                     flags: cint = wxRICHTEXT_SETPROPERTIES_WITH_UNDO): bool {.
-    cdecl, importcpp: "SetProperties", header: wxh.}
+    discardable, cdecl, importcpp: "SetProperties", header: wxh.}
 proc delete*(this: var WxRichTextCtrl; range: WxRichTextRange): bool {.cdecl, 
     importcpp: "Delete", header: wxh.}
 proc xYToPosition*(this: WxRichTextCtrl; x: clong; y: clong): clong {.
@@ -509,8 +509,8 @@ proc beginURL*(this: var WxRichTextCtrl; url: WxString;
     importcpp: "BeginURL", header: wxh.}
 proc endURL*(this: var WxRichTextCtrl): bool {.cdecl, importcpp: "EndURL", 
     header: wxh.}
-proc setDefaultStyleToCursorStyle*(this: var WxRichTextCtrl): bool {.cdecl, 
-    importcpp: "SetDefaultStyleToCursorStyle", header: wxh.}
+proc setDefaultStyleToCursorStyle*(this: var WxRichTextCtrl): bool {.
+    discardable, cdecl, importcpp: "SetDefaultStyleToCursorStyle", header: wxh.}
 proc selectNone*(this: var WxRichTextCtrl) {.cdecl, importcpp: "SelectNone", 
     header: wxh.}
 proc selectWord*(this: var WxRichTextCtrl; position: clong): bool {.cdecl, 
@@ -524,9 +524,9 @@ proc getInternalSelectionRange*(this: WxRichTextCtrl): WxRichTextRange {.
 proc setInternalSelectionRange*(this: var WxRichTextCtrl; range: WxRichTextRange) {.
     cdecl, importcpp: "SetInternalSelectionRange", header: wxh.}
 proc addParagraph*(this: var WxRichTextCtrl; text: WxString): WxRichTextRange {.
-    cdecl, importcpp: "AddParagraph", header: wxh.}
+    discardable, cdecl, importcpp: "AddParagraph", header: wxh.}
 proc addImage*(this: var WxRichTextCtrl; image: WxImage): WxRichTextRange {.
-    cdecl, importcpp: "AddImage", header: wxh.}
+    discardable, cdecl, importcpp: "AddImage", header: wxh.}
 proc layoutContent*(this: var WxRichTextCtrl; onlyVisibleRect: bool = false): bool {.
     cdecl, importcpp: "LayoutContent", header: wxh.}
 proc moveCaret*(this: var WxRichTextCtrl; pos: clong; 
@@ -621,8 +621,8 @@ proc applyStyleSheet*(this: var WxRichTextCtrl;
                       styleSheet: ptr WxRichTextStyleSheet = nil): bool {.cdecl, 
     importcpp: "ApplyStyleSheet", header: wxh.}
 proc showContextMenu*(this: var WxRichTextCtrl; menu: ptr WxMenu; pt: WxPoint; 
-                      addPropertyCommands: bool = true): bool {.cdecl, 
-    importcpp: "ShowContextMenu", header: wxh.}
+                      addPropertyCommands: bool = true): bool {.discardable, 
+    cdecl, importcpp: "ShowContextMenu", header: wxh.}
 proc prepareContextMenu*(this: var WxRichTextCtrl; menu: ptr WxMenu; 
                          pt: WxPoint; addPropertyCommands: bool = true): cint {.
     cdecl, importcpp: "PrepareContextMenu", header: wxh.}
@@ -748,8 +748,8 @@ proc onIdle*(this: var WxRichTextCtrl; event: var WxIdleEvent) {.cdecl,
     importcpp: "OnIdle", header: wxh.}
 proc onScroll*(this: var WxRichTextCtrl; event: var WxScrollWinEvent) {.cdecl, 
     importcpp: "OnScroll", header: wxh.}
-proc setFont*(this: var WxRichTextCtrl; font: WxFont): bool {.cdecl, 
-    importcpp: "SetFont", header: wxh.}
+proc setFont*(this: var WxRichTextCtrl; font: WxFont): bool {.discardable, 
+    cdecl, importcpp: "SetFont", header: wxh.}
 proc setupScrollbars*(this: var WxRichTextCtrl; atTop: bool = false) {.cdecl, 
     importcpp: "SetupScrollbars", header: wxh.}
 proc keyboardNavigate*(this: var WxRichTextCtrl; keyCode: cint; flags: cint): bool {.
@@ -823,8 +823,8 @@ proc findRangeForList*(this: var WxRichTextCtrl; pos: clong;
 proc setCaretPositionAfterClick*(this: var WxRichTextCtrl; 
                                  container: ptr WxRichTextParagraphLayoutBox; 
                                  position: clong; hitTestFlags: cint; 
-                                 extendSelection: bool = false): bool {.cdecl, 
-    importcpp: "SetCaretPositionAfterClick", header: wxh.}
+                                 extendSelection: bool = false): bool {.
+    discardable, cdecl, importcpp: "SetCaretPositionAfterClick", header: wxh.}
 proc findCaretPositionForCharacterPosition*(this: var WxRichTextCtrl; 
     position: clong; hitTestFlags: cint; 
     container: ptr WxRichTextParagraphLayoutBox; caretLineStart: var bool): clong {.

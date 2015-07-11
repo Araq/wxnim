@@ -88,13 +88,13 @@ proc getCanonicalName*(this: WxLocale): WxString {.noSideEffect, cdecl,
     importcpp: "GetCanonicalName", header: wxh.}
 proc addCatalogLookupPathPrefix*(prefix: WxString) {.cdecl, 
     importcpp: "wxLocale::AddCatalogLookupPathPrefix(@)", header: wxh.}
-proc addCatalog*(this: var WxLocale; domain: WxString): bool {.cdecl, 
-    importcpp: "AddCatalog", header: wxh.}
-proc addCatalog*(this: var WxLocale; domain: WxString; msgIdLanguage: WxLanguage): bool {.
+proc addCatalog*(this: var WxLocale; domain: WxString): bool {.discardable, 
     cdecl, importcpp: "AddCatalog", header: wxh.}
+proc addCatalog*(this: var WxLocale; domain: WxString; msgIdLanguage: WxLanguage): bool {.
+    discardable, cdecl, importcpp: "AddCatalog", header: wxh.}
 proc addCatalog*(this: var WxLocale; domain: WxString; 
                  msgIdLanguage: WxLanguage; msgIdCharset: WxString): bool {.
-    cdecl, importcpp: "AddCatalog", header: wxh.}
+    discardable, cdecl, importcpp: "AddCatalog", header: wxh.}
 proc isAvailable*(lang: cint): bool {.cdecl, 
                                       importcpp: "wxLocale::IsAvailable(@)", 
                                       header: wxh.}

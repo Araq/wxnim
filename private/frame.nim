@@ -137,8 +137,8 @@ proc create*(this: var WxFrame; parent: ptr WxWindow; id: WxWindowID;
 proc destroywxFrame*(this: var WxFrame) {.cdecl, importcpp: "#.~wxFrame()", 
     header: wxh.}
 proc showFullScreen*(this: var WxFrame; show: bool; 
-                     style: clong = wxFULLSCREEN_ALL): bool {.cdecl, 
-    importcpp: "ShowFullScreen", header: wxh.}
+                     style: clong = wxFULLSCREEN_ALL): bool {.discardable, 
+    cdecl, importcpp: "ShowFullScreen", header: wxh.}
 proc onSysColourChanged*(this: var WxFrame; event: var WxSysColourChangedEvent) {.
     cdecl, importcpp: "OnSysColourChanged", header: wxh.}
 proc createToolBar*(this: var WxFrame; style: clong = - 1; 

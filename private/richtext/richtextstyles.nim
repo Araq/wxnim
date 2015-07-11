@@ -190,18 +190,18 @@ proc `==`*(this: WxRichTextStyleSheet; sheet: WxRichTextStyleSheet): bool {.
     noSideEffect, cdecl, importcpp: "(# == #)", header: wxh.}
 proc addCharacterStyle*(this: var WxRichTextStyleSheet; 
                         def: ptr WxRichTextCharacterStyleDefinition): bool {.
-    cdecl, importcpp: "AddCharacterStyle", header: wxh.}
+    discardable, cdecl, importcpp: "AddCharacterStyle", header: wxh.}
 proc addParagraphStyle*(this: var WxRichTextStyleSheet; 
                         def: ptr WxRichTextParagraphStyleDefinition): bool {.
-    cdecl, importcpp: "AddParagraphStyle", header: wxh.}
+    discardable, cdecl, importcpp: "AddParagraphStyle", header: wxh.}
 proc addListStyle*(this: var WxRichTextStyleSheet; 
-                   def: ptr WxRichTextListStyleDefinition): bool {.cdecl, 
-    importcpp: "AddListStyle", header: wxh.}
+                   def: ptr WxRichTextListStyleDefinition): bool {.discardable, 
+    cdecl, importcpp: "AddListStyle", header: wxh.}
 proc addBoxStyle*(this: var WxRichTextStyleSheet; 
-                  def: ptr WxRichTextBoxStyleDefinition): bool {.cdecl, 
-    importcpp: "AddBoxStyle", header: wxh.}
+                  def: ptr WxRichTextBoxStyleDefinition): bool {.discardable, 
+    cdecl, importcpp: "AddBoxStyle", header: wxh.}
 proc addStyle*(this: var WxRichTextStyleSheet; 
-               def: ptr WxRichTextStyleDefinition): bool {.cdecl, 
+               def: ptr WxRichTextStyleDefinition): bool {.discardable, cdecl, 
     importcpp: "AddStyle", header: wxh.}
 proc removeCharacterStyle*(this: var WxRichTextStyleSheet; 
                            def: ptr WxRichTextStyleDefinition; 
@@ -287,7 +287,7 @@ proc getProperties*(this: WxRichTextStyleSheet): WxRichTextProperties {.
 proc setProperties*(this: var WxRichTextStyleSheet; props: WxRichTextProperties) {.
     cdecl, importcpp: "SetProperties", header: wxh.}
 proc addStyle*(this: var WxRichTextStyleSheet; list: var WxList; 
-               def: ptr WxRichTextStyleDefinition): bool {.cdecl, 
+               def: ptr WxRichTextStyleDefinition): bool {.discardable, cdecl, 
     importcpp: "AddStyle", header: wxh.}
 proc removeStyle*(this: var WxRichTextStyleSheet; list: var WxList; 
                   def: ptr WxRichTextStyleDefinition; deleteStyle: bool): bool {.
@@ -338,7 +338,7 @@ proc getStyle*(this: WxRichTextStyleListBox; i: csize): ptr WxRichTextStyleDefin
 proc getIndexForStyle*(this: WxRichTextStyleListBox; name: WxString): cint {.
     noSideEffect, cdecl, importcpp: "GetIndexForStyle", header: wxh.}
 proc setStyleSelection*(this: var WxRichTextStyleListBox; name: WxString): cint {.
-    cdecl, importcpp: "SetStyleSelection", header: wxh.}
+    discardable, cdecl, importcpp: "SetStyleSelection", header: wxh.}
 proc updateStyles*(this: var WxRichTextStyleListBox) {.cdecl, 
     importcpp: "UpdateStyles", header: wxh.}
 proc applyStyle*(this: var WxRichTextStyleListBox; i: cint) {.cdecl, 

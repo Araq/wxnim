@@ -109,5 +109,5 @@ proc onUpdateDelete*(this: var WxComboBox; event: var WxUpdateUIEvent) {.cdecl,
     importcpp: "OnUpdateDelete", header: wxh.}
 proc onUpdateSelectAll*(this: var WxComboBox; event: var WxUpdateUIEvent) {.
     cdecl, importcpp: "OnUpdateSelectAll", header: wxh.}
-proc setHint*(this: var WxComboBox; hint: WxString): bool {.cdecl, 
+proc setHint*(this: var WxComboBox; hint: WxString): bool {.discardable, cdecl, 
     importcpp: "SetHint", header: wxh.}

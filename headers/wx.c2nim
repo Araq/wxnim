@@ -6,6 +6,11 @@
 #assumeifistrue
 #cdecl
 
+#discardableprefix Add
+#discardableprefix Set
+#discardableprefix Show
+
+
 // #prefix WX
 // #prefix wx
 

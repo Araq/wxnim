@@ -1494,13 +1494,13 @@ proc reset*(this: var WxRichTextParagraphLayoutBox) {.cdecl, importcpp: "Reset",
     header: wxh.}
 proc addParagraph*(this: var WxRichTextParagraphLayoutBox; text: WxString; 
                    paraStyle: ptr WxRichTextAttr = nil): WxRichTextRange {.
-    cdecl, importcpp: "AddParagraph", header: wxh.}
+    discardable, cdecl, importcpp: "AddParagraph", header: wxh.}
 proc addImage*(this: var WxRichTextParagraphLayoutBox; image: WxImage; 
-               paraStyle: ptr WxRichTextAttr = nil): WxRichTextRange {.cdecl, 
-    importcpp: "AddImage", header: wxh.}
+               paraStyle: ptr WxRichTextAttr = nil): WxRichTextRange {.
+    discardable, cdecl, importcpp: "AddImage", header: wxh.}
 proc addParagraphs*(this: var WxRichTextParagraphLayoutBox; text: WxString; 
                     paraStyle: ptr WxRichTextAttr = nil): WxRichTextRange {.
-    cdecl, importcpp: "AddParagraphs", header: wxh.}
+    discardable, cdecl, importcpp: "AddParagraphs", header: wxh.}
 proc getLineAtPosition*(this: WxRichTextParagraphLayoutBox; pos: clong; 
                         caretPosition: bool = false): ptr WxRichTextLine {.
     noSideEffect, cdecl, importcpp: "GetLineAtPosition", header: wxh.}
@@ -1545,8 +1545,8 @@ proc positionToXY*(this: WxRichTextParagraphLayoutBox; pos: clong; x: ptr clong;
     importcpp: "PositionToXY", header: wxh.}
 proc setStyle*(this: var WxRichTextParagraphLayoutBox; range: WxRichTextRange; 
                style: WxRichTextAttr; 
-               flags: cint = wxRICHTEXT_SETSTYLE_WITH_UNDO): bool {.cdecl, 
-    importcpp: "SetStyle", header: wxh.}
+               flags: cint = wxRICHTEXT_SETSTYLE_WITH_UNDO): bool {.discardable, 
+    cdecl, importcpp: "SetStyle", header: wxh.}
 proc setStyle*(this: var WxRichTextParagraphLayoutBox; 
                obj: ptr WxRichTextObject; textAttr: WxRichTextAttr; 
                flags: cint = wxRICHTEXT_SETSTYLE_WITH_UNDO) {.cdecl, 
@@ -1573,12 +1573,12 @@ proc setListStyle*(this: var WxRichTextParagraphLayoutBox;
                    def: ptr WxRichTextListStyleDefinition; 
                    flags: cint = wxRICHTEXT_SETSTYLE_WITH_UNDO; 
                    startFrom: cint = 1; specifiedLevel: cint = - 1): bool {.
-    cdecl, importcpp: "SetListStyle", header: wxh.}
+    discardable, cdecl, importcpp: "SetListStyle", header: wxh.}
 proc setListStyle*(this: var WxRichTextParagraphLayoutBox; 
                    range: WxRichTextRange; defName: WxString; 
                    flags: cint = wxRICHTEXT_SETSTYLE_WITH_UNDO; 
                    startFrom: cint = 1; specifiedLevel: cint = - 1): bool {.
-    cdecl, importcpp: "SetListStyle", header: wxh.}
+    discardable, cdecl, importcpp: "SetListStyle", header: wxh.}
 proc clearListStyle*(this: var WxRichTextParagraphLayoutBox; 
                      range: WxRichTextRange; 
                      flags: cint = wxRICHTEXT_SETSTYLE_WITH_UNDO): bool {.cdecl, 
@@ -1616,12 +1616,12 @@ proc findNextParagraphNumber*(this: WxRichTextParagraphLayoutBox;
 proc setProperties*(this: var WxRichTextParagraphLayoutBox; 
                     range: WxRichTextRange; properties: WxRichTextProperties; 
                     flags: cint = wxRICHTEXT_SETPROPERTIES_WITH_UNDO): bool {.
-    cdecl, importcpp: "SetProperties", header: wxh.}
+    discardable, cdecl, importcpp: "SetProperties", header: wxh.}
 proc setObjectPropertiesWithUndo*(this: var WxRichTextParagraphLayoutBox; 
                                   obj: var WxRichTextObject; 
                                   properties: WxRichTextProperties; 
                                   objToSet: ptr WxRichTextObject = nil): bool {.
-    cdecl, importcpp: "SetObjectPropertiesWithUndo", header: wxh.}
+    discardable, cdecl, importcpp: "SetObjectPropertiesWithUndo", header: wxh.}
 proc hasCharacterAttributes*(this: WxRichTextParagraphLayoutBox; 
                              range: WxRichTextRange; style: WxRichTextAttr): bool {.
     noSideEffect, cdecl, importcpp: "HasCharacterAttributes", header: wxh.}
@@ -1651,7 +1651,7 @@ proc updateRanges*(this: var WxRichTextParagraphLayoutBox) {.cdecl,
 proc getText*(this: WxRichTextParagraphLayoutBox): WxString {.noSideEffect, 
     cdecl, importcpp: "GetText", header: wxh.}
 proc setDefaultStyle*(this: var WxRichTextParagraphLayoutBox; 
-                      style: WxRichTextAttr): bool {.cdecl, 
+                      style: WxRichTextAttr): bool {.discardable, cdecl, 
     importcpp: "SetDefaultStyle", header: wxh.}
 proc getDefaultStyle*(this: WxRichTextParagraphLayoutBox): WxRichTextAttr {.
     noSideEffect, cdecl, importcpp: "GetDefaultStyle", header: wxh.}
@@ -2208,8 +2208,8 @@ proc setStyleSheet*(this: var WxRichTextBuffer;
 proc getStyleSheet*(this: WxRichTextBuffer): ptr WxRichTextStyleSheet {.
     noSideEffect, cdecl, importcpp: "GetStyleSheet", header: wxh.}
 proc setStyleSheetAndNotify*(this: var WxRichTextBuffer; 
-                             sheet: ptr WxRichTextStyleSheet): bool {.cdecl, 
-    importcpp: "SetStyleSheetAndNotify", header: wxh.}
+                             sheet: ptr WxRichTextStyleSheet): bool {.
+    discardable, cdecl, importcpp: "SetStyleSheetAndNotify", header: wxh.}
 proc pushStyleSheet*(this: var WxRichTextBuffer; 
                      styleSheet: ptr WxRichTextStyleSheet): bool {.cdecl, 
     importcpp: "PushStyleSheet", header: wxh.}
@@ -2244,7 +2244,7 @@ proc getHandlerFlags*(this: WxRichTextBuffer): cint {.noSideEffect, cdecl,
     importcpp: "GetHandlerFlags", header: wxh.}
 proc addParagraph*(this: var WxRichTextBuffer; text: WxString; 
                    paraStyle: ptr WxRichTextAttr = nil): WxRichTextRange {.
-    cdecl, importcpp: "AddParagraph", header: wxh.}
+    discardable, cdecl, importcpp: "AddParagraph", header: wxh.}
 proc beginBatchUndo*(this: var WxRichTextBuffer; cmdName: WxString): bool {.
     cdecl, importcpp: "BeginBatchUndo", header: wxh.}
 proc endBatchUndo*(this: var WxRichTextBuffer): bool {.cdecl, 
@@ -2357,7 +2357,7 @@ proc beginURL*(this: var WxRichTextBuffer; url: WxString;
 proc endURL*(this: var WxRichTextBuffer): bool {.cdecl, importcpp: "EndURL", 
     header: wxh.}
 proc addEventHandler*(this: var WxRichTextBuffer; handler: ptr WxEvtHandler): bool {.
-    cdecl, importcpp: "AddEventHandler", header: wxh.}
+    discardable, cdecl, importcpp: "AddEventHandler", header: wxh.}
 proc removeEventHandler*(this: var WxRichTextBuffer; handler: ptr WxEvtHandler; 
                          deleteHandler: bool = false): bool {.cdecl, 
     importcpp: "RemoveEventHandler", header: wxh.}
@@ -2581,18 +2581,18 @@ proc createTable*(this: var WxRichTextTable; rows: cint; cols: cint): bool {.
     cdecl, importcpp: "CreateTable", header: wxh.}
 proc setCellStyle*(this: var WxRichTextTable; selection: WxRichTextSelection; 
                    style: WxRichTextAttr; 
-                   flags: cint = wxRICHTEXT_SETSTYLE_WITH_UNDO): bool {.cdecl, 
-    importcpp: "SetCellStyle", header: wxh.}
+                   flags: cint = wxRICHTEXT_SETSTYLE_WITH_UNDO): bool {.
+    discardable, cdecl, importcpp: "SetCellStyle", header: wxh.}
 proc deleteRows*(this: var WxRichTextTable; startRow: cint; noRows: cint = 1): bool {.
     cdecl, importcpp: "DeleteRows", header: wxh.}
 proc deleteColumns*(this: var WxRichTextTable; startCol: cint; noCols: cint = 1): bool {.
     cdecl, importcpp: "DeleteColumns", header: wxh.}
 proc addRows*(this: var WxRichTextTable; startRow: cint; noRows: cint = 1; 
-              attr: WxRichTextAttr = constructWxRichTextAttr()): bool {.cdecl, 
-    importcpp: "AddRows", header: wxh.}
+              attr: WxRichTextAttr = constructWxRichTextAttr()): bool {.
+    discardable, cdecl, importcpp: "AddRows", header: wxh.}
 proc addColumns*(this: var WxRichTextTable; startCol: cint; noCols: cint = 1; 
                  attr: WxRichTextAttr = constructWxRichTextAttr()): bool {.
-    cdecl, importcpp: "AddColumns", header: wxh.}
+    discardable, cdecl, importcpp: "AddColumns", header: wxh.}
 proc clone*(this: WxRichTextTable): ptr WxRichTextObject {.noSideEffect, cdecl, 
     importcpp: "Clone", header: wxh.}
 proc copy*(this: var WxRichTextTable; obj: WxRichTextTable) {.cdecl, 
@@ -2915,15 +2915,15 @@ proc getDataSize*(this: WxRichTextBufferDataObject): csize {.noSideEffect,
 proc getDataHere*(this: WxRichTextBufferDataObject; pBuf: pointer): bool {.
     noSideEffect, cdecl, importcpp: "GetDataHere", header: wxh.}
 proc setData*(this: var WxRichTextBufferDataObject; len: csize; buf: pointer): bool {.
-    cdecl, importcpp: "SetData", header: wxh.}
+    discardable, cdecl, importcpp: "SetData", header: wxh.}
 proc getDataSize*(this: WxRichTextBufferDataObject; a3: WxDataFormat): csize {.
     noSideEffect, cdecl, importcpp: "GetDataSize", header: wxh.}
 proc getDataHere*(this: WxRichTextBufferDataObject; a3: WxDataFormat; 
                   buf: pointer): bool {.noSideEffect, cdecl, 
                                         importcpp: "GetDataHere", header: wxh.}
 proc setData*(this: var WxRichTextBufferDataObject; a3: WxDataFormat; 
-              len: csize; buf: pointer): bool {.cdecl, importcpp: "SetData", 
-    header: wxh.}
+              len: csize; buf: pointer): bool {.discardable, cdecl, 
+    importcpp: "SetData", header: wxh.}
 
 type 
   WxRichTextRenderer* {.importcpp: "wxRichTextRenderer", header: wxh.} = object of WxObject

@@ -51,7 +51,7 @@ proc create*(this: var WxChoice; parent: ptr WxWindow; id: WxWindowID;
              style: clong = 0; validator: WxValidator = wxDefaultValidator; 
              name: WxString = constructWxString("choice")): bool {.cdecl, 
     importcpp: "Create", header: wxh.}
-proc show*(this: var WxChoice; show: bool = true): bool {.cdecl, 
+proc show*(this: var WxChoice; show: bool = true): bool {.discardable, cdecl, 
     importcpp: "Show", header: wxh.}
 proc setLabel*(this: var WxChoice; label: WxString) {.cdecl, 
     importcpp: "SetLabel", header: wxh.}

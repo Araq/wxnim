@@ -191,25 +191,25 @@ proc destroywxSizer*(this: var WxSizer) {.cdecl, importcpp: "#.~wxSizer()",
     header: wxh.}
 proc add*(this: var WxSizer; window: ptr WxWindow; proportion: cint = 0; 
           flag: cint = 0; border: cint = 0; userData: ptr WxObject = nil): ptr WxSizerItem {.
-    cdecl, importcpp: "Add", header: wxh.}
+    discardable, cdecl, importcpp: "Add", header: wxh.}
 proc add*(this: var WxSizer; sizer: ptr WxSizer; proportion: cint = 0; 
           flag: cint = 0; border: cint = 0; userData: ptr WxObject = nil): ptr WxSizerItem {.
-    cdecl, importcpp: "Add", header: wxh.}
+    discardable, cdecl, importcpp: "Add", header: wxh.}
 proc add*(this: var WxSizer; width: cint; height: cint; proportion: cint = 0; 
           flag: cint = 0; border: cint = 0; userData: ptr WxObject = nil): ptr WxSizerItem {.
-    cdecl, importcpp: "Add", header: wxh.}
+    discardable, cdecl, importcpp: "Add", header: wxh.}
 proc add*(this: var WxSizer; window: ptr WxWindow; flags: WxSizerFlags): ptr WxSizerItem {.
-    cdecl, importcpp: "Add", header: wxh.}
+    discardable, cdecl, importcpp: "Add", header: wxh.}
 proc add*(this: var WxSizer; sizer: ptr WxSizer; flags: WxSizerFlags): ptr WxSizerItem {.
-    cdecl, importcpp: "Add", header: wxh.}
+    discardable, cdecl, importcpp: "Add", header: wxh.}
 proc add*(this: var WxSizer; width: cint; height: cint; flags: WxSizerFlags): ptr WxSizerItem {.
-    cdecl, importcpp: "Add", header: wxh.}
-proc add*(this: var WxSizer; item: ptr WxSizerItem): ptr WxSizerItem {.cdecl, 
-    importcpp: "Add", header: wxh.}
-proc addSpacer*(this: var WxSizer; size: cint): ptr WxSizerItem {.cdecl, 
-    importcpp: "AddSpacer", header: wxh.}
+    discardable, cdecl, importcpp: "Add", header: wxh.}
+proc add*(this: var WxSizer; item: ptr WxSizerItem): ptr WxSizerItem {.
+    discardable, cdecl, importcpp: "Add", header: wxh.}
+proc addSpacer*(this: var WxSizer; size: cint): ptr WxSizerItem {.discardable, 
+    cdecl, importcpp: "AddSpacer", header: wxh.}
 proc addStretchSpacer*(this: var WxSizer; prop: cint = 1): ptr WxSizerItem {.
-    cdecl, importcpp: "AddStretchSpacer", header: wxh.}
+    discardable, cdecl, importcpp: "AddStretchSpacer", header: wxh.}
 proc insert*(this: var WxSizer; index: csize; window: ptr WxWindow; 
              proportion: cint = 0; flag: cint = 0; border: cint = 0; 
              userData: ptr WxObject = nil): ptr WxSizerItem {.cdecl, 
@@ -293,19 +293,19 @@ proc setMinSize*(this: var WxSizer; width: cint; height: cint) {.cdecl,
 proc setMinSize*(this: var WxSizer; size: WxSize) {.cdecl, 
     importcpp: "SetMinSize", header: wxh.}
 proc setItemMinSize*(this: var WxSizer; window: ptr WxWindow; width: cint; 
-                     height: cint): bool {.cdecl, importcpp: "SetItemMinSize", 
-    header: wxh.}
+                     height: cint): bool {.discardable, cdecl, 
+    importcpp: "SetItemMinSize", header: wxh.}
 proc setItemMinSize*(this: var WxSizer; window: ptr WxWindow; size: WxSize): bool {.
-    cdecl, importcpp: "SetItemMinSize", header: wxh.}
+    discardable, cdecl, importcpp: "SetItemMinSize", header: wxh.}
 proc setItemMinSize*(this: var WxSizer; sizer: ptr WxSizer; width: cint; 
-                     height: cint): bool {.cdecl, importcpp: "SetItemMinSize", 
-    header: wxh.}
+                     height: cint): bool {.discardable, cdecl, 
+    importcpp: "SetItemMinSize", header: wxh.}
 proc setItemMinSize*(this: var WxSizer; sizer: ptr WxSizer; size: WxSize): bool {.
-    cdecl, importcpp: "SetItemMinSize", header: wxh.}
+    discardable, cdecl, importcpp: "SetItemMinSize", header: wxh.}
 proc setItemMinSize*(this: var WxSizer; index: csize; width: cint; height: cint): bool {.
-    cdecl, importcpp: "SetItemMinSize", header: wxh.}
+    discardable, cdecl, importcpp: "SetItemMinSize", header: wxh.}
 proc setItemMinSize*(this: var WxSizer; index: csize; size: WxSize): bool {.
-    cdecl, importcpp: "SetItemMinSize", header: wxh.}
+    discardable, cdecl, importcpp: "SetItemMinSize", header: wxh.}
 proc getSize*(this: WxSizer): WxSize {.noSideEffect, cdecl, 
                                        importcpp: "GetSize", header: wxh.}
 proc getPosition*(this: WxSizer): WxPoint {.noSideEffect, cdecl, 
@@ -344,13 +344,13 @@ proc getItem*(this: var WxSizer; index: csize): ptr WxSizerItem {.cdecl,
 proc getItemById*(this: var WxSizer; id: cint; recursive: bool = false): ptr WxSizerItem {.
     cdecl, importcpp: "GetItemById", header: wxh.}
 proc show*(this: var WxSizer; window: ptr WxWindow; show: bool = true; 
-           recursive: bool = false): bool {.cdecl, importcpp: "Show", 
-    header: wxh.}
-proc show*(this: var WxSizer; sizer: ptr WxSizer; show: bool = true; 
-           recursive: bool = false): bool {.cdecl, importcpp: "Show", 
-    header: wxh.}
-proc show*(this: var WxSizer; index: csize; show: bool = true): bool {.cdecl, 
+           recursive: bool = false): bool {.discardable, cdecl, 
     importcpp: "Show", header: wxh.}
+proc show*(this: var WxSizer; sizer: ptr WxSizer; show: bool = true; 
+           recursive: bool = false): bool {.discardable, cdecl, 
+    importcpp: "Show", header: wxh.}
+proc show*(this: var WxSizer; index: csize; show: bool = true): bool {.
+    discardable, cdecl, importcpp: "Show", header: wxh.}
 proc hide*(this: var WxSizer; sizer: ptr WxSizer; recursive: bool = false): bool {.
     cdecl, importcpp: "Hide", header: wxh.}
 proc hide*(this: var WxSizer; window: ptr WxWindow; recursive: bool = false): bool {.
@@ -465,8 +465,8 @@ type
 
 proc constructwxBoxSizer*(orient: WxOrientation): WxBoxSizer {.cdecl, 
     constructor, importcpp: "wxBoxSizer(@)", header: wxh.}
-proc addSpacer*(this: var WxBoxSizer; size: cint): ptr WxSizerItem {.cdecl, 
-    importcpp: "AddSpacer", header: wxh.}
+proc addSpacer*(this: var WxBoxSizer; size: cint): ptr WxSizerItem {.
+    discardable, cdecl, importcpp: "AddSpacer", header: wxh.}
 proc getOrientation*(this: WxBoxSizer): WxOrientation {.noSideEffect, cdecl, 
     importcpp: "GetOrientation", header: wxh.}
 proc isVertical*(this: WxBoxSizer): bool {.noSideEffect, cdecl, 

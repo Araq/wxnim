@@ -42,13 +42,13 @@ proc setLabelText*(this: var WxControlBase; text: WxString) {.cdecl,
     importcpp: "SetLabelText", header: wxh.}
 proc getLabelText*(this: WxControlBase): WxString {.noSideEffect, cdecl, 
     importcpp: "GetLabelText", header: wxh.}
-proc setLabelMarkup*(this: var WxControlBase; markup: WxString): bool {.cdecl, 
-    importcpp: "SetLabelMarkup", header: wxh.}
+proc setLabelMarkup*(this: var WxControlBase; markup: WxString): bool {.
+    discardable, cdecl, importcpp: "SetLabelMarkup", header: wxh.}
 proc shouldInheritColours*(this: WxControlBase): bool {.noSideEffect, cdecl, 
     importcpp: "ShouldInheritColours", header: wxh.}
 proc command*(this: var WxControlBase; event: var WxCommandEvent) {.cdecl, 
     importcpp: "Command", header: wxh.}
-proc setFont*(this: var WxControlBase; font: WxFont): bool {.cdecl, 
+proc setFont*(this: var WxControlBase; font: WxFont): bool {.discardable, cdecl, 
     importcpp: "SetFont", header: wxh.}
 proc doUpdateWindowUI*(this: var WxControlBase; event: var WxUpdateUIEvent) {.
     cdecl, importcpp: "DoUpdateWindowUI", header: wxh.}

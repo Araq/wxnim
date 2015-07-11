@@ -278,11 +278,11 @@ proc constructChildrenRepositioningGuard*(win: ptr WxWindowBase): ChildrenReposi
     cdecl, constructor, importcpp: "ChildrenRepositioningGuard(@)", header: wxh.}
 proc destroyChildrenRepositioningGuard*(this: var ChildrenRepositioningGuard) {.
     cdecl, importcpp: "#.~ChildrenRepositioningGuard()", header: wxh.}
-proc show*(this: var WxWindowBase; show: bool = true): bool {.cdecl, 
-    importcpp: "Show", header: wxh.}
+proc show*(this: var WxWindowBase; show: bool = true): bool {.discardable, 
+    cdecl, importcpp: "Show", header: wxh.}
 proc hide*(this: var WxWindowBase): bool {.cdecl, importcpp: "Hide", header: wxh.}
 proc showWithEffect*(this: var WxWindowBase; effect: WxShowEffect; 
-                     timeout: cuint = 0): bool {.cdecl, 
+                     timeout: cuint = 0): bool {.discardable, cdecl, 
     importcpp: "ShowWithEffect", header: wxh.}
 proc hideWithEffect*(this: var WxWindowBase; effect: WxShowEffect; 
                      timeout: cuint = 0): bool {.cdecl, 
@@ -496,7 +496,7 @@ proc getDefaultAttributes*(this: WxWindowBase): WxVisualAttributes {.
 proc getClassDefaultAttributes*(variant: WxWindowVariant = wxWINDOW_VARIANT_NORMAL): WxVisualAttributes {.
     cdecl, importcpp: "wxWindowBase::GetClassDefaultAttributes(@)", header: wxh.}
 proc setBackgroundColour*(this: var WxWindowBase; colour: WxColour): bool {.
-    cdecl, importcpp: "SetBackgroundColour", header: wxh.}
+    discardable, cdecl, importcpp: "SetBackgroundColour", header: wxh.}
 proc setOwnBackgroundColour*(this: var WxWindowBase; colour: WxColour) {.cdecl, 
     importcpp: "SetOwnBackgroundColour", header: wxh.}
 proc getBackgroundColour*(this: WxWindowBase): WxColour {.noSideEffect, cdecl, 
@@ -506,13 +506,13 @@ proc inheritsBackgroundColour*(this: WxWindowBase): bool {.noSideEffect, cdecl,
 proc useBgCol*(this: WxWindowBase): bool {.noSideEffect, cdecl, 
     importcpp: "UseBgCol", header: wxh.}
 proc setForegroundColour*(this: var WxWindowBase; colour: WxColour): bool {.
-    cdecl, importcpp: "SetForegroundColour", header: wxh.}
+    discardable, cdecl, importcpp: "SetForegroundColour", header: wxh.}
 proc setOwnForegroundColour*(this: var WxWindowBase; colour: WxColour) {.cdecl, 
     importcpp: "SetOwnForegroundColour", header: wxh.}
 proc getForegroundColour*(this: WxWindowBase): WxColour {.noSideEffect, cdecl, 
     importcpp: "GetForegroundColour", header: wxh.}
 proc setBackgroundStyle*(this: var WxWindowBase; style: WxBackgroundStyle): bool {.
-    cdecl, importcpp: "SetBackgroundStyle", header: wxh.}
+    discardable, cdecl, importcpp: "SetBackgroundStyle", header: wxh.}
 proc getBackgroundStyle*(this: WxWindowBase): WxBackgroundStyle {.noSideEffect, 
     cdecl, importcpp: "GetBackgroundStyle", header: wxh.}
 proc hasTransparentBackground*(this: var WxWindowBase): bool {.cdecl, 
@@ -521,14 +521,14 @@ proc isTransparentBackgroundSupported*(this: WxWindowBase;
                                        reason: ptr WxString = nil): bool {.
     noSideEffect, cdecl, importcpp: "IsTransparentBackgroundSupported", 
     header: wxh.}
-proc setFont*(this: var WxWindowBase; font: WxFont): bool {.cdecl, 
+proc setFont*(this: var WxWindowBase; font: WxFont): bool {.discardable, cdecl, 
     importcpp: "SetFont", header: wxh.}
 proc setOwnFont*(this: var WxWindowBase; font: WxFont) {.cdecl, 
     importcpp: "SetOwnFont", header: wxh.}
 proc getFont*(this: WxWindowBase): WxFont {.noSideEffect, cdecl, 
     importcpp: "GetFont", header: wxh.}
-proc setCursor*(this: var WxWindowBase; cursor: WxCursor): bool {.cdecl, 
-    importcpp: "SetCursor", header: wxh.}
+proc setCursor*(this: var WxWindowBase; cursor: WxCursor): bool {.discardable, 
+    cdecl, importcpp: "SetCursor", header: wxh.}
 proc getCursor*(this: WxWindowBase): WxCursor {.noSideEffect, cdecl, 
     importcpp: "GetCursor", header: wxh.}
 proc setCaret*(this: var WxWindowBase; caret: ptr WxCaret) {.cdecl, 
@@ -693,8 +693,8 @@ proc setContainingSizer*(this: var WxWindowBase; sizer: ptr WxSizer) {.cdecl,
     importcpp: "SetContainingSizer", header: wxh.}
 proc getContainingSizer*(this: WxWindowBase): ptr WxSizer {.noSideEffect, cdecl, 
     importcpp: "GetContainingSizer", header: wxh.}
-proc setTransparent*(this: var WxWindowBase; alpha: WxByte): bool {.cdecl, 
-    importcpp: "SetTransparent", header: wxh.}
+proc setTransparent*(this: var WxWindowBase; alpha: WxByte): bool {.discardable, 
+    cdecl, importcpp: "SetTransparent", header: wxh.}
 proc canSetTransparent*(this: var WxWindowBase): bool {.cdecl, 
     importcpp: "CanSetTransparent", header: wxh.}
 proc onSysColourChanged*(this: var WxWindowBase; 
@@ -865,8 +865,8 @@ proc isDefault*(this: WxWindow): bool {.noSideEffect, cdecl,
                                         importcpp: "IsDefault", header: wxh.}
 proc getStateFlags*(this: WxWindow): cint {.noSideEffect, cdecl, 
     importcpp: "GetStateFlags", header: wxh.}
-proc setCurrent*(this: var WxWindow; doit: bool = true): bool {.cdecl, 
-    importcpp: "SetCurrent", header: wxh.}
+proc setCurrent*(this: var WxWindow; doit: bool = true): bool {.discardable, 
+    cdecl, importcpp: "SetCurrent", header: wxh.}
 proc isCanvasWindow*(this: WxWindow): bool {.noSideEffect, cdecl, 
     importcpp: "IsCanvasWindow", header: wxh.}
 proc canBeHighlighted*(this: WxWindow): bool {.noSideEffect, cdecl, 

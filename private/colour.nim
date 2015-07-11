@@ -31,7 +31,7 @@ proc destroywxColourBase*(this: var WxColourBase) {.cdecl,
 proc set*(this: var WxColourBase; red: ChannelType; green: ChannelType; 
           blue: ChannelType; alpha: ChannelType = wxALPHA_OPAQUE) {.cdecl, 
     importcpp: "Set", header: wxh.}
-proc set*(this: var WxColourBase; str: WxString): bool {.cdecl, 
+proc set*(this: var WxColourBase; str: WxString): bool {.discardable, cdecl, 
     importcpp: "Set", header: wxh.}
 proc set*(this: var WxColourBase; colRGB: culong) {.cdecl, importcpp: "Set", 
     header: wxh.}

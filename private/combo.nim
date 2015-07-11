@@ -78,10 +78,10 @@ proc getButton*(this: WxComboCtrlBase): ptr WxWindow {.noSideEffect, cdecl,
     importcpp: "GetButton", header: wxh.}
 proc enable*(this: var WxComboCtrlBase; enable: bool = true): bool {.cdecl, 
     importcpp: "Enable", header: wxh.}
-proc show*(this: var WxComboCtrlBase; show: bool = true): bool {.cdecl, 
-    importcpp: "Show", header: wxh.}
-proc setFont*(this: var WxComboCtrlBase; font: WxFont): bool {.cdecl, 
-    importcpp: "SetFont", header: wxh.}
+proc show*(this: var WxComboCtrlBase; show: bool = true): bool {.discardable, 
+    cdecl, importcpp: "Show", header: wxh.}
+proc setFont*(this: var WxComboCtrlBase; font: WxFont): bool {.discardable, 
+    cdecl, importcpp: "SetFont", header: wxh.}
 proc setValue*(this: var WxComboCtrlBase; value: WxString) {.cdecl, 
     importcpp: "SetValue", header: wxh.}
 proc changeValue*(this: var WxComboCtrlBase; value: WxString) {.cdecl, 
@@ -121,8 +121,8 @@ proc isEditable*(this: WxComboCtrlBase): bool {.noSideEffect, cdecl,
     importcpp: "IsEditable", header: wxh.}
 proc setEditable*(this: var WxComboCtrlBase; editable: bool) {.cdecl, 
     importcpp: "SetEditable", header: wxh.}
-proc setHint*(this: var WxComboCtrlBase; hint: WxString): bool {.cdecl, 
-    importcpp: "SetHint", header: wxh.}
+proc setHint*(this: var WxComboCtrlBase; hint: WxString): bool {.discardable, 
+    cdecl, importcpp: "SetHint", header: wxh.}
 proc getHint*(this: WxComboCtrlBase): WxString {.noSideEffect, cdecl, 
     importcpp: "GetHint", header: wxh.}
 proc setText*(this: var WxComboCtrlBase; value: WxString) {.cdecl, 
@@ -194,9 +194,9 @@ proc setCtrlMainWnd*(this: var WxComboCtrlBase; wnd: ptr WxWindow) {.cdecl,
 proc getMainWindowOfCompositeControl*(this: var WxComboCtrlBase): ptr WxWindow {.
     cdecl, importcpp: "GetMainWindowOfCompositeControl", header: wxh.}
 proc setForegroundColour*(this: var WxComboCtrlBase; colour: WxColour): bool {.
-    cdecl, importcpp: "SetForegroundColour", header: wxh.}
+    discardable, cdecl, importcpp: "SetForegroundColour", header: wxh.}
 proc setBackgroundColour*(this: var WxComboCtrlBase; colour: WxColour): bool {.
-    cdecl, importcpp: "SetBackgroundColour", header: wxh.}
+    discardable, cdecl, importcpp: "SetBackgroundColour", header: wxh.}
 
 const 
   wxCP_IFLAG_CREATED* = 0x00000001

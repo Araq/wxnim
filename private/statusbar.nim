@@ -21,8 +21,8 @@ proc setWidth*(this: var WxStatusBarPane; width: cint) {.cdecl,
     importcpp: "SetWidth", header: wxh.}
 proc setStyle*(this: var WxStatusBarPane; style: cint) {.cdecl, 
     importcpp: "SetStyle", header: wxh.}
-proc setText*(this: var WxStatusBarPane; text: WxString): bool {.cdecl, 
-    importcpp: "SetText", header: wxh.}
+proc setText*(this: var WxStatusBarPane; text: WxString): bool {.discardable, 
+    cdecl, importcpp: "SetText", header: wxh.}
 proc pushText*(this: var WxStatusBarPane; text: WxString): bool {.cdecl, 
     importcpp: "PushText", header: wxh.}
 proc popText*(this: var WxStatusBarPane): bool {.cdecl, importcpp: "PopText", 
@@ -108,5 +108,5 @@ proc getBorderX*(this: WxStatusBar): cint {.noSideEffect, cdecl,
     importcpp: "GetBorderX", header: wxh.}
 proc getBorderY*(this: WxStatusBar): cint {.noSideEffect, cdecl, 
     importcpp: "GetBorderY", header: wxh.}
-proc setFont*(this: var WxStatusBar; font: WxFont): bool {.cdecl, 
+proc setFont*(this: var WxStatusBar; font: WxFont): bool {.discardable, cdecl, 
     importcpp: "SetFont", header: wxh.}

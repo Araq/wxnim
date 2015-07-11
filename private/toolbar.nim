@@ -97,12 +97,12 @@ proc enable*(this: var WxToolBarToolBase; enable: bool): bool {.cdecl,
     importcpp: "Enable", header: wxh.}
 proc toggle*(this: var WxToolBarToolBase; toggle: bool): bool {.cdecl, 
     importcpp: "Toggle", header: wxh.}
-proc setToggle*(this: var WxToolBarToolBase; toggle: bool): bool {.cdecl, 
-    importcpp: "SetToggle", header: wxh.}
-proc setShortHelp*(this: var WxToolBarToolBase; help: WxString): bool {.cdecl, 
-    importcpp: "SetShortHelp", header: wxh.}
-proc setLongHelp*(this: var WxToolBarToolBase; help: WxString): bool {.cdecl, 
-    importcpp: "SetLongHelp", header: wxh.}
+proc setToggle*(this: var WxToolBarToolBase; toggle: bool): bool {.discardable, 
+    cdecl, importcpp: "SetToggle", header: wxh.}
+proc setShortHelp*(this: var WxToolBarToolBase; help: WxString): bool {.
+    discardable, cdecl, importcpp: "SetShortHelp", header: wxh.}
+proc setLongHelp*(this: var WxToolBarToolBase; help: WxString): bool {.
+    discardable, cdecl, importcpp: "SetLongHelp", header: wxh.}
 proc toggle*(this: var WxToolBarToolBase) {.cdecl, importcpp: "Toggle", 
     header: wxh.}
 proc setNormalBitmap*(this: var WxToolBarToolBase; bmp: WxBitmap) {.cdecl, 
@@ -135,21 +135,21 @@ proc addTool*(this: var WxToolBarBase; toolid: cint; label: WxString;
               kind: WxItemKind = wxITEM_NORMAL; 
               shortHelp: WxString = wxEmptyString; 
               longHelp: WxString = wxEmptyString; data: ptr WxObject = nil): ptr WxToolBarToolBase {.
-    cdecl, importcpp: "AddTool", header: wxh.}
+    discardable, cdecl, importcpp: "AddTool", header: wxh.}
 proc addTool*(this: var WxToolBarBase; toolid: cint; label: WxString; 
               bitmap: WxBitmap; shortHelp: WxString = wxEmptyString; 
-              kind: WxItemKind = wxITEM_NORMAL): ptr WxToolBarToolBase {.cdecl, 
-    importcpp: "AddTool", header: wxh.}
+              kind: WxItemKind = wxITEM_NORMAL): ptr WxToolBarToolBase {.
+    discardable, cdecl, importcpp: "AddTool", header: wxh.}
 proc addCheckTool*(this: var WxToolBarBase; toolid: cint; label: WxString; 
                    bitmap: WxBitmap; bmpDisabled: WxBitmap = wxNullBitmap; 
                    shortHelp: WxString = wxEmptyString; 
                    longHelp: WxString = wxEmptyString; data: ptr WxObject = nil): ptr WxToolBarToolBase {.
-    cdecl, importcpp: "AddCheckTool", header: wxh.}
+    discardable, cdecl, importcpp: "AddCheckTool", header: wxh.}
 proc addRadioTool*(this: var WxToolBarBase; toolid: cint; label: WxString; 
                    bitmap: WxBitmap; bmpDisabled: WxBitmap = wxNullBitmap; 
                    shortHelp: WxString = wxEmptyString; 
                    longHelp: WxString = wxEmptyString; data: ptr WxObject = nil): ptr WxToolBarToolBase {.
-    cdecl, importcpp: "AddRadioTool", header: wxh.}
+    discardable, cdecl, importcpp: "AddRadioTool", header: wxh.}
 proc insertTool*(this: var WxToolBarBase; pos: csize; toolid: cint; 
                  label: WxString; bitmap: WxBitmap; 
                  bmpDisabled: WxBitmap = wxNullBitmap; 
@@ -159,24 +159,24 @@ proc insertTool*(this: var WxToolBarBase; pos: csize; toolid: cint;
                  clientData: ptr WxObject = nil): ptr WxToolBarToolBase {.cdecl, 
     importcpp: "InsertTool", header: wxh.}
 proc addTool*(this: var WxToolBarBase; tool: ptr WxToolBarToolBase): ptr WxToolBarToolBase {.
-    cdecl, importcpp: "AddTool", header: wxh.}
+    discardable, cdecl, importcpp: "AddTool", header: wxh.}
 proc insertTool*(this: var WxToolBarBase; pos: csize; 
                  tool: ptr WxToolBarToolBase): ptr WxToolBarToolBase {.cdecl, 
     importcpp: "InsertTool", header: wxh.}
 proc addControl*(this: var WxToolBarBase; control: ptr WxControl; 
                  label: WxString = wxEmptyString): ptr WxToolBarToolBase {.
-    cdecl, importcpp: "AddControl", header: wxh.}
+    discardable, cdecl, importcpp: "AddControl", header: wxh.}
 proc insertControl*(this: var WxToolBarBase; pos: csize; control: ptr WxControl; 
                     label: WxString = wxEmptyString): ptr WxToolBarToolBase {.
     cdecl, importcpp: "InsertControl", header: wxh.}
 proc findControl*(this: var WxToolBarBase; toolid: cint): ptr WxControl {.cdecl, 
     importcpp: "FindControl", header: wxh.}
-proc addSeparator*(this: var WxToolBarBase): ptr WxToolBarToolBase {.cdecl, 
-    importcpp: "AddSeparator", header: wxh.}
+proc addSeparator*(this: var WxToolBarBase): ptr WxToolBarToolBase {.
+    discardable, cdecl, importcpp: "AddSeparator", header: wxh.}
 proc insertSeparator*(this: var WxToolBarBase; pos: csize): ptr WxToolBarToolBase {.
     cdecl, importcpp: "InsertSeparator", header: wxh.}
 proc addStretchableSpace*(this: var WxToolBarBase): ptr WxToolBarToolBase {.
-    cdecl, importcpp: "AddStretchableSpace", header: wxh.}
+    discardable, cdecl, importcpp: "AddStretchableSpace", header: wxh.}
 proc insertStretchableSpace*(this: var WxToolBarBase; pos: csize): ptr WxToolBarToolBase {.
     cdecl, importcpp: "InsertStretchableSpace", header: wxh.}
 proc removeTool*(this: var WxToolBarBase; toolid: cint): ptr WxToolBarToolBase {.
@@ -283,7 +283,7 @@ proc updateWindowUI*(this: var WxToolBarBase; flags = wxUPDATE_UI_NONE) {.cdecl,
 proc acceptsFocus*(this: WxToolBarBase): bool {.noSideEffect, cdecl, 
     importcpp: "AcceptsFocus", header: wxh.}
 proc setDropdownMenu*(this: var WxToolBarBase; toolid: cint; menu: ptr WxMenu): bool {.
-    cdecl, importcpp: "SetDropdownMenu", header: wxh.}
+    discardable, cdecl, importcpp: "SetDropdownMenu", header: wxh.}
 type 
   WxToolBar* {.importcpp: "wxToolBar", header: wxh.} = object of WxToolBarBase
   

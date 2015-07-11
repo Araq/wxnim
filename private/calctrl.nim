@@ -101,12 +101,12 @@ proc allowMonthChange*(this: WxCalendarCtrlBase): bool {.noSideEffect, cdecl,
     importcpp: "AllowMonthChange", header: wxh.}
 proc getDate*(this: WxCalendarCtrlBase): WxDateTime {.noSideEffect, cdecl, 
     importcpp: "GetDate", header: wxh.}
-proc setDate*(this: var WxCalendarCtrlBase; date: WxDateTime): bool {.cdecl, 
-    importcpp: "SetDate", header: wxh.}
+proc setDate*(this: var WxCalendarCtrlBase; date: WxDateTime): bool {.
+    discardable, cdecl, importcpp: "SetDate", header: wxh.}
 proc setDateRange*(this: var WxCalendarCtrlBase; 
                    lowerdate: WxDateTime = wxDefaultDateTime; 
-                   upperdate: WxDateTime = wxDefaultDateTime): bool {.cdecl, 
-    importcpp: "SetDateRange", header: wxh.}
+                   upperdate: WxDateTime = wxDefaultDateTime): bool {.
+    discardable, cdecl, importcpp: "SetDateRange", header: wxh.}
 proc getDateRange*(this: WxCalendarCtrlBase; lowerdate: ptr WxDateTime; 
                    upperdate: ptr WxDateTime): bool {.noSideEffect, cdecl, 
     importcpp: "GetDateRange", header: wxh.}

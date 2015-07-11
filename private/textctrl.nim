@@ -451,12 +451,12 @@ proc discardEdits*(this: var WxTextAreaBase) {.cdecl, importcpp: "DiscardEdits",
 proc setModified*(this: var WxTextAreaBase; modified: bool) {.cdecl, 
     importcpp: "SetModified", header: wxh.}
 proc setStyle*(this: var WxTextAreaBase; start: clong; `end`: clong; 
-               style: WxTextAttr): bool {.cdecl, importcpp: "SetStyle", 
-    header: wxh.}
+               style: WxTextAttr): bool {.discardable, cdecl, 
+    importcpp: "SetStyle", header: wxh.}
 proc getStyle*(this: var WxTextAreaBase; position: clong; style: var WxTextAttr): bool {.
     cdecl, importcpp: "GetStyle", header: wxh.}
 proc setDefaultStyle*(this: var WxTextAreaBase; style: WxTextAttr): bool {.
-    cdecl, importcpp: "SetDefaultStyle", header: wxh.}
+    discardable, cdecl, importcpp: "SetDefaultStyle", header: wxh.}
 proc getDefaultStyle*(this: WxTextAreaBase): WxTextAttr {.noSideEffect, cdecl, 
     importcpp: "GetDefaultStyle", header: wxh.}
 proc xYToPosition*(this: WxTextAreaBase; x: clong; y: clong): clong {.
@@ -522,18 +522,18 @@ proc hitTest*(this: WxTextCtrlBase; pt: WxPoint; col: ptr WxTextCoord;
               row: ptr WxTextCoord): WxTextCtrlHitTestResult {.noSideEffect, 
     cdecl, importcpp: "HitTest", header: wxh.}
 proc setStyle*(this: var WxTextCtrlBase; start: clong; `end`: clong; 
-               style: WxTextAttr): bool {.cdecl, importcpp: "SetStyle", 
-    header: wxh.}
+               style: WxTextAttr): bool {.discardable, cdecl, 
+    importcpp: "SetStyle", header: wxh.}
 proc getStyle*(this: var WxTextCtrlBase; position: clong; style: var WxTextAttr): bool {.
     cdecl, importcpp: "GetStyle", header: wxh.}
 proc setDefaultStyle*(this: var WxTextCtrlBase; style: WxTextAttr): bool {.
-    cdecl, importcpp: "SetDefaultStyle", header: wxh.}
+    discardable, cdecl, importcpp: "SetDefaultStyle", header: wxh.}
 proc getValue*(this: WxTextCtrlBase): WxString {.noSideEffect, cdecl, 
     importcpp: "GetValue", header: wxh.}
 proc setValue*(this: var WxTextCtrlBase; value: WxString) {.cdecl, 
     importcpp: "SetValue", header: wxh.}
-proc setHint*(this: var WxTextCtrlBase; hint: WxString): bool {.cdecl, 
-    importcpp: "SetHint", header: wxh.}
+proc setHint*(this: var WxTextCtrlBase; hint: WxString): bool {.discardable, 
+    cdecl, importcpp: "SetHint", header: wxh.}
 proc getDefaultAttributes*(this: WxTextCtrlBase): WxVisualAttributes {.
     noSideEffect, cdecl, importcpp: "GetDefaultAttributes", header: wxh.}
 
@@ -659,8 +659,8 @@ proc hitTest*(this: WxTextCtrl; pt: WxPoint; pos: ptr clong): WxTextCtrlHitTestR
 proc hitTest*(this: WxTextCtrl; pt: WxPoint; col: ptr WxTextCoord; 
               row: ptr WxTextCoord): WxTextCtrlHitTestResult {.noSideEffect, 
     cdecl, importcpp: "HitTest", header: wxh.}
-proc showNativeCaret*(this: var WxTextCtrl; show: bool = true): bool {.cdecl, 
-    importcpp: "ShowNativeCaret", header: wxh.}
+proc showNativeCaret*(this: var WxTextCtrl; show: bool = true): bool {.
+    discardable, cdecl, importcpp: "ShowNativeCaret", header: wxh.}
 proc hideNativeCaret*(this: var WxTextCtrl): bool {.cdecl, 
     importcpp: "HideNativeCaret", header: wxh.}
 proc setWindowStyleFlag*(this: var WxTextCtrl; style: clong) {.cdecl, 

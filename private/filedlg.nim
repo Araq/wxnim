@@ -82,7 +82,7 @@ proc supportsExtraControl*(this: WxFileDialogBase): bool {.noSideEffect, cdecl,
     importcpp: "SupportsExtraControl", header: wxh.}
 proc setExtraControlCreator*(this: var WxFileDialogBase; 
                              creator: ExtraControlCreatorFunction): bool {.
-    cdecl, importcpp: "SetExtraControlCreator", header: wxh.}
+    discardable, cdecl, importcpp: "SetExtraControlCreator", header: wxh.}
 proc getExtraControl*(this: WxFileDialogBase): ptr WxWindow {.noSideEffect, 
     cdecl, importcpp: "GetExtraControl", header: wxh.}
 proc appendExtension*(filePath: WxString; extensionList: WxString): WxString {.

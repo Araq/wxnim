@@ -146,6 +146,6 @@ proc getBitmapResource*(this: var WxRichTextFontPage; name: WxString): WxBitmap 
     cdecl, importcpp: "GetBitmapResource", header: wxh.}
 proc getIconResource*(this: var WxRichTextFontPage; name: WxString): WxIcon {.
     cdecl, importcpp: "GetIconResource", header: wxh.}
-proc showToolTips*(): bool {.cdecl, 
+proc showToolTips*(): bool {.discardable, cdecl, 
                              importcpp: "wxRichTextFontPage::ShowToolTips(@)", 
                              header: wxh.}

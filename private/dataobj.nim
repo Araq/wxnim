@@ -57,7 +57,8 @@ proc getDataSize*(this: WxDataObjectBase; format: WxDataFormat): csize {.
 proc getDataHere*(this: WxDataObjectBase; format: WxDataFormat; buf: pointer): bool {.
     noSideEffect, cdecl, importcpp: "GetDataHere", header: wxh.}
 proc setData*(this: var WxDataObjectBase; format: WxDataFormat; len: csize; 
-              buf: pointer): bool {.cdecl, importcpp: "SetData", header: wxh.}
+              buf: pointer): bool {.discardable, cdecl, importcpp: "SetData", 
+                                    header: wxh.}
 proc isSupported*(this: WxDataObjectBase; format: WxDataFormat; 
                   dir: Direction = Direction.Get): bool {.noSideEffect, cdecl, 
     importcpp: "IsSupported", header: wxh.}
@@ -80,7 +81,7 @@ proc getSizeFromBuffer*(this: var WxDataObject; buffer: pointer;
                         size: ptr csize; format: WxDataFormat): pointer {.cdecl, 
     importcpp: "GetSizeFromBuffer", header: wxh.}
 proc setSizeInBuffer*(this: var WxDataObject; buffer: pointer; size: csize; 
-                      format: WxDataFormat): pointer {.cdecl, 
+                      format: WxDataFormat): pointer {.discardable, cdecl, 
     importcpp: "SetSizeInBuffer", header: wxh.}
 proc getBufferOffset*(this: var WxDataObject; format: WxDataFormat): csize {.
     cdecl, importcpp: "GetBufferOffset", header: wxh.}
@@ -100,7 +101,7 @@ proc getDataSize*(this: WxDataObjectSimple): csize {.noSideEffect, cdecl,
 proc getDataHere*(this: WxDataObjectSimple; buf: pointer): bool {.noSideEffect, 
     cdecl, importcpp: "GetDataHere", header: wxh.}
 proc setData*(this: var WxDataObjectSimple; len: csize; buf: pointer): bool {.
-    cdecl, importcpp: "SetData", header: wxh.}
+    discardable, cdecl, importcpp: "SetData", header: wxh.}
 proc getPreferredFormat*(this: WxDataObjectSimple; 
                          dir: Direction = Direction.Get): WxDataFormat {.
     noSideEffect, cdecl, importcpp: "GetPreferredFormat", header: wxh.}
@@ -114,7 +115,8 @@ proc getDataSize*(this: WxDataObjectSimple; format: WxDataFormat): csize {.
 proc getDataHere*(this: WxDataObjectSimple; format: WxDataFormat; buf: pointer): bool {.
     noSideEffect, cdecl, importcpp: "GetDataHere", header: wxh.}
 proc setData*(this: var WxDataObjectSimple; format: WxDataFormat; len: csize; 
-              buf: pointer): bool {.cdecl, importcpp: "SetData", header: wxh.}
+              buf: pointer): bool {.discardable, cdecl, importcpp: "SetData", 
+                                    header: wxh.}
 
 type 
   WxDataObjectComposite* {.importcpp: "wxDataObjectComposite", header: wxh.} = object of WxDataObject
@@ -145,7 +147,8 @@ proc getDataHere*(this: WxDataObjectComposite; format: WxDataFormat;
                   buf: pointer): bool {.noSideEffect, cdecl, 
                                         importcpp: "GetDataHere", header: wxh.}
 proc setData*(this: var WxDataObjectComposite; format: WxDataFormat; len: csize; 
-              buf: pointer): bool {.cdecl, importcpp: "SetData", header: wxh.}
+              buf: pointer): bool {.discardable, cdecl, importcpp: "SetData", 
+                                    header: wxh.}
 
 type 
   WxHTMLDataObject* {.importcpp: "wxHTMLDataObject", header: wxh.} = object of WxDataObjectSimple
@@ -164,13 +167,14 @@ proc getDataSize*(this: WxHTMLDataObject): csize {.noSideEffect, cdecl,
 proc getDataHere*(this: WxHTMLDataObject; buf: pointer): bool {.noSideEffect, 
     cdecl, importcpp: "GetDataHere", header: wxh.}
 proc setData*(this: var WxHTMLDataObject; len: csize; buf: pointer): bool {.
-    cdecl, importcpp: "SetData", header: wxh.}
+    discardable, cdecl, importcpp: "SetData", header: wxh.}
 proc getDataSize*(this: WxHTMLDataObject; a3: WxDataFormat): csize {.
     noSideEffect, cdecl, importcpp: "GetDataSize", header: wxh.}
 proc getDataHere*(this: WxHTMLDataObject; a3: WxDataFormat; buf: pointer): bool {.
     noSideEffect, cdecl, importcpp: "GetDataHere", header: wxh.}
 proc setData*(this: var WxHTMLDataObject; a3: WxDataFormat; len: csize; 
-              buf: pointer): bool {.cdecl, importcpp: "SetData", header: wxh.}
+              buf: pointer): bool {.discardable, cdecl, importcpp: "SetData", 
+                                    header: wxh.}
 type 
   WxTextDataObject* {.importcpp: "wxTextDataObject", header: wxh.} = object of WxDataObjectSimple
   
@@ -193,13 +197,14 @@ proc getDataSize*(this: WxTextDataObject): csize {.noSideEffect, cdecl,
 proc getDataHere*(this: WxTextDataObject; buf: pointer): bool {.noSideEffect, 
     cdecl, importcpp: "GetDataHere", header: wxh.}
 proc setData*(this: var WxTextDataObject; len: csize; buf: pointer): bool {.
-    cdecl, importcpp: "SetData", header: wxh.}
+    discardable, cdecl, importcpp: "SetData", header: wxh.}
 proc getDataSize*(this: WxTextDataObject; format: WxDataFormat): csize {.
     noSideEffect, cdecl, importcpp: "GetDataSize", header: wxh.}
 proc getDataHere*(this: WxTextDataObject; format: WxDataFormat; pBuf: pointer): bool {.
     noSideEffect, cdecl, importcpp: "GetDataHere", header: wxh.}
 proc setData*(this: var WxTextDataObject; format: WxDataFormat; nLen: csize; 
-              pBuf: pointer): bool {.cdecl, importcpp: "SetData", header: wxh.}
+              pBuf: pointer): bool {.discardable, cdecl, importcpp: "SetData", 
+                                     header: wxh.}
 
 type 
   WxBitmapDataObjectBase* {.importcpp: "wxBitmapDataObjectBase", header: wxh.} = object of WxDataObjectSimple
@@ -243,13 +248,14 @@ proc getDataSize*(this: WxCustomDataObject): csize {.noSideEffect, cdecl,
 proc getDataHere*(this: WxCustomDataObject; buf: pointer): bool {.noSideEffect, 
     cdecl, importcpp: "GetDataHere", header: wxh.}
 proc setData*(this: var WxCustomDataObject; size: csize; buf: pointer): bool {.
-    cdecl, importcpp: "SetData", header: wxh.}
+    discardable, cdecl, importcpp: "SetData", header: wxh.}
 proc getDataSize*(this: WxCustomDataObject; a3: WxDataFormat): csize {.
     noSideEffect, cdecl, importcpp: "GetDataSize", header: wxh.}
 proc getDataHere*(this: WxCustomDataObject; a3: WxDataFormat; buf: pointer): bool {.
     noSideEffect, cdecl, importcpp: "GetDataHere", header: wxh.}
 proc setData*(this: var WxCustomDataObject; a3: WxDataFormat; len: csize; 
-              buf: pointer): bool {.cdecl, importcpp: "SetData", header: wxh.}
+              buf: pointer): bool {.discardable, cdecl, importcpp: "SetData", 
+                                    header: wxh.}
 
 type 
   WxURLDataObject* {.importcpp: "wxURLDataObject", header: wxh.} = object of WxTextDataObject

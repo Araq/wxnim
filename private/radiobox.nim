@@ -10,8 +10,8 @@ proc destroywxRadioBoxBase*(this: var WxRadioBoxBase) {.cdecl,
     importcpp: "#.~wxRadioBoxBase()", header: wxh.}
 proc enable*(this: var WxRadioBoxBase; n: cuint; enable: bool = true): bool {.
     cdecl, importcpp: "Enable", header: wxh.}
-proc show*(this: var WxRadioBoxBase; n: cuint; show: bool = true): bool {.cdecl, 
-    importcpp: "Show", header: wxh.}
+proc show*(this: var WxRadioBoxBase; n: cuint; show: bool = true): bool {.
+    discardable, cdecl, importcpp: "Show", header: wxh.}
 proc isItemEnabled*(this: WxRadioBoxBase; n: cuint): bool {.noSideEffect, cdecl, 
     importcpp: "IsItemEnabled", header: wxh.}
 proc isItemShown*(this: WxRadioBoxBase; n: cuint): bool {.noSideEffect, cdecl, 
@@ -81,22 +81,22 @@ proc setString*(this: var WxRadioBox; n: cuint; label: WxString) {.cdecl,
     importcpp: "SetString", header: wxh.}
 proc enable*(this: var WxRadioBox; n: cuint; enable: bool = true): bool {.cdecl, 
     importcpp: "Enable", header: wxh.}
-proc show*(this: var WxRadioBox; n: cuint; show: bool = true): bool {.cdecl, 
-    importcpp: "Show", header: wxh.}
+proc show*(this: var WxRadioBox; n: cuint; show: bool = true): bool {.
+    discardable, cdecl, importcpp: "Show", header: wxh.}
 proc isItemEnabled*(this: WxRadioBox; n: cuint): bool {.noSideEffect, cdecl, 
     importcpp: "IsItemEnabled", header: wxh.}
 proc isItemShown*(this: WxRadioBox; n: cuint): bool {.noSideEffect, cdecl, 
     importcpp: "IsItemShown", header: wxh.}
 proc getItemFromPoint*(this: WxRadioBox; pt: WxPoint): cint {.noSideEffect, 
     cdecl, importcpp: "GetItemFromPoint", header: wxh.}
-proc show*(this: var WxRadioBox; show: bool = true): bool {.cdecl, 
+proc show*(this: var WxRadioBox; show: bool = true): bool {.discardable, cdecl, 
     importcpp: "Show", header: wxh.}
 proc enable*(this: var WxRadioBox; enable: bool = true): bool {.cdecl, 
     importcpp: "Enable", header: wxh.}
 proc canBeFocused*(this: WxRadioBox): bool {.noSideEffect, cdecl, 
     importcpp: "CanBeFocused", header: wxh.}
 proc setFocus*(this: var WxRadioBox) {.cdecl, importcpp: "SetFocus", header: wxh.}
-proc setFont*(this: var WxRadioBox; font: WxFont): bool {.cdecl, 
+proc setFont*(this: var WxRadioBox; font: WxFont): bool {.discardable, cdecl, 
     importcpp: "SetFont", header: wxh.}
 proc hasToolTips*(this: WxRadioBox): bool {.noSideEffect, cdecl, 
     importcpp: "HasToolTips", header: wxh.}

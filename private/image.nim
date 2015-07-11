@@ -248,8 +248,8 @@ proc findFirstUnusedColour*(this: WxImage; r: ptr byte; g: ptr byte;
                             startB: byte = 0): bool {.noSideEffect, cdecl, 
     importcpp: "FindFirstUnusedColour", header: wxh.}
 proc setMaskFromImage*(this: var WxImage; mask: WxImage; mr: byte; mg: byte; 
-                       mb: byte): bool {.cdecl, importcpp: "SetMaskFromImage", 
-    header: wxh.}
+                       mb: byte): bool {.discardable, cdecl, 
+    importcpp: "SetMaskFromImage", header: wxh.}
 proc convertAlphaToMask*(this: var WxImage; 
                          threshold: byte = wxIMAGE_ALPHA_THRESHOLD): bool {.
     cdecl, importcpp: "ConvertAlphaToMask", header: wxh.}

@@ -191,14 +191,14 @@ proc setStrikethrough*(this: var WxFontBase; strikethrough: bool) {.cdecl,
     importcpp: "SetStrikethrough", header: wxh.}
 proc setEncoding*(this: var WxFontBase; encoding: WxFontEncoding) {.cdecl, 
     importcpp: "SetEncoding", header: wxh.}
-proc setFaceName*(this: var WxFontBase; faceName: WxString): bool {.cdecl, 
-    importcpp: "SetFaceName", header: wxh.}
+proc setFaceName*(this: var WxFontBase; faceName: WxString): bool {.discardable, 
+    cdecl, importcpp: "SetFaceName", header: wxh.}
 proc setNativeFontInfo*(this: var WxFontBase; info: WxNativeFontInfo) {.cdecl, 
     importcpp: "SetNativeFontInfo", header: wxh.}
-proc setNativeFontInfo*(this: var WxFontBase; info: WxString): bool {.cdecl, 
-    importcpp: "SetNativeFontInfo", header: wxh.}
+proc setNativeFontInfo*(this: var WxFontBase; info: WxString): bool {.
+    discardable, cdecl, importcpp: "SetNativeFontInfo", header: wxh.}
 proc setNativeFontInfoUserDesc*(this: var WxFontBase; info: WxString): bool {.
-    cdecl, importcpp: "SetNativeFontInfoUserDesc", header: wxh.}
+    discardable, cdecl, importcpp: "SetNativeFontInfoUserDesc", header: wxh.}
 proc setSymbolicSize*(this: var WxFontBase; size: WxFontSymbolicSize) {.cdecl, 
     importcpp: "SetSymbolicSize", header: wxh.}
 proc setSymbolicSizeRelativeTo*(this: var WxFontBase; size: WxFontSymbolicSize; 
@@ -313,8 +313,8 @@ proc setStyle*(this: var WxFont; style: WxFontStyle) {.cdecl,
     importcpp: "SetStyle", header: wxh.}
 proc setWeight*(this: var WxFont; weight: WxFontWeight) {.cdecl, 
     importcpp: "SetWeight", header: wxh.}
-proc setFaceName*(this: var WxFont; faceName: WxString): bool {.cdecl, 
-    importcpp: "SetFaceName", header: wxh.}
+proc setFaceName*(this: var WxFont; faceName: WxString): bool {.discardable, 
+    cdecl, importcpp: "SetFaceName", header: wxh.}
 proc setUnderlined*(this: var WxFont; underlined: bool) {.cdecl, 
     importcpp: "SetUnderlined", header: wxh.}
 proc setStrikethrough*(this: var WxFont; strikethrough: bool) {.cdecl, 

@@ -30,17 +30,17 @@ proc create*(this: var WxListbook; parent: ptr WxWindow; id: WxWindowID;
              style: clong = 0; name: WxString = wxEmptyString): bool {.cdecl, 
     importcpp: "Create", header: wxh.}
 proc setPageText*(this: var WxListbook; n: csize; strText: WxString): bool {.
-    cdecl, importcpp: "SetPageText", header: wxh.}
+    discardable, cdecl, importcpp: "SetPageText", header: wxh.}
 proc getPageText*(this: WxListbook; n: csize): WxString {.noSideEffect, cdecl, 
     importcpp: "GetPageText", header: wxh.}
 proc getPageImage*(this: WxListbook; n: csize): cint {.noSideEffect, cdecl, 
     importcpp: "GetPageImage", header: wxh.}
-proc setPageImage*(this: var WxListbook; n: csize; imageId: cint): bool {.cdecl, 
-    importcpp: "SetPageImage", header: wxh.}
+proc setPageImage*(this: var WxListbook; n: csize; imageId: cint): bool {.
+    discardable, cdecl, importcpp: "SetPageImage", header: wxh.}
 proc insertPage*(this: var WxListbook; n: csize; page: ptr WxWindow; 
                  text: WxString; bSelect: bool = false; imageId: cint = - 1): bool {.
     cdecl, importcpp: "InsertPage", header: wxh.}
-proc setSelection*(this: var WxListbook; n: csize): cint {.cdecl, 
+proc setSelection*(this: var WxListbook; n: csize): cint {.discardable, cdecl, 
     importcpp: "SetSelection", header: wxh.}
 proc changeSelection*(this: var WxListbook; n: csize): cint {.cdecl, 
     importcpp: "ChangeSelection", header: wxh.}

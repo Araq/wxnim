@@ -156,7 +156,7 @@ proc getValue*(this: WxDataViewModel; variant: var WxVariant;
 proc hasValue*(this: WxDataViewModel; item: WxDataViewItem; col: cuint): bool {.
     noSideEffect, cdecl, importcpp: "HasValue", header: wxh.}
 proc setValue*(this: var WxDataViewModel; variant: WxVariant; 
-               item: WxDataViewItem; col: cuint): bool {.cdecl, 
+               item: WxDataViewItem; col: cuint): bool {.discardable, cdecl, 
     importcpp: "SetValue", header: wxh.}
 proc changeValue*(this: var WxDataViewModel; variant: WxVariant; 
                   item: WxDataViewItem; col: cuint): bool {.cdecl, 
@@ -225,7 +225,7 @@ proc getValueByRow*(this: WxDataViewListModel; variant: var WxVariant;
                     row: cuint; col: cuint) {.noSideEffect, cdecl, 
     importcpp: "GetValueByRow", header: wxh.}
 proc setValueByRow*(this: var WxDataViewListModel; variant: WxVariant; 
-                    row: cuint; col: cuint): bool {.cdecl, 
+                    row: cuint; col: cuint): bool {.discardable, cdecl, 
     importcpp: "SetValueByRow", header: wxh.}
 proc getAttrByRow*(this: WxDataViewListModel; row: cuint; col: cuint; 
                    attr: var WxDataViewItemAttr): bool {.noSideEffect, cdecl, 
@@ -244,7 +244,7 @@ proc getValue*(this: WxDataViewListModel; variant: var WxVariant;
                item: WxDataViewItem; col: cuint) {.noSideEffect, cdecl, 
     importcpp: "GetValue", header: wxh.}
 proc setValue*(this: var WxDataViewListModel; variant: WxVariant; 
-               item: WxDataViewItem; col: cuint): bool {.cdecl, 
+               item: WxDataViewItem; col: cuint): bool {.discardable, cdecl, 
     importcpp: "SetValue", header: wxh.}
 proc getAttr*(this: WxDataViewListModel; item: WxDataViewItem; col: cuint; 
               attr: var WxDataViewItemAttr): bool {.noSideEffect, cdecl, 
@@ -604,8 +604,8 @@ proc hitTest*(this: WxDataViewCtrlBase; point: WxPoint;
 proc getItemRect*(this: WxDataViewCtrlBase; item: WxDataViewItem; 
                   column: ptr WxDataViewColumn = nil): WxRect {.noSideEffect, 
     cdecl, importcpp: "GetItemRect", header: wxh.}
-proc setRowHeight*(this: var WxDataViewCtrlBase; rowHeight: cint): bool {.cdecl, 
-    importcpp: "SetRowHeight", header: wxh.}
+proc setRowHeight*(this: var WxDataViewCtrlBase; rowHeight: cint): bool {.
+    discardable, cdecl, importcpp: "SetRowHeight", header: wxh.}
 proc editItem*(this: var WxDataViewCtrlBase; item: WxDataViewItem; 
                column: ptr WxDataViewColumn) {.cdecl, importcpp: "EditItem", 
     header: wxh.}
@@ -896,8 +896,8 @@ proc getValueByRow*(this: WxDataViewListStore; value: var WxVariant; row: cuint;
                     col: cuint) {.noSideEffect, cdecl, 
                                   importcpp: "GetValueByRow", header: wxh.}
 proc setValueByRow*(this: var WxDataViewListStore; value: WxVariant; row: cuint; 
-                    col: cuint): bool {.cdecl, importcpp: "SetValueByRow", 
-                                        header: wxh.}
+                    col: cuint): bool {.discardable, cdecl, 
+                                        importcpp: "SetValueByRow", header: wxh.}
 discard "forward decl of wxDataViewMainWindow"
 discard "forward decl of wxDataViewHeaderWindow"
 type 
@@ -1020,8 +1020,8 @@ proc hitTest*(this: WxDataViewCtrl; point: WxPoint; item: var WxDataViewItem;
 proc getItemRect*(this: WxDataViewCtrl; item: WxDataViewItem; 
                   column: ptr WxDataViewColumn = nil): WxRect {.noSideEffect, 
     cdecl, importcpp: "GetItemRect", header: wxh.}
-proc setRowHeight*(this: var WxDataViewCtrl; rowHeight: cint): bool {.cdecl, 
-    importcpp: "SetRowHeight", header: wxh.}
+proc setRowHeight*(this: var WxDataViewCtrl; rowHeight: cint): bool {.
+    discardable, cdecl, importcpp: "SetRowHeight", header: wxh.}
 proc expand*(this: var WxDataViewCtrl; item: WxDataViewItem) {.cdecl, 
     importcpp: "Expand", header: wxh.}
 proc collapse*(this: var WxDataViewCtrl; item: WxDataViewItem) {.cdecl, 
@@ -1030,8 +1030,8 @@ proc isExpanded*(this: WxDataViewCtrl; item: WxDataViewItem): bool {.
     noSideEffect, cdecl, importcpp: "IsExpanded", header: wxh.}
 proc setFocus*(this: var WxDataViewCtrl) {.cdecl, importcpp: "SetFocus", 
     header: wxh.}
-proc setFont*(this: var WxDataViewCtrl; font: WxFont): bool {.cdecl, 
-    importcpp: "SetFont", header: wxh.}
+proc setFont*(this: var WxDataViewCtrl; font: WxFont): bool {.discardable, 
+    cdecl, importcpp: "SetFont", header: wxh.}
 proc enableDragSource*(this: var WxDataViewCtrl; format: WxDataFormat): bool {.
     cdecl, importcpp: "EnableDragSource", header: wxh.}
 proc enableDropTarget*(this: var WxDataViewCtrl; format: WxDataFormat): bool {.
@@ -1294,7 +1294,7 @@ proc getValue*(this: WxDataViewTreeStore; variant: var WxVariant;
                item: WxDataViewItem; col: cuint) {.noSideEffect, cdecl, 
     importcpp: "GetValue", header: wxh.}
 proc setValue*(this: var WxDataViewTreeStore; variant: WxVariant; 
-               item: WxDataViewItem; col: cuint): bool {.cdecl, 
+               item: WxDataViewItem; col: cuint): bool {.discardable, cdecl, 
     importcpp: "SetValue", header: wxh.}
 proc getParent*(this: WxDataViewTreeStore; item: WxDataViewItem): WxDataViewItem {.
     noSideEffect, cdecl, importcpp: "GetParent", header: wxh.}

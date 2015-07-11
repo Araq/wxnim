@@ -142,8 +142,8 @@ proc create*(this: var WxSymbolListCtrl; parent: ptr WxWindow;
     importcpp: "Create", header: wxh.}
 proc destroywxSymbolListCtrl*(this: var WxSymbolListCtrl) {.cdecl, 
     importcpp: "#.~wxSymbolListCtrl()", header: wxh.}
-proc setFont*(this: var WxSymbolListCtrl; font: WxFont): bool {.cdecl, 
-    importcpp: "SetFont", header: wxh.}
+proc setFont*(this: var WxSymbolListCtrl; font: WxFont): bool {.discardable, 
+    cdecl, importcpp: "SetFont", header: wxh.}
 proc setUnicodeMode*(this: var WxSymbolListCtrl; unicodeMode: bool) {.cdecl, 
     importcpp: "SetUnicodeMode", header: wxh.}
 proc getSelection*(this: WxSymbolListCtrl): cint {.noSideEffect, cdecl, 

@@ -60,7 +60,7 @@ proc setLabel*(this: var WxCheckBox; label: WxString) {.cdecl,
     importcpp: "SetLabel", header: wxh.}
 proc command*(this: var WxCheckBox; event: var WxCommandEvent) {.cdecl, 
     importcpp: "Command", header: wxh.}
-proc setForegroundColour*(this: var WxCheckBox; colour: WxColour): bool {.cdecl, 
-    importcpp: "SetForegroundColour", header: wxh.}
+proc setForegroundColour*(this: var WxCheckBox; colour: WxColour): bool {.
+    discardable, cdecl, importcpp: "SetForegroundColour", header: wxh.}
 proc canApplyThemeBorder*(this: WxCheckBox): bool {.noSideEffect, cdecl, 
     importcpp: "CanApplyThemeBorder", header: wxh.}

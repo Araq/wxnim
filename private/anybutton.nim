@@ -79,7 +79,7 @@ type
 
 proc dontShowLabel*(this: WxAnyButtonBase): bool {.noSideEffect, cdecl, 
     importcpp: "DontShowLabel", header: wxh.}
-proc showsLabel*(this: WxAnyButtonBase): bool {.noSideEffect, cdecl, 
-    importcpp: "ShowsLabel", header: wxh.}
+proc showsLabel*(this: WxAnyButtonBase): bool {.discardable, noSideEffect, 
+    cdecl, importcpp: "ShowsLabel", header: wxh.}
 type 
   WxAnyButton* = WxAnyButtonBase

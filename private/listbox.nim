@@ -33,9 +33,9 @@ proc deselect*(this: var WxListBoxBase; n: cint) {.cdecl, importcpp: "Deselect",
 proc deselectAll*(this: var WxListBoxBase; itemToLeaveSelected: cint = - 1) {.
     cdecl, importcpp: "DeselectAll", header: wxh.}
 proc setStringSelection*(this: var WxListBoxBase; s: WxString; select: bool): bool {.
-    cdecl, importcpp: "SetStringSelection", header: wxh.}
-proc setStringSelection*(this: var WxListBoxBase; s: WxString): bool {.cdecl, 
-    importcpp: "SetStringSelection", header: wxh.}
+    discardable, cdecl, importcpp: "SetStringSelection", header: wxh.}
+proc setStringSelection*(this: var WxListBoxBase; s: WxString): bool {.
+    discardable, cdecl, importcpp: "SetStringSelection", header: wxh.}
 proc getSelections*(this: WxListBoxBase; aSelections: var WxArrayInt): cint {.
     noSideEffect, cdecl, importcpp: "GetSelections", header: wxh.}
 proc setFirstItem*(this: var WxListBoxBase; n: cint) {.cdecl, 
@@ -105,7 +105,7 @@ proc hitTest*(this: WxListBox; pt: WxPoint): cint {.noSideEffect, cdecl,
     importcpp: "HitTest", header: wxh.}
 proc hitTest*(this: WxListBox; x: WxCoord; y: WxCoord): cint {.noSideEffect, 
     cdecl, importcpp: "HitTest", header: wxh.}
-proc setFont*(this: var WxListBox; font: WxFont): bool {.cdecl, 
+proc setFont*(this: var WxListBox; font: WxFont): bool {.discardable, cdecl, 
     importcpp: "SetFont", header: wxh.}
 proc createLboxItem*(this: var WxListBox; n: csize): ptr WxOwnerDrawn {.cdecl, 
     importcpp: "CreateLboxItem", header: wxh.}
