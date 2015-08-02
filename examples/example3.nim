@@ -48,8 +48,6 @@ proc createFrame(): ptr WxFrame =
   sizer.add(text, 1, wxEXPAND.cint)
   result.setSizer(sizer)
 
-  #menuBar.connect(wxID_EXIT.cint, wxEVT_MENU_OPEN,
-  #  cast[pointer](handleButtonClick))
 
 f.show(true)
 

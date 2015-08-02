@@ -102,7 +102,7 @@ include private/variant
 include private/webview
 include private/stattext
 
-proc cnew*[T](x: T): ptr T {.importcpp: "(new '*0#@)", nodecl.}
+proc cnew*[T](x: T): ptr T {.importcpp: "(new @)", nodecl.}
 
 converter toEventType*[T](x: WxEventTypeTag[T]): WxEventType {.
   importcpp: "#", header: "<wx/wx.h>".}

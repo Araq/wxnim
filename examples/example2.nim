@@ -4,6 +4,7 @@ import "../wx", driver, "../richtext", "../stc"
 {.experimental.}
 
 proc createFrame(): ptr WxFrame
+
 let f = createFrame()
 
 proc handleButtonClick(e: var WxCommandEvent) {.cdecl.} =
@@ -32,9 +33,6 @@ proc createFrame(): ptr WxFrame =
 
   menuBar.`bind`(wxEVT_MENU, handleButtonClick, wxID_EXIT)
 
-  #menuBar.connect(wxID_EXIT.cint, wxEVT_MENU_OPEN,
-  #  cast[pointer](handleButtonClick))
-
-discard f.show(true)
+f.show(true)
 
 runMainLoop()

@@ -86,8 +86,8 @@
 #def wxDEPRECATED(x)
 
 #def wxDECLARE_EVENT_TABLE()                                         \
-    private:                                                            \
-        static const wxEventTableEntry sm_eventTableEntries            \
+    private:                                                         \
+        static const wxEventTableEntry sm_eventTableEntries          \
 
 #def wxDECLARE_EXPORTED_EVENT( expdecl, name, type ) \
     extern const expdecl wxEventTypeTag< type > name
