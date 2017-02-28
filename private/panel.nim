@@ -9,7 +9,7 @@ type
 proc constructwxPanelBase*(): WxPanelBase {.cdecl, constructor, 
     importcpp: "wxPanelBase(@)", header: wxh.}
 proc create*(this: var WxPanelBase; parent: ptr WxWindow; 
-             winid: WxWindowID = WxWindowID(wxID_ANY); 
+             id: WxWindowID = WxWindowID(wxID_ANY); 
              pos: WxPoint = wxDefaultPosition; size: WxSize = wxDefaultSize; 
              style: clong = int(wxTAB_TRAVERSAL) or int(wxNO_BORDER); 
              name: WxString = constructWxString("panel")): bool {.cdecl, 
@@ -23,7 +23,7 @@ type
 proc constructwxPanel*(): WxPanel {.cdecl, constructor, importcpp: "wxPanel(@)", 
                                     header: wxh.}
 proc constructwxPanel*(parent: ptr WxWindow; 
-                       winid: WxWindowID = WxWindowID(wxID_ANY); 
+                       id: WxWindowID = WxWindowID(wxID_ANY);
                        pos: WxPoint = wxDefaultPosition; 
                        size: WxSize = wxDefaultSize; 
                        style: clong = int(wxTAB_TRAVERSAL) or int(wxNO_BORDER); 

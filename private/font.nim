@@ -7,7 +7,7 @@ var wxEmptyString* {.importcpp: "wxEmptyString", header: wxh.}: WxString
 
 
 type 
-  WxFontFamily* {.size: sizeof(cint), importcpp: "wxFont::wxFontFamily", 
+  WxFontFamily* {.size: sizeof(cint), importcpp: "wxFontFamily", 
                   header: wxh.} = enum 
     wxFONTFAMILY_DEFAULT = wxDEFAULT, wxFONTFAMILY_DECORATIVE = wxDECORATIVE, 
     wxFONTFAMILY_ROMAN = wxROMAN, wxFONTFAMILY_SCRIPT = wxSCRIPT, 
@@ -19,7 +19,7 @@ const
 
 
 type 
-  WxFontStyle* {.size: sizeof(cint), importcpp: "wxFont::wxFontStyle", 
+  WxFontStyle* {.size: sizeof(cint), importcpp: "wxFontStyle", 
                  header: wxh.} = enum 
     wxFONTSTYLE_NORMAL = wxNORMAL, wxFONTSTYLE_ITALIC = wxITALIC, 
     wxFONTSTYLE_SLANT = wxSLANT, wxFONTSTYLE_MAX
@@ -27,7 +27,7 @@ type
 
 
 type 
-  WxFontWeight* {.size: sizeof(cint), importcpp: "wxFont::wxFontWeight", 
+  WxFontWeight* {.size: sizeof(cint), importcpp: "wxFontWeight", 
                   header: wxh.} = enum 
     wxFONTWEIGHT_NORMAL = wxNORMAL, wxFONTWEIGHT_LIGHT = wxLIGHT, 
     wxFONTWEIGHT_BOLD = wxBOLD, wxFONTWEIGHT_MAX
