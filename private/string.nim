@@ -72,3 +72,6 @@ proc from8BitData*(data: cstring): WxString {.cdecl,
 
 proc asCString*(this: WxCStrData): cstring {.noSideEffect, cdecl, 
     importcpp: "AsChar", header: wxh.}
+
+proc mb_str*(this: WxString): cstring {.noSideEffect, cdecl, 
+    importcpp: "mb_str", header: wxh.}

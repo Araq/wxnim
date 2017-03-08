@@ -475,6 +475,8 @@ proc setClientObject*(this: var WxCommandEvent; clientObject: ptr WxClientData) 
     cdecl, importcpp: "SetClientObject", header: wxh.}
 proc getClientObject*(this: WxCommandEvent): ptr WxClientData {.noSideEffect, 
     cdecl, importcpp: "GetClientObject", header: wxh.}
+proc getInt*(this: WxCommandEvent): cint {.noSideEffect, cdecl, 
+    importcpp: "GetInt", header: wxh.}
 proc getString*(this: WxCommandEvent): WxString {.noSideEffect, cdecl, 
     importcpp: "GetString", header: wxh.}
 proc getSelection*(this: WxCommandEvent): cint {.noSideEffect, cdecl, 

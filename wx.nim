@@ -17,6 +17,12 @@ include private/string
 converter toWxString*(s: string): WxString =
   result = constructWxString(cstring(s), s.len)
 
+converter WxOrientationToClong*(inType:WxOrientation): clong = cast[clong](inType)
+
+converter WxStretchToCint*(inType:WxStretch): cint = cast[cint](inType)
+
+converter WxDirectionToCint*(inType:WxDirection): cint = cast[cint](inType)
+
 include private/arrstr
 include private/colour
 include private/fontenc
@@ -90,7 +96,7 @@ include private/position
 include private/radiobox
 include private/radiobut
 include private/sizer
-#include private/slider
+include private/slider
 include private/spinbutt
 include private/spinctrl
 include private/statusbar
@@ -101,6 +107,7 @@ include private/types
 include private/variant
 include private/webview
 include private/stattext
+include private/statbox
 
 proc cnew*[T](x: T): ptr T {.importcpp: "(new @)", nodecl.}
 

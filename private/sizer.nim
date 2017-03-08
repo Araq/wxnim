@@ -478,9 +478,7 @@ proc calcMin*(this: var WxBoxSizer): WxSize {.cdecl, importcpp: "CalcMin",
 proc recalcSizes*(this: var WxBoxSizer) {.cdecl, importcpp: "RecalcSizes", 
     header: wxh.}
 
-type 
-  WxStaticBox* {.importcpp: "wxStaticBox", header: wxh.} = object 
-  
+type   
   WxStaticBoxSizer* {.importcpp: "wxStaticBoxSizer", header: wxh.} = object of WxBoxSizer
   
 

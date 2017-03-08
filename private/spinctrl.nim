@@ -1,6 +1,4 @@
 
-
-
 discard "forward decl of wxSpinDoubleEvent"
 var wxEVT_SPINCTRL* {.importcpp: "wxEVT_SPINCTRL", header: wxh.}: WxEventTypeTag[
     WxSpinEvent]

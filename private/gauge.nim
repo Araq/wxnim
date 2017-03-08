@@ -1,55 +1,48 @@
 
 
-
-const 
+const
   wxGA_HORIZONTAL* = wxHORIZONTAL
   wxGA_VERTICAL* = wxVERTICAL
 
 
-const 
+const
   wxGA_SMOOTH* = 0x00000020
 
 
-const 
-  wxGA_PROGRESSBAR* = 0
+type
+  WxGauge* {.importcpp: "wxGauge", header: wxh.} = object of WxControl
 
 
-const 
-  wxGAUGE_EMULATE_INDETERMINATE_MODE* = 1
-
-
-type 
-  WxGaugeBase* {.importcpp: "wxGaugeBase", header: wxh.} = object of WxControl
-  
-
-proc constructwxGaugeBase*(): WxGaugeBase {.cdecl, constructor, 
-    importcpp: "wxGaugeBase(@)", header: wxh.}
-proc destroywxGaugeBase*(this: var WxGaugeBase) {.cdecl, 
-    importcpp: "#.~wxGaugeBase()", header: wxh.}
-proc create*(this: var WxGaugeBase; parent: ptr WxWindow; id: WxWindowID; 
-             range: cint; pos: WxPoint = wxDefaultPosition; 
-             size: WxSize = wxDefaultSize; style = wxGA_HORIZONTAL; 
-             validator: WxValidator = wxDefaultValidator; 
-             name: WxString = constructWxString("gauge")): bool {.cdecl, 
+proc constructwxGauge*(): WxGauge {.cdecl, constructor, importcpp: "wxGauge(@)",
+                                 header: wxh.}
+proc constructwxGauge*(parent: ptr WxWindow; id: WxWindowID; range: cint;
+                      pos: WxPoint = wxDefaultPosition;
+                      size: WxSize = wxDefaultSize; style: clong = wxGA_HORIZONTAL;
+                      validator: WxValidator = wxDefaultValidator;
+                      name: WxString = constructWxString("gauge")): WxGauge {.cdecl,
+    constructor, importcpp: "wxGauge(@)", header: wxh.}
+proc destroywxGauge*(this: var WxGauge) {.cdecl, importcpp: "#.~wxGauge()", header: wxh.}
+proc create*(this: var WxGauge; parent: ptr WxWindow; id: WxWindowID; range: cint;
+            pos: WxPoint = wxDefaultPosition; size: WxSize = wxDefaultSize;
+            style: clong = wxGA_HORIZONTAL;
+            validator: WxValidator = wxDefaultValidator;
+            name: WxString = constructWxString("gauge")): bool {.cdecl,
     importcpp: "Create", header: wxh.}
-proc setRange*(this: var WxGaugeBase; range: cint) {.cdecl, 
-    importcpp: "SetRange", header: wxh.}
-proc getRange*(this: WxGaugeBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetRange", header: wxh.}
-proc setValue*(this: var WxGaugeBase; pos: cint) {.cdecl, importcpp: "SetValue", 
+proc getBezelFace*(this: WxGauge): cint {.noSideEffect, cdecl,
+                                      importcpp: "GetBezelFace", header: wxh.}
+proc getRange*(this: WxGauge): cint {.noSideEffect, cdecl, importcpp: "GetRange",
+                                  header: wxh.}
+proc getShadowWidth*(this: WxGauge): cint {.noSideEffect, cdecl,
+                                        importcpp: "GetShadowWidth", header: wxh.}
+proc getValue*(this: WxGauge): cint {.noSideEffect, cdecl, importcpp: "GetValue",
+                                  header: wxh.}
+proc isVertical*(this: WxGauge): bool {.noSideEffect, cdecl, importcpp: "IsVertical",
+                                    header: wxh.}
+proc pulse*(this: var WxGauge) {.cdecl, importcpp: "Pulse", header: wxh.}
+proc setBezelFace*(this: var WxGauge; width: cint) {.cdecl, importcpp: "SetBezelFace",
     header: wxh.}
-proc getValue*(this: WxGaugeBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetValue", header: wxh.}
-proc pulse*(this: var WxGaugeBase) {.cdecl, importcpp: "Pulse", header: wxh.}
-proc isVertical*(this: WxGaugeBase): bool {.noSideEffect, cdecl, 
-    importcpp: "IsVertical", header: wxh.}
-proc setShadowWidth*(this: var WxGaugeBase; w: cint) {.cdecl, 
+proc setRange*(this: var WxGauge; range: cint) {.cdecl, importcpp: "SetRange",
+    header: wxh.}
+proc setShadowWidth*(this: var WxGauge; width: cint) {.cdecl,
     importcpp: "SetShadowWidth", header: wxh.}
-proc getShadowWidth*(this: WxGaugeBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetShadowWidth", header: wxh.}
-proc setBezelFace*(this: var WxGaugeBase; w: cint) {.cdecl, 
-    importcpp: "SetBezelFace", header: wxh.}
-proc getBezelFace*(this: WxGaugeBase): cint {.noSideEffect, cdecl, 
-    importcpp: "GetBezelFace", header: wxh.}
-proc acceptsFocus*(this: WxGaugeBase): bool {.noSideEffect, cdecl, 
-    importcpp: "AcceptsFocus", header: wxh.}
+proc setValue*(this: var WxGauge; pos: cint) {.cdecl, importcpp: "SetValue", header: wxh.}

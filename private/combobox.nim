@@ -45,6 +45,12 @@ proc constructwxComboBox*(parent: ptr WxWindow; id: WxWindowID; value: WxString;
                           validator: WxValidator = wxDefaultValidator; 
                           name: WxString = constructWxString("combobox")): WxComboBox {.
     cdecl, constructor, importcpp: "wxComboBox(@)", header: wxh.}
+template constructwxComboBox*(parent: ptr WxWindow; id: WxWindowID; choices: WxArrayString;
+                          value: WxString = wxEmptyString; pos: WxPoint = wxDefaultPosition;
+                          size: WxSize = wxDefaultSize; style: clong = 0; 
+                          validator: WxValidator = wxDefaultValidator; 
+                          name: WxString = constructWxString("combobox")): WxComboBox =
+  constructwxComboBox(parent, id, value, pos, size, choices, style, validator, name)
 proc create*(this: var WxComboBox; parent: ptr WxWindow; id: WxWindowID; 
              value: WxString = wxEmptyString; pos: WxPoint = wxDefaultPosition; 
              size: WxSize = wxDefaultSize; n: cint = 0; 
