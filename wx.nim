@@ -108,6 +108,7 @@ include private/variant
 include private/webview
 include private/stattext
 include private/statbox
+include private/tglbtn
 
 proc cnew*[T](x: T): ptr T {.importcpp: "(new @)", nodecl.}
 

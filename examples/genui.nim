@@ -218,7 +218,7 @@ proc createWidget(widget: var WidgetArguments):NimNode =
         result.add addCall
 
 macro genui*(args: varargs[untyped]): untyped =
-  echo treeRepr args[0]
+  #echo treeRepr args[0]
   let parsed = nil.parseChildren(args[0])
   result = newStmtList()
   for widget in parsed:
@@ -226,7 +226,7 @@ macro genui*(args: varargs[untyped]): untyped =
     let widgetCode = createWidget(w)
     for node in widgetCode:
       result.add(node)
-  echo result.toStrLit
+  #echo result.toStrLit
 
 
 macro addElements*(parentWindow:untyped, args: varargs[untyped]):untyped=
@@ -236,7 +236,7 @@ macro addElements*(parentWindow:untyped, args: varargs[untyped]):untyped=
       addBody
       sizerIdent.layout()
 
-  echo treeRepr args[0]
+  #echo treeRepr args[0]
   let parsed = nil.parseChildren(args[0])
   result = newStmtList()
   var parentWidgetArguments = WidgetArguments(identifier: parentWindow)
@@ -248,9 +248,35 @@ macro addElements*(parentWindow:untyped, args: varargs[untyped]):untyped=
     let widgetCode = createWidget(w)
     for node in widgetCode:
       result.add(node)
+
     var addCall = newCall("add",sizerSym,widget.identifier)
+    var overridesDefaults: tuple[border, proportion, flag: bool]
     for addArg in widget.addArguments:
       addCall.add addArg
+      if addArg.kind == nnkExprEqExpr and addArg[0].kind == nnkIdent:
+        if addArg[0].ident == !"border":
+          overridesDefaults.border = true
+        if addArg[0].ident == !"proportion":
+          overridesDefaults.proportion = true
+        if addArg[0].ident == !"flag":
+          overridesDefaults.flag = true
+    # Add in defaults since the wxWidgets defaults are pretty bad
+    if not overridesDefaults.border:
+      addCall.add nnkExprEqExpr.newTree(
+        newIdentNode("border"),
+        newIntLitNode(5)
+      )
+    if not overridesDefaults.flag:
+      addCall.add nnkExprEqExpr.newTree(
+        newIdentNode("flag"),
+        nnkInfix.newTree(
+          newIdentNode("or"),
+          newIdentNode("wxExpand"),
+          newIdentNode("wxAll")
+        )
+      )
+
     addCalls.add addCall
+
   result.add getAst(addToSizer(parentWindow, sizerSym, addCalls))
-  echo result.toStrLit
+  #echo result.toStrLit
