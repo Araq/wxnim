@@ -169,10 +169,16 @@ proc createWidget(widget: var WidgetArguments):NimNode =
       result.add getAst(updateOrCreate(widget.identifier, command))
 
   if widget.sizer != nil:
+    if ident(widget.sizer.name.toLower) == ident"staticboxsizer":
+      widget.sizer.arguments.add nnkExprEqExpr.newTree(
+        newIdentNode("box"),
+        widget.identifier
+      )
     let sizerCode = createWidget(widget.sizer)
     for node in sizerCode:
       result.add node
-    result.add newCall("setSizer",widget.identifier, widget.sizer.identifier)
+    if ident(widget.sizer.name.toLower) != ident"staticboxsizer":
+      result.add newCall("setSizer",widget.identifier, widget.sizer.identifier)
 
   if widget.event.evname != nil:
     result.add newCall("bind", widget.identifier, widget.event.evname, widget.event.evcallback)
@@ -188,7 +194,11 @@ proc createWidget(widget: var WidgetArguments):NimNode =
         #var sizer = widget
         #while not (sizer.name.toLower in WxSizers):
         #  sizer = widget.parent
-        var addCall = newCall("add",widget.sizer.identifier,child.identifier)
+        var addCall =
+          if child.sizer != nil and ident(child.sizer.name.toLower) == ident"staticboxsizer":
+            newCall("add",widget.sizer.identifier,child.sizer.identifier)
+          else:
+            newCall("add",widget.sizer.identifier,child.identifier)
         var overridesDefaults: tuple[border, proportion, flag: bool]
         for addArg in c.addArguments:
           addCall.add addArg
@@ -226,7 +236,7 @@ macro genui*(args: varargs[untyped]): untyped =
     let widgetCode = createWidget(w)
     for node in widgetCode:
       result.add(node)
-  #echo result.toStrLit
+  echo result.toStrLit
 
 
 macro addElements*(parentWindow:untyped, args: varargs[untyped]):untyped=
@@ -249,7 +259,12 @@ macro addElements*(parentWindow:untyped, args: varargs[untyped]):untyped=
     for node in widgetCode:
       result.add(node)
 
-    var addCall = newCall("add",sizerSym,widget.identifier)
+    #var addCall = newCall("add",sizerSym,widget.identifier)
+    var addCall =
+      if widget.sizer != nil and ident(widget.sizer.name.toLower) == ident"staticboxsizer":
+        newCall("add",sizerSym,widget.sizer.identifier)
+      else:
+        newCall("add",sizerSym,widget.identifier)
     var overridesDefaults: tuple[border, proportion, flag: bool]
     for addArg in widget.addArguments:
       addCall.add addArg
