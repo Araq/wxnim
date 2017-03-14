@@ -405,7 +405,9 @@ const
 
 
 type 
-  WxWindowID* = WxStandardID
+  WxWindowID* {.size: sizeof(cint), importcpp: "wxWindowID", header: wxh.} = cint
+
+converter WxStandardIDtoWxWindowID*(windowID: WxStandardID): WxWindowID = cast[WxWindowID](windowID)
 
 
 type 
