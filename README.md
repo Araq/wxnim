@@ -30,7 +30,7 @@ This module now also ships with a macro to easily create GUIs. Currently it resi
 
 	nim cpp -r controlgallery.nim
 
-The output of the macro should look like this:
+The output of the macro should look like these images from Linux and Windows respectively:
 
 ![Linux](/screenshots/linux.png)
 
