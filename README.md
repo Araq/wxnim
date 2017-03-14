@@ -30,6 +30,11 @@ This module now also ships with a macro to easily create GUIs. Currently it resi
 
 	nim cpp -r controlgallery.nim
 
+The output of the macro should look like this:
+![Linux](/screenshots/linux.png)
+Note that Linux uses GTK+ as it's backend and looks will vary greatly depending on theme (this screenshot is taken with the Arc theme and M+ 2p font).
+![Windows](/screenshots/windows.png)
+
 To compile the original examples::
 
   cd examples
