@@ -32,9 +32,11 @@ This module now also ships with a macro to easily create GUIs. Currently it resi
 
 The output of the macro should look like these images from Linux and Windows respectively:
 
+On Linux wxWidgets uses GTK+ as it's backend and looks will vary greatly depending on theme (this screenshot is taken with the Arc theme and M+ 2p font).
+
 ![Linux](/screenshots/linux.png)
 
-Note that Linux uses GTK+ as it's backend and looks will vary greatly depending on theme (this screenshot is taken with the Arc theme and M+ 2p font).
+On Windows wxWidgets uses Win32 Forms, so looks might change depending on Windows version, this is from Windows 10:
 
 ![Windows](/screenshots/windows.png)
 
