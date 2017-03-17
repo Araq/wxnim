@@ -1,4 +1,4 @@
-
+include ../wxCompile
 #import wx
 
 {.emit: """
