@@ -10,7 +10,7 @@ Install ``wxnim`` and grab the ``wxGtk`` package from your package manager. Make
 
 # Installation on Windows
 
-Install ``wxnim`` and point it to a compiled version of wxWidgets 3.0.2 with the ``-d:"wxWidgetsPath:<path to wxWidgets root folder>"`` flag.
+Install ``wxnim`` and point it to a compiled version of wxWidgets 3.0.2 with the ``-d:"wxWidgetsPath:<path to wxWidgets root folder>"`` flag or set up your compiler to know where these files are.
 
 Compile wxWidgets
 via ``mingw32-make -f makefile.gcc SHARED=0 UNICODE=1 BUILD=release``.

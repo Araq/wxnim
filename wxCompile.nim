@@ -9,7 +9,7 @@ when defined(wxWidgetsPath):
     {.error: "wxWidgetsPath must not be an empty string when defined".}
 else:
   when defined(windows):
-    {.error: "wxWidgetsPath must be defined to compile with wxWidgets".}
+    {.warning: "Compiling without wxWidgetsPath assumes that your compiler knows where to find the wxWidgets files".}
   else:
     {.warning: "Compiling without wxWidgetsPath assumes wx-config is in your path".}
 
