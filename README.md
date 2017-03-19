@@ -6,14 +6,11 @@ Still in development, needs way more testing!
 
 # Installation on Linux
 
-Install ``wxnim`` and grab the ``wxGtk`` package from your package manager. Make sure ``wx-config`` is in your PATH and executable.
+Install ``wxnim`` and grab the ``wxGtk`` package from your package manager. Make sure ``wx-config`` is in your PATH and executable. If you want to compile wxWidgets 3.0.2 yourself (for example in order to use X11 or link it statically into your application) you can use the ``-d:"wxWidgetsPath:<path to the folder wx-config is in>"`` flag.
 
 # Installation on Windows
 
-Install ``wxnim`` *next to* a directory ``wxWidgets-3.0.2``::
-
-  projects/wxwin
-  projects/wxWidgets-3.0.2
+Install ``wxnim`` and point it to a compiled version of wxWidgets 3.0.2 with the ``-d:"wxWidgetsPath:<path to the folder wx-config is in>"`` flag.
 
 Compile wxWidgets
 via ``mingw32-make -f makefile.gcc SHARED=0 UNICODE=1 BUILD=release``.
