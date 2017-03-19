@@ -1,5 +1,5 @@
-
-#import wx
+#include ../wxCompile
+import ../wx
 
 {.emit: """
 #include <wx/wxprec.h>
