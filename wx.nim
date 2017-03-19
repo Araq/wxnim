@@ -3,6 +3,8 @@
 
 # Andreas Rumpf 2015
 
+include wxCompile
+
 const
   wxh* = """#include <wx/wxprec.h>
 #ifndef WX_PRECOMP
