@@ -4,11 +4,14 @@ that I missed a few.
 
 Still in development, needs way more testing!
 
-# Installation on Linux
+# Installation
+wxWidgets works across all major platforms but the build process is slightly different. Below follows instructions on how to build for Linux and Windows. If you use Mac OSX it would be great if you shared how to build on a Mac and it can be added here as well. Since a simple nim.cfg file doesn't quite cut it here we use the file wxCompile.nim to decide which flags to pass so you would have to modify that to make changes.
+
+## Installation on Linux
 
 Install ``wxnim`` and grab the ``wxGtk`` package from your package manager. Make sure ``wx-config`` is in your PATH and executable. If you want to compile wxWidgets 3.0.2 yourself (for example in order to use X11 or link it statically into your application) you can use the ``-d:"wxWidgetsPath:<path to the folder wx-config is in>"`` flag.
 
-# Installation on Windows
+## Installation on Windows
 
 Install ``wxnim`` and point it to a compiled version of wxWidgets 3.0.2 with the ``-d:"wxWidgetsPath:<path to wxWidgets root folder>"`` flag or set up your compiler to know where these files are.
 
@@ -21,9 +24,11 @@ https://wiki.wxwidgets.org/Compiling_wxWidgets_with_MinGW
 
 # Examples
 
-This module now also ships with a macro to easily create GUIs. Currently it resides with the examples, it will move to a better place soon. To see it in use look at or compile the ``controlgallery`` example with::
+## With GenUI macro
 
-	cd examples
+This module ships with a macro to easily create GUIs. To see it in use look at or compile the ``controlgallery`` example with::
+
+	cd examples/genuimacro
 
 	nim cpp -r controlgallery.nim
 
@@ -37,12 +42,101 @@ On Windows wxWidgets uses Win32 Forms, so looks might change depending on Window
 
 ![Windows](/screenshots/windows.png)
 
+## Running work on background threads
+
+Since wxWidgets requires the main thread to perform UI actions you would want to perform long running tasks in threads. To see an example of how you can use threads with wxWidgets look at the ``threads`` example found in ``examples/genuimacro``.
+
 To compile the original examples::
 
-  cd examples
+  cd examples/purewx
 
   nim cpp -r example2.nim
 
+# The GenUI macro
+
+As previously mentioned wxnim now also has a macro to create user interfaces in a more readable and easy to use fashion than writing wxWidgets code manually (not hating on wxWidgets, all GUI code is horrible). This section is intended to explain how the macro works.
+
+## The basics
+
+The GenUI macro is designed to be a quite thin wrapper around wxWidgets code. This means that it won't do a lot of extra stuff but it allows you to easily use the wxWidgets documentation when designing and using your GUI. All object names are simply their wx counterpart but without the ``Wx`` prefix. Because of Nims case insensitivity you are free to write them any way you like, but since it adds the prefix ``constructWx`` your first character is also case-insensitive. This means that ``Panel`` and ``panel`` would be the same, which is not what Nim otherwise does (This might change in the future, so it's best to use a capital letter anyways). Notable differences from wxWidgets are:
+
+* The ``parent`` parameter is set based on the hierarchy of elements
+* The ``id`` parameter defaults to ``wxID_ANY``
+* If the only child of an element is a string it is treated as the ``label`` parameter of that object
+* When adding elements to a sizer (more on that later) the default are set to ``border = 5`` and ``flag = wxExpand or wxAll``
+* StaticBoxSizers behave like any other sizer
+
+## Hierarchy
+
+Instead of naming all your objects and passing them around for creating your GUIs layout the GenUI macro uses the hierarchy of your code instead. In this example the Button and Checkbox are children of the StaticBox which again is a child of the Panel (Note that this example lacks sizers, more on that later).
+
+```
+Panel:
+  StaticBox(label = "Basic controls"):
+    Button: "Click me!"
+    CheckBox: "Check me!"
+```
+
+As explained above a single child of type ``string`` will be treated as the ``label`` option instead. So the button could also be written as ``Button(label = "Click me!")``.
+
+## Sizers
+
+To avoid having all your widgets on top of each others you need to use sizers. These define the layout of siblings in an object. We can expand the above example with some sizers:
+
+```
+Panel | Boxsizer(orient = wxHorizontal):
+  StaticBox(label = "Basic controls") | StaticBoxSizer(orient = wxVertical):
+    Button: "Click me!"
+    CheckBox: "Check me!"
+```
+
+Sizers use the ``|`` operator after a widget to set themselves for that widget, all children added to the widget will be added to the sizer. Boxsizers are your most basic sizer and can define a horizontal or vertical layout. For static boxes you need to use a ``StaticBoxSizer``.
+
+## Options and sizer options
+
+The above examples show how you can pass options to the creation of an object by using regular parenthesis. This applies to both regular objects and sizers. When a widget is added to a sizer you may specify options to the ``add`` function. This allows you to change how the object is packed into the sizer, such as borders and alignment. To pass options to the add function use square brackets ``[]`` like this:
+
+```
+Panel | Boxsizer(orient = wxHorizontal):
+  StaticBox(label = "Basic controls")[proportion = 1] | StaticBoxSizer(orient = wxVertical):
+    Button: "Click me!"
+    CheckBox[flag = wxAlign_right or wxAll]: "Check me!"
+```
+Note that even if the ``flag`` option defaults to ``wxExpand or wxAll`` we have to specify ``wxAll`` if we want it when we override it.
+
+## Referring to a widget
+
+Since we no longer need to assign variables to all our widgets you might wonder how you're supposed to refer to a widget after it's creation. The ``wxFrame`` representing a window, will for example need to call its ``show`` function to show itself and its children. To assign a variable use ``%`` like this:
+
+```
+mainFrame % Frame(title = "Window title text"):
+  Panel | Boxsizer(orient = wxHorizontal):
+    StaticBox(label = "Basic controls")[proportion = 1] | StaticBoxSizer(orient = wxVertical):
+      Button: "Click me!"
+      CheckBox[flag = wxAlign_right or wxAll]: "Check me!"
+```
+
+This will create a new variable if one doesn't exist with that name in the current scope, or try to assign to one if it does exist (note that this might change in the future since it hides spelling mistakes in the variable name). The variable in this example will be of type ``ptr WxFrame``. Currently there is no way to create a variable for a sizer.
+
+## Events and callbacks
+
+Many widgets will emit events which you can use to call a function. To attach a callback to a widget use an arrow ``->`` like this:
+
+```
+mainFrame % Frame(title = "Window title text"):
+  Panel | Boxsizer(orient = wxHorizontal):
+    StaticBox(label = "Basic controls")[proportion = 1] | StaticBoxSizer(orient = wxVertical):
+      Button -> (wxEVT_BUTTON, buttonClicked): "Click me!"
+      CheckBox[flag = wxAlign_right or wxAll]: "Check me!"
+```
+
+This will bind the ``wxEVT_BUTTON`` event to the procedure ``buttonClicked``. The procedure is defined like this:
+
+```
+proc buttonClicked(e: var WxButtonEvent) {.cdecl.}
+```
+
+Currently there is no way to bind multiple callbacks without using a variable and the wx ``bind`` function, this will be added later.
 
 # Generating the Nim code
 

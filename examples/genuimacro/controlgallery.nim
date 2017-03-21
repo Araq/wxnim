@@ -1,17 +1,21 @@
-import "../wx", driver, "../richtext", "../stc", genui
+# NOTE: these imports are relative to this folder, this would not be required if wxnim was installed with Nimble
+import "../../wx", "../../genui"
+
+# Experimental is required for now, this will become default later
 {.experimental.}
+
+# This is required to use spinctrls as wx includes the Nim files but not the C headers
 {.emit: "#include <wx/spinctrl.h>" .}
 
-var cbChoices = constructWxArrayString()
-cbChoices.add "Combobox 1"
-cbChoices.add "Combobox 2"
-cbChoices.add "Combobox 3"
+var cbChoices = @["Combobox 1", "Combobox 2", "Combobox 3"]
 
+# This allows us to use these variables before they are declared to create our callbacks
 var
   spinner: ptr WxSpinCtrl
   slider: ptr WxSlider
   gauge: ptr WxGauge
 
+# Callbacks needs to be {.cdecl.} to be passed to the bind function in wxWidgets
 proc spinnerCallback(e: var WxSpinEvent) {.cdecl.} =
   let val = e.getPosition()
   slider.setValue(val)
@@ -22,6 +26,7 @@ proc sliderCallback(e: var WxCommandEvent) {.cdecl.} =
   spinner.setValue(val)
   gauge.setValue(val)
 
+# Generate the GUI
 genui:
   mainFrame % Frame(title = "Hello World"):
     Panel | Boxsizer(orient = wxHorizontal):
@@ -42,5 +47,6 @@ genui:
           RadioButton: "RadioButton 2"
           RadioButton: "RadioButton 3"
 
+# Show the main frame and run the main loop
 mainFrame.show()
 runMainLoop()

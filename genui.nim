@@ -1,4 +1,4 @@
-import "../wx", macros, typetraits, unicode
+import macros
 
 {.experimental.}
 
@@ -24,7 +24,6 @@ type WidgetArguments = ref object
   isStr: bool
   isIdentified: bool
   isSizer: bool
-#const WxSizers = ["sizer", "boxsizer", "staticboxsizer", "gridsizer", "flexgridsizer", "wrapsizer", "gridbagsizer"]
 
 proc parseNode(node:NimNode):WidgetArguments
 proc parseBracketExpr(bracketExpr:NimNode):WidgetArguments
@@ -88,7 +87,6 @@ proc parseIdent(i:NimNode):WidgetArguments=
   )
 
 proc parsePrefix(prefix:NimNode):WidgetArguments=
-  #assert prefix[0] == !"%", "Use % to identify"
   result = parseNode(prefix[1])
   result.isIdentified = true
   if prefix[prefix.high].kind == nnkStmtList:
@@ -123,7 +121,40 @@ template updateOrCreate(ident: untyped, value: untyped)=
   else:
     ident = value
 
-proc createWidget(widget: var WidgetArguments):NimNode =
+proc createAddCall(sizerIdent: NimNode, child: WidgetArguments): NimNode =
+  var addCall =
+    if child.sizer != nil and (ident(child.sizer.name) == ident"staticboxsizer" or ident(child.sizer.name) == ident"Staticboxsizer"):
+      newCall("add",sizerIdent,child.sizer.identifier)
+    else:
+      newCall("add",sizerIdent,child.identifier)
+  var overridesDefaults: tuple[border, proportion, flag: bool]
+  for addArg in child.addArguments:
+    addCall.add addArg
+    if addArg.kind == nnkExprEqExpr and addArg[0].kind == nnkIdent:
+      if addArg[0].ident == !"border":
+        overridesDefaults.border = true
+      if addArg[0].ident == !"proportion":
+        overridesDefaults.proportion = true
+      if addArg[0].ident == !"flag":
+        overridesDefaults.flag = true
+  # Add in defaults since the wxWidgets defaults are pretty bad
+  if not overridesDefaults.border:
+    addCall.add nnkExprEqExpr.newTree(
+      newIdentNode("border"),
+      newIntLitNode(5)
+    )
+  if not overridesDefaults.flag:
+    addCall.add nnkExprEqExpr.newTree(
+      newIdentNode("flag"),
+      nnkInfix.newTree(
+        newIdentNode("or"),
+        newIdentNode("wxExpand"),
+        newIdentNode("wxAll")
+      )
+    )
+  return addCall
+
+proc createWidget(widget: WidgetArguments):NimNode =
   result = newStmtList()
   var call:NimNode
   if widget.isIdentified:
@@ -169,7 +200,7 @@ proc createWidget(widget: var WidgetArguments):NimNode =
       result.add getAst(updateOrCreate(widget.identifier, command))
 
   if widget.sizer != nil:
-    if ident(widget.sizer.name.toLower) == ident"staticboxsizer":
+    if ident(widget.sizer.name) == ident"staticboxsizer" or ident(widget.sizer.name) == ident"Staticboxsizer" :
       widget.sizer.arguments.add nnkExprEqExpr.newTree(
         newIdentNode("box"),
         widget.identifier
@@ -177,7 +208,7 @@ proc createWidget(widget: var WidgetArguments):NimNode =
     let sizerCode = createWidget(widget.sizer)
     for node in sizerCode:
       result.add node
-    if ident(widget.sizer.name.toLower) != ident"staticboxsizer":
+    if ident(widget.sizer.name) != ident"staticboxsizer" and ident(widget.sizer.name) != ident"Staticboxsizer":
       result.add newCall("setSizer",widget.identifier, widget.sizer.identifier)
 
   if widget.event.evname != nil:
@@ -185,47 +216,12 @@ proc createWidget(widget: var WidgetArguments):NimNode =
 
   for child in widget.children:
     if not child.isStr:
-      var c = child
-      let childCode = createWidget(c)
+      let childCode = createWidget(child)
       for node in childCode:
         result.add node
       #if child.addArguments != nil and child.addArguments.len != 0:
       if widget.sizer != nil:
-        #var sizer = widget
-        #while not (sizer.name.toLower in WxSizers):
-        #  sizer = widget.parent
-        var addCall =
-          if child.sizer != nil and ident(child.sizer.name.toLower) == ident"staticboxsizer":
-            newCall("add",widget.sizer.identifier,child.sizer.identifier)
-          else:
-            newCall("add",widget.sizer.identifier,child.identifier)
-        var overridesDefaults: tuple[border, proportion, flag: bool]
-        for addArg in c.addArguments:
-          addCall.add addArg
-          if addArg.kind == nnkExprEqExpr and addArg[0].kind == nnkIdent:
-            if addArg[0].ident == !"border":
-              overridesDefaults.border = true
-            if addArg[0].ident == !"proportion":
-              overridesDefaults.proportion = true
-            if addArg[0].ident == !"flag":
-              overridesDefaults.flag = true
-        # Add in defaults since the wxWidgets defaults are pretty bad
-        if not overridesDefaults.border:
-          addCall.add nnkExprEqExpr.newTree(
-            newIdentNode("border"),
-            newIntLitNode(5)
-          )
-        if not overridesDefaults.flag:
-          addCall.add nnkExprEqExpr.newTree(
-            newIdentNode("flag"),
-            nnkInfix.newTree(
-              newIdentNode("or"),
-              newIdentNode("wxExpand"),
-              newIdentNode("wxAll")
-            )
-          )
-
-        result.add addCall
+        result.add widget.sizer.identifier.createAddCall(child)
 
 macro genui*(args: varargs[untyped]): untyped =
   #echo treeRepr args[0]
@@ -236,7 +232,7 @@ macro genui*(args: varargs[untyped]): untyped =
     let widgetCode = createWidget(w)
     for node in widgetCode:
       result.add(node)
-  echo result.toStrLit
+  #echo result.toStrLit
 
 
 macro addElements*(parentWindow:untyped, args: varargs[untyped]):untyped=
@@ -259,39 +255,7 @@ macro addElements*(parentWindow:untyped, args: varargs[untyped]):untyped=
     for node in widgetCode:
       result.add(node)
 
-    #var addCall = newCall("add",sizerSym,widget.identifier)
-    var addCall =
-      if widget.sizer != nil and ident(widget.sizer.name.toLower) == ident"staticboxsizer":
-        newCall("add",sizerSym,widget.sizer.identifier)
-      else:
-        newCall("add",sizerSym,widget.identifier)
-    var overridesDefaults: tuple[border, proportion, flag: bool]
-    for addArg in widget.addArguments:
-      addCall.add addArg
-      if addArg.kind == nnkExprEqExpr and addArg[0].kind == nnkIdent:
-        if addArg[0].ident == !"border":
-          overridesDefaults.border = true
-        if addArg[0].ident == !"proportion":
-          overridesDefaults.proportion = true
-        if addArg[0].ident == !"flag":
-          overridesDefaults.flag = true
-    # Add in defaults since the wxWidgets defaults are pretty bad
-    if not overridesDefaults.border:
-      addCall.add nnkExprEqExpr.newTree(
-        newIdentNode("border"),
-        newIntLitNode(5)
-      )
-    if not overridesDefaults.flag:
-      addCall.add nnkExprEqExpr.newTree(
-        newIdentNode("flag"),
-        nnkInfix.newTree(
-          newIdentNode("or"),
-          newIdentNode("wxExpand"),
-          newIdentNode("wxAll")
-        )
-      )
-
-    addCalls.add addCall
+    addCalls.add sizerSym.createAddCall(widget)
 
   result.add getAst(addToSizer(parentWindow, sizerSym, addCalls))
   #echo result.toStrLit

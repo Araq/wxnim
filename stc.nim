@@ -1,4 +1,5 @@
-
+when defined(linux):
+  {.passL: "`wx-config --libs stc`".}
 
 {.deadcodeelim: on.}
 

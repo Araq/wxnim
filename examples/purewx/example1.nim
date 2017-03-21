@@ -1,9 +1,10 @@
 
-import "../wx", driver, "../richtext", "../stc"
+import "../../wx"
 
 {.experimental.}
 
 proc createFrame(): ptr WxFrame
+
 let f = createFrame()
 
 proc handleButtonClick(e: var WxCommandEvent) {.cdecl.} =
@@ -31,23 +32,6 @@ proc createFrame(): ptr WxFrame =
   result.setMenuBar(menuBar)
 
   menuBar.`bind`(wxEVT_MENU, handleButtonClick, wxID_EXIT)
-
-  let text = cnew constructWxStyledTextCtrl(result, wxID_ANY)
-  text.styleClearAll()
-  text.setLexer(wxSTC_LEX_CPP)
-
-  text.setMarginWidth(0, 50)
-  text.styleSetForeground(wxSTC_STYLE_LINENUMBER, constructWxColour(75, 75, 75) )
-  text.styleSetBackground(wxSTC_STYLE_LINENUMBER, constructWxColour(220, 220, 220))
-  text.setMarginType(0, wxSTC_MARGIN_NUMBER)
-
-  text.setKeyWords(0, "return for while break continue")
-  text.setKeyWords(1, "const int float void char double")
-
-  let sizer = cnew constructWxBoxSizer(wxVERTICAL)
-  sizer.add(text, 1, wxEXPAND.cint)
-  result.setSizer(sizer)
-
 
 f.show(true)
 

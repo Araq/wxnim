@@ -1,7 +1,7 @@
 # additional compiler and linker instructions to include wxWidgets binaries in Nim
 # Fredrik Høisæther Rasch (@couven92), 2017
 
-include ospaths
+import ospaths
 
 when defined(wxWidgetsPath):
   const wxWidgetsPath {.strdefine.}: string = nil

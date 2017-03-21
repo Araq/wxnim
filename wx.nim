@@ -4,6 +4,7 @@
 # Andreas Rumpf 2015
 
 include wxCompile
+include driver
 
 const
   wxh* = """#include <wx/wxprec.h>
@@ -19,13 +20,25 @@ include private/string
 converter toWxString*(s: string): WxString =
   result = constructWxString(cstring(s), s.len)
 
-converter WxOrientationToClong*(inType:WxOrientation): clong = cast[clong](inType)
+proc `$`*(wxstring: WxString): string =
+  $wxstring.c_str().asCString()
 
-converter WxStretchToCint*(inType:WxStretch): cint = cast[cint](inType)
+converter wxOrientationToClong*(inType:WxOrientation): clong = cast[clong](inType)
 
-converter WxDirectionToCint*(inType:WxDirection): cint = cast[cint](inType)
+converter wxStretchToCint*(inType:WxStretch): cint = cast[cint](inType)
+
+converter wxAlignmentToCint*(inType:WxAlignment): cint = cast[cint](inType)
+
+converter wxDirectionToCint*(inType:WxDirection): cint = cast[cint](inType)
+
 
 include private/arrstr
+
+converter stringArrayToWxStringArray*(inType: seq[string]): WxArrayString =
+  result = constructWxArrayString()
+  for str in inType:
+    result.add(str)
+
 include private/colour
 include private/fontenc
 include private/defs
