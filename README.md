@@ -1,8 +1,25 @@
 # wxnim
-Nim wrapper for wxWidgets. Most common widgets have been wrapped but it's likely
-that I missed a few.
+Nim wrapper for wxWidgets. Most common widgets have been wrapped but there are still some missing.
 
-Still in development, needs way more testing!
+Still in development, is shown to work fine, but needs more testing!
+
+- [wxnim](#wxnim)
+- [Installation](#installation)
+  * [Installation on Linux](#installation-on-linux)
+  * [Installation on Windows](#installation-on-windows)
+- [Examples](#examples)
+  * [With GenUI macro](#with-genui-macro)
+  * [Running work on background threads](#running-work-on-background-threads)
+- [The GenUI macro](#the-genui-macro)
+  * [The basics](#the-basics)
+  * [Hierarchy](#hierarchy)
+  * [Sizers](#sizers)
+  * [Options and sizer options](#options-and-sizer-options)
+  * [Referring to a widget](#referring-to-a-widget)
+  * [Events and callbacks](#events-and-callbacks)
+- [Generating the Nim code](#generating-the-nim-code)
+- [Todo](#todo)
+
 
 # Installation
 wxWidgets works across all major platforms but the build process is slightly different. Below follows instructions on how to build for Linux and Windows. If you use Mac OSX it would be great if you shared how to build on a Mac and it can be added here as well. Since a simple nim.cfg file doesn't quite cut it here we use the file wxCompile.nim to decide which flags to pass so you would have to modify that to make changes.
