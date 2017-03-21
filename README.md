@@ -45,9 +45,9 @@ https://wiki.wxwidgets.org/Compiling_wxWidgets_with_MinGW
 
 This module ships with a macro to easily create GUIs. To see it in use look at or compile the ``controlgallery`` example with::
 
-	cd examples/genuimacro
+    cd examples/genuimacro
 
-	nim cpp -r controlgallery.nim
+    nim cpp -r controlgallery.nim
 
 The output of the macro should look like these images from Linux and Windows respectively:
 
@@ -65,9 +65,9 @@ Since wxWidgets requires the main thread to perform UI actions you would want to
 
 To compile the original examples::
 
-  cd examples/purewx
+    cd examples/purewx
 
-  nim cpp -r example2.nim
+    nim cpp -r example2.nim
 
 # The GenUI macro
 
