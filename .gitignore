@@ -262,3 +262,9 @@ __pycache__/
 
 # Nim
 nimcache/
+
+# wxnim - Linux doesn't need .exe or similar file ending. Putting this here until a better solution is found
+examples/genuimacro/controlgallery
+examples/genuimacro/threads
+examples/purewx/example1
+examples/purewx/example2
