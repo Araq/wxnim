@@ -20,9 +20,6 @@ include private/string
 converter toWxString*(s: string): WxString =
   result = constructWxString(cstring(s), s.len)
 
-proc `$`*(wxstring: WxString): string =
-  $wxstring.c_str().asCString()
-
 converter wxOrientationToClong*(inType:WxOrientation): clong = cast[clong](inType)
 
 converter wxStretchToCint*(inType:WxStretch): cint = cast[cint](inType)
