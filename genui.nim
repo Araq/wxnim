@@ -216,6 +216,11 @@ proc createWidget(widget: WidgetArguments):NimNode =
 
   for child in widget.children:
     if not child.isStr:
+      ## TODO: This is to fix a weird bug in Nim 0.16.0, remove once 0.16.1 drops
+      if child.parent.identifier == nil:
+        if widget.identifier != nil:
+          child.parent.identifier = widget.identifier
+      ##/TODO
       let childCode = createWidget(child)
       for node in childCode:
         result.add node
