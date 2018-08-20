@@ -363,7 +363,7 @@ proc clone*(this: WxIdleEvent): ptr WxEvent {.noSideEffect, cdecl,
     importcpp: "Clone", header: wxh.}
 proc setMode*(mode: WxIdleMode) {.cdecl, importcpp: "wxIdleEvent::SetMode(@)", 
                                   header: wxh.}
-proc getMode*(): WxIdleMode {.cdecl, importcpp: "wxIdleEvent::GetMode(@)", 
+proc idleEventGetMode*(): WxIdleMode {.cdecl, importcpp: "wxIdleEvent::GetMode(@)", 
                               header: wxh.}
 
 type 
@@ -1044,7 +1044,7 @@ proc resetUpdateTime*() {.cdecl,
 proc setMode*(mode: WxUpdateUIMode) {.cdecl, 
                                       importcpp: "wxUpdateUIEvent::SetMode(@)", 
                                       header: wxh.}
-proc getMode*(): WxUpdateUIMode {.cdecl, 
+proc updateUIEventGetMode*(): WxUpdateUIMode {.cdecl, 
                                   importcpp: "wxUpdateUIEvent::GetMode(@)", 
                                   header: wxh.}
 proc clone*(this: WxUpdateUIEvent): ptr WxEvent {.noSideEffect, cdecl, 

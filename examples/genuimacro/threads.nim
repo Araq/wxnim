@@ -53,7 +53,7 @@ genui:
       messageEntry % TextCtrl(value = "Hello from thread!")
       StaticText: "Thread progress:"
       progressBar % Gauge(range = 100)
-      runButton % Button [flag = wxEXPAND] -> (wxEVT_BUTTON, startThreadClick) : "Run thread!"
+      runButton % Button[flag = wxEXPAND] -> (wxEVT_BUTTON, startThreadClick) : "Run thread!"
       StaticBox(label = "Controls to demonstrate the UI doesn't freeze") | StaticBoxSizer(orient = wxVertical):
         Slider(value = 0, minValue = 0, maxValue = 100)
         Choice(choices = @["These", "Are","Some","Options"], pos = wxDefaultPosition, size = wxDefaultSize)

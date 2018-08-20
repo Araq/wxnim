@@ -7,7 +7,7 @@ proc `[]`(s: NimNode, x: Slice[int]): seq[NimNode] =
   var a = x.a
   var L = x.b - a + 1
   newSeq(result, L)
-  for i in 0.. <L: result[i] = s[i + a]
+  for i in 0..<L: result[i] = s[i + a]
 
 proc high(s: NimNode):int =
   s.len-1
@@ -42,13 +42,13 @@ proc parseCall(call:NimNode):WidgetArguments =
     result = parseBracketExpr(call[0])
   else:
     new result
-    result.name = $call[0].ident
-  if result.arguments == nil:
+    result.name = $call[0]
+  if result.arguments.len == 0:
     result.arguments = if hasChildren: call[1..<call.high] else: call[1..call.high]
   #else:
   #  for arg in if hasChildren: call[1..<call.high] else: call[1..call.high]:
   #    result.arguments.add arg
-  result.children = if hasChildren: parseChildren(result, call[call.high]) else: nil
+  result.children = if hasChildren: parseChildren(result, call[call.high]) else: @[]
 
 proc parseBracketExpr(bracketExpr:NimNode):WidgetArguments =
   let hasArguments = bracketExpr[0].kind == nnkCall
@@ -57,18 +57,18 @@ proc parseBracketExpr(bracketExpr:NimNode):WidgetArguments =
     result = parseCall(bracketExpr[0])
   else:
     new result
-    result.name = $bracketExpr[0].ident
+    result.name = $bracketExpr[0]
   result.addArguments = if hasChildren: bracketExpr[1..<bracketExpr.high] else: bracketExpr[1..bracketExpr.high]
-  result.children = if hasChildren: result.parseChildren(bracketExpr[bracketExpr.high]) else: nil
+  result.children = if hasChildren: result.parseChildren(bracketExpr[bracketExpr.high]) else: @[]
 
 proc parseInfix(infix:NimNode):WidgetArguments=
-  if infix[0].ident == !"%":
+  if $infix[0] == "%":
     result = parseNode(infix[2])
     result.identifier = infix[1]
-  elif infix[0].ident == !"->":
+  elif $infix[0] == "->":
     result = parseNode(infix[1])
     result.event = (evname: infix[2][0], evcallback: infix[2][1])
-  elif infix[0].ident == !"|":
+  elif $infix[0] == "|":
     result = parseNode(infix[1])
     result.sizer = parseNode(infix[2])
     result.sizer.isSizer = true
@@ -80,10 +80,10 @@ proc parseInfix(infix:NimNode):WidgetArguments=
 proc parseIdent(i:NimNode):WidgetArguments=
   result = WidgetArguments(
     identifier: nil,
-    name: $i.ident,
-    addArguments: nil,
-    arguments: nil,
-    children: nil,
+    name: $i,
+    addArguments: @[],
+    arguments: @[],
+    children: @[],
   )
 
 proc parsePrefix(prefix:NimNode):WidgetArguments=
@@ -113,6 +113,7 @@ proc parseNode(node:NimNode):WidgetArguments =
   of nnkStrLit:
     result = parseString(node)
   else:
+    echo "Got unsupported node: ", $node.kind, ": ", node.lineInfo
     discard
 
 template updateOrCreate(ident: untyped, value: untyped)=
@@ -131,11 +132,11 @@ proc createAddCall(sizerIdent: NimNode, child: WidgetArguments): NimNode =
   for addArg in child.addArguments:
     addCall.add addArg
     if addArg.kind == nnkExprEqExpr and addArg[0].kind == nnkIdent:
-      if addArg[0].ident == !"border":
+      if $addArg[0] == "border":
         overridesDefaults.border = true
-      if addArg[0].ident == !"proportion":
+      if $addArg[0] == "proportion":
         overridesDefaults.proportion = true
-      if addArg[0].ident == !"flag":
+      if $addArg[0] == "flag":
         overridesDefaults.flag = true
   # Add in defaults since the wxWidgets defaults are pretty bad
   if not overridesDefaults.border:
@@ -162,11 +163,10 @@ proc createWidget(widget: WidgetArguments):NimNode =
   else:
     call = newCall("constructWx" & widget.name)
     var hasID = false
-    if widget.arguments!=nil:
-      for arg in widget.arguments:
-        call.add arg
-        if arg.kind == nnkExprEqExpr and $arg[0] == "id":
-          hasID = true
+    for arg in widget.arguments:
+      call.add arg
+      if arg.kind == nnkExprEqExpr and $arg[0] == "id":
+        hasID = true
     if not widget.isSizer:
       call.add nnkExprEqExpr.newTree(
         newIdentNode("parent"),
@@ -217,9 +217,9 @@ proc createWidget(widget: WidgetArguments):NimNode =
   for child in widget.children:
     if not child.isStr:
       ## TODO: This is to fix a weird bug in Nim 0.16.0, remove once 0.16.1 drops
-      if child.parent.identifier == nil:
-        if widget.identifier != nil:
-          child.parent.identifier = widget.identifier
+      #if child.parent.identifier == nil:
+      #  if widget.identifier != nil:
+      #    child.parent.identifier = widget.identifier
       ##/TODO
       let childCode = createWidget(child)
       for node in childCode:
@@ -237,7 +237,7 @@ macro genui*(args: varargs[untyped]): untyped =
     let widgetCode = createWidget(w)
     for node in widgetCode:
       result.add(node)
-  #echo result.toStrLit
+  #echo result.repr
 
 
 macro addElements*(parentWindow:untyped, args: varargs[untyped]):untyped=
