@@ -980,13 +980,13 @@ proc toInternal*(this: WxRichTextRange): WxRichTextRange {.noSideEffect, cdecl,
     importcpp: "ToInternal", header: wxh.}
 proc fromInternal*(this: WxRichTextRange): WxRichTextRange {.noSideEffect, 
     cdecl, importcpp: "FromInternal", header: wxh.}
-template wxRICHTEXT_ALL*(): expr = 
+template wxRICHTEXT_ALL*(): untyped = 
   constructWxRichTextRange(- 2, - 2)
 
-template wxRICHTEXT_NONE*(): expr = 
+template wxRICHTEXT_NONE*(): untyped = 
   constructWxRichTextRange(- 1, - 1)
 
-template wxRICHTEXT_NO_SELECTION*(): expr = 
+template wxRICHTEXT_NO_SELECTION*(): untyped = 
   constructWxRichTextRange(- 2, - 2)
 
 

@@ -92,12 +92,12 @@ proc acceptsFocus*(this: WxSpinCtrl): bool {.noSideEffect, cdecl,
 proc getDefaultAttributes*(this: WxSpinCtrl): WxVisualAttributes {.noSideEffect, 
     cdecl, importcpp: "GetDefaultAttributes", header: wxh.}
 
-template wxSpinDoubleEventHandler*(`func`: expr): expr = 
+template wxSpinDoubleEventHandler*(`func`: untyped): untyped = 
   wxEVENT_HANDLER_CAST(wxSpinDoubleEventFunction, `func`)
 
 
-template evt_Spinctrl*(id, fn: expr): expr = 
+template evt_Spinctrl*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_SPINCTRL, id, wxSpinEventHandler(fn))
 
-template evt_Spinctrldouble*(id, fn: expr): expr = 
+template evt_Spinctrldouble*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_SPINCTRLDOUBLE, id, wxSpinDoubleEventHandler(fn))

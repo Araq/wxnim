@@ -564,22 +564,22 @@ proc getURLEnd*(this: WxTextUrlEvent): clong {.noSideEffect, cdecl,
     importcpp: "GetURLEnd", header: wxh.}
 proc clone*(this: WxTextUrlEvent): ptr WxEvent {.noSideEffect, cdecl, 
     importcpp: "Clone", header: wxh.}
-template wxTextEventHandler*(`func`: expr): expr = 
+template wxTextEventHandler*(`func`: untyped): untyped = 
   wxCommandEventHandler(`func`)
 
-template wxTextUrlEventHandler*(`func`: expr): expr = 
+template wxTextUrlEventHandler*(`func`: untyped): untyped = 
   wxEVENT_HANDLER_CAST(wxTextUrlEventFunction, `func`)
 
-template evt_Text*(id, fn: expr): expr = 
+template evt_Text*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_TEXT, id, wxTextEventHandler(fn))
 
-template evt_Text_Enter*(id, fn: expr): expr = 
+template evt_Text_Enter*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_TEXT_ENTER, id, wxTextEventHandler(fn))
 
-template evt_Text_Url*(id, fn: expr): expr = 
+template evt_Text_Url*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_TEXT_URL, id, wxTextUrlEventHandler(fn))
 
-template evt_Text_Maxlen*(id, fn: expr): expr = 
+template evt_Text_Maxlen*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_TEXT_ENTERMAXLEN, id, wxTextEventHandler(fn))
 
 

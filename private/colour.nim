@@ -12,10 +12,10 @@ var wxALPHA_TRANSPARENT* {.importcpp: "wxALPHA_TRANSPARENT", header: wxh.}: byte
 var wxALPHA_OPAQUE* {.importcpp: "wxALPHA_OPAQUE", header: wxh.}: byte
 
 
-template wxTransparentColour*(): expr = 
+template wxTransparentColour*(): untyped = 
   constructWxColour(0, 0, 0, wxALPHA_TRANSPARENT)
 
-template wxTransparentColor*(): expr = 
+template wxTransparentColor*(): untyped = 
   constructWxColour(0, 0, 0, wxALPHA_TRANSPARENT)
 
 

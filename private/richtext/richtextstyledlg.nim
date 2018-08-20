@@ -29,19 +29,19 @@ var wxSYSTEM_MENU* {.importcpp: "wxSYSTEM_MENU", header: wxh.}: clong
 
 var wxCLOSE_BOX* {.importcpp: "wxCLOSE_BOX", header: wxh.}: clong
 
-template symbol_Wxrichtextstyleorganiserdialog_Style*(): expr = 
+template symbol_Wxrichtextstyleorganiserdialog_Style*(): untyped = 
   wxDEFAULT_DIALOG_STYLE or wxRESIZE_BORDER or wxSYSTEM_MENU or wxCLOSE_BOX
 
-template symbol_Wxrichtextstyleorganiserdialog_Title*(): expr = 
+template symbol_Wxrichtextstyleorganiserdialog_Title*(): untyped = 
   "Style Organiser"
 
-template symbol_Wxrichtextstyleorganiserdialog_Idname*(): expr = 
+template symbol_Wxrichtextstyleorganiserdialog_Idname*(): untyped = 
   WxWindowID(ID_RICHTEXTSTYLEORGANISERDIALOG)
 
-template symbol_Wxrichtextstyleorganiserdialog_Size*(): expr = 
+template symbol_Wxrichtextstyleorganiserdialog_Size*(): untyped = 
   constructWxSize(400, 300)
 
-template symbol_Wxrichtextstyleorganiserdialog_Position*(): expr = 
+template symbol_Wxrichtextstyleorganiserdialog_Position*(): untyped = 
   wxDefaultPosition
 
 

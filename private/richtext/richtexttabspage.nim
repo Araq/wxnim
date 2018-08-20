@@ -11,19 +11,19 @@ const
   ID_RICHTEXTTABSPAGE_DELETE_ALL_TABS* = 10203
 
 
-template symbol_Wxrichtexttabspage_Style*(): expr = 
+template symbol_Wxrichtexttabspage_Style*(): untyped = 
   wxRESIZE_BORDER or wxTAB_TRAVERSAL
 
-template symbol_Wxrichtexttabspage_Title*(): expr = 
+template symbol_Wxrichtexttabspage_Title*(): untyped = 
   wxEmptyString
 
-template symbol_Wxrichtexttabspage_Idname*(): expr = 
+template symbol_Wxrichtexttabspage_Idname*(): untyped = 
   id_Richtexttabspage
 
-template symbol_Wxrichtexttabspage_Size*(): expr = 
+template symbol_Wxrichtexttabspage_Size*(): untyped = 
   constructwxSize(400, 300)
 
-template symbol_Wxrichtexttabspage_Position*(): expr = 
+template symbol_Wxrichtexttabspage_Position*(): untyped = 
   wxDefaultPosition
 
 

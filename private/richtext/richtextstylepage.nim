@@ -8,19 +8,19 @@ const
   ID_RICHTEXTSTYLEPAGE_NEXT_STYLE* = 10406
 
 
-template symbol_Wxrichtextstylepage_Style*(): expr = 
+template symbol_Wxrichtextstylepage_Style*(): untyped = 
   wxRESIZE_BORDER or wxTAB_TRAVERSAL
 
-template symbol_Wxrichtextstylepage_Title*(): expr = 
+template symbol_Wxrichtextstylepage_Title*(): untyped = 
   wxEmptyString
 
-template symbol_Wxrichtextstylepage_Idname*(): expr = 
+template symbol_Wxrichtextstylepage_Idname*(): untyped = 
   WxWindowID(ID_RICHTEXTSTYLEPAGE)
 
-template symbol_Wxrichtextstylepage_Size*(): expr = 
+template symbol_Wxrichtextstylepage_Size*(): untyped = 
   constructwxSize(400, 300)
 
-template symbol_Wxrichtextstylepage_Position*(): expr = 
+template symbol_Wxrichtextstylepage_Position*(): untyped = 
   wxDefaultPosition
 
 

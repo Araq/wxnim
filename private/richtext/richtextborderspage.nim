@@ -55,19 +55,19 @@ const
   ID_RICHTEXT_BORDER_PREVIEW* = 10844
 
 
-template symbol_Wxrichtextborderspage_Style*(): expr = 
+template symbol_Wxrichtextborderspage_Style*(): untyped = 
   wxTAB_TRAVERSAL
 
-template symbol_Wxrichtextborderspage_Title*(): expr = 
+template symbol_Wxrichtextborderspage_Title*(): untyped = 
   wxEmptyString
 
-template symbol_Wxrichtextborderspage_Idname*(): expr = 
+template symbol_Wxrichtextborderspage_Idname*(): untyped = 
   WxWindowID(ID_RICHTEXTBORDERSPAGE)
 
-template symbol_Wxrichtextborderspage_Size*(): expr = 
+template symbol_Wxrichtextborderspage_Size*(): untyped = 
   constructwxSize(400, 300)
 
-template symbol_Wxrichtextborderspage_Position*(): expr = 
+template symbol_Wxrichtextborderspage_Position*(): untyped = 
   wxDefaultPosition
 
 

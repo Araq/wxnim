@@ -90,16 +90,16 @@ proc acceptsFocus*(this: WxSpinButton): bool {.noSideEffect, cdecl,
     importcpp: "AcceptsFocus", header: wxh.}
 proc canApplyThemeBorder*(this: WxSpinButton): bool {.noSideEffect, cdecl, 
     importcpp: "CanApplyThemeBorder", header: wxh.}
-template wxSpinEventHandler*(`func`: expr): expr = 
+template wxSpinEventHandler*(`func`: untyped): untyped = 
   wxEVENT_HANDLER_CAST(wxSpinEventFunction, `func`)
 
 
-template evt_Spin_Up*(winid, `func`: expr): expr = 
+template evt_Spin_Up*(winid, `func`: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_SPIN_UP, winid, wxSpinEventHandler(`func`))
 
-template evt_Spin_Down*(winid, `func`: expr): expr = 
+template evt_Spin_Down*(winid, `func`: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_SPIN_DOWN, winid, wxSpinEventHandler(`func`))
 
-template evt_Spin*(winid, `func`: expr): expr = 
+template evt_Spin*(winid, `func`: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_SPIN, winid, wxSpinEventHandler(`func`))
 

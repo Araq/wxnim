@@ -15,19 +15,19 @@ const
   ID_SYMBOLPICKERDIALOG_CHARACTERCODE* = 10601
   ID_SYMBOLPICKERDIALOG_FROM* = 10603
 
-template symbol_Wxsymbolpickerdialog_Style*(): expr = 
+template symbol_Wxsymbolpickerdialog_Style*(): untyped = 
   (wxDEFAULT_DIALOG_STYLE or wxRESIZE_BORDER or wxCLOSE_BOX)
 
-template symbol_Wxsymbolpickerdialog_Title*(): expr = 
+template symbol_Wxsymbolpickerdialog_Title*(): untyped = 
   "Symbols"
 
-template symbol_Wxsymbolpickerdialog_Idname*(): expr = 
+template symbol_Wxsymbolpickerdialog_Idname*(): untyped = 
   WxWindowID(ID_SYMBOLPICKERDIALOG)
 
-template symbol_Wxsymbolpickerdialog_Size*(): expr = 
+template symbol_Wxsymbolpickerdialog_Size*(): untyped = 
   constructWxSize(400, 300)
 
-template symbol_Wxsymbolpickerdialog_Position*(): expr = 
+template symbol_Wxsymbolpickerdialog_Position*(): untyped = 
   wxDefaultPosition
 
 

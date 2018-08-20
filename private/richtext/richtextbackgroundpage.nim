@@ -10,19 +10,19 @@ const
   ID_RICHTEXT_BACKGROUND_COLOUR_SWATCH* = 10847
 
 
-template symbol_Wxrichtextbackgroundpage_Style*(): expr = 
+template symbol_Wxrichtextbackgroundpage_Style*(): untyped = 
   wxTAB_TRAVERSAL
 
-template symbol_Wxrichtextbackgroundpage_Title*(): expr = 
+template symbol_Wxrichtextbackgroundpage_Title*(): untyped = 
   wxEmptyString
 
-template symbol_Wxrichtextbackgroundpage_Idname*(): expr = 
+template symbol_Wxrichtextbackgroundpage_Idname*(): untyped = 
   WxWindowID(ID_RICHTEXTBACKGROUNDPAGE)
 
-template symbol_Wxrichtextbackgroundpage_Size*(): expr = 
+template symbol_Wxrichtextbackgroundpage_Size*(): untyped = 
   constructWxSize(400, 300)
 
-template symbol_Wxrichtextbackgroundpage_Position*(): expr = 
+template symbol_Wxrichtextbackgroundpage_Position*(): untyped = 
   wxDefaultPosition
 
 

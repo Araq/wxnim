@@ -44,19 +44,19 @@ const
   ID_RICHTEXT_PARA_DOWN* = 10714
 
 
-template symbol_Wxrichtextsizepage_Style*(): expr = 
+template symbol_Wxrichtextsizepage_Style*(): untyped = 
   wxTAB_TRAVERSAL
 
-template symbol_Wxrichtextsizepage_Title*(): expr = 
+template symbol_Wxrichtextsizepage_Title*(): untyped = 
   wxEmptyString
 
-template symbol_Wxrichtextsizepage_Idname*(): expr = 
+template symbol_Wxrichtextsizepage_Idname*(): untyped = 
   WxWindowID(ID_WXRICHTEXTSIZEPAGE)
 
-template symbol_Wxrichtextsizepage_Size*(): expr = 
+template symbol_Wxrichtextsizepage_Size*(): untyped = 
   constructWxSize(400, 300)
 
-template symbol_Wxrichtextsizepage_Position*(): expr = 
+template symbol_Wxrichtextsizepage_Position*(): untyped = 
   wxDefaultPosition
 
 

@@ -25,19 +25,19 @@ const
   ID_RICHTEXTBULLETSPAGE_PREVIEW_CTRL* = 10314
 
 
-template symbol_Wxrichtextbulletspage_Style*(): expr = 
+template symbol_Wxrichtextbulletspage_Style*(): untyped = 
   wxRESIZE_BORDER or wxTAB_TRAVERSAL
 
-template symbol_Wxrichtextbulletspage_Title*(): expr = 
+template symbol_Wxrichtextbulletspage_Title*(): untyped = 
   wxEmptyString
 
-template symbol_Wxrichtextbulletspage_Idname*(): expr = 
+template symbol_Wxrichtextbulletspage_Idname*(): untyped = 
   id_Richtextbulletspage
 
-template symbol_Wxrichtextbulletspage_Size*(): expr = 
+template symbol_Wxrichtextbulletspage_Size*(): untyped = 
   constructWxSize(400, 300)
 
-template symbol_Wxrichtextbulletspage_Position*(): expr = 
+template symbol_Wxrichtextbulletspage_Position*(): untyped = 
   wxDefaultPosition
 
 

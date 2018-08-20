@@ -47,7 +47,7 @@ proc destroywxAnyValueTypeScopedPtr*(this: var WxAnyValueTypeScopedPtr) {.cdecl,
 proc get*(this: WxAnyValueTypeScopedPtr): ptr WxAnyValueType {.noSideEffect, 
     cdecl, importcpp: "get", header: wxh.}
 
-template wxANY_VALUE_TYPE_CHECK_TYPE*(valueTypePtr, t: expr): expr = 
+template wxANY_VALUE_TYPE_CHECK_TYPE*(valueTypePtr, t: untyped): untyped = 
   IsSameClass(valueTypePtr)
 
 

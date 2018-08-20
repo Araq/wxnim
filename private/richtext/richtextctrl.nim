@@ -21,29 +21,29 @@ const
   wxRICHTEXT_EX_NO_GUIDELINES* = 0x00000100
 
 
-template wxRICHTEXT_DEFAULT_OVERALL_SIZE*(): expr = 
+template wxRICHTEXT_DEFAULT_OVERALL_SIZE*(): untyped = 
   constructWxSize(- 1, - 1)
 
-template wxRICHTEXT_DEFAULT_IMAGE_SIZE*(): expr = 
+template wxRICHTEXT_DEFAULT_IMAGE_SIZE*(): untyped = 
   constructWxSize(80, 80)
 
 const 
   wxRICHTEXT_DEFAULT_SPACING* = 3
   wxRICHTEXT_DEFAULT_MARGIN* = 3
 
-template wxRICHTEXT_DEFAULT_UNFOCUSSED_BACKGROUND*(): expr = 
+template wxRICHTEXT_DEFAULT_UNFOCUSSED_BACKGROUND*(): untyped = 
   constructWxColour(175, 175, 175)
 
-template wxRICHTEXT_DEFAULT_FOCUSSED_BACKGROUND*(): expr = 
+template wxRICHTEXT_DEFAULT_FOCUSSED_BACKGROUND*(): untyped = 
   constructWxColour(140, 140, 140)
 
-template wxRICHTEXT_DEFAULT_UNSELECTED_BACKGROUND*(): expr = 
+template wxRICHTEXT_DEFAULT_UNSELECTED_BACKGROUND*(): untyped = 
   getColour(wxSYS_COLOUR_3DFACE)
 
-template wxRICHTEXT_DEFAULT_TYPE_COLOUR*(): expr = 
+template wxRICHTEXT_DEFAULT_TYPE_COLOUR*(): untyped = 
   constructWxColour(0, 0, 200)
 
-template wxRICHTEXT_DEFAULT_FOCUS_RECT_COLOUR*(): expr = 
+template wxRICHTEXT_DEFAULT_FOCUS_RECT_COLOUR*(): untyped = 
   constructWxColour(100, 80, 80)
 
 const 

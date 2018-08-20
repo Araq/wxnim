@@ -1,34 +1,34 @@
 
 
 
-template wxIMAGE_OPTION_QUALITY*(): expr = 
+template wxIMAGE_OPTION_QUALITY*(): untyped = 
   constructWxString("quality")
 
-template wxIMAGE_OPTION_FILENAME*(): expr = 
+template wxIMAGE_OPTION_FILENAME*(): untyped = 
   constructWxString("FileName")
 
-template wxIMAGE_OPTION_RESOLUTION*(): expr = 
+template wxIMAGE_OPTION_RESOLUTION*(): untyped = 
   constructWxString("Resolution")
 
-template wxIMAGE_OPTION_RESOLUTIONX*(): expr = 
+template wxIMAGE_OPTION_RESOLUTIONX*(): untyped = 
   constructWxString("ResolutionX")
 
-template wxIMAGE_OPTION_RESOLUTIONY*(): expr = 
+template wxIMAGE_OPTION_RESOLUTIONY*(): untyped = 
   constructWxString("ResolutionY")
 
-template wxIMAGE_OPTION_RESOLUTIONUNIT*(): expr = 
+template wxIMAGE_OPTION_RESOLUTIONUNIT*(): untyped = 
   constructWxString("ResolutionUnit")
 
-template wxIMAGE_OPTION_MAX_WIDTH*(): expr = 
+template wxIMAGE_OPTION_MAX_WIDTH*(): untyped = 
   constructWxString("MaxWidth")
 
-template wxIMAGE_OPTION_MAX_HEIGHT*(): expr = 
+template wxIMAGE_OPTION_MAX_HEIGHT*(): untyped = 
   constructWxString("MaxHeight")
 
-template wxIMAGE_OPTION_ORIGINAL_WIDTH*(): expr = 
+template wxIMAGE_OPTION_ORIGINAL_WIDTH*(): untyped = 
   constructWxString("OriginalWidth")
 
-template wxIMAGE_OPTION_ORIGINAL_HEIGHT*(): expr = 
+template wxIMAGE_OPTION_ORIGINAL_HEIGHT*(): untyped = 
   constructWxString("OriginalHeight")
 
 

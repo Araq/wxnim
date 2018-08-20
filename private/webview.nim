@@ -208,23 +208,23 @@ var wxEVT_WEBVIEW_NEWWINDOW* {.importcpp: "wxEVT_WEBVIEW_NEWWINDOW", header: wxh
 var wxEVT_WEBVIEW_TITLE_CHANGED* {.importcpp: "wxEVT_WEBVIEW_TITLE_CHANGED", 
                                    header: wxh.}: WxEventTypeTag[WxWebViewEvent]
 
-template wxWebViewEventHandler*(`func`: expr): expr = 
+template wxWebViewEventHandler*(`func`: untyped): untyped = 
   wxEVENT_HANDLER_CAST(wxWebViewEventFunction, `func`)
 
-template evt_Webview_Navigating*(id, fn: expr): expr = 
+template evt_Webview_Navigating*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_WEBVIEW_NAVIGATING, id, wxWebViewEventHandler(fn))
 
-template evt_Webview_Navigated*(id, fn: expr): expr = 
+template evt_Webview_Navigated*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_WEBVIEW_NAVIGATED, id, wxWebViewEventHandler(fn))
 
-template evt_Webview_Loaded*(id, fn: expr): expr = 
+template evt_Webview_Loaded*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_WEBVIEW_LOADED, id, wxWebViewEventHandler(fn))
 
-template evt_Webview_Error*(id, fn: expr): expr = 
+template evt_Webview_Error*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_WEBVIEW_ERROR, id, wxWebViewEventHandler(fn))
 
-template evt_Webview_Newwindow*(id, fn: expr): expr = 
+template evt_Webview_Newwindow*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_WEBVIEW_NEWWINDOW, id, wxWebViewEventHandler(fn))
 
-template evt_Webview_Title_Changed*(id, fn: expr): expr = 
+template evt_Webview_Title_Changed*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_WEBVIEW_TITLE_CHANGED, id, wxWebViewEventHandler(fn))

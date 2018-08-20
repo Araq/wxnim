@@ -759,87 +759,87 @@ var wxEVT_DATAVIEW_ITEM_DROP_POSSIBLE* {.
 var wxEVT_DATAVIEW_ITEM_DROP* {.importcpp: "wxEVT_DATAVIEW_ITEM_DROP", 
                                 header: wxh.}: WxEventTypeTag[WxDataViewEvent]
 
-template wxDataViewEventHandler*(`func`: expr): expr = 
+template wxDataViewEventHandler*(`func`: untyped): untyped = 
   wxEVENT_HANDLER_CAST(wxDataViewEventFunction, `func`)
 
-template evt_Dataview_Selection_Changed*(id, fn: expr): expr = 
+template evt_Dataview_Selection_Changed*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGED, id, 
                  wxDataViewEventHandler(fn))
 
-template evt_Dataview_Item_Activated*(id, fn: expr): expr = 
+template evt_Dataview_Item_Activated*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATED, id, 
                  wxDataViewEventHandler(fn))
 
-template evt_Dataview_Item_Collapsing*(id, fn: expr): expr = 
+template evt_Dataview_Item_Collapsing*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATEDITEM_COLLAPSING, 
                  id, wxDataViewEventHandler(fn))
 
-template evt_Dataview_Item_Collapsed*(id, fn: expr): expr = 
+template evt_Dataview_Item_Collapsed*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATEDITEM_COLLAPSINGITEM_COLLAPSED, 
                  id, wxDataViewEventHandler(fn))
 
-template evt_Dataview_Item_Expanding*(id, fn: expr): expr = 
+template evt_Dataview_Item_Expanding*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATEDITEM_COLLAPSINGITEM_COLLAPSEDITEM_EXPANDING, 
                  id, wxDataViewEventHandler(fn))
 
-template evt_Dataview_Item_Expanded*(id, fn: expr): expr = 
+template evt_Dataview_Item_Expanded*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATEDITEM_COLLAPSINGITEM_COLLAPSEDITEM_EXPANDINGITEM_EXPANDED, 
                  id, wxDataViewEventHandler(fn))
 
-template evt_Dataview_Item_Start_Editing*(id, fn: expr): expr = 
+template evt_Dataview_Item_Start_Editing*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATEDITEM_COLLAPSINGITEM_COLLAPSEDITEM_EXPANDINGITEM_EXPANDEDITEM_START_EDITING, 
                  id, wxDataViewEventHandler(fn))
 
-template evt_Dataview_Item_Editing_Started*(id, fn: expr): expr = 
+template evt_Dataview_Item_Editing_Started*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATEDITEM_COLLAPSINGITEM_COLLAPSEDITEM_EXPANDINGITEM_EXPANDEDITEM_START_EDITINGITEM_EDITING_STARTED, 
                  id, wxDataViewEventHandler(fn))
 
-template evt_Dataview_Item_Editing_Done*(id, fn: expr): expr = 
+template evt_Dataview_Item_Editing_Done*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATEDITEM_COLLAPSINGITEM_COLLAPSEDITEM_EXPANDINGITEM_EXPANDEDITEM_START_EDITINGITEM_EDITING_STARTEDITEM_EDITING_DONE, 
                  id, wxDataViewEventHandler(fn))
 
-template evt_Dataview_Item_Value_Changed*(id, fn: expr): expr = 
+template evt_Dataview_Item_Value_Changed*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATEDITEM_COLLAPSINGITEM_COLLAPSEDITEM_EXPANDINGITEM_EXPANDEDITEM_START_EDITINGITEM_EDITING_STARTEDITEM_EDITING_DONEITEM_VALUE_CHANGED, 
                  id, wxDataViewEventHandler(fn))
 
-template evt_Dataview_Item_Context_Menu*(id, fn: expr): expr = 
+template evt_Dataview_Item_Context_Menu*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATEDITEM_COLLAPSINGITEM_COLLAPSEDITEM_EXPANDINGITEM_EXPANDEDITEM_START_EDITINGITEM_EDITING_STARTEDITEM_EDITING_DONEITEM_VALUE_CHANGEDITEM_CONTEXT_MENU, 
                  id, wxDataViewEventHandler(fn))
 
-template evt_Dataview_Column_Header_Click*(id, fn: expr): expr = 
+template evt_Dataview_Column_Header_Click*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATEDITEM_COLLAPSINGITEM_COLLAPSEDITEM_EXPANDINGITEM_EXPANDEDITEM_START_EDITINGITEM_EDITING_STARTEDITEM_EDITING_DONEITEM_VALUE_CHANGEDITEM_CONTEXT_MENUCOLUMN_HEADER_CLICK, 
                  id, wxDataViewEventHandler(fn))
 
-template evt_Dataview_Column_Header_Right_Click*(id, fn: expr): expr = 
+template evt_Dataview_Column_Header_Right_Click*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATEDITEM_COLLAPSINGITEM_COLLAPSEDITEM_EXPANDINGITEM_EXPANDEDITEM_START_EDITINGITEM_EDITING_STARTEDITEM_EDITING_DONEITEM_VALUE_CHANGEDITEM_CONTEXT_MENUCOLUMN_HEADER_CLICKCOLUMN_HEADER_RIGHT_CLICK, 
                  id, wxDataViewEventHandler(fn))
 
-template evt_Dataview_Column_Sorted*(id, fn: expr): expr = 
+template evt_Dataview_Column_Sorted*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATEDITEM_COLLAPSINGITEM_COLLAPSEDITEM_EXPANDINGITEM_EXPANDEDITEM_START_EDITINGITEM_EDITING_STARTEDITEM_EDITING_DONEITEM_VALUE_CHANGEDITEM_CONTEXT_MENUCOLUMN_HEADER_CLICKCOLUMN_HEADER_RIGHT_CLICKCOLUMN_SORTED, 
                  id, wxDataViewEventHandler(fn))
 
-template evt_Dataview_Column_Reordered*(id, fn: expr): expr = 
+template evt_Dataview_Column_Reordered*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATEDITEM_COLLAPSINGITEM_COLLAPSEDITEM_EXPANDINGITEM_EXPANDEDITEM_START_EDITINGITEM_EDITING_STARTEDITEM_EDITING_DONEITEM_VALUE_CHANGEDITEM_CONTEXT_MENUCOLUMN_HEADER_CLICKCOLUMN_HEADER_RIGHT_CLICKCOLUMN_SORTEDCOLUMN_REORDERED, 
                  id, wxDataViewEventHandler(fn))
 
-template evt_Dataview_Cache_Hint*(id, fn: expr): expr = 
+template evt_Dataview_Cache_Hint*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATEDITEM_COLLAPSINGITEM_COLLAPSEDITEM_EXPANDINGITEM_EXPANDEDITEM_START_EDITINGITEM_EDITING_STARTEDITEM_EDITING_DONEITEM_VALUE_CHANGEDITEM_CONTEXT_MENUCOLUMN_HEADER_CLICKCOLUMN_HEADER_RIGHT_CLICKCOLUMN_SORTEDCOLUMN_REORDEREDCACHE_HINT, 
                  id, wxDataViewEventHandler(fn))
 
-template evt_Dataview_Item_Begin_Drag*(id, fn: expr): expr = 
+template evt_Dataview_Item_Begin_Drag*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATEDITEM_COLLAPSINGITEM_COLLAPSEDITEM_EXPANDINGITEM_EXPANDEDITEM_START_EDITINGITEM_EDITING_STARTEDITEM_EDITING_DONEITEM_VALUE_CHANGEDITEM_CONTEXT_MENUCOLUMN_HEADER_CLICKCOLUMN_HEADER_RIGHT_CLICKCOLUMN_SORTEDCOLUMN_REORDEREDCACHE_HINTITEM_BEGIN_DRAG, 
                  id, wxDataViewEventHandler(fn))
 
-template evt_Dataview_Item_Drop_Possible*(id, fn: expr): expr = 
+template evt_Dataview_Item_Drop_Possible*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATEDITEM_COLLAPSINGITEM_COLLAPSEDITEM_EXPANDINGITEM_EXPANDEDITEM_START_EDITINGITEM_EDITING_STARTEDITEM_EDITING_DONEITEM_VALUE_CHANGEDITEM_CONTEXT_MENUCOLUMN_HEADER_CLICKCOLUMN_HEADER_RIGHT_CLICKCOLUMN_SORTEDCOLUMN_REORDEREDCACHE_HINTITEM_BEGIN_DRAGITEM_DROP_POSSIBLE, 
                  id, wxDataViewEventHandler(fn))
 
-template evt_Dataview_Item_Drop*(id, fn: expr): expr = 
+template evt_Dataview_Item_Drop*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_DATAVIEW_SELECTION_CHANGEDITEM_ACTIVATEDITEM_COLLAPSINGITEM_COLLAPSEDITEM_EXPANDINGITEM_EXPANDEDITEM_START_EDITINGITEM_EDITING_STARTEDITEM_EDITING_DONEITEM_VALUE_CHANGEDITEM_CONTEXT_MENUCOLUMN_HEADER_CLICKCOLUMN_HEADER_RIGHT_CLICKCOLUMN_SORTEDCOLUMN_REORDEREDCACHE_HINTITEM_BEGIN_DRAGITEM_DROP_POSSIBLEITEM_DROP, 
                  id, wxDataViewEventHandler(fn))
 
 
-template evt_Dataview_Column_Header_Right_Clicked*(id, fn: expr): expr = 
+template evt_Dataview_Column_Header_Right_Clicked*(id, fn: untyped): untyped = 
   evt_Dataview_Column_Header_Right_Click(id, fn)
 
 

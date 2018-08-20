@@ -574,7 +574,7 @@ const
   wxMOD_CMD* = wxMOD_CONTROL
 
 
-template wxDLG_UNIT*(parent, pt: expr): expr = 
+template wxDLG_UNIT*(parent, pt: untyped): untyped = 
   parent.convertDialogToPixels(pt)
 
 

@@ -55,7 +55,7 @@ const
 type 
   WxNotebookEventFunction* = WxBookCtrlEventFunction
 
-template wxNotebookEventHandler*(`func`: expr): expr = 
+template wxNotebookEventHandler*(`func`: untyped): untyped = 
   wxBookCtrlEventHandler(`func`)
 
 var wxEVT_NOTEBOOK_PAGE_CHANGED* {.importcpp: "wxEVT_NOTEBOOK_PAGE_CHANGED", 
@@ -65,10 +65,10 @@ var wxEVT_NOTEBOOK_PAGE_CHANGING* {.importcpp: "wxEVT_NOTEBOOK_PAGE_CHANGING",
                                     header: wxh.}: WxEventTypeTag[
     WxBookCtrlEvent]
 
-template evt_Notebook_Page_Changed*(winid, fn: expr): expr = 
+template evt_Notebook_Page_Changed*(winid, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_NOTEBOOK_PAGE_CHANGED, winid, wxBookCtrlEventHandler(fn))
 
-template evt_Notebook_Page_Changing*(winid, fn: expr): expr = 
+template evt_Notebook_Page_Changing*(winid, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_NOTEBOOK_PAGE_CHANGING, winid, wxBookCtrlEventHandler(fn))
 
 

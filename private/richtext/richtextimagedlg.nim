@@ -9,19 +9,19 @@ discard "forward decl of wxTextCtrl"
 const 
   ID_RICHTEXTOBJECTPROPERTIESDIALOG* = 10650
 
-template symbol_Wxrichtextobjectpropertiesdialog_Style*(): expr = 
+template symbol_Wxrichtextobjectpropertiesdialog_Style*(): untyped = 
   wxDEFAULT_DIALOG_STYLE or wxTAB_TRAVERSAL
 
-template symbol_Wxrichtextobjectpropertiesdialog_Title*(): expr = 
+template symbol_Wxrichtextobjectpropertiesdialog_Title*(): untyped = 
   "Object Properties"
 
-template symbol_Wxrichtextobjectpropertiesdialog_Idname*(): expr = 
+template symbol_Wxrichtextobjectpropertiesdialog_Idname*(): untyped = 
   WxWindowID(ID_RICHTEXTOBJECTPROPERTIESDIALOG)
 
-template symbol_Wxrichtextobjectpropertiesdialog_Size*(): expr = 
+template symbol_Wxrichtextobjectpropertiesdialog_Size*(): untyped = 
   constructWxSize(400, 300)
 
-template symbol_Wxrichtextobjectpropertiesdialog_Position*(): expr = 
+template symbol_Wxrichtextobjectpropertiesdialog_Position*(): untyped = 
   wxDefaultPosition
 
 

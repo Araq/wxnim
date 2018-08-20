@@ -3,17 +3,17 @@
 
 
 
-template wxIS_KIND_OF*(obj, className: expr): expr = 
+template wxIS_KIND_OF*(obj, className: untyped): untyped = 
   obj.isKindOf(addr(msClassInfo))
 
 
-template wxIsKindOf*(obj, className: expr): expr = 
+template wxIsKindOf*(obj, className: untyped): untyped = 
   obj.isKindOf(addr(msClassInfo))
 
 
 proc wxCheckCast*[T](`ptr`: pointer; a3: ptr T = nil): ptr T {.cdecl, 
     importcpp: "wxCheckCast(@)", header: wxh.}
-template wxStaticCast*(obj, className: expr): expr = 
+template wxStaticCast*(obj, className: untyped): untyped = 
   wxCheckCast((obj), cast[ptr ClassName](nil))
 
 
@@ -77,47 +77,47 @@ proc isSameAs*(this: WxObject; o: WxObject): bool {.noSideEffect, cdecl,
 proc wxCheckDynamicCast*(obj: ptr WxObject; classInfo: ptr WxClassInfo): ptr WxObject {.
     cdecl, importcpp: "wxCheckDynamicCast(@)", header: wxh.}
 
-template implement_Dynamic_Class*(n, b: expr): expr = 
+template implement_Dynamic_Class*(n, b: untyped): untyped = 
   wxIMPLEMENT_DYNAMIC_CLASS(n, b)
 
-template implement_Dynamic_Class2*(n, b1, b2: expr): expr = 
+template implement_Dynamic_Class2*(n, b1, b2: untyped): untyped = 
   wxIMPLEMENT_DYNAMIC_CLASS2(n, b1, b2)
 
-template implement_Abstract_Class*(n, b: expr): expr = 
+template implement_Abstract_Class*(n, b: untyped): untyped = 
   wxIMPLEMENT_ABSTRACT_CLASS(n, b)
 
-template implement_Abstract_Class2*(n, b1, b2: expr): expr = 
+template implement_Abstract_Class2*(n, b1, b2: untyped): untyped = 
   wxIMPLEMENT_ABSTRACT_CLASS2(n, b1, b2)
 
-template implement_Class*(n, b: expr): expr = 
+template implement_Class*(n, b: untyped): untyped = 
   wxIMPLEMENT_ABSTRACT_CLASS(n, b)
 
-template implement_Class2*(n, b1, b2: expr): expr = 
+template implement_Class2*(n, b1, b2: untyped): untyped = 
   wxIMPLEMENT_ABSTRACT_CLASS2(n, b1, b2)
 
-template implement_Pluggable_Class*(n, b: expr): expr = 
+template implement_Pluggable_Class*(n, b: untyped): untyped = 
   wxIMPLEMENT_DYNAMIC_CLASS(n, b)
 
-template implement_Pluggable_Class2*(n, b, b2: expr): expr = 
+template implement_Pluggable_Class2*(n, b, b2: untyped): untyped = 
   wxIMPLEMENT_DYNAMIC_CLASS2(n, b, b2)
 
-template implement_Abstract_Pluggable_Class*(n, b: expr): expr = 
+template implement_Abstract_Pluggable_Class*(n, b: untyped): untyped = 
   wxIMPLEMENT_ABSTRACT_CLASS(n, b)
 
-template implement_Abstract_Pluggable_Class2*(n, b, b2: expr): expr = 
+template implement_Abstract_Pluggable_Class2*(n, b, b2: untyped): untyped = 
   wxIMPLEMENT_ABSTRACT_CLASS2(n, b, b2)
 
-template implement_User_Exported_Pluggable_Class*(n, b: expr): expr = 
+template implement_User_Exported_Pluggable_Class*(n, b: untyped): untyped = 
   wxIMPLEMENT_DYNAMIC_CLASS(n, b)
 
-template implement_User_Exported_Pluggable_Class2*(n, b, b2: expr): expr = 
+template implement_User_Exported_Pluggable_Class2*(n, b, b2: untyped): untyped = 
   wxIMPLEMENT_DYNAMIC_CLASS2(n, b, b2)
 
-template implement_User_Exported_Abstract_Pluggable_Class*(n, b: expr): expr = 
+template implement_User_Exported_Abstract_Pluggable_Class*(n, b: untyped): untyped = 
   wxIMPLEMENT_ABSTRACT_CLASS(n, b)
 
-template implement_User_Exported_Abstract_Pluggable_Class2*(n, b, b2: expr): expr = 
+template implement_User_Exported_Abstract_Pluggable_Class2*(n, b, b2: untyped): untyped = 
   wxIMPLEMENT_ABSTRACT_CLASS2(n, b, b2)
 
-template classinfo*(n: expr): expr = 
+template classinfo*(n: untyped): untyped = 
   (addr(msClassInfo))

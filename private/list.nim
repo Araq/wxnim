@@ -10,7 +10,7 @@ type
 
 proc constructwxListSortFunction*[T](f: WxSortCompareFunction): WxListSortFunction[
     T] {.cdecl, constructor, importcpp: "wxList_SortFunction(@)", header: wxh.}
-proc `()`*[T](this: var WxListSortFunction[T]; i1: T; i2: T): bool {.cdecl, 
+proc call*[T](this: var WxListSortFunction[T]; i1: T; i2: T): bool {.cdecl, 
     importcpp: "#(@)", header: wxh.}
 
 

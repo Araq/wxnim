@@ -96,9 +96,9 @@ proc setFont*(this: var WxFontPickerEvent; c: WxFont) {.cdecl,
     importcpp: "SetFont", header: wxh.}
 proc clone*(this: WxFontPickerEvent): ptr WxEvent {.noSideEffect, cdecl, 
     importcpp: "Clone", header: wxh.}
-template wxFontPickerEventHandler*(`func`: expr): expr = 
+template wxFontPickerEventHandler*(`func`: untyped): untyped = 
   wxEVENT_HANDLER_CAST(wxFontPickerEventFunction, `func`)
 
-template evt_Fontpicker_Changed*(id, fn: expr): expr = 
+template evt_Fontpicker_Changed*(id, fn: untyped): untyped = 
   wxDECLARE_EVT1(wxEVT_FONTPICKER_CHANGED, id, wxFontPickerEventHandler(fn))
 

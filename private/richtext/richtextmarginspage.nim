@@ -31,19 +31,19 @@ const
   ID_RICHTEXT_BOTTOM_PADDING_UNITS* = 10774
 
 
-template symbol_Wxrichtextmarginspage_Style*(): expr = 
+template symbol_Wxrichtextmarginspage_Style*(): untyped = 
   wxTAB_TRAVERSAL
 
-template symbol_Wxrichtextmarginspage_Title*(): expr = 
+template symbol_Wxrichtextmarginspage_Title*(): untyped = 
   wxEmptyString
 
-template symbol_Wxrichtextmarginspage_Idname*(): expr = 
+template symbol_Wxrichtextmarginspage_Idname*(): untyped = 
   WxWindowID( ID_WXRICHTEXTMARGINSPAGE)
 
-template symbol_Wxrichtextmarginspage_Size*(): expr = 
+template symbol_Wxrichtextmarginspage_Size*(): untyped = 
   constructWxSize(400, 300)
 
-template symbol_Wxrichtextmarginspage_Position*(): expr = 
+template symbol_Wxrichtextmarginspage_Position*(): untyped = 
   wxDefaultPosition
 
 

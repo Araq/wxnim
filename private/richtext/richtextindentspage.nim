@@ -22,19 +22,19 @@ const
 
 
 discard "forward decl of wxRichTextCtrl"
-template symbol_Wxrichtextindentsspacingpage_Style*(): expr = 
+template symbol_Wxrichtextindentsspacingpage_Style*(): untyped = 
   wxRESIZE_BORDER or wxTAB_TRAVERSAL
 
-template symbol_Wxrichtextindentsspacingpage_Title*(): expr = 
+template symbol_Wxrichtextindentsspacingpage_Title*(): untyped = 
   wxEmptyString
 
-template symbol_Wxrichtextindentsspacingpage_Idname*(): expr = 
+template symbol_Wxrichtextindentsspacingpage_Idname*(): untyped = 
   WxWindowID(ID_RICHTEXTINDENTSSPACINGPAGE)
 
-template symbol_Wxrichtextindentsspacingpage_Size*(): expr = 
+template symbol_Wxrichtextindentsspacingpage_Size*(): untyped = 
   constructWxSize(400, 300)
 
-template symbol_Wxrichtextindentsspacingpage_Position*(): expr = 
+template symbol_Wxrichtextindentsspacingpage_Position*(): untyped = 
   wxDefaultPosition
 
 

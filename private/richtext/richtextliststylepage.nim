@@ -35,19 +35,19 @@ const
   ID_RICHTEXTLISTSTYLEPAGE_RICHTEXTCTRL* = 10640
 
 
-template symbol_Wxrichtextliststylepage_Style*(): expr = 
+template symbol_Wxrichtextliststylepage_Style*(): untyped = 
   wxRESIZE_BORDER or wxTAB_TRAVERSAL
 
-template symbol_Wxrichtextliststylepage_Title*(): expr = 
+template symbol_Wxrichtextliststylepage_Title*(): untyped = 
   wxEmptyString
 
-template symbol_Wxrichtextliststylepage_Idname*(): expr = 
+template symbol_Wxrichtextliststylepage_Idname*(): untyped = 
   WxWindowID(ID_RICHTEXTLISTSTYLEPAGE)
 
-template symbol_Wxrichtextliststylepage_Size*(): expr = 
+template symbol_Wxrichtextliststylepage_Size*(): untyped = 
   constructWxSize(400, 300)
 
-template symbol_Wxrichtextliststylepage_Position*(): expr = 
+template symbol_Wxrichtextliststylepage_Position*(): untyped = 
   wxDefaultPosition
 
 

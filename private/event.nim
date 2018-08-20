@@ -124,7 +124,7 @@ type
 
 proc destroywxEventFunctor*(this: var WxEventFunctor) {.cdecl, 
     importcpp: "#.~wxEventFunctor()", header: wxh.}
-proc `()`*(this: var WxEventFunctor; a3: ptr WxEvtHandler; a4: var WxEvent) {.
+proc call*(this: var WxEventFunctor; a3: ptr WxEvtHandler; a4: var WxEvent) {.
     cdecl, importcpp: "#(@)", header: wxh.}
 proc isMatching*(this: WxEventFunctor; functor: WxEventFunctor): bool {.
     noSideEffect, cdecl, importcpp: "IsMatching", header: wxh.}
@@ -140,7 +140,7 @@ type
 proc constructwxObjectEventFunctor*(`method`: WxObjectEventFunction; 
                                     handler: ptr WxEvtHandler): WxObjectEventFunctor {.
     cdecl, constructor, importcpp: "wxObjectEventFunctor(@)", header: wxh.}
-proc `()`*(this: var WxObjectEventFunctor; handler: ptr WxEvtHandler; 
+proc call*(this: var WxObjectEventFunctor; handler: ptr WxEvtHandler; 
            event: var WxEvent) {.cdecl, importcpp: "#(@)", header: wxh.}
 proc isMatching*(this: WxObjectEventFunctor; functor: WxEventFunctor): bool {.
     noSideEffect, cdecl, importcpp: "IsMatching", header: wxh.}
@@ -169,7 +169,7 @@ proc constructwxEventFunctorMethod*[EventTag, Class, EventArg, EventHandler](
     eventArg: pointer; handler: ptr EventHandler): WxEventFunctorMethod[
     EventTag, Class, EventArg, EventHandler] {.cdecl, constructor, 
     importcpp: "wxEventFunctorMethod(@)", header: wxh.}
-proc `()`*[EventTag, Class, EventArg, EventHandler](
+proc call*[EventTag, Class, EventArg, EventHandler](
     this: var WxEventFunctorMethod[EventTag, Class, EventArg, EventHandler]; 
     handler: ptr WxEvtHandler; event: var WxEvent) {.cdecl, importcpp: "#(@)", 
     header: wxh.}
@@ -193,7 +193,7 @@ proc constructwxEventFunctorFunction*[EventTag, EventArg](
     handler: proc (a2: var EventArg) {.cdecl.}): WxEventFunctorFunction[
     EventTag, EventArg] {.cdecl, constructor, 
                           importcpp: "wxEventFunctorFunction(@)", header: wxh.}
-proc `()`*[EventTag, EventArg](this: var WxEventFunctorFunction[EventTag, 
+proc call*[EventTag, EventArg](this: var WxEventFunctorFunction[EventTag, 
     EventArg]; handler: ptr WxEvtHandler; event: var WxEvent) {.cdecl, 
     importcpp: "#(@)", header: wxh.}
 proc isMatching*[EventTag, EventArg](this: WxEventFunctorFunction[EventTag, 
@@ -207,7 +207,7 @@ type
 proc constructwxEventFunctorFunctor*[EventTag, Functor](handler: Functor): WxEventFunctorFunctor[
     EventTag, Functor] {.cdecl, constructor, 
                          importcpp: "wxEventFunctorFunctor(@)", header: wxh.}
-proc `()`*[EventTag, Functor](this: var WxEventFunctorFunctor[EventTag, Functor]; 
+proc call*[EventTag, Functor](this: var WxEventFunctorFunctor[EventTag, Functor]; 
                               handler: ptr WxEvtHandler; event: var WxEvent) {.
     cdecl, importcpp: "#(@)", header: wxh.}
 proc isMatching*[EventTag, Functor](this: WxEventFunctorFunctor[EventTag, 
@@ -1835,6 +1835,6 @@ var wxEVT_DETAILED_HELP* {.importcpp: "wxEVT_DETAILED_HELP", header: wxh.}: WxEv
     WxHelpEvent]
 
 
-template wxEVT_TOOL*: expr = wxEVT_MENU
+template wxEVT_TOOL*: untyped = wxEVT_MENU
 var wxEVT_TEXT* {.importcpp: "wxEVT_TEXT", header: wxh.}: WxEventTypeTag[
     WxCommandEvent]

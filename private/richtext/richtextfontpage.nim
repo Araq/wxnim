@@ -8,19 +8,19 @@ discard "forward decl of wxBoxSizer"
 discard "forward decl of wxRichTextFontListBox"
 discard "forward decl of wxRichTextColourSwatchCtrl"
 discard "forward decl of wxRichTextFontPreviewCtrl"
-template symbol_Wxrichtextfontpage_Style*(): expr = 
+template symbol_Wxrichtextfontpage_Style*(): untyped = 
   wxTAB_TRAVERSAL
 
-template symbol_Wxrichtextfontpage_Title*(): expr = 
+template symbol_Wxrichtextfontpage_Title*(): untyped = 
   wxEmptyString
 
-template symbol_Wxrichtextfontpage_Idname*(): expr = 
+template symbol_Wxrichtextfontpage_Idname*(): untyped = 
   id_Richtextfontpage
 
-template symbol_Wxrichtextfontpage_Size*(): expr = 
+template symbol_Wxrichtextfontpage_Size*(): untyped = 
   constructWxSize(200, 100)
 
-template symbol_Wxrichtextfontpage_Position*(): expr = 
+template symbol_Wxrichtextfontpage_Position*(): untyped = 
   wxDefaultPosition
 
 
