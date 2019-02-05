@@ -87,7 +87,7 @@ The GenUI macro is designed to be a quite thin wrapper around wxWidgets code. Th
 
 Instead of naming all your objects and passing them around for creating your GUIs layout the GenUI macro uses the hierarchy of your code instead. In this example the Button and Checkbox are children of the StaticBox which again is a child of the Panel (Note that this example lacks sizers, more on that later).
 
-```
+``` Nim
 Panel:
   StaticBox(label = "Basic controls"):
     Button: "Click me!"
@@ -100,7 +100,7 @@ As explained above a single child of type ``string`` will be treated as the ``la
 
 To avoid having all your widgets on top of each others you need to use sizers. These define the layout of siblings in an object. We can expand the above example with some sizers:
 
-```
+``` Nim
 Panel | Boxsizer(orient = wxHorizontal):
   StaticBox(label = "Basic controls") | StaticBoxSizer(orient = wxVertical):
     Button: "Click me!"
@@ -113,7 +113,7 @@ Sizers use the ``|`` operator after a widget to set themselves for that widget, 
 
 The above examples show how you can pass options to the creation of an object by using regular parenthesis. This applies to both regular objects and sizers. When a widget is added to a sizer you may specify options to the ``add`` function. This allows you to change how the object is packed into the sizer, such as borders and alignment. To pass options to the add function use square brackets ``[]`` like this:
 
-```
+``` Nim
 Panel | Boxsizer(orient = wxHorizontal):
   StaticBox(label = "Basic controls")[proportion = 1] | StaticBoxSizer(orient = wxVertical):
     Button: "Click me!"
@@ -125,7 +125,7 @@ Note that even if the ``flag`` option defaults to ``wxExpand or wxAll`` we have 
 
 Since we no longer need to assign variables to all our widgets you might wonder how you're supposed to refer to a widget after it's creation. The ``wxFrame`` representing a window, will for example need to call its ``show`` function to show itself and its children. To assign a variable use ``%`` like this:
 
-```
+``` Nim
 mainFrame % Frame(title = "Window title text"):
   Panel | Boxsizer(orient = wxHorizontal):
     StaticBox(label = "Basic controls")[proportion = 1] | StaticBoxSizer(orient = wxVertical):
@@ -139,7 +139,7 @@ This will create a new variable if one doesn't exist with that name in the curre
 
 Many widgets will emit events which you can use to call a function. To attach a callback to a widget use an arrow ``->`` like this:
 
-```
+``` Nim
 mainFrame % Frame(title = "Window title text"):
   Panel | Boxsizer(orient = wxHorizontal):
     StaticBox(label = "Basic controls")[proportion = 1] | StaticBoxSizer(orient = wxVertical):
@@ -149,7 +149,7 @@ mainFrame % Frame(title = "Window title text"):
 
 This will bind the ``wxEVT_BUTTON`` event to the procedure ``buttonClicked``. The procedure is defined like this:
 
-```
+``` Nim
 proc buttonClicked(e: var WxButtonEvent) {.cdecl.}
 ```
 
