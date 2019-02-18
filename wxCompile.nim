@@ -55,7 +55,7 @@ when defined(vcc):
     {.passL: "wxmsw30u_adv.lib wxmsw30u_aui.lib wxmsw30u_core.lib wxmsw30u_gl.lib wxmsw30u_html.lib wxmsw30u_media.lib wxmsw30u_propgrid.lib wxmsw30u_qa.lib wxmsw30u_ribbon.lib wxmsw30u_richtext.lib wxmsw30u_stc.lib wxmsw30u_webview.lib wxmsw30u_xrc.lib".}
     {.passL: "wxbase30u.lib wxbase30u_net.lib wxbase30u_xml.lib wxexpat.lib wxjpeg.lib wxpng.lib wxregexu.lib wxscintilla.lib wxtiff.lib wxzlib.lib".}
 
-elif defined(gcc):
+elif defined(gcc) or defined(clang):
   when defined(windows):
     {.passC: "-D__WXMSW__".}
     # Include basic Windows libraries required by wxWidgets. VCC does dead code emilination of these include libraries if something is not required during linking.
