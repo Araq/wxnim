@@ -4,7 +4,7 @@
 import ospaths
 
 when defined(wxWidgetsPath):
-  const wxWidgetsPath {.strdefine.}: string = nil
+  const wxWidgetsPath {.strdefine.}: string = ""
   when len(wxWidgetsPath) < 1:
     {.error: "wxWidgetsPath must not be an empty string when defined".}
 else:
