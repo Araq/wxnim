@@ -1,5 +1,5 @@
 
-import "../../wx"
+import "../../wxnim/wx"
 
 {.experimental.}
 

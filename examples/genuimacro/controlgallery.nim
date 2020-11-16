@@ -1,5 +1,5 @@
 # NOTE: these imports are relative to this folder, this would not be required if wxnim was installed with Nimble
-import "../../wx", "../../genui"
+import "../../wxnim/wx", "../../wxnim/genui"
 
 # Experimental is required for now, this will become default later
 {.experimental.}

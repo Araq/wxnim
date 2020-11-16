@@ -1,4 +1,4 @@
-import "../../wx", "../../genui"
+import "../../wxnim/wx", "../../wxnim/genui"
 import os
 {.experimental.}
 

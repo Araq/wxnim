@@ -121,6 +121,11 @@ include private/webview
 include private/stattext
 include private/statbox
 include private/tglbtn
+include private/statbmpbase
+include private/statbmp
+
+include private/scrolwin
+
 
 proc cnew*[T](x: T): ptr T {.importcpp: "(new @)", nodecl.}
 

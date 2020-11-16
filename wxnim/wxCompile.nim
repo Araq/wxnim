@@ -98,5 +98,6 @@ elif defined(gcc) or defined(clang):
         wxWidgetsPath / "wx-config"
       else:
         "wx-config"
-    {.passC: "`" & wxConfig & " --cppflags`".}
-    {.passL: "`" & wxConfig & " --libs`".}
+    const wxConfigOptions {.strdefine.}: string = ""
+    {.passC: "`" & wxConfig & " " & wxConfigOptions & " --cppflags`".}
+    {.passL: "`" & wxConfig & " " & wxConfigOptions & " --libs`".}

@@ -465,6 +465,8 @@ proc positionToXY*(this: WxTextAreaBase; pos: clong; x: ptr clong; y: ptr clong)
     noSideEffect, cdecl, importcpp: "PositionToXY", header: wxh.}
 proc positionToCoords*(this: WxTextAreaBase; pos: clong): WxPoint {.
     noSideEffect, cdecl, importcpp: "PositionToCoords", header: wxh.}
+proc positionToCoords*(this: WxTextCtrl; pos: clong): WxPoint {.
+    noSideEffect, cdecl, importcpp: "PositionToCoords", header: wxh.}
 proc showPosition*(this: var WxTextAreaBase; pos: clong) {.cdecl, 
     importcpp: "ShowPosition", header: wxh.}
 proc hitTest*(this: WxTextAreaBase; pt: WxPoint; pos: ptr clong): WxTextCtrlHitTestResult {.

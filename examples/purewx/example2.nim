@@ -1,4 +1,4 @@
-import "../../wx", "../../richtext", "../../stc"
+import "../../wxnim/wx", "../../wxnim/richtext", "../../wxnim/stc"
 
 {.experimental.}
 {.emit: "#include <wx/spinctrl.h>" .}
