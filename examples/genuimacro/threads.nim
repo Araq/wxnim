@@ -1,4 +1,4 @@
-import "../../wxnim/wx", "../../wxnim/genui"
+import "../../wxnim/wx", "../../wxnim/genui", "../../wxnim/stc"
 import os
 {.experimental.}
 
@@ -42,7 +42,8 @@ proc startThreadClick(e: var WxCommandEvent) {.cdecl.} =
     discard messageEntry.enable(false)
     discard runButton.enable(false)
     progressBar.setValue(0)
-    lineChannel.send $messageEntry.getLineText(0)
+    var entryText = messageEntry.getLineText(0)
+    lineChannel.send $(entryText.cStr.asCstring)
     thread.createThread(echoAndWait, (message: lineChannel.addr, progress: progressChannel.addr))
 
 # Generate our GUI
