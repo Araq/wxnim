@@ -1,9 +1,8 @@
-[Package]
-name          = "wxnim"
-version       = "0.8"
-author        = "Andreas Rumpf"
+# Package
+version       = "0.9"
+author        = "Andreas Rumpf and Peter Munch-Ellingsen"
 description   = "Nim wrapper for wxWidgets"
 license       = "MIT"
 
-[Deps]
-Requires: "nim >= 0.11.3"
+# Deps
+requires "nim >= 0.17.0"
