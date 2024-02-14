@@ -2,13 +2,12 @@
 
 
 type 
-  Alignment_3260276896* {.importcpp: "no_name", header: wxh.} = object  {.union.}
+  Alignment_3260276896* {.importcpp: "no_name", header: wxh, union.} = object
     mInt64* {.importc: "m_int64".}: WxInt64
     mLongDouble* {.importc: "m_longDouble".}: clongdouble
     mFuncPtr* {.importc: "m_funcPtr".}: proc () {.cdecl.}
 
-  WxAnyValueBuffer* {.importcpp: "wxAnyValueBuffer", header: wxh.} = object  {.
-      union.}
+  WxAnyValueBuffer* {.importcpp: "wxAnyValueBuffer", header: wxh, union.} = object
     mAlignment* {.importc: "m_alignment".}: Alignment_3260276896
     mPtr* {.importc: "m_ptr".}: pointer
     mBuffer* {.importc: "m_buffer".}: array[16, WxByte]
@@ -53,7 +52,7 @@ template wxANY_VALUE_TYPE_CHECK_TYPE*(valueTypePtr, t: untyped): untyped =
 
 
 type 
-  WxAnyValueTypeImplBase* {.importcpp: "wxAnyValueTypeImplBase", header: wxh.}[T] = object of WxAnyValueType
+  WxAnyValueTypeImplBase*[T] {.importcpp: "wxAnyValueTypeImplBase", header: wxh.} = object of WxAnyValueType
   
 
 proc constructwxAnyValueTypeImplBase*[T](): WxAnyValueTypeImplBase[T] {.cdecl, 
@@ -71,7 +70,7 @@ proc getValue*[T](buf: WxAnyValueBuffer): T {.cdecl,
     importcpp: "wxAnyValueTypeImplBase::GetValue(@)", header: wxh.}
 
 type 
-  WxAnyValueTypeImpl* {.importcpp: "wxAnyValueTypeImpl", header: wxh.}[T] = object of WxAnyValueTypeImplBase[
+  WxAnyValueTypeImpl*[T] {.importcpp: "wxAnyValueTypeImpl", header: wxh.} = object of WxAnyValueTypeImplBase[
       T]
   
 

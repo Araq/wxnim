@@ -194,8 +194,8 @@ proc getAssociatedType*(this: var WxAnyToVariantRegistration): ptr WxAnyValueTyp
 proc getFactory*(this: WxAnyToVariantRegistration): WxVariantDataFactory {.
     noSideEffect, cdecl, importcpp: "GetFactory", header: wxh.}
 type 
-  WxAnyToVariantRegistrationImpl* {.importcpp: "wxAnyToVariantRegistrationImpl", 
-                                    header: wxh.}[T] = object of WxAnyToVariantRegistration
+  WxAnyToVariantRegistrationImpl*[T] {.importcpp: "wxAnyToVariantRegistrationImpl", 
+                                    header: wxh.} = object of WxAnyToVariantRegistration
   
 
 proc constructwxAnyToVariantRegistrationImpl*[T](factory: WxVariantDataFactory): WxAnyToVariantRegistrationImpl[

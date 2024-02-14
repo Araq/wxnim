@@ -35,7 +35,7 @@ proc wxNewEventType*(): WxEventType {.cdecl, importcpp: "wxNewEventType(@)",
 
 
 type 
-  WxEventTypeTag* {.importcpp: "wxEventTypeTag", header: wxh.}[T] = object 
+  WxEventTypeTag*[T] {.importcpp: "wxEventTypeTag", header: wxh.} = object 
   
 
 proc constructwxEventTypeTag*[T](`type`: WxEventType): WxEventTypeTag[T] {.
@@ -161,8 +161,7 @@ proc wxMakeEventFunctor*(evtType: WxEventType; `method`: WxObjectEventFunction;
     cdecl, importcpp: "wxMakeEventFunctor(@)", header: wxh.}
 
 type 
-  WxEventFunctorMethod* {.importcpp: "wxEventFunctorMethod", header: wxh.}[
-      EventTag, Class, EventArg, EventHandler] = object of WxEventFunctor
+  WxEventFunctorMethod*[EventTag, Class, EventArg, EventHandler] {.importcpp: "wxEventFunctorMethod", header: wxh.} = object of WxEventFunctor
   
 
 proc constructwxEventFunctorMethod*[EventTag, Class, EventArg, EventHandler](
@@ -185,8 +184,7 @@ proc getEvtMethod*[EventTag, Class, EventArg, EventHandler](
     noSideEffect, cdecl, importcpp: "GetEvtMethod", header: wxh.}
 
 type 
-  WxEventFunctorFunction* {.importcpp: "wxEventFunctorFunction", header: wxh.}[
-      EventTag, EventArg] = object of WxEventFunctor
+  WxEventFunctorFunction*[EventTag, EventArg] {.importcpp: "wxEventFunctorFunction", header: wxh.} = object of WxEventFunctor
   
 
 proc constructwxEventFunctorFunction*[EventTag, EventArg](
@@ -200,8 +198,7 @@ proc isMatching*[EventTag, EventArg](this: WxEventFunctorFunction[EventTag,
     EventArg]; functor: WxEventFunctor): bool {.noSideEffect, cdecl, 
     importcpp: "IsMatching", header: wxh.}
 type 
-  WxEventFunctorFunctor* {.importcpp: "wxEventFunctorFunctor", header: wxh.}[
-      EventTag, Functor] = object of WxEventFunctor
+  WxEventFunctorFunctor*[EventTag, Functor] {.importcpp: "wxEventFunctorFunctor", header: wxh.} = object of WxEventFunctor
   
 
 proc constructwxEventFunctorFunctor*[EventTag, Functor](handler: Functor): WxEventFunctorFunctor[
@@ -391,8 +388,7 @@ proc execute*(this: var WxAsyncMethodCallEvent) {.cdecl, importcpp: "Execute",
     header: wxh.}
 
 type 
-  WxAsyncMethodCallEvent0* {.importcpp: "wxAsyncMethodCallEvent0", header: wxh.}[
-      T] = object of WxAsyncMethodCallEvent
+  WxAsyncMethodCallEvent0*[T] {.importcpp: "wxAsyncMethodCallEvent0", header: wxh.} = object of WxAsyncMethodCallEvent
   
 
 proc constructwxAsyncMethodCallEvent0*[T](`object`: ptr T; `method`: pointer): WxAsyncMethodCallEvent0[
@@ -407,8 +403,7 @@ proc execute*[T](this: var WxAsyncMethodCallEvent0[T]) {.cdecl,
     importcpp: "Execute", header: wxh.}
 
 type 
-  WxAsyncMethodCallEvent1* {.importcpp: "wxAsyncMethodCallEvent1", header: wxh.}[
-      T, T1] = object of WxAsyncMethodCallEvent
+  WxAsyncMethodCallEvent1*[T, T1] {.importcpp: "wxAsyncMethodCallEvent1", header: wxh.} = object of WxAsyncMethodCallEvent
   
 
 proc constructwxAsyncMethodCallEvent1*[T, T1](`object`: ptr T; 
@@ -423,8 +418,7 @@ proc execute*[T, T1](this: var WxAsyncMethodCallEvent1[T, T1]) {.cdecl,
     importcpp: "Execute", header: wxh.}
 
 type 
-  WxAsyncMethodCallEvent2* {.importcpp: "wxAsyncMethodCallEvent2", header: wxh.}[
-      T, T1, T2] = object of WxAsyncMethodCallEvent
+  WxAsyncMethodCallEvent2*[T, T1, T2] {.importcpp: "wxAsyncMethodCallEvent2", header: wxh.} = object of WxAsyncMethodCallEvent
   
 
 proc constructwxAsyncMethodCallEvent2*[T, T1, T2](`object`: ptr T; 
@@ -440,8 +434,8 @@ proc execute*[T, T1, T2](this: var WxAsyncMethodCallEvent2[T, T1, T2]) {.cdecl,
     importcpp: "Execute", header: wxh.}
 
 type 
-  WxAsyncMethodCallEventFunctor* {.importcpp: "wxAsyncMethodCallEventFunctor", 
-                                   header: wxh.}[T] = object of WxAsyncMethodCallEvent
+  WxAsyncMethodCallEventFunctor*[T] {.importcpp: "wxAsyncMethodCallEventFunctor", 
+                                   header: wxh.} = object of WxAsyncMethodCallEvent
   
 
 proc constructwxAsyncMethodCallEventFunctor*[T](`object`: ptr WxObject; fn: T): WxAsyncMethodCallEventFunctor[

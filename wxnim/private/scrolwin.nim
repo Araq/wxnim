@@ -144,7 +144,7 @@ type
 ]#
 
 type
-  WxScrolled* {.importcpp: "wxScrolled", header: wxh.}[T] = object of T
+  WxScrolled*[T] {.importcpp: "wxScrolled", header: wxh.} = object of T
   
 
 proc constructwxScrolled*[T](): WxScrolled[T] {.cdecl, constructor,

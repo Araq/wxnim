@@ -34,7 +34,7 @@ type
 
 
 type 
-  WxObjectDataPtr* {.importcpp: "wxObjectDataPtr", header: wxh, inheritable.}[T] = object 
+  WxObjectDataPtr*[T] {.importcpp: "wxObjectDataPtr", header: wxh, inheritable.} = object 
   
 
 proc constructwxObjectDataPtr*[T](`ptr`: ptr T = nil): WxObjectDataPtr[T] {.

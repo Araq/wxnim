@@ -29,9 +29,9 @@ const
   wxCOL_RESIZABLE* = 1
 
 type 
-  WxArray* {.importcpp: "wxArray", header: wxh.}[T] = object 
+  WxArray*[T] {.importcpp: "wxArray", header: wxh.} = object 
   
-  WxVector* {.importcpp: "wxVector", header: wxh.}[T] = object 
+  WxVector*[T] {.importcpp: "wxVector", header: wxh.} = object 
   
 
 

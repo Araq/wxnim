@@ -12,7 +12,7 @@ const
     #include <wx/wx.h>
 #endif"""
 
-{.noforward: on.}
+{.experimental: "codeReordering".}
 
 include "private/object"
 include private/string

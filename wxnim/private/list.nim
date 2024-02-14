@@ -5,7 +5,7 @@ discard "forward decl of wxObjectListNode"
 type 
   WxNode* {.importcpp: "wxNode", header: wxh.} = object 
   
-  WxListSortFunction* {.importcpp: "wxList_SortFunction", header: wxh.}[T] = object 
+  WxListSortFunction*[T] {.importcpp: "wxList_SortFunction", header: wxh.} = object 
   
 
 proc constructwxListSortFunction*[T](f: WxSortCompareFunction): WxListSortFunction[

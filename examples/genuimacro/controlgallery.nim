@@ -2,7 +2,7 @@
 import "../../wxnim/wx", "../../wxnim/genui"
 
 # Experimental is required for now, this will become default later
-{.experimental.}
+{.experimental: "implicitDeref".}
 
 # This is required to use spinctrls as wx includes the Nim files but not the C headers
 {.emit: "#include <wx/spinctrl.h>" .}
